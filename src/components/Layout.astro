@@ -4,7 +4,7 @@ const { pageTitle, class:classList } = Astro.props;
 import "@styles/global.css";
 ---
 
-<html lang="fr">
+<html lang="fr" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -12,7 +12,7 @@ import "@styles/global.css";
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
   </head>
-  <body class={classList}>
+  <body class={classList} >
     <slot/>
   </body>
 </html>
