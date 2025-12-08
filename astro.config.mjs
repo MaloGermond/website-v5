@@ -12,7 +12,7 @@ export default defineConfig({
 			alias: {
 				"@": "/src",
 				"@components": "/src/components",
-				"@layouts": "/src/layouts",
+				"@layouts": "/src/components/layouts",
 				"@assets": "/src/assets",
 				"@styles": "/src/styles",
 				"@public": "/public",
