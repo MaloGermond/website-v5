@@ -1,22 +1,35 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import SocialLinks from "@components/SocialLinks.astro"
+import SocialLinks from "@components/SocialLinks.astro";
 ---
 
-<Layout pageTitle="Malo Germond - Designer Produit" class="grid grid-cols-12 m-6 gap-2">
-<article class="flex flex-col col-span-4 border p-4 rounded-xl border-gray-300 shadow-sm">
-	<p class="text-lg font-medium">Malo Germond</p>
-	<p class="text-lg">Product Designer</p>
-	<p class="text-gray-500">Marseille - Full Remote</p>
-	<p class="text-lg pt-4">
-		La complexité coûte cher.  Je la transforme en simplicité qui rapporte.
-	</p>
-</article>
+<Layout
+	pageTitle="Malo Germond - Designer Produit"
+	class="grid grid-cols-12 m-6 gap-2"
+>
+	<article
+		class="flex flex-col col-span-4 border p-4 rounded-xl border-gray-300 shadow-sm"
+	>
+		<p class="text-lg font-medium">Malo Germond</p>
+		<p class="text-lg">Product Designer</p>
+		<p class="text-gray-500">Marseille - Full Remote</p>
+		<p class="text-lg pt-4">
+			La complexité coûte cher.  Je la transforme en simplicité qui rapporte.
+		</p>
+	</article>
 
-<article class="flex flex-col col-span-4 gap-2 border p-2 rounded-xl border-gray-300 row-2 shadow-sm">
-	<SocialLinks href="https://dribbble.com/maloo/" label="Dribbble" />
-	<SocialLinks href="https://www.linkedin.com/in/malogermond/" label="Linkedin" />
+	<article
+		class="flex flex-col col-span-4 gap-2 border p-2 rounded-xl border-gray-300 row-2 shadow-sm"
+	>
+		<SocialLinks href="https://dribbble.com/maloo/" label="Dribbble" />
+		<SocialLinks
+			href="https://www.linkedin.com/in/malogermond/"
+			label="Linkedin"
+		/>
+	</article>
 
-</article>
-
+	<article class="flex flex-col items-center border col-span-4 p-4 rounded-xl border-gray-300 shadow-sm">
+		<p class="text-center content-center flex-auto text-xl font-bold">Disponible pour des projets</p>
+		<a target="_blank" rel="noopener noreferrer" href="https://calendly.com/calendly-matchalo/30min" class="bg-blue-500 p-4 px-6 text-white rounded-full"> Parlons-en</a>
+	</article>
 </Layout>
