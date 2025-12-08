@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@font-face {
+	font-family: "Satoshi";
+	src: url("./src/fonts/Satoshi-Variable.ttf") format("truetype");
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@theme {
+	--font-satoshi: Satoshi, sans-serif;
+
+	--font-sans:
+		Satoshi, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
