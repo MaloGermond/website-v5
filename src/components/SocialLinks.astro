@@ -1,5 +1,6 @@
 ---
 const {href:path, label} = Astro.props
+import Icons from "@components/Icons.astro";
 ---
 
-<a href={path} target="_blank" rel="noopener noreferrer" class="border rounded-sm border-gray-300 p-2 transition bg-gray-100 hover:bg-gray-200">{label}</a>
+<a href={path} target="_blank" rel="noopener noreferrer" class="flex flex-row gap-1 border rounded-sm border-gray-300 p-2 text-sm font-medium items-center  transition bg-gray-100 hover:bg-gray-200"><Icons name={label} />{label}</a>
