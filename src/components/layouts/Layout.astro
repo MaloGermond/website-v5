@@ -5,7 +5,7 @@ import "@styles/global.css";
 import Header from "@components/Header.astro";
 ---
 
-<html lang="fr" data-theme="dark">
+<html lang="fr" class="light">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -15,7 +15,7 @@ import Header from "@components/Header.astro";
   </head>
 
   <body>
-    <Header />
+    <Header/>
     <main class={classList}>
       <slot />
     </main>
