@@ -2,7 +2,7 @@ import { useState, useEffect } from "preact/hooks";
 import sunSVG from "@assets/icons/sun.svg?raw";
 import moonSVG from "@assets/icons/moon.svg?raw";
 
-export default function ThemeToggle() {
+export default function ThemeSwitcher() {
   // État local pour le thème
   const [theme, setTheme] = useState(() => {
     if (typeof window !== "undefined") {

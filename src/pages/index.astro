@@ -8,18 +8,18 @@ import SocialLinks from "@components/SocialLinks.astro";
 	class="grid grid-cols-12 m-6 gap-2"
 >
 	<article
-		class="flex flex-col col-span-4 border p-4 rounded-xl border-gray-300 shadow-sm"
+		class="flex flex-col col-span-4 border p-4 rounded-xl border-gray-300 dark:border-gray-700 shadow-sm transition-all"
 	>
-		<p class="text-lg font-medium">Malo Germond</p>
-		<p class="text-lg">Product Designer</p>
-		<p class="text-gray-500">Marseille - Full Remote</p>
-		<p class="text-lg pt-4">
+		<p class="text-lg dark:text-gray-100 transition-all font-medium">Malo Germond</p>
+		<p class="text-lg dark:text-gray-100 transition-all">Product Designer</p>
+		<p class="text-gray-500 dark:text-gray-400 transition-all">Marseille - Full Remote</p>
+		<p class="text-lg pt-4 dark:text-gray-200 transition-all">
 			La complexité coûte cher.  Je la transforme en simplicité qui rapporte.
 		</p>
 	</article>
 
 	<article
-		class="flex flex-col col-span-4 gap-2 border p-2 rounded-xl border-gray-200 row-2"
+		class="flex flex-col col-span-4 gap-2 border p-2 rounded-xl border-gray-200 row-2 dark:border-gray-700 transition-all"
 	>
 		<SocialLinks href="https://dribbble.com/maloo/" label="Dribbble" />
 		<SocialLinks
@@ -28,8 +28,8 @@ import SocialLinks from "@components/SocialLinks.astro";
 		/>
 	</article>
 
-	<article class="flex flex-col items-center border col-span-8 p-4 rounded-xl border-gray-200">
-		<p class="text-center content-center flex-auto text-xl font-bold">Disponible pour des projets</p>
-		<a target="_blank" rel="noopener noreferrer" href="https://calendly.com/calendly-matchalo/30min" class="bg-blue-500 p-4 px-6 text-white rounded-full"> Parlons-en</a>
+	<article class="flex flex-col items-center border col-span-8 p-4 rounded-xl border-gray-200 dark:border-gray-700 transition-all">
+		<p class="text-center content-center flex-auto text-xl font-bold dark:text-gray-50 transition-all">Disponible pour des projets</p>
+		<a target="_blank" rel="noopener noreferrer" href="https://calendly.com/calendly-matchalo/30min" class="bg-blue-500 p-4 px-6 text-white dark:bg-blue-300 dark:text-gray-900 transition-all rounded-full"> Parlons-en</a>
 	</article>
 </Layout>
