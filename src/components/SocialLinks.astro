@@ -3,4 +3,4 @@ const {href:path, label} = Astro.props
 import Icons from "@components/Icons.astro";
 ---
 
-<a href={path} target="_blank" rel="noopener noreferrer" class="flex flex-row gap-1 border rounded-sm border-gray-300 p-2 text-sm font-medium items-center  transition bg-gray-100 hover:bg-gray-200"><Icons name={label} />{label}</a>
+<a href={path} target="_blank" rel="noopener noreferrer" class="group flex flex-row gap-1 border rounded-sm border-gray-300 p-2 text-sm font-medium items-center  transition bg-gray-100 justify-between hover:bg-gray-200"><Icons name={label} /><span class="text-left w-full">{label}</span> <span class="overflow-hidden flex-shrink-0"><Icons name="external_link" size="16" class=" text-gray-700 opacity-20 translate-y-full group-hover:opacity-100 group-hover:translate-y-0 transition-all"/></span></a> 
