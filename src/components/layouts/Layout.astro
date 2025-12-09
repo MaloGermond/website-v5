@@ -1,7 +1,8 @@
 ---
-const { pageTitle, class:classList } = Astro.props;
+const { pageTitle, class: classList } = Astro.props;
 
 import "@styles/global.css";
+import Header from "@components/Header.astro";
 ---
 
 <html lang="fr" data-theme="dark">
@@ -12,7 +13,11 @@ import "@styles/global.css";
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
   </head>
-  <body class={classList} >
-    <slot/>
+
+  <body>
+    <Header />
+    <main class={classList}>
+      <slot />
+    </main>
   </body>
 </html>
