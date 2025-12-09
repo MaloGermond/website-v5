@@ -7,13 +7,13 @@ import Icons from "@components/Icons.astro";
 	href={path}
 	target="_blank"
 	rel="noopener noreferrer"
-	class="group flex flex-row gap-1 border rounded-sm border-gray-300 p-2 text-sm font-medium items-center transition bg-gray-100 dark:bg-gray-800 justify-between dark:border-gray-600 hover:bg-gray-200"
+	class="group flex flex-row gap-1 border rounded-sm border-gray-300 p-2 text-sm font-medium items-center transition bg-gray-100 dark:bg-gray-800 justify-between dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700"
 	><Icons name={label} /><span class="text-left w-full dark:text-gray-50">{label}</span>
 	<span class="overflow-hidden flex-shrink-0"
 		><Icons
 			name="external_link"
 			size="16"
-			class="text-gray-700 opacity-20 translate-y-full group-hover:opacity-100 group-hover:translate-y-0 transition-all"
+			class="text-gray-700 dark:text-gray-300 opacity-20 translate-y-full group-hover:opacity-100 group-hover:translate-y-0 transition-all"
 		/></span
 	></a
 >
