@@ -1,10 +1,23 @@
 ---
 const isUmamiEnabled = import.meta.env.PUBLIC_UMAMI_ENABLED  === 'true';
+const isDevEnv = import.meta.env.PUBLIC_UMAMI_DEVMODE  === 'true';
 const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
 const websiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
+const {url:pageSlug=undefined, name:pageName=undefined} = Astro.props
+
+
+const searchParams = new 
+URLSearchParams(Astro.url.search);
+const utmSource =  isDevEnv ? "development" : searchParams.get('utm_source');
+const utmMedium = searchParams.get('utm_medium');
+const utmCampaign = searchParams.get('utm_campaign');
+const utmTerm = searchParams.get('utm_term');
+const utmContent = searchParams.get('utm_content');
+
+
 ---
 
-<script is:inline define:vars={{ isUmamiEnabled, umamiUrl, websiteId }}>
+<script is:inline define:vars={{ isUmamiEnabled, umamiUrl, websiteId,pageSlug, pageName,utmSource,utmMedium,utmCampaign,utmTerm,utmContent,isDevEnv  }}>
   if (!isUmamiEnabled) {
     console.log('Umami - Page Viewer désactivé (mode développement)');
   } else {
@@ -14,8 +27,26 @@ const websiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
       script.async = true;
       script.defer = true;
       script.setAttribute('data-website-id', websiteId);
+
       script.src = umamiUrl + '/script.js';
       document.head.appendChild(script);
+
+      // Attends que Umami soit chargé
+      script.onload = function() {
+        if (typeof umami !== 'undefined') {
+    console.log(isDevEnv ? "development" : "production")
+          umami.track('PageView', {
+            page: pageName || document.title,
+            url: pageSlug || window.location.pathname,
+            utm_source: utmSource,
+            utm_medium: utmMedium,
+            utm_campaign: utmCampaign,
+            utm_term: utmTerm,
+            utm_content: utmContent,
+            env: isDevEnv ? "development" : "production", 
+          });
+        }
+      }
     })();
   }
 </script>
