@@ -2,12 +2,9 @@
 const isUmamiEnabled = import.meta.env.PUBLIC_UMAMI_ENABLED  === 'true';
 const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
 const websiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
-
 ---
 
 <script is:inline define:vars={{ isUmamiEnabled, umamiUrl, websiteId }}>
-	
-
   if (!isUmamiEnabled) {
     console.log('Umami - Page Viewer désactivé (mode développement)');
   } else {

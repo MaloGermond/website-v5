@@ -8,6 +8,9 @@ import Icons from "@components/Icons.astro";
 	target="_blank"
 	rel="noopener noreferrer"
 	class="group flex flex-row gap-1 border rounded-sm border-gray-300 p-2 text-sm font-medium items-center transition bg-gray-100 dark:bg-gray-800 justify-between dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700"
+	data-umami-event="click"
+	data-umami-event-id={label}
+	data-umami-event-type="social link"
 	><Icons name={label} /><span class="text-left w-full dark:text-gray-50">{label}</span>
 	<span class="overflow-hidden flex-shrink-0"
 		><Icons
