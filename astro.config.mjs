@@ -17,6 +17,7 @@ export default defineConfig({
 				"@styles": "/src/styles",
 				"@public": "/public",
 				"@analytics": "/src/components/analytics",
+				"@contents": "/src/contents",
 			},
 		},
 

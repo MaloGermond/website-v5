@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "pageTitle": "Malo Germond - Designer Produit"
+  },
+  "hero": {
+    "name": "Malo Germond",
+    "role": "Product Designer",
+    "location": "Marseille - Full Remote",
+    "tagline": "Moins de clics, plus d'impact",
+    "description": "Je conçois des expériences digitales émotionnelles et efficaces, avec une approche systématique entre design et code."
+  },
+  "socialLinks": [
+    {
+      "href": "https://dribbble.com/maloo/",
+      "label": "Dribbble",
+      "color": "pink"
+    },
+    {
+      "href": "https://www.linkedin.com/in/malogermond/",
+      "label": "Linkedin",
+      "color": "blue"
+    },
+    {
+      "href": "/resume.pdf",
+      "label": "Resume",
+      "color": "yellow"
+    },
+    {
+      "href": "/portfolio",
+      "label": "Portfolio",
+      "color": "green"
+    }
+  ],
+  "contact": {
+    "title": "Prêt à collaborer ?",
+    "description": "Je suis disponible pour des missions freelance, des projets passionnants ou des opportunités à temps plein.",
+    "button": {
+      "text": "Parlons-en",
+      "url": "https://calendly.com/calendly-matchalo/30min"
+    }
+  }
+}

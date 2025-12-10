@@ -1,50 +1,66 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import SocialLinks from "@components/SocialLinks.astro";
+import * as content from "@contents/en.json";
 ---
 
 <Layout
-	pageTitle="Malo Germond - Designer Produit"
+	pageTitle={content.meta.pageTitle}
 	class="flex flex-col max-w-3xl m-auto p-6 gap-2"
 >
 	<article
 		class="flex flex-col border p-4 rounded-xl border-slate-300 dark:border-slate-700 shadow-sm transition-all"
 	>
-		<p class="text-lg dark:text-slate-100 transition-all font-medium">Malo Germond</p>
-		<p class="text-lg dark:text-slate-100 transition-all">Product Designer</p>
-		<p class="text-slate-500 dark:text-slate-400 transition-all">Marseille - Full Remote</p>
-		<h2 class="mt-4 text-2xl text-slate-900 font-bold dark:text-slate-100">Moins&nbsp;de&nbsp;clics,  plus&nbsp;d'impact</h2>
+		<p class="text-lg dark:text-slate-100 transition-all font-medium">
+			{content.hero.name}
+		</p>
+		<p class="text-lg dark:text-slate-100 transition-all">
+			{content.hero.role}
+		</p>
+		<p class="text-slate-500 dark:text-slate-400 transition-all">
+			{content.hero.location}
+		</p>
+		<h2 class="mt-4 text-2xl text-slate-900 font-bold dark:text-slate-100">
+			{content.hero.tagline}
+		</h2>
 		<p class="text-lg pt-2 text-slate-600 dark:text-slate-400 transition-all">
-			Je conçois des expériences digitales émotionnelles et efficaces, avec une approche systématique entre design et code.
+			{content.hero.description}
 		</p>
 	</article>
 
 	<article
 		class="flex flex-wrap gap-2 border p-2 rounded-xl border-slate-200 row-2 dark:border-slate-700 transition-all"
 	>
-		<SocialLinks href="https://dribbble.com/maloo/" label="Dribbble" color="pink"/>
-		<SocialLinks
-			href="https://www.linkedin.com/in/malogermond/"
-			label="Linkedin"
-			color="blue"
-		/>
-		<SocialLinks
-			href="https://www.linkedin.com/in/malogermond/"
-			label="Resume"
-			color="yellow"
-		/>
-		<SocialLinks
-			href="https://www.linkedin.com/in/malogermond/"
-			label="Portfolio"
-			color="green"
-		/>
+		{
+			content.socialLinks.map((link) => (
+				<SocialLinks href={link.href} label={link.label} color={link.color} />
+			))
+		}
 	</article>
 
-	<article class="bg-slate-200 dark:bg-slate-800 flex flex-col items-center rounded-xl p-8 gap-4 transition-all">
-		<h2 class="text-center content-center flex-auto text-xl font-bold dark:text-slate-50 transition-all">Prêt à collaborer ?</h2>
-		<p class="text-center content-center flex-auto text-lg font-light text-gray-800 dark:text-gray-400 transition-all">Je suis disponible pour des missions freelance, des projets passionnants ou des opportunités à temps plein.</p>
-		<a target="_blank" rel="noopener noreferrer" href="https://calendly.com/calendly-matchalo/30min" class="bg-blue-500 p-4 mt-2 px-6 font-medium tracking-wide text-gray-50 dark:bg-blue-300 dark:text-gray-900  hover:bg-blue-600 dark:hover:bg-blue-200 transition-all duration-[0.5s] ease-out rounded-full" data-umami-event="click"
-	data-umami-event-id="Calendly"
-	data-umami-event-type="button"> Parlons-en</a>
+	<article
+		class="bg-slate-200 dark:bg-slate-800 flex flex-col items-center rounded-xl p-8 gap-4 transition-all"
+	>
+		<h2
+			class="text-center content-center flex-auto text-xl font-bold dark:text-slate-50 transition-all"
+		>
+			{content.contact.title}
+		</h2>
+		<p
+			class="text-center content-center flex-auto text-lg font-light text-gray-800 dark:text-gray-400 transition-all"
+		>
+			{content.contact.description}
+		</p>
+		<a
+			target="_blank"
+			rel="noopener noreferrer"
+			href={content.contact.button.url}
+			class="bg-blue-500 p-4 mt-2 px-6 font-medium tracking-wide text-gray-50 dark:bg-blue-300 dark:text-gray-900 hover:bg-blue-600 dark:hover:bg-blue-200 transition-all duration-[0.5s] ease-out rounded-full"
+			data-umami-event="click"
+			data-umami-event-id="Calendly"
+			data-umami-event-type="button"
+		>
+			{content.contact.button.text}</a
+		>
 	</article>
 </Layout>
