@@ -10,47 +10,33 @@ const colorVariants = {
     text: "dark:text-slate-50",
     icon: "text-slate-700 dark:text-slate-300",
   },
-  gray: {
-    bg: "bg-gray-100 dark:bg-gray-800",
-    border: "border-slate-300 dark:border-gray-600",
-    hover: "hover:bg-gray-200 dark:hover:bg-gray-700",
-    text: "dark:text-gray-50",
-    icon: "text-gray-700 dark:text-gray-300",
-  },
-  red: {
-    bg: "bg-red-50 dark:bg-red-900/20",
-    border: "border-slate-300 dark:border-red-700",
-    hover: "hover:bg-red-100 dark:hover:bg-red-800/30",
-    text: "text-red-800 dark:text-red-100",
-    icon: "text-red-600 dark:text-red-300",
-  },
   blue: {
-    bg: "bg-blue-50 dark:bg-blue-900/20",
-    border: "border-slate-300 dark:border-blue-700",
+    bg: "bg-slate-100 dark:bg-slate-800",
+    border: "border-slate-300 dark:border-slate-700",
     hover: "hover:bg-blue-100 dark:hover:bg-blue-800/30",
-    text: "text-blue-800 dark:text-blue-100",
-    icon: "text-blue-600 dark:text-blue-300",
+    text: "text-slate-800 dark:text-slate-100",
+    icon: "text-slate-800 dark:text-slate-300",
   },
   yellow: {
-    bg: "bg-yellow-50 dark:bg-yellow-900/20",
-    border: "border-slate-300 dark:border-yellow-700",
+    bg: "bg-slate-100 dark:bg-slate-800",
+    border: "border-slate-300 dark:border-slate-700",
     hover: "hover:bg-yellow-100 dark:hover:bg-yellow-800/30",
     text: "text-yellow-800 dark:text-yellow-100",
     icon: "text-yellow-600 dark:text-yellow-300",
   },
   pink: {
-    bg: "bg-pink-50 dark:bg-pink-900/20",
-    border: "border-slate-300 dark:border-pink-700",
+    bg: "bg-slate-100 dark:bg-slate-800",
+    border: "border-slate-300 dark:border-slate-700",
     hover: "hover:bg-pink-100 dark:hover:bg-pink-800/30",
-    text: "text-pink-800 dark:text-pink-100",
-    icon: "text-pink-600 dark:text-pink-300",
+    text: "text-pink-800 dark:text-slate-100",
+    icon: "text-pink-600 dark:text-slate-300",
   },
   green: {
-    bg: "bg-green-50 dark:bg-green-900/20",
-    border: "border-slate-300 dark:border-green-700",
+    bg: "bg-slate-100 dark:bg-slate-800",
+    border: "border-slate-300 dark:border-slate-700",
     hover: "hover:bg-green-100 dark:hover:bg-green-800/30",
-    text: "text-green-800 dark:text-green-100",
-    icon: "text-green-600 dark:text-green-300",
+    text: "text-green-800 dark:text-slate-100",
+    icon: "text-green-600 dark:text-slate-300",
   },
 };
 
@@ -61,7 +47,7 @@ const { bg, border, hover, text, icon } = colorVariants[color] || colorVariants.
 	href={path}
 	target="_blank"
 	rel="noopener noreferrer"
-	class={'group flex flex-row gap-1 justify-between border grow rounded-sm p-2 text-sm font-medium items-center transition'+ bg +" "+ border +" "+ hover}
+	class={'group flex flex-row gap-1 justify-between border grow rounded-sm p-2 text-sm font-medium items-center transition '+ bg +" "+ border +" "+ hover}
 	data-umami-event="click"
 	data-umami-event-id={label}
 	data-umami-event-type="social link"
