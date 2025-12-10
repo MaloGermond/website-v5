@@ -5,31 +5,39 @@ import SocialLinks from "@components/SocialLinks.astro";
 
 <Layout
 	pageTitle="Malo Germond - Designer Produit"
-	class="grid grid-cols-12 m-6 gap-2"
+	class="flex flex-col max-w-3xl m-auto p-6 gap-2"
 >
 	<article
-		class="flex flex-col col-span-4 border p-4 rounded-xl border-gray-300 dark:border-gray-700 shadow-sm transition-all"
+		class="flex flex-col border p-4 rounded-xl border-slate-300 dark:border-slate-700 shadow-sm transition-all"
 	>
-		<p class="text-lg dark:text-gray-100 transition-all font-medium">Malo Germond</p>
-		<p class="text-lg dark:text-gray-100 transition-all">Product Designer</p>
-		<p class="text-gray-500 dark:text-gray-400 transition-all">Marseille - Full Remote</p>
-		<p class="text-lg pt-4 dark:text-gray-200 transition-all">
+		<p class="text-lg dark:text-slate-100 transition-all font-medium">Malo Germond</p>
+		<p class="text-lg dark:text-slate-100 transition-all">Product Designer</p>
+		<p class="text-slate-500 dark:text-slate-400 transition-all">Marseille - Full Remote</p>
+		<p class="text-lg pt-4 dark:text-slate-200 transition-all">
 			La complexité coûte cher.  Je la transforme en simplicité qui rapporte.
 		</p>
 	</article>
 
 	<article
-		class="flex flex-col col-span-4 gap-2 border p-2 rounded-xl border-gray-200 row-2 dark:border-gray-700 transition-all"
+		class="flex flex-wrap gap-2 border p-2 rounded-xl border-slate-200 row-2 dark:border-slate-700 transition-all"
 	>
 		<SocialLinks href="https://dribbble.com/maloo/" label="Dribbble" />
 		<SocialLinks
 			href="https://www.linkedin.com/in/malogermond/"
 			label="Linkedin"
 		/>
+		<SocialLinks
+			href="https://www.linkedin.com/in/malogermond/"
+			label="CV"
+		/>
+		<SocialLinks
+			href="https://www.linkedin.com/in/malogermond/"
+			label="Portfolio"
+		/>
 	</article>
 
-	<article class="flex flex-col items-center border col-span-8 p-4 rounded-xl border-gray-200 dark:border-gray-700 transition-all">
-		<p class="text-center content-center flex-auto text-xl font-bold dark:text-gray-50 transition-all">Disponible pour des projets</p>
-		<a target="_blank" rel="noopener noreferrer" href="https://calendly.com/calendly-matchalo/30min" class="bg-blue-500 p-4 px-6 text-white dark:bg-blue-300 dark:text-gray-900 transition-all rounded-full"> Parlons-en</a>
+	<article class="flex  flex-col items-center border p-4 gap-4 rounded-xl border-slate-200 dark:border-slate-700 transition-all">
+		<p class="text-center content-center flex-auto text-xl font-bold dark:text-slate-50 transition-all">Disponible pour des projets</p>
+		<a target="_blank" rel="noopener noreferrer" href="https://calendly.com/calendly-matchalo/30min" class="bg-blue-500 p-4 mt-2 px-6 text-white dark:bg-blue-300 dark:text-slate-900 transition-all rounded-full"> Parlons-en</a>
 	</article>
 </Layout>

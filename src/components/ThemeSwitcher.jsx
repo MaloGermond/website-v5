@@ -32,7 +32,7 @@ export default function ThemeSwitcher() {
     <button
       type="button"
       onClick={toggleTheme}
-      class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+      class="dark:text-slate-200 bg-slate-100 dark:bg-slate-800 border border-slate-600 dark:border-slate-400 p-2 rounded-full hover:text-blue-700 hover:bg-blue-100 hover:border-blue-600 transition-all duration-[0.5s] ease-out"
       aria-label="Basculer le thème"
     >
       {theme === "light" ? <Icons label={sunSVG} /> : <Icons label={moonSVG} />}
@@ -40,6 +40,13 @@ export default function ThemeSwitcher() {
   );
 }
 
-export function Icons({ label }) {
-  return <div dangerouslySetInnerHTML={{ __html: label }} />;
+export function Icons({ label, size = "20" }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 32 32"
+      dangerouslySetInnerHTML={{ __html: label }}
+    />
+  );
 }
