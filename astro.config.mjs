@@ -19,6 +19,9 @@ export default defineConfig({
 				"@locales": "/src/locales",
 				"@utils": "/src/utils",
 			},
+			build: {
+				minify: true, // Minifie le HTML, JS et CSS
+			},
 		},
 
 		plugins: [tailwindcss()],

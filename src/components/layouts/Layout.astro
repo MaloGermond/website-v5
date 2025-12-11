@@ -1,5 +1,5 @@
 ---
-const { pageTitle, class: classList, lang} = Astro.props;
+const { pageTitle,description = '', class: classList, lang} = Astro.props;
 
 import "@styles/global.css";
 
@@ -12,12 +12,19 @@ const slug = Astro.url.pathname;
 
 <html lang={lang} class="light">
   <head>
+    <!-- Encodage et compatibilité -->
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Titre et description de base (SEO) -->
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
      <UmamiPageViewer name={pageTitle} url={slug}/>
-    <title>{pageTitle}</title>
   </head>
 
   <body class="bg-gray-50 dark:bg-gray-900 transition-colors">
