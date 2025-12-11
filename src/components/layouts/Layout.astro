@@ -1,13 +1,12 @@
 ---
-const { pageTitle,description = '', class: classList, lang} = Astro.props;
+const { pageTitle, description = "", class: classList, lang } = Astro.props;
 
 import "@styles/global.css";
 
 import Header from "@components/Header.astro";
-import UmamiPageViewer from '@analytics/UmamiPageViewer.astro';
+import UmamiPageViewer from "@analytics/UmamiPageViewer.astro";
 
 const slug = Astro.url.pathname;
-
 ---
 
 <html lang={lang} class="light">
@@ -21,14 +20,24 @@ const slug = Astro.url.pathname;
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
 
+    <!-- Pré-chargement des polices pour les performances -->
+    <link
+      rel="preload"
+      href="/fonts/Satoshi-Variable.ttf"
+      as="font"
+      type="truetype"
+      crossorigin
+    />
+
+    <!-- Analytics -->
+    <UmamiPageViewer name={pageTitle} url={slug} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-     <UmamiPageViewer name={pageTitle} url={slug}/>
   </head>
 
   <body class="bg-gray-50 dark:bg-gray-900 transition-colors">
-    <Header/>
+    <Header />
     <main class={classList}>
       <slot />
     </main>
