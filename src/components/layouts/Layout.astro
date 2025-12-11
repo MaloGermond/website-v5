@@ -36,10 +36,29 @@ const slug = Astro.url.pathname;
     <meta name="generator" content={Astro.generator} />
   </head>
 
-  <body class="bg-gray-50 dark:bg-gray-900 transition-colors">
+  <body
+    class="flex flex-col justify-start min-h-screen bg-radial-gradient bg-gray-50 dark:bg-gray-900 transition-colors"
+  >
     <Header />
     <main class={classList}>
       <slot />
     </main>
   </body>
 </html>
+
+<style>
+  .bg-radial-gradient {
+    background-image: radial-gradient(
+      circle at 50% 100%,
+      rgba(134, 176, 231,0.3),
+      rgba(255, 255, 255, 0)
+    );
+  }
+  .dark .bg-radial-gradient {
+    background-image: radial-gradient(
+      circle at 50% 100%,
+      rgba(33, 46, 124,0.3),
+      rgba(32, 36, 36,0)
+    );
+  }
+</style>
