@@ -20,7 +20,7 @@ export default defineConfig({
 				"@utils": "/src/utils",
 			},
 			build: {
-				minify: true, // Minifie le HTML, JS et CSS
+				minify: true,
 			},
 		},
 
