@@ -34,7 +34,6 @@ const utmContent = searchParams.get('utm_content');
       // Attends que Umami soit chargé
       script.onload = function() {
         if (typeof umami !== 'undefined') {
-    console.log(isDevEnv ? "development" : "production")
           umami.track('PageView', {
             page: pageName || document.title,
             url: pageSlug || window.location.pathname,
