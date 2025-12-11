@@ -4,7 +4,7 @@ import Icons from "@components/Icons.astro"
 const {label, icon} = Astro.props
 ---
 
-<div class="flex flex-col h-32 bg-slate-200 dark:bg-slate-700 w-full max-w-24 rounded-sm items-center px-4 py-2 transition" >
-	<Icons name={icon} size="2.5rem" class="h-full text-slate-900 dark:text-slate-100 "/>
+<div class="group flex flex-col h-32 bg-slate-200 dark:bg-slate-700 w-full max-w-24 rounded-sm items-center px-4 py-2 hover:bg-blue-200 hover:dark:bg-blue-400 transition-all" >
+	<Icons name={icon} size="2.5rem" class="h-full text-slate-900 dark:text-slate-100 group-hover:scale-150 transition-all "/>
 	<p class="font-medium text-sm select-none text-slate-700 dark:text-slate-300 ">{label}</p>
 </div>
