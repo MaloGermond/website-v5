@@ -1,12 +1,29 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import SocialLinks from "@components/SocialLinks.astro";
-import * as content from "@contents/fr.json";
+
+import { locales, defaultLocale} from "@locales/config";
+import { getTranslation } from "@utils/translation";
+
+export async function getStaticPaths() {
+  // Génère les routes pour chaque langue + la route racine
+  return [
+    { params: { lang: undefined } }, // Route racine: /
+    ...locales.map((lang) => ({
+      params: { lang}, // Routes: /fr/, /en/, etc.
+    })),
+  ];
+}
+
+const { lang } = Astro.params;
+const content = getTranslation(lang || defaultLocale)
+
 ---
 
 <Layout
 	pageTitle={content.meta.pageTitle}
 	class="flex flex-col max-w-3xl m-auto p-6 gap-2"
+	lang={lang  || defaultLocale}
 >
 	<article
 		class="flex flex-col border p-4 rounded-xl border-slate-300 dark:border-slate-700 shadow-sm transition-all"

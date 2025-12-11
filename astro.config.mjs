@@ -17,10 +17,15 @@ export default defineConfig({
 				"@styles": "/src/styles",
 				"@public": "/public",
 				"@analytics": "/src/components/analytics",
-				"@contents": "/src/contents",
+				"@locales": "/src/locales",
+				"@utils": "/src/utils",
 			},
 		},
 
 		plugins: [tailwindcss()],
+	},
+	i18n: {
+		locales: ["fr", "en"],
+		defaultLocale: "fr",
 	},
 });

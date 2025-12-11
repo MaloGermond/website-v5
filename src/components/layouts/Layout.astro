@@ -1,14 +1,16 @@
 ---
-const { pageTitle, class: classList } = Astro.props;
+const { pageTitle, class: classList, lang} = Astro.props;
 
 import "@styles/global.css";
+
 import Header from "@components/Header.astro";
 import UmamiPageViewer from '@analytics/UmamiPageViewer.astro';
-import UmamiPageBehaviors from '@analytics/UmamiPageBehaviors.astro';
+
 const slug = Astro.url.pathname;
+
 ---
 
-<html lang="fr" class="light">
+<html lang={lang} class="light">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

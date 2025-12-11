@@ -1,0 +1,29 @@
+---
+// src/components/LanguageSwitcher.astro
+import { useState } from 'react';
+
+// Liste des langues disponibles
+const languages = [
+  { code: 'fr', name: 'Français' },
+  { code: 'en', name: 'English' },
+];
+
+// Récupère la langue actuelle depuis l'URL
+const currentLang = Astro.params.lang || 'fr';
+---
+
+<div class="flex gap-2 items-center">
+  {languages.map((lang) => (
+    <a
+      href={`/${lang.code}/`}
+      class={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
+        currentLang === lang.code
+          ? 'bg-blue-500 text-white'
+          : 'bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600'
+      }`}
+      aria-label={`Switch to ${lang.name}`}
+    >
+      {lang.code.toUpperCase()}
+    </a>
+  ))}
+</div>
