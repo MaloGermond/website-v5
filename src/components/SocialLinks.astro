@@ -1,5 +1,5 @@
 ---
-const { href: path, label, color="slate" } = Astro.props;
+const { href: path, label, color="slate", icon:iconsrc } = Astro.props;
 import Icons from "@components/Icons.astro";
 
 const colorVariants = {
@@ -51,7 +51,7 @@ const { bg, border, hover, text, icon } = colorVariants[color] || colorVariants.
 	data-umami-event="click"
 	data-umami-event-id={label}
 	data-umami-event-type="social link"
-	><Icons name={label} /><span class={"text-left w-full"+text}>{label}</span>
+	><Icons name={iconsrc} /><span class={"text-left w-full"+text}>{label}</span>
 	<span class="overflow-hidden flex-shrink-0"
 		><Icons
 			name="external_link"

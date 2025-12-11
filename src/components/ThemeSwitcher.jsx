@@ -1,6 +1,6 @@
 import { useState, useEffect } from "preact/hooks";
-import sunSVG from "@assets/icons/sun.svg?raw";
-import moonSVG from "@assets/icons/moon.svg?raw";
+import sunSVG from "/icons/sun.svg?raw";
+import moonSVG from "/icons/moon.svg?raw";
 
 export default function ThemeSwitcher() {
   // État local pour le thème

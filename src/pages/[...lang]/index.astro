@@ -50,7 +50,7 @@ const content = getTranslation(lang || defaultLocale)
 	>
 		{
 			content.socialLinks.map((link) => (
-				<SocialLinks href={link.href} label={link.label} color={link.color} />
+				<SocialLinks href={link.href} label={link.label} color={link.color} icon={link.icon}/>
 			))
 		}
 	</article>

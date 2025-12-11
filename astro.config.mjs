@@ -15,7 +15,6 @@ export default defineConfig({
 				"@layouts": "/src/components/layouts",
 				"@assets": "/src/assets",
 				"@styles": "/src/styles",
-				"@public": "/public",
 				"@analytics": "/src/components/analytics",
 				"@locales": "/src/locales",
 				"@utils": "/src/utils",
@@ -23,9 +22,5 @@ export default defineConfig({
 		},
 
 		plugins: [tailwindcss()],
-	},
-	i18n: {
-		locales: ["fr", "en"],
-		defaultLocale: "fr",
 	},
 });
