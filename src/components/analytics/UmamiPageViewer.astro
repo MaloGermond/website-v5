@@ -5,7 +5,6 @@ const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
 const websiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
 const {url:pageSlug=undefined, name:pageName=undefined} = Astro.props
 
-
 const searchParams = new 
 URLSearchParams(Astro.url.search);
 const utmSource =  isDevEnv ? "development" : searchParams.get('utm_source');
