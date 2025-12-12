@@ -6,7 +6,6 @@ const isEnabled = import.meta.env.UMAMI_ENABLED === "true"
 if(!isEnabled) return ;
 
 const {url:pageSlug=undefined, name:pageName=undefined} = Astro.props
-// const config = getUmamiConfig();
 
 const searchParams = new URLSearchParams(Astro.url.search);
 const utmSource = searchParams.get('utm_source');
