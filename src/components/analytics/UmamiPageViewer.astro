@@ -1,50 +1,32 @@
 ---
-const isUmamiEnabled = import.meta.env.PUBLIC_UMAMI_ENABLED  === 'true';
-const isDevEnv = import.meta.env.PUBLIC_UMAMI_DEVMODE  === 'true';
-const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
-const websiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
-const {url:pageSlug=undefined, name:pageName=undefined} = Astro.props
+import { getUmamiConfig } from '@utils/umamiConfig';
 
-const searchParams = new 
-URLSearchParams(Astro.url.search);
-const utmSource =  isDevEnv ? "development" : searchParams.get('utm_source');
+const {url:pageSlug=undefined, name:pageName=undefined} = Astro.props
+const config = getUmamiConfig();
+
+const searchParams = new URLSearchParams(Astro.url.search);
+const utmSource =  config.isDevMode ? "development" : searchParams.get('utm_source');
 const utmMedium = searchParams.get('utm_medium');
 const utmCampaign = searchParams.get('utm_campaign');
 const utmTerm = searchParams.get('utm_term');
 const utmContent = searchParams.get('utm_content');
 
-
 ---
 
-<script is:inline define:vars={{ isUmamiEnabled, umamiUrl, websiteId,pageSlug, pageName,utmSource,utmMedium,utmCampaign,utmTerm,utmContent,isDevEnv  }}>
-  if (!isUmamiEnabled) {
-    console.log('Umami - Page Viewer désactivé (mode développement)');
+<script is:inline>
+  if (!config.isEnabled) {
+    console.log('Umami - Page Viewer désactivé');
   } else {
-    // Charge Umami
-    (function() {
-      const script = document.createElement('script');
-      script.async = true;
-      script.defer = true;
-      script.setAttribute('data-website-id', websiteId);
-
-      script.src = umamiUrl + '/script.js';
-      document.head.appendChild(script);
-
-      // Attends que Umami soit chargé
-      script.onload = function() {
-        if (typeof umami !== 'undefined') {
-          umami.track('PageView', {
-            page: pageName || document.title,
-            url: pageSlug || window.location.pathname,
-            utm_source: utmSource,
-            utm_medium: utmMedium,
-            utm_campaign: utmCampaign,
-            utm_term: utmTerm,
-            utm_content: utmContent,
-            env: isDevEnv ? "development" : "production", 
-          });
-        }
-      }
-    })();
+    // Charge le script Umami via un endpoint API sécurisé
+    fetch('/api/umami-script?pageSlug=${pageSlug || ''}&pageName=${pageName || ''}')
+      .then(response => response.text())
+      .then(script => {
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = script;
+        document.head.appendChild(tempDiv.firstChild);
+      })
+      .catch(error => {
+        console.error('Erreur de chargement du script Umami:', error);
+      });
   }
 </script>

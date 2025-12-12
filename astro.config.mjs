@@ -19,11 +19,17 @@ export default defineConfig({
 				"@locales": "/src/locales",
 				"@utils": "/src/utils",
 			},
-			build: {
-				minify: true,
-			},
 		},
-
+		build: {
+			minify: true,
+		},
+		// Configuration pour éviter d'exposer les variables sensibles
+		envPrefix: ['PUBLIC_'], // Seules les variables avec PUBLIC_ seront exposées
+		define: {
+			// On peut aussi définir des valeurs par défaut pour le développement
+			'import.meta.env.UMAMI_ENABLED': JSON.stringify(process.env.UMAMI_ENABLED || 'false'),
+			'import.meta.env.UMAMI_DEVMODE': JSON.stringify(process.env.UMAMI_DEVMODE || 'false'),
+		},
 		plugins: [tailwindcss()],
 	},
 });

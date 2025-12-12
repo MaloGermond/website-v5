@@ -1,51 +1,7 @@
 ---
-const isUmamiEnabled = import.meta.env.PUBLIC_UMAMI_ENABLED === 'true';
-const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
-const websiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
+import { getUmamiConfig, generateUmamiScrollScript } from '@utils/umamiConfig';
+
+const config = getUmamiConfig();
 ---
 
-<script is:inline define:vars={{ isUmamiEnabled, umamiUrl, websiteId }}>
-	if (!isUmamiEnabled) {
-		console.log('Umami - Page Behaviors désactivé (mode développement)');
-	} else {
-		// Flags pour éviter les doublons
-		let scrollEvents = {
-			'25': false,
-			'50': false,
-			'75': false,
-			'100': false,
-		};
-
-		// Formate le nom de la page
-		function getFormattedPageName() {
-			const pathname = window.location.pathname;
-			const cleanName = pathname.replace(/^\//, '').replace(/-/g, ' ');
-			return cleanName.replace(/\b\w/g, (match) => match.toUpperCase()) || 'Accueil';
-		}
-
-		// Track le scroll avec envoi unique
-		window.addEventListener('scroll', () => {
-			const scrollPercent = Math.round(
-				(window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
-			);
-			const pageName = getFormattedPageName();
-
-			if (scrollPercent >= 25 && !scrollEvents['25']) {
-				umami.track(`scroll-25%`);
-				scrollEvents['25'] = true;
-			}
-			if (scrollPercent >= 50 && !scrollEvents['50']) {
-				umami.track(`scroll-50%`);
-				scrollEvents['50'] = true;
-			}
-			if (scrollPercent >= 75 && !scrollEvents['75']) {
-				umami.track(`scroll-75%`);
-				scrollEvents['75'] = true;
-			}
-			if (scrollPercent >= 100 && !scrollEvents['100']) {
-				umami.track(`scroll-100%`);
-				scrollEvents['100'] = true;
-			}
-		});
-	}
-</script>
+{generateUmamiScrollScript(config)}
