@@ -1,7 +1,7 @@
 ---
 const isEnabled = import.meta.env.UMAMI_ENABLED === "true"
 
-if(!isEnabled) return ;
+if(!isEnabled && import.meta.env.DEV) return ;
 
 const {url:pageSlug=undefined, name:pageName=undefined} = Astro.props
 
