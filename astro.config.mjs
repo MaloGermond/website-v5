@@ -4,9 +4,11 @@ import { defineConfig } from "astro/config";
 import preact from "@astrojs/preact";
 import tailwindcss from "@tailwindcss/vite";
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
-	integrations: [preact(), tailwindcss()],
+	integrations: [preact(), tailwindcss(), sitemap()],
 	vite: {
 		resolve: {
 			alias: {
@@ -19,12 +21,11 @@ export default defineConfig({
 				"@locales": "/src/locales",
 				"@utils": "/src/utils",
 			},
+			build: {
+				minify: true,
+			},
 		},
-		build: {
-			minify: true,
-		},
-		// Configuration standard
-		envPrefix: ['PUBLIC_'], // Seules les variables avec PUBLIC_ seront exposées
+
 		plugins: [tailwindcss()],
 	},
 });
