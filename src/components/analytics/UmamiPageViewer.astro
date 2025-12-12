@@ -9,11 +9,13 @@ const {url:pageSlug=undefined, name:pageName=undefined} = Astro.props
 // const config = getUmamiConfig();
 
 const searchParams = new URLSearchParams(Astro.url.search);
-const utmSource = import.meta.env.DEV ? "development" : searchParams.get('utm_source');
+const utmSource = searchParams.get('utm_source');
 const utmMedium = searchParams.get('utm_medium');
 const utmCampaign = searchParams.get('utm_campaign');
 const utmTerm = searchParams.get('utm_term');
 const utmContent = searchParams.get('utm_content');
+
+const envMode = import.meta.env.DEV ? "development" : "production"
 
 
 ---
@@ -26,12 +28,14 @@ const utmContent = searchParams.get('utm_content');
     utmCampaign: utmCampaign,
     utmTerm: utmTerm,
     utmContent: utmContent,
+    environement: envMode,
   }}>
 
   // Attendre que le script Umami soit chargé
   document.addEventListener('DOMContentLoaded', () => {
     if (typeof umami !== 'undefined') {
-      umami.track('EnhancedPageView', {
+    	umami.track('Environement', {environement});
+      umami.track('View', {
         slug: pageSlug,
         name: pageName,
         utm_source: utmSource,
