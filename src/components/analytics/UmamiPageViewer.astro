@@ -1,32 +1,48 @@
 ---
-import { getUmamiConfig } from '@utils/umamiConfig';
+// import { getUmamiConfig } from '@utils/umamiConfig';
+
+const isEnabled = import.meta.env.UMAMI_ENABLED === "true"
+
+if(!isEnabled) return ;
 
 const {url:pageSlug=undefined, name:pageName=undefined} = Astro.props
-const config = getUmamiConfig();
+// const config = getUmamiConfig();
 
 const searchParams = new URLSearchParams(Astro.url.search);
-const utmSource =  config.isDevMode ? "development" : searchParams.get('utm_source');
+const utmSource = import.meta.env.DEV ? "development" : searchParams.get('utm_source');
 const utmMedium = searchParams.get('utm_medium');
 const utmCampaign = searchParams.get('utm_campaign');
 const utmTerm = searchParams.get('utm_term');
 const utmContent = searchParams.get('utm_content');
 
+
 ---
 
-<script is:inline>
-  if (!config.isEnabled) {
-    console.log('Umami - Page Viewer désactivé');
-  } else {
-    // Charge le script Umami via un endpoint API sécurisé
-    fetch('/api/umami-script?pageSlug=${pageSlug || ''}&pageName=${pageName || ''}')
-      .then(response => response.text())
-      .then(script => {
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = script;
-        document.head.appendChild(tempDiv.firstChild);
-      })
-      .catch(error => {
-        console.error('Erreur de chargement du script Umami:', error);
+<script is:inline define:vars={{
+    pageSlug: pageSlug,
+    pageName: pageName,
+    utmSource: utmSource,
+    utmMedium: utmMedium,
+    utmCampaign: utmCampaign,
+    utmTerm: utmTerm,
+    utmContent: utmContent,
+  }}>
+
+  // Attendre que le script Umami soit chargé
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof umami !== 'undefined') {
+      umami.track('EnhancedPageView', {
+        slug: pageSlug,
+        name: pageName,
+        utm_source: utmSource,
+        utm_medium: utmMedium,
+        utm_campaign: utmCampaign,
+        utm_term: utmTerm,
+        utm_content: utmContent,
       });
-  }
+    }
+  });
 </script>
+
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="90322f84-0c71-4989-a1b9-5514e2dac081"></script>
