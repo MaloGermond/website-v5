@@ -17,11 +17,20 @@
 		Satoshi, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
 		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
-	--color-gray-900: oklch(0.1297 0.005 285.67);
+	--color-gray-50: oklch(0.9892 0.0053 286.3);
+	--color-gray-100: oklch(0.959 0.004 286.32);
+	--color-gray-200: oklch(0.9042 0.0027 286.35);
+
+	--color-gray-300: oklch(0.8147 0.0028 286.34);
+	--color-gray-400: oklch(0.6999 0.0029 286.33);
+	--color-gray-500: oklch(0.4538 0.0032 286.27);
+
+	--color-gray-600: oklch(0.3722 0.0034 286.23);
+	--color-gray-700: oklch(0.2825 0.0073 285.93);
 	--color-gray-800: oklch(0.1975 0.008 285.65);
-	--color-gray-700: oklch(0.278 0.0055 286.04);
-	--color-gray-600: oklch(0.3251 0.0176 285.38);
+	--color-gray-900: oklch(0.1297 0.005 285.67);
 }
+
 .paragraph {
 	text-wrap: balance;
 	orphans: 2;
