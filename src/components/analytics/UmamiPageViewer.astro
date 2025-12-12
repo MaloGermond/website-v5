@@ -1,12 +1,9 @@
 ---
-// import { getUmamiConfig } from '@utils/umamiConfig';
-
 const isEnabled = import.meta.env.UMAMI_ENABLED === "true"
 
-if(!isEnabled) return ;
+if(!isEnabled && import.meta.env.DEV) return ;
 
 const {url:pageSlug=undefined, name:pageName=undefined} = Astro.props
-// const config = getUmamiConfig();
 
 const searchParams = new URLSearchParams(Astro.url.search);
 const utmSource = searchParams.get('utm_source');
@@ -47,6 +44,5 @@ const envMode = import.meta.env.DEV ? "development" : "production"
     }
   });
 </script>
-
 
 <script defer src="https://cloud.umami.is/script.js" data-website-id="90322f84-0c71-4989-a1b9-5514e2dac081"></script>
