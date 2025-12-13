@@ -1,6 +1,6 @@
 // src/utils/translations.js
-import fr from "@locales/fr.json";
-import en from "@locales/en.json";
+import fr from '@locales/fr.json';
+import en from '@locales/en.json';
 
 export const translations = {
   fr,
