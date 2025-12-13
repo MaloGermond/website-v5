@@ -30,16 +30,17 @@ const content = getTranslation(lang || defaultLocale);
 >
 	<Card padding="2" class="gap-4">
 		<div class="flex flex-col px-2">
-		<p class="body text-lg dark:text-slate-100 transition-all font-medium">
+		<h1 class="body text-2xl dark:text-slate-100 transition-all font-bold">
 			{content.hero.name}
-		</p>
-		<p class="text-lg font-medium text-slate-500 dark:text-slate-400 transition-all">
+		</h1>
+		<p class="text-xl font-medium text-slate-500 dark:text-slate-400 transition-all">
 			{content.hero.role}
 		</p>
 		<p class="text-slate-500 dark:text-slate-400 transition-all">
 			{content.hero.location}
 		</p>
 		</div>
+		<h2 id="values-title" class="sr-only">{content.hero.values.title}</h2>
 		<section class="flex flex-row w-full overflow-y-scroll row-2 gap-2">
 			<ValueCard label="Focus" icon="focus" />
 			<ValueCard label="Collaboration" icon="collaboration" />

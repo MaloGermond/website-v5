@@ -6,6 +6,7 @@
   "hero": {
     "name": "Malo Germond",
     "role": "Product Designer",
+    "values": { "title": "My Values As Designer" },
     "location": "Marseille - Full Remote"
   },
   "socialLinks": [

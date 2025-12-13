@@ -9,14 +9,14 @@ const languages = [
 const currentLang = Astro.params.lang || 'fr';
 ---
 
-<div class="flex gap-2 items-center">
+<div class="flex items-center bg-gray-100 rounded-full border border-gray-200 h-fit dark:bg-gray-700 dark:border-gray-600">
   {languages.map((lang) => (
     <a
       href={`/${lang.code}/`}
-      class={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
+      class={`px-2 py-1.5 rounded-full text-sm font-medium transition-colors leading-none ${
         currentLang === lang.code
           ? 'bg-blue-500 text-white'
-          : 'bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600'
+          : 'text-gray-800 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 leading-none'
       }`}
       aria-label={`Switch to ${lang.name}`}
     >
