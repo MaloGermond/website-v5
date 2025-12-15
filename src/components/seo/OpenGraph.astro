@@ -1,17 +1,21 @@
 ---
-const {title, url, cover, description} = Astro.props
+const { title, url, cover, description } = Astro.props;
 ---
 
- <!-- Open Graph / Facebook (pour le partage social) -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={url} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={cover} />
+<!-- Open Graph / Facebook (pour le partage social) -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={cover} />
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={cover} />
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={cover} />
 
+<!-- Balises meta supplémentaires pour le SEO -->
+<meta name="robots" content="index, follow" />
+<meta name="author" content="Malo Germond" />
+<meta name="keywords" content={description} />
