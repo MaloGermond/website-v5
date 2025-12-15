@@ -8,6 +8,7 @@ import UmamiPageViewer from "@analytics/UmamiPageViewer.astro";
 import OpenGraph from "@components/seo/OpenGraph.astro"
 
 const slug = Astro.url.pathname;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <html lang={lang} class="light">
@@ -20,6 +21,9 @@ const slug = Astro.url.pathname;
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- URL canonique -->
+    <link rel="canonical" href={canonicalUrl} />
 
     <!-- Pré-chargement des polices pour les performances -->
     <link
