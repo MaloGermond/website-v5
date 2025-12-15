@@ -5,6 +5,7 @@ import "@styles/global.css";
 
 import Header from "@components/Header.astro";
 import UmamiPageViewer from "@analytics/UmamiPageViewer.astro";
+import OpenGraph from "@components/seo/OpenGraph.astro"
 
 const slug = Astro.url.pathname;
 ---
@@ -31,6 +32,8 @@ const slug = Astro.url.pathname;
 
     <!-- Analytics -->
     <UmamiPageViewer name={pageTitle} url={slug} />
+
+    <OpenGraph title={pageTitle} url={slug} cover={} description={description}/>
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
