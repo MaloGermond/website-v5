@@ -33,7 +33,7 @@ const slug = Astro.url.pathname;
     <!-- Analytics -->
     <UmamiPageViewer name={pageTitle} url={slug} />
 
-    <OpenGraph title={pageTitle} url={slug} cover={} description={description}/>
+    <OpenGraph title={pageTitle} url={slug} cover={`${Astro.site}og-image.png`} description={description}/>
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
