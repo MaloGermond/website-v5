@@ -9,6 +9,7 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   integrations: [preact(), tailwindcss(), sitemap()],
+  site: 'https://malogermond.com',
   vite: {
     resolve: {
       alias: {

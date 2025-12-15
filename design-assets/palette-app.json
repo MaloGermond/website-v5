@@ -1,0 +1,92 @@
+[
+  {
+    "paletteName": "gray",
+    "swatches": [
+      {
+        "name": "50",
+        "color": "FBFBFF"
+      },
+      {
+        "name": "100",
+        "color": "F1F1F4"
+      },
+      {
+        "name": "200",
+        "color": "DFDFE1"
+      },
+      {
+        "name": "300",
+        "color": "C2C2C4"
+      },
+      {
+        "name": "400",
+        "color": "9E9EA0"
+      },
+      {
+        "name": "500",
+        "color": "565658"
+      },
+      {
+        "name": "600",
+        "color": "404042"
+      },
+      {
+        "name": "700",
+        "color": "29292D"
+      },
+      {
+        "name": "800",
+        "color": "151519"
+      },
+      {
+        "name": "900",
+        "color": "070709"
+      }
+    ]
+  },
+  {
+    "paletteName": "blue",
+    "swatches": [
+      {
+        "name": "50",
+        "color": "D2E3FE"
+      },
+      {
+        "name": "100",
+        "color": "C1D8FC"
+      },
+      {
+        "name": "200",
+        "color": "ADCBFC"
+      },
+      {
+        "name": "300",
+        "color": "8BB0F9"
+      },
+      {
+        "name": "400",
+        "color": "7097F9"
+      },
+      {
+        "name": "500",
+        "color": "1736EF"
+      },
+      {
+        "name": "600",
+        "color": "0818BA"
+      },
+      {
+        "name": "700",
+        "color": "040B83"
+      },
+      {
+        "name": "800",
+        "color": "010146"
+      },
+      {
+        "name": "900",
+        "color": "040017"
+      }
+    ]
+  }
+]

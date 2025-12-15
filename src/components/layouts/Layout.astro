@@ -1,12 +1,14 @@
 ---
-const { pageTitle, description = "", class: classList, lang } = Astro.props;
+const { pageTitle, description = '', class: classList, lang } = Astro.props;
 
-import "@styles/global.css";
+import '@styles/global.css';
 
-import Header from "@components/Header.astro";
-import UmamiPageViewer from "@analytics/UmamiPageViewer.astro";
+import Header from '@components/Header.astro';
+import UmamiPageViewer from '@analytics/UmamiPageViewer.astro';
+import OpenGraph from '@components/seo/OpenGraph.astro';
 
 const slug = Astro.url.pathname;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <html lang={lang} class="light">
@@ -20,6 +22,9 @@ const slug = Astro.url.pathname;
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
 
+    <!-- URL canonique -->
+    <link rel="canonical" href={canonicalUrl} />
+
     <!-- Pré-chargement des polices pour les performances -->
     <link
       rel="preload"
@@ -32,12 +37,22 @@ const slug = Astro.url.pathname;
     <!-- Analytics -->
     <UmamiPageViewer name={pageTitle} url={slug} />
 
+    <OpenGraph
+      title={pageTitle}
+      url={slug}
+      cover={`${Astro.site}og-image.png`}
+      description={description}
+    />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Utilisation d'astro <3 pour la création de ce site -->
     <meta name="generator" content={Astro.generator} />
   </head>
 
   <body
-    class="flex flex-col justify-start min-h-screen bg-radial-gradient bg-gray-50 dark:bg-gray-900 transition-colors"
+    class="flex flex-col justify-start min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors"
   >
     <Header />
     <main class={classList}>
@@ -50,15 +65,15 @@ const slug = Astro.url.pathname;
   .bg-radial-gradient {
     background-image: radial-gradient(
       circle at 50% 100%,
-      rgba(134, 176, 231,0.6),
+      rgba(134, 176, 231, 0.6),
       rgba(255, 255, 255, 0) 50%
     );
   }
   .dark .bg-radial-gradient {
     background-image: radial-gradient(
       circle at 50% 100%,
-      rgba(33, 46, 124,0.3),
-      rgba(32, 36, 36,0) 50%
+      rgba(33, 46, 124, 0.3),
+      rgba(32, 36, 36, 0) 50%
     );
   }
 </style>
