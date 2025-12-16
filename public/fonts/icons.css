@@ -1,48 +1,50 @@
 @font-face {
-    font-family: "icons";
-    src: url("./icons.ttf?2ad95c881b741a37b1c74c69c994348d") format("truetype"),
-url("./icons.woff?2ad95c881b741a37b1c74c69c994348d") format("woff"),
-url("./icons.woff2?2ad95c881b741a37b1c74c69c994348d") format("woff2");
+  font-family: 'icons';
+  src:
+    url('./icons.ttf?2ad95c881b741a37b1c74c69c994348d') format('truetype'),
+    url('./icons.woff?2ad95c881b741a37b1c74c69c994348d') format('woff'),
+    url('./icons.woff2?2ad95c881b741a37b1c74c69c994348d') format('woff2');
 }
 
-i[class^="icon-"]:before, i[class*=" icon-"]:before {
-    font-family: icons !important;
-    font-style: normal;
-    font-weight: normal !important;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+i[class^='icon-']:before,
+i[class*=' icon-']:before {
+  font-family: icons !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .icon-tangible:before {
-    content: "\f101";
+  content: '\f101';
 }
 .icon-sun:before {
-    content: "\f102";
+  content: '\f102';
 }
 .icon-resume:before {
-    content: "\f103";
+  content: '\f103';
 }
 .icon-portfolio:before {
-    content: "\f104";
+  content: '\f104';
 }
 .icon-moon:before {
-    content: "\f105";
+  content: '\f105';
 }
 .icon-linkedin:before {
-    content: "\f106";
+  content: '\f106';
 }
 .icon-focus:before {
-    content: "\f107";
+  content: '\f107';
 }
 .icon-external_link:before {
-    content: "\f108";
+  content: '\f108';
 }
 .icon-dribbble:before {
-    content: "\f109";
+  content: '\f109';
 }
 .icon-collaboration:before {
-    content: "\f10a";
+  content: '\f10a';
 }
