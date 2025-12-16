@@ -1,6 +1,6 @@
 {
   "inputDir": "./design-assets/icons/",
   "outputDir": "./public/fonts/",
-  "fontTypes": ["ttf", "woff", "woff2"],
+  "fontTypes": ["ttf", "woff", "woff2", "svg"],
   "assetTypes": ["css"]
 }

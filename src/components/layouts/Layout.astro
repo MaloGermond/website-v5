@@ -34,6 +34,16 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
       crossorigin
     />
 
+    <link
+      rel="preload"
+      href="/fonts/icons.woff"
+      as="font"
+    type="font/woff"
+    crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="/fonts/icons.css" />
+
     <!-- Analytics -->
     <UmamiPageViewer name={pageTitle} url={slug} />
 
