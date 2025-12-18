@@ -1,0 +1,19 @@
+---
+import { locales, defaultLocales } from '@locales/config.json';
+
+console.log(locales)
+
+export function getStaticPaths() {
+  const projects = ["unistellar", "privowny"]
+
+  const path = locales.flatMap((lang) =>
+    projects.map((project) => ({
+      params: { lang, project }, // Génère /fr/unistellar, /fr/privowny, /en/unistellar, etc.
+    })))
+
+  return path;
+}
+const { lang, project } = Astro.params
+
+console.log(lang, project)
+---
