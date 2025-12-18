@@ -8,12 +8,12 @@ const languages = [
 // Récupère la langue actuelle depuis l'URL
 const currentLang = Astro.params.lang || 'fr';
 
-const wrapper = "group relative bg-gray-100 border border-gray-200 h-auto w-[6rem] dark:bg-gray-700 dark:border-gray-600 overflow-hidden"
+const wrapper = "group relative flex flex-row bg-gray-100 border border-gray-200 h-auto w-auto dark:bg-gray-700 dark:border-gray-600 overflow-hidden"
 
 const action = {
-  base: "absolute left-0 w-full p-1.5 text-md font-medium justify-center text-center transition-all duration-300",
-  enabled: "bg-blue-500 text-white hover:bg-blue-600 z-1 translate-y-full group-hover:translate-y-0",
-  actived: "text-gray-800 hover:bg-gray-300 dark:text-gray-200 dark:hover:bg-gray-600",
+  base: "text-md px-4 py-2 font-medium text-center transition-all duration-300",
+  enabled: "absolute top-0 left-0 w-full bg-blue-500 text-white hover:bg-blue-600 z-1 translate-y-full group-hover:translate-y-0",
+  actived: "flex text-gray-800 hover:bg-gray-300 dark:text-gray-200 dark:hover:bg-gray-600",
 };
 
 ---
