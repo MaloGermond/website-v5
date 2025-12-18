@@ -1,7 +1,6 @@
 ---
+import Project from "@layouts/Project.astro"
 import { locales, defaultLocales } from '@locales/config.json';
-
-console.log(locales)
 
 export function getStaticPaths() {
   const projects = ["unistellar", "privowny"]
@@ -14,6 +13,10 @@ export function getStaticPaths() {
   return path;
 }
 const { lang, project } = Astro.params
+const description=""
 
-console.log(lang, project)
 ---
+
+<Project pageTitle={project} description = {description} lang={lang}>
+  
+</Project>
