@@ -5,27 +5,26 @@ import Card from "@components/Card.astro";
 import ValueCard from "@components/values/ValueCard.astro";
 import UseCaseCard from "@components/useCases/useCaseCard.astro";
 
-import { locales, defaultLocale } from "@locales/config";
 import { getTranslation } from "@utils/translation";
 
-export async function getStaticPaths() {
-	// Génère les routes pour chaque langue + la route racine
-	return [
-		{ params: { lang: undefined } }, // Route racine: /
-		...locales.map((lang) => ({
-			params: { lang }, // Routes: /fr/, /en/, etc.
-		})),
-	];
+const { lang } = Astro.params;
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: "fr" } },
+    { params: { lang: "en" } },
+  ];
 }
 
-const { lang } = Astro.params;
-const content = getTranslation(lang || defaultLocale);
+const content = getTranslation(lang) || getTranslation(fr);
+
+
 ---
 
 <Layout
 	pageTitle={content.meta.pageTitle}
 	class="flex flex-col max-w-3xl mx-auto p-6 gap-2"
-	lang={lang || defaultLocale}
+	lang={lang}
 	description={content.meta.description}
 >
 	<Card padding="2" class="gap-4">

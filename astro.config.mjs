@@ -9,6 +9,13 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   integrations: [preact(), tailwindcss(), sitemap()],
+  i18n: {
+    locales: ['fr', 'en'],
+    defaultLocale: 'fr',
+    routing: {
+      prefixDefaultLocale: true,
+    },
+  },
   site: 'https://malogermond.com',
   vite: {
     resolve: {
