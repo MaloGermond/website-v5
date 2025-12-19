@@ -17,12 +17,9 @@ export function getStaticPaths() {
 
 // 2. Récupère les données
 const { lang, project } = Astro.params;
-try {
-  const translations = await import(`../../../locales/${project}_${lang}.json`);
-} catch (error) {
-  // Redirige vers la 404 si le fichier n'existe pas
-  return Response.redirect('/404', 302);
-}
+
+const translations = await import(`../../../locales/${project}_${lang}.json`);
+
 
 const content = {
   project,
