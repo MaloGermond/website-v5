@@ -10,24 +10,24 @@ import screenHome from '@assets/unistellar/screen-unistellar-home.png';
 
 <section class="relative bg-gray-900 overflow-hidden h-screen max-h-[720px]">
   <div
-    class="absolute bottom-0 w-full h-full bg-gradient-to-t from-[#8BB0F9] from-0% via-transparent via-50% to-transparent to-100%"
+    class="absolute bottom-0 w-full h-full bg-gradient-to-t from-[#8BB0F9] from-0% via-transparent via-50% to-transparent to-100% fade-in animation-duration-2 animation-delay-2 opacity-0"
   >
   </div>
   <h1
-    class="text-[10vw] font-avara w-full text-center pt-40 text-gray-50 fade-in"
+    class="text-[10vw] font-avara w-full text-center pt-40 text-gray-50 fade-in animation-duration-2 opacity-0"
   >
     {content.hero.title}
   </h1>
   <Image
     src={earth}
     alt={content.hero.earthAlt}
-    class="absolute bottom-0 translate-y-2/4"
+    class="absolute bottom-0 translate-y-2/4 fade-in animation-duration-2 animation-delay-4 opacity-0"
     priority
   />
   <Image
     src={screenHome}
     alt={content.hero.screenHomeAlt}
-    class="absolute bottom-[-300px] left-1/2 translate-x-[-50%] w-xs"
+    class="absolute bottom-[-300px] left-1/2 translate-x-[-50%] w-xs fade-in animation-duration-3 animation-delay-6 opacity-0"
     priority
   />
 </section>

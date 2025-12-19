@@ -58,6 +58,37 @@
   }
 }
 
+/* Durations */
+.animation-duration-1 {
+  animation-duration: 1s;
+}
+.animation-duration-2 {
+  animation-duration: 2s;
+}
+.animation-duration-3 {
+  animation-duration: 3s;
+}
+
+/* Delays (en 100ms increments) */
+.animation-delay-1 {
+  animation-delay: 100ms;
+}
+.animation-delay-2 {
+  animation-delay: 200ms;
+}
+.animation-delay-4 {
+  animation-delay: 400ms;
+}
+.animation-delay-5 {
+  animation-delay: 500ms;
+}
+.animation-delay-6 {
+  animation-delay: 600ms;
+}
+
+/* Classe de base pour l'animation */
 .fade-in {
-  animation: fadeIn 1s ease-out forwards;
+  animation-name: fadeIn;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
 }
