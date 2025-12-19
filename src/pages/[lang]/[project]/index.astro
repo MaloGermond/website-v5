@@ -27,16 +27,18 @@ const content = {
 };
 
 // 3. Import dynamique de TOUS les composants du dossier
-const projectModules = import.meta.glob("./*.astro");
+const projectModules = import.meta.glob('./*.astro');
 const projectPath = `./${project}.astro`;
 
-
-// 5. Charge le composant
+// 4. Charge le composant
 const module = await projectModules[projectPath]();
 const Project = module.default;
-
 ---
 
-<Layout pageTitle={content.meta.pageTitle} description={content.meta.description} lang={lang}>
-  <Project content={content}/>
+<Layout
+  pageTitle={content.meta.pageTitle}
+  description={content.meta.description}
+  lang={lang}
+>
+  <Project content={content} />
 </Layout>

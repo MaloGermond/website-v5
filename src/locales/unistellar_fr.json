@@ -11,5 +11,20 @@
 	"hero": {
 		"title": "Unistellar App"
 	},
-	"introduction": "J’ai piloté la refonte de l’application principale, en mettant l’accent sur la réduction des frictions avant la première observation."
+	"contexte": "The connected telescope created  by Unistellar comes with an app  that helps users navigate  and explore the night sky.",
+	"purpose": "I lead the redesign of the main app, with a specific focus on how to reduce the friction before the first observation.",
+	"teams": ["2 developers  (Swift & Compose)", "1 QA", "1 PM"],
+	"skils": [
+		"Mobile pattern",
+		"Design system",
+		"Team work",
+		"Motion design",
+		"Illustrations"
+	],
+	"roles": ["Lead design", "User Experience", "UI designer", "Art director"],
+	"hook": "",
+	"challenge": "",
+	"resolution": "",
+	"process": "",
+	"results": ""
 }
