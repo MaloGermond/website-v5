@@ -1,8 +1,9 @@
 ---
-import Project from '@layouts/Project.astro';
+import Layout from '@layouts/Layout.astro';
+
 import { locales, defaultLocales } from '@locales/config.json';
 
-// Handling slugs to get local and project
+//1.  Handling slugs to get local and project
 export function getStaticPaths() {
   const projects = ['unistellar', 'privowny'];
 
@@ -15,18 +16,27 @@ export function getStaticPaths() {
   return path;
 }
 
-// 2. Récupère les données
+// 2. Récupère les locales pour les projets
 const { lang, project } = Astro.params;
 
 const translations = await import(`../../../locales/${project}_${lang}.json`);
-
 
 const content = {
   project,
   ...translations.default, // Contient title, description, etc.
 };
 
+// 3. Import dynamique de TOUS les composants du dossier
+const projectModules = import.meta.glob("./*.astro");
+const projectPath = `./${project}.astro`;
+
+
+// 5. Charge le composant
+const module = await projectModules[projectPath]();
+const Project = module.default;
 
 ---
 
-<Project pageTitle={content.meta.pageTitle} description={content.meta.description} lang={lang} />
+<Layout pageTitle={content.meta.pageTitle} description={content.meta.description} lang={lang}>
+  <Project content={content}/>
+</Layout>

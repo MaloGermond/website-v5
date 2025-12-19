@@ -1,5 +1,6 @@
 ---
-console.log("hello")
+const {content} = Astro.props
+
 ---
 
-<h1>Hellooo</h1>
+<h1>{content.hero.title}</h1>
