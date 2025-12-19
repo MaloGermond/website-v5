@@ -2,9 +2,11 @@
 import ThemeSwitcher from "@components/ThemeSwitcher.jsx"
 import LanguageSwitcher from "@components/LanguageSwitcher.astro"
 import Icons from "@components/Icons.astro"
+
+const {slug} = Astro.props
 ---
 
 <header class="fixed w-full p-2 top-0 flex flex-row-reverse  items-center gap-4 z-10 border-b-1 border-gray-400  bg-gray-50 dark:bg-gray-900">
 	<ThemeSwitcher client:load/> 
-	<LanguageSwitcher/>
+	<LanguageSwitcher slug={slug}/>
 </header>

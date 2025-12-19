@@ -5,6 +5,11 @@ const languages = [
   { code: 'en', name: 'English' },
 ];
 
+const {slug} = Astro.props
+
+const [lang, ...rest] = slug.split('/').filter(part => part !== '');
+
+
 // Récupère la langue actuelle depuis l'URL
 const currentLang = Astro.params.lang || 'fr';
 
@@ -27,7 +32,7 @@ const action = {
     >
       {lang.name}
     </a> : <a
-      href={`/${lang.code}/`}
+      href={`/${lang.code}/${rest}/`}
       class={`${action.base} ${action.enabled}`}
       aria-label={`Switch to ${lang.name}`}
     >
