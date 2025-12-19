@@ -7,6 +7,7 @@ import Mosaic from '@components/projects/Mosaic.astro';
 // Load Images
 import earth from '@assets/unistellar/earth.png';
 import screenHome from '@assets/unistellar/screen-unistellar-home.png';
+import icons from '@assets/unistellar/icons.png';
 ---
 
 <section class="relative bg-gray-900 overflow-hidden h-screen max-h-[720px]">
@@ -42,3 +43,6 @@ import screenHome from '@assets/unistellar/screen-unistellar-home.png';
   </div>
 </section>
 <Mosaic/>
+<section>
+  <Image src={icons} alt=""/>
+</section>
