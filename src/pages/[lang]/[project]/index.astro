@@ -26,26 +26,7 @@ const content = {
   ...translations.default, // Contient title, description, etc.
 };
 
-console.log(content);
 
-const description = '';
-
-// const posts = await Astro.glob('./*.md')
-
-// // Parse le nom de fichier pour extraire le nom et la locale
-// const parsedPosts = posts.map((post) => {
-//   const fileName = post.file.split('/').pop(); // Ex: "article1_fr.md"
-//   const [name, loc] = fileName.replace('.md', '').split('_'); // ["article1", "fr"]
-
-//   return {
-//     ...post,
-//     name, // "article1"
-//     loc,  // "fr"
-//     frontmatter: post.frontmatter,
-//   };
-// });
-
-// console.log(parsedPosts)
 ---
 
-<Project pageTitle={project} description={description} lang={lang} />
+<Project pageTitle={content.meta.pageTitle} description={content.meta.description} lang={lang} />
