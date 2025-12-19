@@ -1,0 +1,8 @@
+---
+import Layout from '@layouts/Layout.astro';
+const { pageTitle, description = '', lang} = Astro.props
+---
+
+<Layout pageTitle={pageTitle} description = {description} lang={lang}>
+	<slot/>
+</Layout>

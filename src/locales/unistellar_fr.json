@@ -1,0 +1,15 @@
+{
+	"meta": {
+		"pageTitle": "Unistellar App",
+		"description": ""
+	},
+	"cover": {
+		"title": "Démocratiser l’astronomie en atténuant les principaux freins à l’usages",
+		"imagePath": "",
+		"imageAlt": "Capture d’écran de l’application mobile Unistellar présentant un téléphone avec une vue immersive de la Terre depuis l’espace en arrière-plan. L’interface affiche un télescope connecté au premier plan, une section intitulée \"Mon Odyssée\", ainsi que des informations sur la batterie et le stockage. L’application est dédiée à l’astronomie et à la gestion de télescopes intelligents."
+	},
+	"hero": {
+		"title": "Unistellar App"
+	},
+	"introduction": "J’ai piloté la refonte de l’application principale, en mettant l’accent sur la réduction des frictions avant la première observation."
+}
