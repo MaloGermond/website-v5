@@ -1,6 +1,14 @@
 ---
 const {content} = Astro.props
+import { Image } from "astro:assets";
+
+// Load Images
+import earth from "@assets/unistellar/earth.png"
+
 
 ---
 
-<h1>{content.hero.title}</h1>
+<section class="relative bg-gray-900 overflow-hidden h-screen">
+<h1 class="text-7xl font-black w-full text-center text-gray-50">{content.hero.title}</h1>
+<Image src={earth} alt="" class="absolute bottom-0 translate-y-2/4" priority>
+</section>
