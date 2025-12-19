@@ -32,7 +32,7 @@ export default function ThemeSwitcher() {
     <button
       type="button"
       onClick={toggleTheme}
-      class="dark:text-slate-200 bg-slate-100 dark:bg-slate-800 border border-slate-600 dark:border-slate-400 p-2 rounded-full hover:text-blue-700 hover:bg-blue-100 hover:border-blue-600 transition-all duration-[0.5s] ease-out"
+      class="size-10 flex items-center justify-center dark:text-slate-200 bg-slate-100 dark:bg-slate-800 border border-slate-600 dark:border-slate-400 p-2 rounded-full hover:text-blue-700 hover:bg-blue-100 hover:border-blue-600 transition-all duration-[0.5s] ease-out"
       aria-label="Basculer le thème"
     >
       {theme === 'light' ? <Icons label={sunSVG} /> : <Icons label={moonSVG} />}
