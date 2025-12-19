@@ -1,39 +1,54 @@
 ---
-import Project from "@layouts/Project.astro"
+import Project from '@layouts/Project.astro';
 import { locales, defaultLocales } from '@locales/config.json';
 
+// Handling slugs to get local and project
 export function getStaticPaths() {
-  const projects = ["unistellar", "privowny"]
+  const projects = ['unistellar', 'privowny'];
 
   const path = locales.flatMap((lang) =>
     projects.map((project) => ({
       params: { lang, project }, // Génère /fr/unistellar, /fr/privowny, /en/unistellar, etc.
-    })))
+    }))
+  );
 
   return path;
 }
-const { lang, project } = Astro.params
-const description=""
 
-const posts = await Astro.glob('./*.md')
+// 2. Récupère les données
+const { lang, project } = Astro.params;
+try {
+  const translations = await import(`../../../locales/${project}_${lang}.json`);
+} catch (error) {
+  // Redirige vers la 404 si le fichier n'existe pas
+  return Response.redirect('/404', 302);
+}
 
-// Parse le nom de fichier pour extraire le nom et la locale
-const parsedPosts = posts.map((post) => {
-  const fileName = post.file.split('/').pop(); // Ex: "article1_fr.md"
-  const [name, loc] = fileName.replace('.md', '').split('_'); // ["article1", "fr"]
+const content = {
+  project,
+  ...translations.default, // Contient title, description, etc.
+};
 
-  return {
-    ...post,
-    name, // "article1"
-    loc,  // "fr"
-    frontmatter: post.frontmatter,
-  };
-});
+console.log(content);
 
-console.log(parsedPosts)
+const description = '';
 
+// const posts = await Astro.glob('./*.md')
+
+// // Parse le nom de fichier pour extraire le nom et la locale
+// const parsedPosts = posts.map((post) => {
+//   const fileName = post.file.split('/').pop(); // Ex: "article1_fr.md"
+//   const [name, loc] = fileName.replace('.md', '').split('_'); // ["article1", "fr"]
+
+//   return {
+//     ...post,
+//     name, // "article1"
+//     loc,  // "fr"
+//     frontmatter: post.frontmatter,
+//   };
+// });
+
+// console.log(parsedPosts)
 ---
 
-<Project pageTitle={project} description = {description} lang={lang}>
-  
-</Project>
+<Project pageTitle={project} description={description} lang={lang} />
