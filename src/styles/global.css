@@ -8,10 +8,18 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Avara';
+  src: url('/fonts/Avara-Bold.otf') format('opentype');
+  font-style: bold;
+  font-display: swap;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --font-satoshi: Satoshi, sans-serif;
+  --font-avara: Avara, sans-serif;
 
   --font-sans:
     Satoshi, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
