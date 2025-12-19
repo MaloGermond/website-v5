@@ -2,6 +2,7 @@
 const { content } = Astro.props;
 import { Image } from 'astro:assets';
 import InfoColumn from '@components/projects/InfoColumn.astro';
+import Mosaic from '@components/projects/Mosaic.astro';
 
 // Load Images
 import earth from '@assets/unistellar/earth.png';
@@ -40,3 +41,4 @@ import screenHome from '@assets/unistellar/screen-unistellar-home.png';
     <InfoColumn title={content.skills.title} items={content.skills.items}/>
   </div>
 </section>
+<Mosaic/>

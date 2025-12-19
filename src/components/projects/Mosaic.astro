@@ -1,0 +1,64 @@
+---
+
+---
+
+<section class="w-full h-[720px] bg-gradient-screens overflow-hidden ">
+	<div class="w-full h-full flex flex-row gap-8 rotate-[-5deg]">
+  <div class="flex flex-col gap-48 slide-loop slide-item">
+    {
+      Array.from({ length: 5 }).map((_, i) => (
+        <div key={i} class="screen shrink-0 bg-gray-400 rounded-xl" />
+      ))
+    }
+  </div>
+  <div class="flex flex-col gap-8 slide-loop slide-item">
+		{Array.from({ length: 5 }).map((_, i) => (
+      <div key={i} class="screen shrink-0 bg-gray-400 rounded-xl"></div>
+    ))}
+</div>
+ <div class="flex flex-col gap-8 slide-loop slide-item">
+		{Array.from({ length: 5 }).map((_, i) => (
+      <div key={i} class="screen shrink-0 bg-gray-400 rounded-xl"></div>
+    ))}
+</div>
+ <div class="flex flex-col gap-8 slide-loop slide-item">
+		{Array.from({ length: 5 }).map((_, i) => (
+      <div key={i} class="screen shrink-0 bg-gray-400 rounded-xl"></div>
+    ))}
+</div>
+ <div class="flex flex-col gap-8 slide-loop slide-item">
+		{Array.from({ length: 5 }).map((_, i) => (
+      <div key={i} class="screen shrink-0 bg-gray-400 rounded-xl"></div>
+    ))}
+</div>
+</div>
+</section>
+
+<style>
+  .bg-gradient-screens {
+    background: linear-gradient(293.8deg, #1f2c5a 8.8%, #0d0a1d 87.38%);
+  }
+
+  .screen {
+    width: 200px;
+    height: 350px;
+  }
+  .slide-item:nth-child(odd) {
+  margin-top: -100px;
+}
+
+  @keyframes slideLoop {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateY(-730px); /* Déplace de la largeur totale */
+    }
+  }
+
+  .slide-loop {
+    animation: slideLoop 15s linear infinite;
+    display: flex;
+    gap: 1rem; /* Espacement entre les éléments */
+  }
+</style>
