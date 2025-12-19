@@ -1,14 +1,28 @@
 ---
-const {content} = Astro.props
-import { Image } from "astro:assets";
+const { content } = Astro.props;
+import { Image } from 'astro:assets';
 
 // Load Images
-import earth from "@assets/unistellar/earth.png"
-
-
+import earth from '@assets/unistellar/earth.png';
+import screenHome from '@assets/unistellar/screen-unistellar-home.png';
 ---
 
-<section class="relative bg-gray-900 overflow-hidden h-screen">
-<h1 class="text-7xl font-black w-full text-center text-gray-50">{content.hero.title}</h1>
-<Image src={earth} alt="" class="absolute bottom-0 translate-y-2/4" priority>
+<section class="relative bg-gray-900 overflow-hidden h-screen max-h-[720px]">
+	<div class="absolute bottom-0 w-full h-full bg-gradient-to-t from-[#8BB0F9] from-0% via-transparent via-50% to-transparent to-100%
+"></div>
+  <h1 class="text-[10vw] font-black w-full text-center pt-40 text-gray-50">
+    {content.hero.title}
+  </h1>
+  <Image
+    src={earth}
+    alt={content.hero.alt}
+    class="absolute bottom-0 translate-y-2/4"
+    priority
+  />
+  <Image
+    src={screenHome}
+    alt=""
+    class="absolute bottom-[-300px] left-1/2 translate-x-[-50%] w-xs"
+    priority
+  />
 </section>

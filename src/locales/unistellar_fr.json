@@ -9,10 +9,11 @@
 		"imageAlt": "Capture d’écran de l’application mobile Unistellar présentant un téléphone avec une vue immersive de la Terre depuis l’espace en arrière-plan. L’interface affiche un télescope connecté au premier plan, une section intitulée \"Mon Odyssée\", ainsi que des informations sur la batterie et le stockage. L’application est dédiée à l’astronomie et à la gestion de télescopes intelligents."
 	},
 	"hero": {
-		"title": "Unistellar App"
+		"title": "Unistellar App",
+		"alt": "Vue satellite de la Terre montrant l'Europe de nuit, avec les lumières des villes illuminant le continent, les nuages au-dessus de l'océan Atlantique et une partie de l'Afrique visible en bas à gauche. L'image capture la courbure de la planète et l'atmosphère terrestre éclairée par le soleil."
 	},
 	"contexte": "The connected telescope created  by Unistellar comes with an app  that helps users navigate  and explore the night sky.",
-	"purpose": "I lead the redesign of the main app, with a specific focus on how to reduce the friction before the first observation.",
+	"purposex": "I lead the redesign of the main app, with a specific focus on how to reduce the friction before the first observation.",
 	"teams": ["2 developers  (Swift & Compose)", "1 QA", "1 PM"],
 	"skils": [
 		"Mobile pattern",
