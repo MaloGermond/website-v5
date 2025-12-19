@@ -1,6 +1,5 @@
 ---
-const { pageTitle, description = '', class:classList, lang } = Astro.props;
-
+const { pageTitle, description = '', class: classList, lang } = Astro.props;
 
 import '@styles/global.css';
 
@@ -64,7 +63,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     class="flex flex-col justify-start min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors"
   >
     <Header />
-    <main class={"pt-20 " + classList}>
+    <main class={'pt-20 ' + classList}>
       <slot />
     </main>
   </body>
