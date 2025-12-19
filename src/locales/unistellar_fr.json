@@ -1,28 +1,44 @@
 {
 	"meta": {
-		"pageTitle": "Unistellar App",
+		"pageTitle": "Application Unistellar",
 		"description": ""
 	},
 	"cover": {
-		"title": "Démocratiser l’astronomie en atténuant les principaux freins à l’usages",
+		"title": "Démocratiser l’astronomie en réduisant les principaux obstacles à l’utilisation",
 		"imagePath": "",
-		"imageAlt": "Capture d’écran de l’application mobile Unistellar présentant un téléphone avec une vue immersive de la Terre depuis l’espace en arrière-plan. L’interface affiche un télescope connecté au premier plan, une section intitulée \"Mon Odyssée\", ainsi que des informations sur la batterie et le stockage. L’application est dédiée à l’astronomie et à la gestion de télescopes intelligents."
+		"alt": "Capture d’écran de l’application mobile Unistellar montrant un téléphone avec une vue immersive de la Terre depuis l’espace en arrière-plan. L’interface présente un télescope connecté au premier plan, une section intitulée « Mon Odyssée », ainsi que des informations sur la batterie et le stockage. L’application est dédiée à l’astronomie et à la gestion de télescopes intelligents."
 	},
 	"hero": {
-		"title": "Unistellar App",
-		"alt": "Vue satellite de la Terre montrant l'Europe de nuit, avec les lumières des villes illuminant le continent, les nuages au-dessus de l'océan Atlantique et une partie de l'Afrique visible en bas à gauche. L'image capture la courbure de la planète et l'atmosphère terrestre éclairée par le soleil."
+		"title": "Unistellar app",
+		"earthAlt": "Vue satellite de la Terre de nuit, montrant l’Europe éclairée par les lumières des villes, des nuages au-dessus de l’océan Atlantique et une partie de l’Afrique visible en bas à gauche. L’image capture la courbure de la planète et l’atmosphère terrestre éclairée par le soleil.",
+		"screenHomeAlt": "Capture d’écran de l’application Unistellar sur mobile affichant l’interface de contrôle du télescope eVscope. L’écran montre le nom du télescope « My Odyssey », son niveau de batterie à 50 %, un bouton « Observer » pour lancer l’observation, et un tutoriel intitulé « Comment obtenir une mise au point parfaite avec votre télescope eVscope ». En arrière-plan, une image du télescope pointé vers l’espace avec la Terre en fond."
 	},
-	"contexte": "The connected telescope created  by Unistellar comes with an app  that helps users navigate  and explore the night sky.",
-	"purposex": "I lead the redesign of the main app, with a specific focus on how to reduce the friction before the first observation.",
-	"teams": ["2 developers  (Swift & Compose)", "1 QA", "1 PM"],
-	"skils": [
-		"Mobile pattern",
-		"Design system",
-		"Team work",
-		"Motion design",
-		"Illustrations"
+	"contexte": "Le télescope connecté développé par Unistellar est accompagné d’une application qui aide les utilisateurs à naviguer et explorer le ciel nocturne.",
+	"purposex": "J’ai dirigé la refonte de l’application principale, en me concentrant spécifiquement sur la réduction des frictions avant la première observation.",
+	"teams": [
+		"2 développeurs (Swift & Compose)",
+		"1 responsable qualité (QA)",
+		"1 chef de projet (PM)"
 	],
-	"roles": ["Lead design", "User Experience", "UI designer", "Art director"],
+	"skills": {
+		"title": "Compétences",
+		"items": [
+			"Patterns mobiles",
+			"Design system",
+			"Travail d’équipe",
+			"Motion design",
+			"Illustrations"
+		]
+	},
+	"roles": {
+		"title": "Rôles",
+		"items": [
+			"Design lead",
+			"Expérience utilisateur (UX)",
+			"Design d’interface (UI)",
+			"Direction artistique"
+		]
+	},
 	"hook": "",
 	"challenge": "",
 	"resolution": "",
