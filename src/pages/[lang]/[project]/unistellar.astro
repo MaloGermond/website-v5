@@ -5,8 +5,6 @@ import InfoColumn from '@components/projects/InfoColumn.astro';
 import Mosaic from '@components/projects/Mosaic.astro';
 
 // Load Images
-import icons from '@assets/unistellar/icons.png';
-
 const screens = await Astro.glob("../../../assets/unistellar/*{jpg,png,gif,webp}")
 
 // 2. Crée un objet indexé par le nom de fichier (sans extension)
@@ -66,5 +64,5 @@ for (const screen of screens) {
 </section>
 <Mosaic/>
 <section>
-  <Image src={icons} alt="" class="max-w-7xl w-full m-auto"/>
+  <Image src={images["icons"]} alt="" class="max-w-7xl w-full m-auto"/>
 </section>
