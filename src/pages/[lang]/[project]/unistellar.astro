@@ -5,12 +5,12 @@ import InfoColumn from '@components/projects/InfoColumn.astro';
 import Mosaic from '@components/projects/Mosaic.astro';
 
 // Load Images
-const screens = await Astro.glob("../../../assets/unistellar/*{jpg,png,gif,webp}")
+const loadScreens = await Astro.glob("../../../assets/unistellar/*{jpg,png,gif,webp}")
 
 // 2. Crée un objet indexé par le nom de fichier (sans extension)
 const images = {};
 
-for (const screen of screens) {
+for (const screen of loadScreens) {
   const path = screen.default.src
   const values = screen.default
   const fileNames = path.split('/').pop()?.split(/(.*)\.png/gm)
@@ -23,9 +23,12 @@ for (const screen of screens) {
       width: values.width,
       height: values.height,
       format: values.format,
+      name: name
     };
   }
 }
+
+const mosaicScreens = Object.values(images).filter(el=>el.name.startsWith("screen-"))
 
 
 ---
@@ -62,7 +65,7 @@ for (const screen of screens) {
     <InfoColumn title={content.skills.title} items={content.skills.items}/>
   </div>
 </section>
-<Mosaic/>
+<Mosaic images={mosaicScreens}/>
 <section>
   <Image src={images["icons"]} alt="" class="max-w-7xl w-full m-auto"/>
 </section>
