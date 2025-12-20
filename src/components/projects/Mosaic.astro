@@ -12,11 +12,11 @@ for (var i = 0; i < 5; i++) {
   class="w-full h-[720px] bg-gradient-screens overflow-hidden max-w-7xl m-auto"
 >
   <div
-    class={`w-full h-full grid grid-cols-${col} gap-8 rotate-[-5deg]`}
+    class={`w-full h-full grid grid-cols-${col} gap-8 rotate-[-5deg] h-auto`}
   >
     {
       Array.from({ length: col }).map((_, i) => (
-        <div class="flex flex-col gap-4 slide-item slide-loop">
+        <div class="flex flex-col gap-4 slide-item slide-loop h-auto">
           {Array.from({ length: col }).map((_, j) => (
             <Image
               src={images[(i * col + j) % images.length]}
@@ -51,10 +51,10 @@ for (var i = 0; i < 5; i++) {
 
   @keyframes slideLoop {
     0% {
-      transform: translate3d(0, 0, 0);
+      transform: translateY(0);
     }
     100% {
-      transform: translate3d(0, -100%, 0);
+      transform: translateY(-50%);
     }
   }
 
