@@ -1,18 +1,29 @@
 ---
 import { Image } from 'astro:assets';
 const { images, col = 4 } = Astro.props;
-
+for (var i = 0; i < 5; i++) {
+  for (var j = 0; j < 5; j++) {
+    console.log((i * 5 + j)%images.length + '		/ ' + images.length);
+  }
+}
 ---
 
 <section
   class="w-full h-[720px] bg-gradient-screens overflow-hidden max-w-7xl m-auto"
 >
-  <div class="w-full h-full flex flex-row gap-8 rotate-[-5deg] translate-x-[-80px]">
+  <div
+    class="w-full h-full flex flex-row gap-8 rotate-[-5deg] translate-x-[-80px]"
+  >
     {
       Array.from({ length: col }).map((_, i) => (
         <div class="flex flex-col gap-48 slide-loop slide-item">
           {Array.from({ length: 5 }).map((_, j) => (
-            <Image src={images[j*i%images.length]} alt="" key={i} class="screen shrink-0" />
+            <Image
+              src={images[(i * 5 + j)%images.length]}
+              alt=""
+              key={`${i}-${j}`}
+              class="screen shrink-0"
+            />
           ))}
         </div>
       ))
