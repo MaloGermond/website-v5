@@ -39,6 +39,10 @@
   --color-gray-900: oklch(0.1297 0.005 285.67);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .paragraph {
   text-wrap: balance;
   orphans: 2;
