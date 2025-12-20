@@ -1,58 +1,20 @@
 ---
-
+const { images, col = 4 } = Astro.props;
 ---
 
-<section class="w-full h-[720px] bg-gradient-screens overflow-hidden max-w-7xl m-auto">
-  <div class="w-full h-full flex flex-row gap-8 rotate-[-5deg]">
-    <div class="flex flex-col gap-48 slide-loop slide-item">
-      {
-        Array.from({ length: 5 }).map((_, i) => (
-          <div key={i} class="screen shrink-0 bg-gray-400 rounded-xl" />
-        ))
-      }
-    </div>
-    <div class="flex flex-col gap-8 slide-loop slide-item">
-      {
-        Array.from({ length: 5 }).map((_, i) => (
-          <div key={i} class="screen shrink-0 bg-gray-400 rounded-xl" />
-        ))
-      }
-    </div>
-    <div class="flex flex-col gap-8 slide-loop slide-item">
-      {
-        Array.from({ length: 5 }).map((_, i) => (
-          <div key={i} class="screen shrink-0 bg-gray-400 rounded-xl" />
-        ))
-      }
-    </div>
-    <div class="flex flex-col gap-8 slide-loop slide-item">
-      {
-        Array.from({ length: 5 }).map((_, i) => (
-          <div key={i} class="screen shrink-0 bg-gray-400 rounded-xl" />
-        ))
-      }
-    </div>
-    <div class="flex flex-col gap-8 slide-loop slide-item">
-      {
-        Array.from({ length: 5 }).map((_, i) => (
-          <div key={i} class="screen shrink-0 bg-gray-400 rounded-xl" />
-        ))
-      }
-    </div>
-    <div class="flex flex-col gap-8 slide-loop slide-item">
-      {
-        Array.from({ length: 5 }).map((_, i) => (
-          <div key={i} class="screen shrink-0 bg-gray-400 rounded-xl" />
-        ))
-      }
-    </div>
-    <div class="flex flex-col gap-8 slide-loop slide-item">
-      {
-        Array.from({ length: 5 }).map((_, i) => (
-          <div key={i} class="screen shrink-0 bg-gray-400 rounded-xl" />
-        ))
-      }
-    </div>
+<section
+  class="w-full h-[720px] bg-gradient-screens overflow-hidden max-w-7xl m-auto"
+>
+  <div class="w-full h-full flex flex-row gap-8 rotate-[-5deg] translate-x-[-80px]">
+    {
+      Array.from({ length: col }).map((_, i) => (
+        <div class="flex flex-col gap-48 slide-loop slide-item">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <div key={i} class="screen shrink-0 bg-gray-400 rounded-xl" />
+          ))}
+        </div>
+      ))
+    }
   </div>
 </section>
 
