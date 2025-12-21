@@ -28,6 +28,8 @@ const content = getTranslation(lang) || getTranslation(defaultLocales);
   lang={lang || getTranslation(defaultLocales)}
   description={content.meta.description}
 >
+  <div class="flex flex-row flex-wrap w-full gap-2">
+  <div class="flex flex-col gap-2 grow-1">
   <Card padding="2" class="gap-4">
     <div class="flex flex-col px-2">
       <h1 class="body text-2xl dark:text-slate-100 transition-all font-bold">
@@ -62,6 +64,11 @@ const content = getTranslation(lang) || getTranslation(defaultLocales);
       ))
     }
   </Card>
+  </div>
+    <Card class="grow-1 min-w-[200px]">
+      <a class="w-full h-full bg-gray-300" href=`/${lang}/unistellar`>Unistellar</a>
+    </Card>
+  </div>
 
   <Card style="accent" class="items-center p-8 gap-4">
     <h2
