@@ -4,11 +4,12 @@ const { images, col = 4 } = Astro.props;
 
 ---
 
-<section
-  class="w-full h-[720px] bg-gradient-screens overflow-hidden max-w-7xl m-auto"
+<div
+  class="w-full h-full bg-gradient-screens overflow-hidden max-w-7xl m-auto"
 >
   <div
-    class={`w-full h-full grid grid-cols-${col} gap-8 rotate-[-5deg] h-auto`}
+    class={`w-full h-full grid gap-8 rotate-[-5deg]`}
+    style={`grid-template-columns: repeat(${col}, 1fr);`}
   >
     {
       Array.from({ length: col }).map((_, i) => (
@@ -18,16 +19,17 @@ const { images, col = 4 } = Astro.props;
               src={images[(i * col + j) % images.length]}
               alt={`Slide ${i}-${j}`}
               key={`${i}-${j}`}
-              class="shrink-0 w-full h-auto"
+              class="shrink-0 w-[250px] h-auto"
               format="webp"
               loading="lazy"
+              width="250px"
             />
           ))}
         </div>
       ))
     }
   </div>
-</section>
+</div>
 
 <style>
   .bg-gradient-screens {

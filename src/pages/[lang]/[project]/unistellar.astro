@@ -41,7 +41,7 @@ const mosaicScreens = Object.values(images).filter((el) =>
 
 ---
 
-<section class="relative bg-gray-900 overflow-hidden h-screen max-h-[720px]">
+<section class="relative bg-gray-900 overflow-hidden h-screen">
   <div
     class="absolute bottom-0 w-full h-full bg-gradient-to-t from-[#8BB0F9] from-0% via-transparent via-50% to-transparent to-100% fade-in animation-duration-2 animation-delay-2 opacity-0"
   >
@@ -64,7 +64,7 @@ const mosaicScreens = Object.values(images).filter((el) =>
     priority
   />
 </section>
-<section class="px-8 py-16 h-screen max-h-[720px] max-w-7xl m-auto">
+<section class="px-8 py-16 h-screen max-w-7xl m-auto">
   <h2 class="font-avara paragraph text-4xl max-w-3xl p-4 dark:text-gray-50">
     {content.contexte}
   </h2>
@@ -73,12 +73,21 @@ const mosaicScreens = Object.values(images).filter((el) =>
     <InfoColumn title={content.skills.title} items={content.skills.items} />
   </div>
 </section>
+<section>
 <Mosaic images={mosaicScreens} />
+</section>
 <section>
   <div
-    class="flex flex-col justify-center text-5xl leading-20 max-w-6xl m-auto font-avara paragraphe h-[720px] p-12 text-gray-900 dark:text-gray-50" set:html={marked(content.purpose)}
+    class="flex flex-col justify-center text-md leading-5 sm:text-5xl sm:leading-20 max-w-6xl m-auto font-avara paragraphe p-12 text-gray-900 dark:text-gray-50" set:html={marked(content.purpose)}
   />
 </section>
 <section>
   <Image src={images['icons']} alt="" class="max-w-7xl w-full m-auto" />
 </section>
+
+
+<style>
+  section{
+    height: min(80vh, 720px);
+  }
+</style>
