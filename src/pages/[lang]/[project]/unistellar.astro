@@ -54,7 +54,7 @@ const mosaicScreens = Object.values(images).filter((el) =>
   <Image
     src={images['earth']}
     alt={content.hero.earthAlt}
-    class="absolute bottom-[-200px] translate-y-2/4 fade-in animation-duration-2 animation-delay-4 opacity-0"
+    class="absolute bottom-0 sm:bottom-[-60px] md:bottom-[-100px] lg:bottom-[-150px] xl:bottom-[-200px] 2xl:bottom-[-350px] left-1/2 translate-x-[-50%] translate-y-2/4 fade-in animation-duration-2 animation-delay-4 opacity-0"
     priority
   />
   <Image
@@ -68,7 +68,7 @@ const mosaicScreens = Object.values(images).filter((el) =>
   <h2 class="font-avara paragraph text-xl sm:text-4xl max-w-3xl p-4 dark:text-gray-50">
     {content.contexte}
   </h2>
-  <div class="flex flex-row">
+  <div class="flex flex-row flex-wrap">
     <InfoColumn title={content.roles.title} items={content.roles.items} />
     <InfoColumn title={content.skills.title} items={content.skills.items} />
   </div>
