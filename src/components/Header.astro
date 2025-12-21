@@ -1,13 +1,22 @@
 ---
-import ThemeSwitcher from "@components/ThemeSwitcher.jsx"
-import LanguageSwitcher from "@components/LanguageSwitcher.astro"
+import ThemeSwitcher from '@components/ThemeSwitcher.jsx';
+import LanguageSwitcher from '@components/LanguageSwitcher.astro';
 
-const {slug} = Astro.props
+const { slug } = Astro.props;
 ---
 
-<header class="fixed top-0 left-1/2 -translate-x-1/2 w-full flex z-10 max-w-7xl">
-	<div class=" w-full m-2  p-2 flex flex-row-reverse items-center rounded-full border-1 border-gray-400/50 dark:border-gray-700 gap-2 z-10 bg-gray-100/10 dark:bg-gray-900/20 backdrop-blur-sm ">
-    <ThemeSwitcher client:load/>
-    <LanguageSwitcher slug={slug}/>
+<header
+  class="fixed top-0 left-1/2 -translate-x-1/2 w-full flex z-10 max-w-7xl"
+>
+  <div
+    class="w-full m-2 p-2 flex flex-row items-center justify-between rounded-full border-1 border-gray-400/50 dark:border-gray-700 gap-2 z-10 bg-gray-100/10 dark:bg-gray-900/20 backdrop-blur-sm"
+  >
+    <div class="flex lex-row">
+      <a class="py-2 px-4 rounded-full dark:text-gray-50 border border-gray-300 dark:border-gray-500 bg-gray-50 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-800 transition-all duration-300" href="/">Home</a>
+    </div>
+    <div class="flex flex-row gap-4">
+      <LanguageSwitcher slug={slug} />
+      <ThemeSwitcher client:load />
+    </div>
   </div>
 </header>
