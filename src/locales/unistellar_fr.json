@@ -14,7 +14,7 @@
     "screenHomeAlt": "Capture d’écran de l’application Unistellar sur mobile affichant l’interface de contrôle du télescope eVscope. L’écran montre le nom du télescope « My Odyssey », son niveau de batterie à 50 %, un bouton « Observer » pour lancer l’observation, et un tutoriel intitulé « Comment obtenir une mise au point parfaite avec votre télescope eVscope ». En arrière-plan, une image du télescope pointé vers l’espace avec la Terre en fond."
   },
   "contexte": "Le télescope connecté développé par Unistellar est accompagné d’une application qui aide les utilisateurs à naviguer et explorer le ciel nocturne.",
-  "purpose": "J’ai dirigé la refonte de l’application principale, en me concentrant spécifiquement sur la réduction des frictions avant la première observation.",
+  "purpose": "J’ai dirigé la <strong>refonte</strong> de l’application principale, en me concentrant spécifiquement sur la réduction des frictions avant la première observation.",
   "teams": [
     "2 développeurs (Swift & Compose)",
     "1 responsable qualité (QA)",

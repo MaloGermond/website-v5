@@ -1,11 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 const { images, col = 4 } = Astro.props;
-for (var i = 0; i < 5; i++) {
-  for (var j = 0; j < 5; j++) {
-    console.log(((i * 5 + j) % images.length) + '		/ ' + images.length);
-  }
-}
+
 ---
 
 <section

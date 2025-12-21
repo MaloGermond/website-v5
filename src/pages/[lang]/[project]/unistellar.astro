@@ -1,34 +1,42 @@
 ---
 const { content } = Astro.props;
 import { Image } from 'astro:assets';
+import { marked } from '@utils/marked.js';
 import InfoColumn from '@components/projects/InfoColumn.astro';
 import Mosaic from '@components/projects/Mosaic.astro';
 
 // Load Images
-const loadScreens = await Astro.glob("../../../assets/unistellar/*{jpg,png,gif,webp}")
+const loadScreens = await Astro.glob(
+  '../../../assets/unistellar/*{jpg,png,gif,webp}'
+);
 
 // 2. Crée un objet indexé par le nom de fichier (sans extension)
 const images = {};
 
 for (const screen of loadScreens) {
-  const path = screen.default.src
-  const values = screen.default
-  const fileNames = path.split('/').pop()?.split(/(.*)\.png/gm)
-  const name = fileNames[1]
+  const path = screen.default.src;
+  const values = screen.default;
+  const fileNames = path
+    .split('/')
+    .pop()
+    ?.split(/(.*)\.png/gm);
+  const name = fileNames[1];
 
   // const filename = screen.file.split('/').pop()?.replace(/\.\w+$/, '');
-  if (fileNames.length===3) {
+  if (fileNames.length === 3) {
     images[name] = {
       src: values.src,
       width: values.width,
       height: values.height,
       format: values.format,
-      name: name
+      name: name,
     };
   }
 }
 
-const mosaicScreens = Object.values(images).filter(el=>el.name.startsWith("screen-"))
+const mosaicScreens = Object.values(images).filter((el) =>
+  el.name.startsWith('screen-')
+);
 
 
 ---
@@ -44,13 +52,13 @@ const mosaicScreens = Object.values(images).filter(el=>el.name.startsWith("scree
     {content.hero.title}
   </h1>
   <Image
-    src={images["earth"]}
+    src={images['earth']}
     alt={content.hero.earthAlt}
     class="absolute bottom-[-200px] translate-y-2/4 fade-in animation-duration-2 animation-delay-4 opacity-0"
     priority
   />
   <Image
-    src={images["screen-unistellar-home"]}
+    src={images['screen-unistellar-home']}
     alt={content.hero.screenHomeAlt}
     class="absolute bottom-[-300px] left-1/2 translate-x-[-50%] w-xs fade-in animation-duration-3 animation-delay-6 opacity-0"
     priority
@@ -62,13 +70,17 @@ const mosaicScreens = Object.values(images).filter(el=>el.name.startsWith("scree
   </h2>
   <div class="flex flex-row">
     <InfoColumn title={content.roles.title} items={content.roles.items} />
-    <InfoColumn title={content.skills.title} items={content.skills.items}/>
+    <InfoColumn title={content.skills.title} items={content.skills.items} />
   </div>
 </section>
-<Mosaic images={mosaicScreens}/>
+<Mosaic images={mosaicScreens} />
 <section>
-  <p class="flex flex-col justify-center text-5xl leading-20 max-w-6xl m-auto font-avara paragraphe h-[720px] p-12 text-gray-900 dark:text-gray-50">{content.purpose}</p>
+  <p
+    class="flex flex-col justify-center text-5xl leading-20 max-w-6xl m-auto font-avara paragraphe h-[720px] p-12 text-gray-900 dark:text-gray-50"
+  >
+    {marked(content.purpose)}
+  </p>
 </section>
 <section>
-  <Image src={images["icons"]} alt="" class="max-w-7xl w-full m-auto"/>
+  <Image src={images['icons']} alt="" class="max-w-7xl w-full m-auto" />
 </section>
