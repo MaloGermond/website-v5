@@ -1,38 +1,54 @@
 ---
-const { role = 'default', label, size="medium" } = Astro.props;
+const { role = 'default', label, id=label, size="medium", externalLink=false, link="/" } = Astro.props;
 
 const style = {
   default: {
     text: "text-gray-900 dark:text-gray-50",
     border: "border-gray-400 dark:border-gray-600",
     bg: "bg-gray-50 dark:bg-gray-800",
-    hover: "hover:bg-gray-200 dark:hover:bg-gray-700"
+    hover: "hover:bg-gray-200 dark:hover:bg-gray-700",
+    font:"font-medium"
 
     
   },
   primary:{
-  	bg: " bg-blue-200 dark:bg-slate-800",
-    border: " border-blue-200 dark:border-slate-800",
+  	text: "text-gray-50 dark:text-gray-900",
+    border: "border-blue-700 dark:border-blue-100",
+    bg: "bg-blue-500 dark:bg-blue-300",
+    hover: "hover:bg-blue-600 dark:hover:bg-blue-200",
+    font:"font-medium tracking-wide"
   }
 
-}
+}      
 
 const shape = {
 	medium:{
 		py: "py-2",
 		px: "px-4"
+	},
+	large:{
+		py: "py-4",
+		px: "px-6"
 	}
 }
 
-const { text, bg, border, hover } = style[role]
+const { text, bg, border, hover, font } = style[role]
 const {px,py} =shape[size]
+
+const linkAttrs ={}
+
+if (externalLink) {
+  linkAttrs.target = "_blank";
+  linkAttrs.rel = "noopener noreferrer";
+}
 
 ---
 
 <a
-  class=`${px} ${py} rounded-full border ${text} ${border} ${bg} ${hover}  transition-all duration-300`
-  href="/"
+  class=`${px} ${py} rounded-full border ${font} ${text} ${border} ${bg} ${hover} select-none transition-all duration-300 ease-out outline-offset-4`
+  href={link}
+  {...linkAttrs}
   data-umami-event="click"
-  data-umami-event-id={label}
+  data-umami-event-id={id}
   data-umami-event-type="button">{label}</a
 >
