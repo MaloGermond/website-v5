@@ -1,6 +1,7 @@
 ---
 import ThemeSwitcher from '@components/ThemeSwitcher.jsx';
 import LanguageSwitcher from '@components/LanguageSwitcher.astro';
+import Action from '@components/Action.astro';
 
 const { slug } = Astro.props;
 ---
@@ -12,7 +13,7 @@ const { slug } = Astro.props;
     class="w-full m-2 p-2 flex flex-row items-center justify-between rounded-full border-1 border-gray-400/50 dark:border-gray-700 gap-2 z-10 bg-gray-100/10 dark:bg-gray-900/20 backdrop-blur-sm"
   >
     <div class="flex lex-row">
-      <a class="py-2 px-4 rounded-full dark:text-gray-50 border border-gray-300 dark:border-gray-500 bg-gray-50 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-800 transition-all duration-300" href="/">Home</a>
+      <Action label="Home" />
     </div>
     <div class="flex flex-row gap-4">
       <LanguageSwitcher slug={slug} />

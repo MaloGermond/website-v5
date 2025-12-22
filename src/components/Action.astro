@@ -1,0 +1,38 @@
+---
+const { role = 'default', label, size="medium" } = Astro.props;
+
+const style = {
+  default: {
+    text: "text-gray-900 dark:text-gray-50",
+    border: "border-gray-400 dark:border-gray-600",
+    bg: "bg-gray-50 dark:bg-gray-800",
+    hover: "hover:bg-gray-200 dark:hover:bg-gray-700"
+
+    
+  },
+  primary:{
+  	bg: " bg-blue-200 dark:bg-slate-800",
+    border: " border-blue-200 dark:border-slate-800",
+  }
+
+}
+
+const shape = {
+	medium:{
+		py: "py-2",
+		px: "px-4"
+	}
+}
+
+const { text, bg, border, hover } = style[role]
+const {px,py} =shape[size]
+
+---
+
+<a
+  class=`${px} ${py} rounded-full border ${text} ${border} ${bg} ${hover}  transition-all duration-300`
+  href="/"
+  data-umami-event="click"
+  data-umami-event-id={label}
+  data-umami-event-type="button">{label}</a
+>
