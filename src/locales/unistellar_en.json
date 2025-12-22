@@ -4,8 +4,8 @@
     "description": ""
   },
   "cover": {
-    "title": "Democratizing astronomy by reducing the main barriers to use",
-    "imagePath": "",
+    "title": "Democratizing astronomy",
+    "imageNama": "blackhole.png",
     "alt": "Screenshot of the Unistellar mobile app showing a phone with an immersive view of Earth from space in the background. The interface features a connected telescope in the foreground, a section titled 'My Odyssey,' and information about battery and storage. The app is dedicated to astronomy and smart telescope management."
   },
   "hero": {

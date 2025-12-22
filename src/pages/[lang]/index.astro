@@ -13,7 +13,7 @@ const { lang } = Astro.params;
 
 export function getStaticPaths() {
   const path = locales.map((loc) => {
-    return { params: { lang: loc } }
+    return { params: { lang: loc } };
   });
 
   return path;
@@ -24,73 +24,78 @@ const content = getTranslation(lang) || getTranslation(defaultLocales);
 
 <Layout
   pageTitle={content.meta.pageTitle}
-  class="flex flex-col max-w-3xl mx-auto p-6 pt-24 gap-2"
+  class="flex flex-row flex-wrap max-w-3xl mx-auto p-6 pt-24 gap-2"
   lang={lang || getTranslation(defaultLocales)}
   description={content.meta.description}
 >
-  <div class="flex flex-row flex-wrap w-full gap-2">
-  <div class="flex flex-col gap-2 grow-1">
-  <Card padding="2" class="gap-4">
-    <div class="flex flex-col px-2">
-      <h1 class="body text-2xl dark:text-slate-100 transition-all font-bold">
-        {content.hero.name}
-      </h1>
-      <p
-        class="text-xl font-medium text-slate-500 dark:text-slate-400 transition-all"
-      >
-        {content.hero.role}
-      </p>
-      <p class="text-slate-500 dark:text-slate-400 transition-all">
-        {content.hero.location}
-      </p>
-    </div>
-    <h2 id="values-title" class="sr-only">{content.hero.values.title}</h2>
-    <section class="flex flex-row w-full row-2 gap-2">
-      <ValueCard label="Focus" icon="focus" />
-      <ValueCard label="Collaboration" icon="collaboration" />
-      <ValueCard label="Tangible" icon="tangible" />
-    </section>
-  </Card>
+  <div class="flex flex-col gap-2 shrink-4">
+    <Card padding="2" class="gap-4">
+      <div class="flex flex-col px-2">
+        <h1 class="body text-2xl dark:text-slate-100 transition-all font-bold">
+          {content.hero.name}
+        </h1>
+        <p
+          class="text-xl font-medium text-slate-500 dark:text-slate-400 transition-all"
+        >
+          {content.hero.role}
+        </p>
+        <p class="text-slate-500 dark:text-slate-400 transition-all">
+          {content.hero.location}
+        </p>
+      </div>
+      <h2 id="values-title" class="sr-only">{content.hero.values.title}</h2>
+      <section class="flex flex-row w-full row-2 gap-2 overflow-scroll">
+        <ValueCard label="Focus" icon="focus" />
+        <ValueCard label="Collaboration" icon="collaboration" />
+        <ValueCard label="Tangible" icon="tangible" />
+      </section>
+    </Card>
 
-  <Card class="flex-row gap-2" padding="2">
-    {
-      content.socialLinks.map((link) => (
-        <SocialLinks
-          href={link.href}
-          label={link.label}
-          color={link.color}
-          icon={link.icon}
-        />
-      ))
-    }
-  </Card>
-  </div>
-    <Card class="grow-1 min-w-[200px]">
-      <a class="w-full h-full bg-gray-300" href=`/${lang}/unistellar`>Unistellar</a>
+    <Card class="flex-row gap-2" padding="2">
+      {
+        content.socialLinks.map((link) => (
+          <SocialLinks
+            href={link.href}
+            label={link.label}
+            color={link.color}
+            icon={link.icon}
+          />
+        ))
+      }
     </Card>
   </div>
-
-  <Card style="accent" class="items-center p-8 gap-4">
-    <h2
-      class="text-center content-center flex-auto text-xl font-bold dark:text-slate-50 transition-all"
-    >
-      {content.contact.title}
-    </h2>
-    <p
-      class="paragraph text-center content-center flex-auto text-lg font-light text-gray-800 dark:text-gray-400 transition-all"
-    >
-      {content.contact.description}
-    </p>
-    <a
-      target="_blank"
-      rel="noopener noreferrer"
-      href={content.contact.button.url}
-      class="bg-blue-500 p-4 mt-2 px-6 font-medium tracking-wide text-gray-50 dark:bg-blue-300 dark:text-gray-900 hover:bg-blue-600 dark:hover:bg-blue-200 transition-all duration-[0.5s] ease-out rounded-full select-none"
-      data-umami-event="click"
-      data-umami-event-id="Calendly"
-      data-umami-event-type="button"
-    >
-      {content.contact.button.text}</a
-    >
-  </Card>
+  <div class="flex flex-row flex-wrap gap-2 grow-2 ">
+    <Card class="flex min-h-[15rem] grow-2 " padding="0">
+      <a
+        class="w-full h-full bg-gray-300"
+        href=`/${lang}/unistellar`
+        data-umami-event="click"
+        data-umami-event-id="Unistellar"
+        data-umami-event-type="button">Unistellar</a
+      >
+    </Card>
+    <Card style="accent" class="flex items-center p-8 gap-4 grow-1">
+      <h2
+        class="text-center content-center flex-auto text-xl font-bold dark:text-slate-50 transition-all"
+      >
+        {content.contact.title}
+      </h2>
+      <p
+        class="paragraph text-center content-center flex-auto text-lg font-light text-gray-800 dark:text-gray-400 transition-all"
+      >
+        {content.contact.description}
+      </p>
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href={content.contact.button.url}
+        class="bg-blue-500 p-4 mt-2 px-6 font-medium tracking-wide text-gray-50 dark:bg-blue-300 dark:text-gray-900 hover:bg-blue-600 dark:hover:bg-blue-200 transition-all duration-[0.5s] ease-out rounded-full select-none"
+        data-umami-event="click"
+        data-umami-event-id="Calendly"
+        data-umami-event-type="button"
+      >
+        {content.contact.button.text}</a
+      >
+    </Card>
+  </div>
 </Layout>
