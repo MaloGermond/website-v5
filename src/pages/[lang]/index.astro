@@ -9,7 +9,7 @@ import { Image } from 'astro:assets';
 import { getTranslation } from '@utils/translation';
 
 import { locales, defaultLocales } from '@locales/config.json';
-import coverUni from "@assets/unistellar/blackhole.png"
+import coverUni from '@assets/unistellar/blackhole.png';
 
 const { lang } = Astro.params;
 
@@ -66,15 +66,31 @@ const content = getTranslation(lang) || getTranslation(defaultLocales);
       }
     </Card>
   </div>
-  <div class="flex flex-row flex-wrap gap-2 grow-2 ">
-    <Card class="group relative flex min-h-[15rem] grow-2 overflow-hidden " padding="0">
+  <div class="flex flex-row flex-wrap gap-2 grow-2">
+    <Card
+      class="group relative flex min-h-[15rem] grow-2 overflow-hidden"
+      padding="0"
+    >
       <a
         class="w-full h-full bg-gray-900"
         href=`/${lang}/unistellar`
         data-umami-event="click"
         data-umami-event-id="Unistellar"
-        data-umami-event-type="button"><Image src={coverUni} alt="" class="group-hover:scale-110 group-hover:rotate-5 transition-all duration-300 ease-out"></Image><p class="absolute opacity-100 bottom-0 left-0 p-8 text-2xl text-gray-50 transition-all group-hover:translate-y-[20px] group-hover:opacity-0 duration-300">Unistellar</p></a
-      >
+        data-umami-event-type="button"
+        ><Image
+          src={coverUni}
+          alt=""
+          class="group-hover:scale-110 group-hover:rotate-5 transition-all duration-700 ease-in"
+        />
+        <div class="absolute bottom-0 left-0 flex flex-col p-8">
+          <p
+            class="font-avara opacity-100 text-2xl text-gray-50 transition-all group-hover:translate-y-[20px] group-hover:opacity-0 group-hover:duration-800 group-hover:delay-100"
+          >
+            Rendre  <br /> accessible <br /> l’astronomie
+          </p>
+          <div class="h-[0.1px] w-1/2 my-4 bg-gray-400 group-hover:translate-y-[20px] transition-all group-hover:opacity-0 group-hover:duration-800"></div>
+        </div>
+      </a>
     </Card>
     <Card style="accent" class="flex items-center p-8 gap-4 grow-1">
       <h2
