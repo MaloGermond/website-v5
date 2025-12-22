@@ -26,11 +26,11 @@ const content = getTranslation(lang) || getTranslation(defaultLocales);
 
 <Layout
   pageTitle={content.meta.pageTitle}
-  class="flex flex-row flex-wrap max-w-3xl mx-auto p-6 pt-24 gap-2"
+  class="grid grid-cols-12 max-w-7xl mx-auto p-6 pt-24 gap-2"
   lang={lang || getTranslation(defaultLocales)}
   description={content.meta.description}
 >
-  <div class="flex flex-col gap-2 shrink-4">
+  <div class="flex flex-col gap-2 col-span-full sm:col-span-6 md:col-span-4">
     <Card padding="2" class="gap-4">
       <div class="flex flex-col px-2">
         <h1 class="body text-2xl dark:text-slate-100 transition-all font-bold">
@@ -66,11 +66,11 @@ const content = getTranslation(lang) || getTranslation(defaultLocales);
       }
     </Card>
   </div>
-  <div class="flex flex-row flex-wrap gap-2 grow-2">
+
+  <div class="flex flex-row flex-wrap gap-2 col-span-full sm:col-span-6 md:col-span-8">
     <Card
       class="group relative flex min-h-[15rem] grow-2 overflow-hidden"
-      padding="0"
-    >
+      padding="0">
       <a
         class="w-full h-full bg-gray-900"
         href=`/${lang}/unistellar`
