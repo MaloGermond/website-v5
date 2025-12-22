@@ -89,6 +89,9 @@ html {
 .animation-duration-3 {
   animation-duration: 3s;
 }
+.animation-duration-4 {
+  animation-duration: 4s;
+}
 
 /* Delays (en 100ms increments) */
 .animation-delay-1 {
@@ -105,6 +108,10 @@ html {
 }
 .animation-delay-6 {
   animation-delay: 600ms;
+}
+
+.animation-delay-8 {
+  animation-delay: 800ms;
 }
 
 /* Classe de base pour l'animation */
