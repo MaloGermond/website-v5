@@ -78,26 +78,21 @@ const mosaicScreens = Object.values(images).filter((el) =>
 </section>
 <section>
   <div
-    class="flex flex-col h-full justify-center text-md leading-5 sm:text-5xl sm:leading-20 max-w-6xl m-auto font-avara paragraphe p-12 text-gray-900 dark:text-gray-50" set:html={marked(content.purpose)}
+    class="flex flex-col h-full justify-center text-md leading-8 sm:text-3xl sm:leading-12 md:text-5xl md:leading-20 max-w-6xl m-auto font-avara paragraphe p-12 text-gray-900 dark:text-gray-50" set:html={marked(content.purpose)}
   />
 </section>
 <section>
-  <Image src={images['login']} alt="" class="max-w-7xl w-full m-auto" />
-</section>
-<section>
-  <Image src={images['catalog']} alt="" class="max-w-7xl w-full m-auto" />
-</section>
-<section>
-  <Image src={images['onboarding']} alt="" class="max-w-7xl w-full m-auto" />
-</section>
-<section>
-  <Image src={images['observation']} alt="" class="max-w-7xl w-full m-auto" />
-</section>
-<section>
-  <Image src={images['icons']} alt="" class="max-w-7xl w-full m-auto" />
-</section>
-<section>
-  <Image src={images['illustrations']} alt="" class="max-w-7xl w-full m-auto" />
+  <Image src={images['login']} alt="" class="max-w-7xl p-4 w-full m-auto" />
+
+  <Image src={images['catalog']} alt="" class="max-w-7xl p-4 w-full m-auto" />
+
+  <Image src={images['onboarding']} alt="" class="max-w-7xl p-4 w-full m-auto" />
+
+  <Image src={images['observation']} alt="" class="max-w-7xl p-4 w-full m-auto" />
+
+  <Image src={images['icons']} alt="" class="max-w-7xl p-4 w-full m-auto" />
+
+  <Image src={images['illustrations']} alt="" class="max-w-7xl p-4 w-full m-auto" />
 </section>
 
 <style>
