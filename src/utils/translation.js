@@ -1,12 +1,9 @@
 // src/utils/translations.js
-import fr from '@locales/fr.json';
-import en from '@locales/en.json';
+const projects = import.meta.glob('../locales/*.json', { eager: true });
 
-export const translations = {
-  fr,
-  en,
-};
-
-export function getTranslation(lang) {
-  return translations[lang];
+export function getTranslation(lang, name) {
+  const key = name
+    ? '../locales/' + name + '_' + lang + '.json'
+    : '../locales/' + lang + '.json';
+  return projects[key];
 }

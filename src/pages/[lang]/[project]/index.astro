@@ -2,6 +2,7 @@
 import Layout from '@layouts/Layout.astro';
 
 import { locales, defaultLocales } from '@locales/config.json';
+import { getTranslation } from '@utils/translation';
 
 //1.  Handling slugs to get local and project
 export function getStaticPaths() {
@@ -19,12 +20,7 @@ export function getStaticPaths() {
 // 2. Récupère les locales pour les projets
 const { lang, project } = Astro.params;
 
-const translations = await import(`../../../locales/${project}_${lang}.json`);
-
-const content = {
-  project,
-  ...translations.default, // Contient title, description, etc.
-};
+const content = getTranslation(lang, project)
 
 // 3. Import dynamique de TOUS les composants du dossier
 const projectModules = import.meta.glob('./*.astro');
