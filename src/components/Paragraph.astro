@@ -1,0 +1,9 @@
+---
+import { marked } from '@utils/marked.js';
+
+const {content, class:classList} = Astro.props
+---
+
+ <div
+    class=`paragraphe ${classList}` set:html={marked(content)}
+  />
