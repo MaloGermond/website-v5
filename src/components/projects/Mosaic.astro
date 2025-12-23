@@ -13,7 +13,7 @@ const { images, col = 4 } = Astro.props;
   >
     {
       Array.from({ length: col }).map((_, i) => (
-        <div class="flex flex-col gap-4 slide-item slide-loop h-auto">
+        <div class="flex flex-col gap-4 slide-item slide-loop h-auto select-none">
           {Array.from({ length: col }).map((_, j) => (
             <Image
               src={images[(i * col + j) % images.length]}
