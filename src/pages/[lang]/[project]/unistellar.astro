@@ -64,7 +64,7 @@ const mosaicScreens = Object.values(images).filter((el) =>
     priority
   />
 </section>
-<section class="px-8 py-16 h-screen max-w-7xl m-auto">
+<section class="px-8 py-16 max-w-7xl m-auto">
   <h2 class="font-avara paragraph text-xl sm:text-4xl max-w-3xl p-4 dark:text-gray-50">
     {content.contexte}
   </h2>
@@ -73,9 +73,9 @@ const mosaicScreens = Object.values(images).filter((el) =>
     <InfoColumn title={content.skills.title} items={content.skills.items} />
   </div>
 </section>
-<section>
+
 <Mosaic images={mosaicScreens} />
-</section>
+
 <section>
   <Paragraph
     class="flex flex-col h-full justify-center text-md leading-8 sm:text-3xl sm:leading-12 md:text-5xl md:leading-20 max-w-6xl m-auto font-avara paragraphe p-12 text-gray-900 dark:text-gray-50" content={content.purpose}
@@ -96,7 +96,8 @@ const mosaicScreens = Object.values(images).filter((el) =>
 </section>
 
 <style>
-  section{
-    height: min(80vh, 720px);
+  section {
+    height: auto;
+    min-height: 720px;
   }
 </style>
