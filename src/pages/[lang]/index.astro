@@ -11,7 +11,9 @@ import { Image } from 'astro:assets';
 import { getTranslation } from '@utils/handleLocales';
 
 import { locales, defaultLocales } from '@locales/config.json';
-import coverUni from '@assets/unistellar/blackhole.png';
+import coverUni from '@assets/unistellar/blackhole-object.png';
+import coverUniBackground from '@assets/unistellar/blackhole-background.png';
+import coverUniForeground from '@assets/unistellar/blackhole-foreground.png';
 
 const { lang } = Astro.params;
 
@@ -80,10 +82,16 @@ const unistellar = getTranslation(lang, "unistellar")
         data-umami-event="click"
         data-umami-event-id="Unistellar"
         data-umami-event-type="button"
-        ><Image
+        >
+        <Image
+          src={coverUniBackground}
+          alt=""
+          class="absolute top-0 group-hover:scale-110 transition-all duration-1200 ease-in-out"
+        />
+        <Image
           src={coverUni}
           alt=""
-          class="group-hover:scale-110 group-hover:rotate-5 transition-all duration-700 ease-in-out"
+          class="relative top-0 group-hover:scale-110 group-hover:rotate-5 transition-all duration-700 ease-in-out"
         />
         <div class="absolute bottom-0 left-0 flex flex-col p-8">
           <Paragraph
