@@ -5,23 +5,39 @@ const languages = [
   { code: 'en', name: 'English' },
 ];
 
+const {slug} = Astro.props
+
+const [lang, ...rest] = slug.split('/').filter(part => part !== '');
+
+
 // Récupère la langue actuelle depuis l'URL
 const currentLang = Astro.params.lang || 'fr';
 
+const wrapper = "group relative flex flex-row bg-gray-100 border border-gray-200 h-auto w-auto dark:bg-gray-700 dark:border-gray-600 overflow-hidden"
+
+const action = {
+  base: "text-md px-4 py-2 font-medium text-center transition-all duration-300 ease-out",
+  enabled: "absolute top-0 left-0 w-full bg-blue-500 text-white hover:bg-blue-600 z-1 translate-y-full group-hover:translate-y-0",
+  actived: "flex text-gray-800 hover:bg-gray-300 dark:text-gray-200 dark:hover:bg-gray-600",
+};
+
 ---
 
-<div class="flex items-center bg-gray-100 rounded-full border border-gray-200 h-fit dark:bg-gray-700 dark:border-gray-600">
-  {languages.map((lang) => (
-    <a
+<div class={wrapper}>
+   {languages.map((lang) => (
+    currentLang === lang.code ? <a
       href={`/${lang.code}/`}
-      class={`px-2 py-1.5 rounded-full text-sm font-medium transition-colors leading-none ${
-        currentLang === lang.code
-          ? 'bg-blue-500 text-white'
-          : 'text-gray-800 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 leading-none'
-      }`}
+      class={`${action.base} ${action.actived}`}
       aria-label={`Switch to ${lang.name}`}
     >
-      {lang.code.toUpperCase()}
+      {lang.name}
+    </a> : <a
+      href={`/${lang.code}/${rest}/`}
+      class={`${action.base} ${action.enabled}`}
+      aria-label={`Switch to ${lang.name}`}
+    >
+      {lang.name}
     </a>
+
   ))}
 </div>

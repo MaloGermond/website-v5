@@ -9,8 +9,8 @@ const colorVariants = {
     
   },
   accent:{
-  	bg: " bg-blue-200 dark:bg-slate-800",
-    border: " border-blue-200 dark:border-slate-800",
+  	bg: " bg-blue-200 dark:bg-gray-800",
+    border: " border-blue-300 dark:border-blue-600",
   }
 
 }
@@ -21,7 +21,7 @@ const p = " p-"+padding
 ---
 
 <article
-	class={"flex flex-col flex-wrap border rounded-xl  shadow-sm transition-all "+ bg + border + " "+ classList + p}
+	class={"flex flex-col flex-wrap border transition-all "+ bg + border + " "+ classList + p}
 >
 	<slot />
 </article>
