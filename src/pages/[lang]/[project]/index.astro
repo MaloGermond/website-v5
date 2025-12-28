@@ -1,7 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro';
 
-import { locales, defaultLocales } from '@locales/config.json';
+import { locales } from '@locales/config.json';
 import { getTranslation } from '@utils/handleLocales';
 
 //1.  Handling slugs to get local and project
@@ -23,12 +23,17 @@ const { lang, project } = Astro.params;
 const content = getTranslation(lang, project)
 
 // 3. Import dynamique de TOUS les composants du dossier
-const projectModules = import.meta.glob('./*.astro');
-const projectPath = `./${project}.astro`;
+const projectModules = import.meta.glob('../../../components/projects/*.astro');
+console.log({projectModules})
+const projectPath = `../../../components/project/${project}.astro`;
+
 
 // 4. Charge le composant
 const module = await projectModules[projectPath]();
 const Project = module.default;
+
+console.log({Project})
+
 ---
 
 <Layout

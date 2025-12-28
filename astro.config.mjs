@@ -14,6 +14,7 @@ export default defineConfig({
     defaultLocale: 'fr',
     routing: {
       prefixDefaultLocale: true,
+      strategy: 'prefix',
     },
   },
   site: 'https://malogermond.com',
