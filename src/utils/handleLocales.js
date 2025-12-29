@@ -7,3 +7,7 @@ export function getTranslation(lang, name) {
     : '../locales/' + lang + '.json';
   return projects[key];
 }
+
+export function defaultLocales() {
+  return 'fr';
+}
