@@ -7,5 +7,3 @@ export function getTranslation(lang, name) {
     : '../locales/' + lang + '.json';
   return projects[key];
 }
-
-export const defaultLocales = 'fr';

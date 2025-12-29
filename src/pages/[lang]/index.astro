@@ -8,7 +8,7 @@ import Paragraph from "@components/Paragraph.astro"
 
 import { Image } from 'astro:assets';
 
-import { getTranslation, defaultLocales } from '@utils/handleLocales';
+import { getTranslation} from '@utils/handleLocales';
 
 import { locales } from '@locales/config.json';
 import coverUni from '@assets/unistellar/blackhole-object.png';
@@ -24,9 +24,8 @@ export function getStaticPaths() {
   return path;
 }
 
-console.log({defaultLocales})
+const content = getTranslation(lang)
 
-const content = getTranslation(lang) || getTranslation(defaultLocales);
 const unistellar = getTranslation(lang, "unistellar")
 
 ---
