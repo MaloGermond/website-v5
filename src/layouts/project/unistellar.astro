@@ -2,37 +2,34 @@
 const { content } = Astro.props;
 import { Image } from 'astro:assets';
 import Paragraph from "@components/Paragraph.astro"
-import InfoColumn from '@components/projects/InfoColumn.astro';
-import Mosaic from '@components/projects/Mosaic.astro';
+import InfoColumn from '@components/project/InfoColumn.astro';
+import Mosaic from '@components/project/Mosaic.astro';
 
-// Load Images
-const loadScreens = await Astro.glob(
-  '../../../assets/unistellar/*{jpg,png,gif,webp}'
-);
+// 1. Import dynamique des images
+const loadScreens = import.meta.glob('../../assets/unistellar/*{jpg,png,gif,webp}');
 
 // 2. Crée un objet indexé par le nom de fichier (sans extension)
 const images = {};
 
-for (const screen of loadScreens) {
-  const path = screen.default.src;
-  const values = screen.default;
-  const fileNames = path
-    .split('/')
-    .pop()
-    ?.split(/(.*)\.png/gm);
-  const name = fileNames[1];
+// 3. Résous les promesses et traite les résultats
+const promises = Object.entries(loadScreens).map(async ([path, importFn]) => {
+  const screen = await importFn(); // Résout la promesse pour chaque image
+  const fileName = path.split('/').pop(); // Ex: "image1.png"
+  const name = fileName.replace(/\.\w+$/, ''); // Supprime l'extension (ex: "image1")
 
-  // const filename = screen.file.split('/').pop()?.replace(/\.\w+$/, '');
-  if (fileNames.length === 3) {
-    images[name] = {
-      src: values.src,
-      width: values.width,
-      height: values.height,
-      format: values.format,
-      name: name,
-    };
-  }
-}
+  images[name] = {
+    src: screen.default.src,
+    width: screen.default.width,
+    height: screen.default.height,
+    format: screen.default.format,
+    name: name,
+  };
+});
+
+// 4. Attends que toutes les promesses soient résolues
+await Promise.all(promises);
+
+
 
 const mosaicScreens = Object.values(images).filter((el) =>
   el.name.startsWith('screen-')

@@ -8,7 +8,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [preact(), tailwindcss(), sitemap()],
+  integrations: [preact(), tailwindcss()],
   i18n: {
     locales: ['fr', 'en'],
     defaultLocale: 'fr',
@@ -23,7 +23,7 @@ export default defineConfig({
       alias: {
         '@': '/src',
         '@components': '/src/components',
-        '@layouts': '/src/components/layouts',
+        '@layouts': '/src/layouts',
         '@assets': '/src/assets',
         '@styles': '/src/styles',
         '@analytics': '/src/components/analytics',
@@ -34,7 +34,6 @@ export default defineConfig({
         minify: true,
       },
     },
-
     plugins: [tailwindcss()],
   },
 });

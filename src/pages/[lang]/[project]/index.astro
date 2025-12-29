@@ -1,5 +1,5 @@
 ---
-import Layout from '@layouts/Layout.astro';
+import Layout from '@components/layouts/Layout.astro';
 
 import { locales } from '@locales/config.json';
 import { getTranslation } from '@utils/handleLocales';
@@ -23,18 +23,23 @@ const { lang, project } = Astro.params;
 const content = getTranslation(lang, project)
 
 // 3. Import dynamique de TOUS les composants du dossier
-const projectModules = import.meta.glob('../../../components/projects/*.astro');
-console.log({projectModules})
-const projectPath = `../../../components/project/${project}.astro`;
+const projectModules = import.meta.glob('../../../layouts/project/*.astro');
+const projectPath = `../../../layouts/project/${project}.astro`;
+
+
+// 3.a  Vérifie si le chemin du projet existe
+if (!(projectPath in projectModules)) {
+  throw redirect('/404', 302); // Redirection vers /404
+}
 
 
 // 4. Charge le composant
 const module = await projectModules[projectPath]();
 const Project = module.default;
 
-console.log({Project})
 
 ---
+
 
 <Layout
   pageTitle={content.meta.pageTitle}
@@ -42,5 +47,7 @@ console.log({Project})
   lang={lang}
   class="pt-0 flex flex-col"
 >
-  <Project content={content} />
-</Layout>
+<Project content={content} />
+  
+</Layout> 
+
