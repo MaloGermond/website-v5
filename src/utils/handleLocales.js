@@ -8,6 +8,4 @@ export function getTranslation(lang, name) {
   return projects[key];
 }
 
-export function defaultLocales() {
-  return 'fr';
-}
+export const defaultLocales = 'fr';

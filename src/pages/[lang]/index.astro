@@ -24,6 +24,8 @@ export function getStaticPaths() {
   return path;
 }
 
+console.log({defaultLocales})
+
 const content = getTranslation(lang) || getTranslation(defaultLocales);
 const unistellar = getTranslation(lang, "unistellar")
 
