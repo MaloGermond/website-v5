@@ -5,5 +5,5 @@ export function getTranslation(lang, name) {
   const key = name
     ? '../locales/' + name + '_' + lang + '.json'
     : '../locales/' + lang + '.json';
-  return projects[key];
+  return projects[key] || {};
 }
