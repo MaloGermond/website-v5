@@ -1,0 +1,100 @@
+---
+const { content } = Astro.props;
+import { Image } from 'astro:assets';
+import Paragraph from "@components/Paragraph.astro"
+import InfoColumn from '@components/project/InfoColumn.astro';
+import Mosaic from '@components/project/Mosaic.astro';
+
+// 1. Import dynamique des images
+const loadScreens = import.meta.glob('../../assets/unistellar/*{jpg,png,gif,webp}');
+
+// 2. Crée un objet indexé par le nom de fichier (sans extension)
+const images = {};
+
+// 3. Résous les promesses et traite les résultats
+const promises = Object.entries(loadScreens).map(async ([path, importFn]) => {
+  const screen = await importFn(); // Résout la promesse pour chaque image
+  const fileName = path.split('/').pop(); // Ex: "image1.png"
+  const name = fileName.replace(/\.\w+$/, ''); // Supprime l'extension (ex: "image1")
+
+  images[name] = {
+    src: screen.default.src,
+    width: screen.default.width,
+    height: screen.default.height,
+    format: screen.default.format,
+    name: name,
+  };
+});
+
+// 4. Attends que toutes les promesses soient résolues
+await Promise.all(promises);
+
+
+
+const mosaicScreens = Object.values(images).filter((el) =>
+  el.name.startsWith('screen-')
+);
+
+
+---
+
+<section class="relative bg-gray-900 overflow-hidden h-screen">
+  <div
+    class="absolute bottom-0 w-full h-full bg-gradient-to-t from-[#8BB0F9] from-0% via-transparent via-50% to-transparent to-100% fade-in animation-duration-6 animation-delay-4 opacity-0"
+  >
+  </div>
+  <h1
+    class="text-[10vw] font-avara w-full text-center pt-25 md:pt-40 text-gray-50 fade-in animation-duration-2 opacity-0"
+  >
+    {content.hero.title}
+  </h1>
+  <Image
+    src={images['earth']}
+    alt={content.hero.earthAlt}
+    class="absolute bottom-0 sm:bottom-[-60px] md:bottom-[-100px] lg:bottom-[-150px] xl:bottom-[-200px] 2xl:bottom-[-350px] left-1/2 translate-x-[-50%] translate-y-2/4 fade-in animation-duration-4 animation-delay-8 opacity-0"
+    priority
+  />
+  <Image
+    src={images['screen-unistellar-home']}
+    alt={content.hero.screenHomeAlt}
+    class="absolute bottom-[-300px] left-1/2 translate-x-[-50%] w-xs fade-in animation-duration-2 animation-delay-2 opacity-0"
+    priority
+  />
+</section>
+<section class="px-8 py-16 max-w-7xl m-auto">
+  <h2 class="font-avara paragraph text-xl sm:text-4xl max-w-3xl p-4 dark:text-gray-50">
+    {content.contexte}
+  </h2>
+  <div class="flex flex-row flex-wrap">
+    <InfoColumn title={content.roles.title} items={content.roles.items} />
+    <InfoColumn title={content.skills.title} items={content.skills.items} />
+  </div>
+</section>
+
+<Mosaic images={mosaicScreens} />
+
+<section>
+  <Paragraph
+    class="flex flex-col h-full justify-center text-md leading-8 sm:text-3xl sm:leading-12 md:text-5xl md:leading-20 max-w-6xl m-auto font-avara paragraphe p-12 text-gray-900 dark:text-gray-50" content={content.purpose}
+  />
+</section>
+<section>
+  <Image src={images['login']} alt="" class="max-w-7xl p-4 w-full m-auto" />
+
+  <Image src={images['catalog']} alt="" class="max-w-7xl p-4 w-full m-auto" />
+
+  <Image src={images['onboarding']} alt="" class="max-w-7xl p-4 w-full m-auto" />
+
+  <Image src={images['observation']} alt="" class="max-w-7xl p-4 w-full m-auto" />
+
+  <Image src={images['icons']} alt="" class="max-w-7xl p-4 w-full m-auto" />
+
+  <Image src={images['illustrations']} alt="" class="max-w-7xl p-4 w-full m-auto" />
+</section>
+
+<style>
+  section {
+    height: auto;
+    min-height: 720px;
+  }
+</style>

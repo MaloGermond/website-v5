@@ -1,0 +1,58 @@
+---
+const { role = 'default', label=false, id=label, size="medium", externalLink=false, link="/", icon=false } = Astro.props;
+
+import Icons from "@components/Icons.astro";
+
+const style = {
+  default: {
+    text: "text-gray-900 dark:text-gray-50",
+    border: "border-gray-400 dark:border-gray-600",
+    bg: "bg-gray-50 dark:bg-gray-800",
+    hover: "hover:bg-gray-200 dark:hover:bg-gray-700",
+    font:"font-medium"
+
+    
+  },
+  primary:{
+  	text: "text-gray-900 dark:text-blue-50",
+    border: "border-blue-500 dark:border-blue-500",
+    bg: "bg-blue-400 dark:bg-blue-600",
+    hover: "hover:bg-blue-600 dark:hover:bg-blue-800",
+    font:"font-medium tracking-wide"
+  }
+
+}      
+
+const shape = {
+	medium:{
+		py: "py-2",
+		px: "px-4",
+		iconSize: "0.8rem",
+	},
+	large:{
+		py: "py-4",
+		px: "px-6",
+		iconSize: "1rem"
+	}
+}
+
+const { text, bg, border, hover, font } = style[role]
+const {px,py, iconSize} = shape[size]
+
+const linkAttrs ={}
+
+if (externalLink) {
+  linkAttrs.target = "_blank";
+  linkAttrs.rel = "noopener noreferrer";
+}
+
+---
+
+<a
+  class=`${px} ${py} rounded-full border flex flex-row gap-2 items-center ${font} ${text} ${border} ${bg} ${hover} select-none transition-all duration-300 ease-out outline-offset-4 align-middle`
+  href={link}
+  {...linkAttrs}
+  data-umami-event="click"
+  data-umami-event-id={id}
+  data-umami-event-type="button">{icon&&<Icons name={icon} size={iconSize}/>} {label&&label}</a
+>

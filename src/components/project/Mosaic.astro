@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets';
+const { images, col = 4 } = Astro.props;
+
+---
+
+<section
+  class="w-full h-auto flex items-center max-h-[80vh] bg-gradient-screens overflow-hidden max-w-7xl m-auto aspect-[4/3]"
+>
+  <div
+    class={`w-full h-full grid gap-8 rotate-[-5deg]`}
+    style={`grid-template-columns: repeat(${col}, 1fr);`}
+  >
+    {
+      Array.from({ length: col }).map((_, i) => (
+        <div class="flex flex-col gap-4 slide-item slide-loop h-auto select-none">
+          {Array.from({ length: col }).map((_, j) => (
+            <Image
+              src={images[(i * col + j) % images.length]}
+              alt={`Slide ${i}-${j}`}
+              key={`${i}-${j}`}
+              class="shrink-0 w-[250px] h-auto"
+              format="webp"
+              loading="lazy"
+              width="250px"
+            />
+          ))}
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .bg-gradient-screens {
+    background: linear-gradient(293.8deg, #1f2c5a 8.8%, #0d0a1d 87.38%);
+  }
+
+
+  .slide-item:nth-child(even) {
+    margin-top: -100px;
+    animation-duration: 40s;
+  }
+
+  .slide-item:nth-child(odd) {
+    margin-top: -100px;
+    animation-duration: 60s;
+  }
+
+  @keyframes slideLoop {
+    0% {
+      transform: translateY(0%);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+
+  .slide-loop {
+    animation: slideLoop linear infinite alternate;
+    display: flex;
+    gap: 1rem; /* Espacement entre les éléments */
+  }
+</style>

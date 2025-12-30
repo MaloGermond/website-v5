@@ -1,0 +1,53 @@
+---
+import Layout from '@layouts/Layout.astro';
+
+import { locales } from '@locales/config.json';
+import { getTranslation } from '@utils/handleLocales';
+
+//1.  Handling slugs to get local and project
+export function getStaticPaths() {
+  const projects = ['unistellar'];
+
+  const path = locales.flatMap((lang) =>
+    projects.map((project) => ({
+      params: { lang, project }, // Génère /fr/unistellar, /fr/privowny, /en/unistellar, etc.
+    }))
+  );
+
+  return path;
+}
+
+// 2. Récupère les locales pour les projets
+const { lang, project } = Astro.params;
+
+const content = getTranslation(lang, project)
+
+// 3. Import dynamique de TOUS les composants du dossier
+const projectModules = import.meta.glob('../../../layouts/project/*.astro');
+const projectPath = `../../../layouts/project/${project}.astro`;
+
+
+// 3.a  Vérifie si le chemin du projet existe
+if (!(projectPath in projectModules)) {
+  throw redirect('/404', 302); // Redirection vers /404
+}
+
+
+// 4. Charge le composant
+const module = await projectModules[projectPath]();
+const Project = module.default;
+
+
+---
+
+
+<Layout
+  pageTitle={content.meta.pageTitle}
+  description={content.meta.description}
+  lang={lang}
+  class="pt-0 flex flex-col"
+>
+<Project content={content} />
+  
+</Layout> 
+

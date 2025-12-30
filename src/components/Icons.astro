@@ -1,7 +1,16 @@
 ---
 const { name, size = '24', class:classList="" } = Astro.props;
+const iconsSrc = import.meta.glob('./../../public/icons/*.svg', { eager: true });
+
+const icons = Object.fromEntries(
+  Object.entries(iconsSrc).map(([path, content]) => {
+    // Extrait le nom du fichier sans le chemin ni l'extension
+    const fileName = path.split('/').pop().replace('.svg', '');
+    return [fileName, content.default];
+  })
+);
 
 ---
-<svg width={size} height={size} viewBox="0 0 32 32" fill="none" stroke="currentColor" class={"dark:text-slate-50 "+ classList}>
-  <use href={`/icons/${name}.svg`} />
+<svg width={size} height={size} viewBox="0 0 32 32" fill="none" stroke="currentColor" class={"dark:text-slate-50"+ classList}>
+  <use href={icons[name].src} />
 </svg>

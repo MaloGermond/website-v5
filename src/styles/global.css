@@ -8,10 +8,35 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Avara';
+  src: url('/fonts/Avara-Bold.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avara';
+  src: url('/fonts/Avara-BoldItalic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avara';
+  src: url('/fonts/Avara-Black.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --font-satoshi: Satoshi, sans-serif;
+  --font-avara: Avara, sans-serif;
 
   --font-sans:
     Satoshi, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
@@ -31,10 +56,67 @@
   --color-gray-900: oklch(0.1297 0.005 285.67);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .paragraph {
   text-wrap: balance;
   orphans: 2;
   widows: 3;
   hyphens: auto;
   overflow-wrap: break-word;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Durations */
+.animation-duration-1 {
+  animation-duration: 1s;
+}
+.animation-duration-2 {
+  animation-duration: 2s;
+}
+.animation-duration-3 {
+  animation-duration: 3s;
+}
+.animation-duration-4 {
+  animation-duration: 4s;
+}
+
+/* Delays (en 100ms increments) */
+.animation-delay-1 {
+  animation-delay: 100ms;
+}
+.animation-delay-2 {
+  animation-delay: 200ms;
+}
+.animation-delay-4 {
+  animation-delay: 400ms;
+}
+.animation-delay-5 {
+  animation-delay: 500ms;
+}
+.animation-delay-6 {
+  animation-delay: 600ms;
+}
+
+.animation-delay-8 {
+  animation-delay: 800ms;
+}
+
+/* Classe de base pour l'animation */
+.fade-in {
+  animation-name: fadeIn;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
 }
