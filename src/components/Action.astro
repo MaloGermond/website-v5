@@ -46,11 +46,14 @@ if (externalLink) {
   linkAttrs.rel = "noopener noreferrer";
 }
 
+const redirect = externalLink ? link : `/${lang}/${link}`;
+
+
 ---
 
 <a
   class=`${px} ${py} rounded-full border flex flex-row gap-2 items-center ${font} ${text} ${border} ${bg} ${hover} select-none transition-all duration-300 ease-out outline-offset-4 align-middle`
-  href=`/${lang}/${link}`
+  href={redirect}
   {...linkAttrs}
   data-umami-event="click"
   data-umami-event-id={id}
