@@ -1,5 +1,5 @@
 ---
-const { role = 'default', label=false, id=label, size="medium", externalLink=false, link="/", icon=false } = Astro.props;
+const { role = 'default', label=false, id=label, size="medium", externalLink=false, link="/", icon=false, lang="fr" } = Astro.props;
 
 import Icons from "@components/Icons.astro";
 
@@ -46,11 +46,14 @@ if (externalLink) {
   linkAttrs.rel = "noopener noreferrer";
 }
 
+const redirect = externalLink ? link : `/${lang}/${link}`;
+
+
 ---
 
 <a
   class=`${px} ${py} rounded-full border flex flex-row gap-2 items-center ${font} ${text} ${border} ${bg} ${hover} select-none transition-all duration-300 ease-out outline-offset-4 align-middle`
-  href={link}
+  href={redirect}
   {...linkAttrs}
   data-umami-event="click"
   data-umami-event-id={id}
