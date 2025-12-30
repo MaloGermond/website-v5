@@ -14,7 +14,7 @@
     "screenHomeAlt": "Screenshot of the Unistellar mobile app showing the eVscope telescope control interface. The screen displays the telescope name 'My Odyssey,' its battery level at 50%, a 'Watch' button to start observation, and a tutorial titled 'How to get a perfect focus with your eVscope telescope.' In the background, an image of the telescope pointed toward space with Earth in the distance."
   },
   "contexte": "The connected telescope created by Unistellar comes with an app that helps users navigate and explore the night sky.",
-  "purpose": "I led the redesign of the <strong>main app</strong>, with a <i>specific</i> focus on reducing friction before the first observation.",
+  "purpose": "I led the redesign of the main app, with a specific focus on reducing friction before the first observation.",
   "teams": ["2 developers (Swift & Compose)", "1 QA", "1 PM"],
   "skills": {
     "title": "Skills",
