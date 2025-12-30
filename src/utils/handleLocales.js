@@ -1,13 +1,12 @@
 // src/utils/translations.js
-const projects = import.meta.glob('/src/locales/*.json', { eager: true });
-const loc = import.meta.glob('../locales/*.json', { eager: true });
-console.log({ projects });
-console.log({ loc });
+const locales = import.meta.glob('/src/locales/*.json', { eager: true });
 
 export function getTranslation(lang, name) {
+  console.log('get translation');
+  console.log({ locales }, { lang }, { name });
   const key = name
     ? '/src/locales/' + name + '_' + lang + '.json'
     : '/src/locales/' + lang + '.json';
 
-  return projects[key];
+  return locales[key];
 }
