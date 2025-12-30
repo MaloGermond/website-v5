@@ -5,13 +5,14 @@ const languages = [
   { code: 'en', name: 'English' },
 ];
 
-const {slug} = Astro.props
+const { slug } = Astro.props
 
 const [lang, ...rest] = slug.split('/').filter(part => part !== '');
 
 
 // Récupère la langue actuelle depuis l'URL
 const currentLang = Astro.params.lang || 'fr';
+const oppositeLang = languages.find(lang => lang.code !== currentLang).code;
 
 const wrapper = "group relative flex flex-row bg-gray-100 border border-gray-200 h-auto w-auto dark:bg-gray-700 dark:border-gray-600 overflow-hidden"
 
@@ -26,9 +27,9 @@ const action = {
 <div class={wrapper}>
    {languages.map((lang) => (
     currentLang === lang.code ? <a
-      href={`/${lang.code}/`}
+      href={`/${oppositeLang}/`}
       class={`${action.base} ${action.actived}`}
-      aria-label={`Switch to ${lang.name}`}
+      aria-label={`Current lang is ${lang.name}`}
     >
       {lang.name}
     </a> : <a

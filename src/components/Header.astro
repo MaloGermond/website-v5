@@ -4,7 +4,6 @@ import LanguageSwitcher from '@components/LanguageSwitcher.astro';
 import Action from '@components/Action.astro';
 
 const { slug, lang } = Astro.props;
-console.log({lang})
 ---
 
 <header
@@ -17,7 +16,7 @@ console.log({lang})
       <Action label="Home" lang={lang}/>
     </div>
     <div class="flex flex-row gap-4">
-      <LanguageSwitcher slug={slug} />
+      <LanguageSwitcher slug={slug}/>
       <ThemeSwitcher client:load />
     </div>
   </div>
