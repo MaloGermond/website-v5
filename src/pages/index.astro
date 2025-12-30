@@ -1,6 +1,5 @@
 ---
-export function getStaticPaths() { return []; } // Bloque la génération
+export function getStaticPaths() { 
+  Astro.redirect("/fr")
+ } 
 ---
-<script>
-  window.location.href = '/fr/'; // Redirection côté client
-</script>
