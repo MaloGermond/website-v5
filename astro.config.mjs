@@ -10,8 +10,11 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   integrations: [preact(), tailwindcss(), sitemap()],
   i18n: {
-    locales: ['fr', 'en'],
     defaultLocale: 'fr',
+    locales: {
+      fr: 'fr-FR',
+      en: 'en-GB',
+    },
     routing: {
       prefixDefaultLocale: true,
       strategy: 'prefix',
