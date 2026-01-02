@@ -2,4 +2,4 @@
 /icons/*    /icons/:splat    200
 /_astro/*    /_astro/:splat    200
 
-/*    /fr    301!
+/    /fr    301!
