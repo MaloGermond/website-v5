@@ -1,4 +1,6 @@
 ---
+import { gsap } from 'gsap';
+import { onMount } from 'astro/components';
 
 import Card from '@components/Card.astro';
 import { Image } from 'astro:assets';
@@ -15,7 +17,7 @@ const unistellar = getTranslation(lang, "unistellar")
 ---
 
 <Card
-  class="group relative flex min-h-[15rem] grow-2 overflow-hidden"
+  class="group relative flex min-h-[30rem] grow-2 overflow-hidden"
   padding="0"
 >
   <a
@@ -28,12 +30,41 @@ const unistellar = getTranslation(lang, "unistellar")
     <Image
       src={coverUniBackground}
       alt=""
-      class="absolute top-0 group-hover:scale-110 group-hover:opacity-0 transition-all duration-1200 ease-in-out"
+      class="absolute top-0 "
+      ref={el => {
+      onMount(() => {
+        // Animation 1 : Scale + Opacity (existante)
+        const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.5 }); // ← Boucle infinie
+        tl.to(el, {
+          scale: 1.1,
+          opacity: 0,
+          duration: 1.2,
+          ease: "power2.inOut"
+        });
+
+        // Animation 2 : Ajoute un effet de flou ou de décalage (exemple)
+        tl.to(el, {
+          filter: "blur(5px)",
+          x: 10,
+          duration: 0.8,
+          ease: "power1.inOut"
+        }, ">0.3"); // ← Démarre 0.3s après la fin de l'animation 1
+
+        // Réinitialisation pour la boucle
+        tl.to(el, {
+          scale: 1,
+          opacity: 1,
+          filter: "blur(0px)",
+          x: 0,
+          duration: 0.1
+        }, ">0.5"); // ← Réinitialise avant de recommencer
+      });
+    }}
     />
     <Image
       src={coverUni}
       alt=""
-      class="relative top-0 group-hover:scale-110 group-hover:rotate-5 transition-all duration-700 ease-in-out"
+      class="relative top-0 group-hover:scale-110 group-hover:rotate-5 transition-all duration-700 ease-in-out object-cover"
     />
     <div class="absolute bottom-0 left-0 flex flex-col p-8">
       <Paragraph
