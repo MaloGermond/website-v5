@@ -1,1 +1,5 @@
-/*    /fr    301!
+/fonts/*    /fonts/:splat    200
+/icons/*    /icons/:splat    200
+/_astro/*    /_astro/:splat    200
+
+/    /fr    301!
