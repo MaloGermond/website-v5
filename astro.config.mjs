@@ -11,10 +11,7 @@ export default defineConfig({
   integrations: [preact(), tailwindcss(), sitemap()],
   i18n: {
     defaultLocale: 'fr',
-    locales: {
-      fr: 'fr-FR',
-      en: 'en-GB',
-    },
+    locales: ['fr', 'en'],
     routing: {
       prefixDefaultLocale: true,
       strategy: 'prefix',
