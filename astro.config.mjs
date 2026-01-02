@@ -4,9 +4,11 @@ import { defineConfig } from 'astro/config';
 import preact from '@astrojs/preact';
 import tailwindcss from '@tailwindcss/vite';
 
+import sitemap from '@astrojs/sitemap';
+
 // https://astro.build/config
 export default defineConfig({
-  integrations: [preact(), tailwindcss()],
+  integrations: [preact(), tailwindcss(), sitemap()],
   i18n: {
     locales: ['fr', 'en'],
     defaultLocale: 'fr',
