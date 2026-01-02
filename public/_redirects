@@ -1,3 +1,4 @@
 /*    /fr    301!
-/fonts/*    /assets/:splat    200
-/icons/*    /images/:splat    200
+/fonts/*    /fonts/:splat    200
+/icons/*    /icons/:splat    200
+/assets/*    /assets/:splat    200
