@@ -1,24 +1,21 @@
 ---
-import { gsap } from 'gsap';
-import { onMount } from 'astro/components';
-
 import Card from '@components/Card.astro';
 import { Image } from 'astro:assets';
 import coverUni from '@assets/unistellar/blackhole-object.png';
 import coverUniBackground from '@assets/unistellar/blackhole-background.png';
 import Paragraph from '@components/Paragraph.astro';
 
-
-import { getTranslation} from '@utils/handleLocales';
+import { getTranslation } from '@utils/handleLocales';
 
 const { lang } = Astro.params;
 
-const unistellar = getTranslation(lang, "unistellar")
+const unistellar = getTranslation(lang, 'unistellar');
 ---
 
 <Card
   class="group relative flex min-h-[30rem] grow-2 overflow-hidden"
   padding="0"
+  id="cardContainer"
 >
   <a
     class="w-full h-full bg-gray-900"
@@ -27,40 +24,24 @@ const unistellar = getTranslation(lang, "unistellar")
     data-umami-event-id="Unistellar"
     data-umami-event-type="button"
   >
+    
     <Image
       src={coverUniBackground}
       alt=""
       class="absolute top-0 object-cover h-full"
-      ref={el => {
-      onMount(() => {
-        console.log("hellooooo")
-        // Animation 1 : Scale + Opacity (existante)
-        const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.5 }); // ← Boucle infinie
-        tl.to(el, {
-          scale: 1.1,
-          opacity: 0,
-          duration: 1.2,
-          ease: "power2.inOut"
-        });
-
-        // Animation 2 : Ajoute un effet de flou ou de décalage (exemple)
-        tl.to(el, {
-          filter: "blur(5px)",
-          x: 10,
-          duration: 0.8,
-          ease: "power1.inOut"
-        }, ">0.3"); // ← Démarre 0.3s après la fin de l'animation 1
-
-        // Réinitialisation pour la boucle
-        tl.to(el, {
-          scale: 1,
-          opacity: 1,
-          filter: "blur(0px)",
-          x: 0,
-          duration: 0.1
-        }, ">0.5"); // ← Réinitialise avant de recommencer
-      });
-    }}
+      id="backgroundImg3"
+    />
+    <Image
+      src={coverUniBackground}
+      alt=""
+      class="absolute top-0 object-cover h-full"
+      id="backgroundImg2"
+    />
+    <Image
+      src={coverUniBackground}
+      alt=""
+      class="absolute top-0 object-cover h-full"
+      id="backgroundImg"
     />
     <Image
       src={coverUni}
@@ -85,3 +66,50 @@ const unistellar = getTranslation(lang, "unistellar")
     </div>
   </a>
 </Card>
+
+<script>
+  import { gsap } from 'gsap';
+
+  let cardRef = document.getElementById('cardContainer');
+  let imgRef = document.getElementById('backgroundImg');
+  let imgRef2 = document.getElementById('backgroundImg2');
+
+  gsap.set([imgRef, imgRef2], { scale: 1, opacity: 1, filter: 'blur(0px)' });
+
+  if (cardRef && imgRef) {
+    cardRef.addEventListener('mouseenter', () => {
+      gsap.to(imgRef, {
+        scale: 1.5,
+        duration: 1,
+        opacity: 0,
+        filter: 'blur(5px)',
+      });
+      gsap.to(imgRef2, {
+        scale: 1.5,
+        duration: 1,
+        opacity: 0,
+        delay:0.2,
+      });
+    });
+
+    // Réinitialisation quand la souris quitte
+      cardRef.addEventListener('mouseleave', () => {
+        gsap.to(imgRef, {
+          scale: 1,
+          duration: 1,
+          opacity: 1,
+          filter: 'blur(0px)',
+        });
+        gsap.to(imgRef2, {
+          scale: 1,
+          duration: 1,
+          opacity: 1,
+          delay:0.2,
+        });
+      });
+    
+  }
+
+
+
+</script>
