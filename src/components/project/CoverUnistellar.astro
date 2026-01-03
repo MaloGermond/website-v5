@@ -30,9 +30,10 @@ const unistellar = getTranslation(lang, "unistellar")
     <Image
       src={coverUniBackground}
       alt=""
-      class="absolute top-0 "
+      class="absolute top-0 object-cover h-full"
       ref={el => {
       onMount(() => {
+        console.log("hellooooo")
         // Animation 1 : Scale + Opacity (existante)
         const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.5 }); // ← Boucle infinie
         tl.to(el, {
@@ -64,7 +65,7 @@ const unistellar = getTranslation(lang, "unistellar")
     <Image
       src={coverUni}
       alt=""
-      class="relative top-0 group-hover:scale-110 group-hover:rotate-5 transition-all duration-700 ease-in-out object-cover"
+      class="relative top-0 group-hover:scale-110 group-hover:rotate-5 transition-all duration-700 ease-in-out object-cover h-full"
     />
     <div class="absolute bottom-0 left-0 flex flex-col p-8">
       <Paragraph
