@@ -15,7 +15,7 @@
     "screenHomeAlt": "Screenshot of the Unistellar mobile app showing the eVscope telescope control interface. The screen displays the telescope name 'My Odyssey,' its battery level at 50%, a 'Watch' button to start observation, and a tutorial titled 'How to get a perfect focus with your eVscope telescope.' In the background, an image of the telescope pointed toward space with Earth in the distance."
   },
   "contexte": "In 2022, Unistellar, a leader in smart telescopes, underwent a full rebranding to solidify its market position.",
-  "purpose": "A year later, the challenge began: adapting this visual identity—originally designed for posters and social media—to an app with significant technical constraints.",
+  "purpose": "A year later, the challenge began: adapting this visual identity, originally designed for posters and social media, to an app with significant technical constraints.",
   "teams": ["2 developers (Swift & Compose)", "1 QA", "1 PM"],
   "skills": {
     "title": "Skills",
