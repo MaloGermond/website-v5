@@ -6,15 +6,16 @@
   "cover": {
     "title": "Democratizing astronomy",
     "imageName": "blackhole.png",
-    "alt": "Screenshot of the Unistellar mobile app showing a phone with an immersive view of Earth from space in the background. The interface features a connected telescope in the foreground, a section titled 'My Odyssey,' and information about battery and storage. The app is dedicated to astronomy and smart telescope management."
+    "alt": "Screenshot of the Unistellar mobile app showing a phone with an immersive view of Earth from space in the background. The interface features a connected telescope in the foreground, a section titled 'My Odyssey,' and information about battery and storage. The app is dedicated to astronomy and smart telescope management.",
+    "action": "See Use Case"
   },
   "hero": {
     "title": "Unistellar App",
     "earthAlt": "Satellite view of Earth at night, showing Europe with city lights illuminating the continent, clouds over the Atlantic Ocean, and part of Africa visible in the bottom left. The image captures the planet’s curvature and the atmosphere lit by the sun.",
     "screenHomeAlt": "Screenshot of the Unistellar mobile app showing the eVscope telescope control interface. The screen displays the telescope name 'My Odyssey,' its battery level at 50%, a 'Watch' button to start observation, and a tutorial titled 'How to get a perfect focus with your eVscope telescope.' In the background, an image of the telescope pointed toward space with Earth in the distance."
   },
-  "contexte": "The connected telescope created by Unistellar comes with an app that helps users navigate and explore the night sky.",
-  "purpose": "I led the redesign of the <strong>main app</strong>, with a <i>specific</i> focus on reducing friction before the first observation.",
+  "contexte": "In 2022, Unistellar, a leader in smart telescopes, underwent a full rebranding to solidify its market position.",
+  "purpose": "A year later, the challenge began: adapting this visual identity, originally designed for posters and social media, to an app with significant technical constraints.",
   "teams": ["2 developers (Swift & Compose)", "1 QA", "1 PM"],
   "skills": {
     "title": "Skills",

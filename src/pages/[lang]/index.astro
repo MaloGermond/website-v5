@@ -4,15 +4,12 @@ import SocialLinks from '@components/SocialLinks.astro';
 import Card from '@components/Card.astro';
 import ValueCard from '@components/values/ValueCard.astro';
 import Action from "@components/Action.astro"
-import Paragraph from "@components/Paragraph.astro"
-
-import { Image } from 'astro:assets';
+import CoverUnistellar from "@components/project/CoverUnistellar.astro"
 
 import { getTranslation} from '@utils/handleLocales';
 
 import { locales } from '@locales/config.json';
-import coverUni from '@assets/unistellar/blackhole-object.png';
-import coverUniBackground from '@assets/unistellar/blackhole-background.png';
+
 
 const { lang } = Astro.params;
 
@@ -25,7 +22,7 @@ export function getStaticPaths() {
 }
 
 const content = getTranslation(lang)
-const unistellar = getTranslation(lang, "unistellar")
+
 
 ---
 
@@ -73,39 +70,7 @@ const unistellar = getTranslation(lang, "unistellar")
   </div>
 
   <div class="flex flex-row flex-wrap gap-2 col-span-full sm:col-span-6 md:col-span-8">
-    <Card
-      class="group relative flex min-h-[15rem] grow-2 overflow-hidden"
-      padding="0">
-      <a
-        class="w-full h-full bg-gray-900"
-        href=`/${lang}/unistellar`
-        data-umami-event="click"
-        data-umami-event-id="Unistellar"
-        data-umami-event-type="button"
-        >
-        <Image
-          src={coverUniBackground}
-          alt=""
-          class="absolute top-0 group-hover:scale-110 transition-all duration-1200 ease-in-out"
-        />
-        <Image
-          src={coverUni}
-          alt=""
-          class="relative top-0 group-hover:scale-110 group-hover:rotate-5 transition-all duration-700 ease-in-out"
-        />
-        <div class="absolute bottom-0 left-0 flex flex-col p-8">
-          <Paragraph
-            class="font-avara opacity-100 text-2xl text-gray-50 transition-all group-hover:translate-y-[20px] group-hover:opacity-0 group-hover:duration-800 group-hover:delay-100 ease-out" content={unistellar.cover.title}
-          />
-          <div class="h-[0.1px] w-1/2 my-4 bg-gray-400 group-hover:translate-y-[20px] transition-all group-hover:opacity-0 group-hover:duration-800 group-hover:delay-100 ease-out"/>
-
-          <div class="flex flex-row w-fit px-3 py-1 text-sm text-blue-100 border border-blue-700 bg-blue-900 group-hover:translate-y-[20px] group-hover:opacity-0 group-hover:duration-800 ease-out">UI</div>
-        </div>
-
-
-
-      </a>
-    </Card>
+    <CoverUnistellar/>
     <Card style="accent" class="flex items-center p-8 gap-4 grow-1">
       <h2
         class="text-center content-center flex-auto text-xl font-bold dark:text-slate-50 transition-all"

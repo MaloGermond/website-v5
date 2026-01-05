@@ -1,0 +1,118 @@
+---
+import Card from '@components/Card.astro';
+import { Image } from 'astro:assets';
+import coverUni from '@assets/unistellar/blackhole-object.png';
+import coverUniBackground from '@assets/unistellar/blackhole-background.png';
+import Paragraph from '@components/Paragraph.astro';
+import Icons from '@components/Icons.astro'
+
+import { getTranslation } from '@utils/handleLocales';
+
+const { lang } = Astro.params;
+
+const unistellar = getTranslation(lang, 'unistellar');
+---
+
+<Card
+  class="group relative flex min-h-[30rem] grow-2 overflow-hidden"
+  padding="0"
+  id="cardContainer"
+>
+  <a
+    class="w-full h-full bg-gray-900"
+    href=`/${lang}/unistellar`
+    data-umami-event="click"
+    data-umami-event-id="Unistellar"
+    data-umami-event-type="button"
+  >
+    
+    <Image
+      src={coverUniBackground}
+      alt=""
+      class="absolute top-0 object-cover h-full"
+      id="backgroundImg3"
+    />
+    <Image
+      src={coverUniBackground}
+      alt=""
+      class="absolute top-0 object-cover h-full"
+      id="backgroundImg2"
+    />
+    <Image
+      src={coverUniBackground}
+      alt=""
+      class="absolute top-0 object-cover h-full"
+      id="backgroundImg"
+    />
+    <Image
+      src={coverUni}
+      alt=""
+      class="relative top-0 group-hover:scale-110 group-hover:rotate-5 transition-all duration-700 ease-in-out object-cover h-full"
+    />
+    <div class="absolute bottom-0 left-0 flex flex-col p-8">
+      <Paragraph
+        class="font-avara opacity-100 text-2xl text-gray-50 transition-all group-hover:translate-y-[20px] group-hover:opacity-0 group-hover:duration-800 group-hover:delay-100 ease-out"
+        content={unistellar.cover.title}
+      />
+      <div
+        class="h-[0.1px] w-1/2 my-4 bg-gray-400 group-hover:translate-y-[20px] transition-all group-hover:opacity-0 group-hover:duration-800 group-hover:delay-100 ease-out"
+      >
+      </div>
+
+      <div
+        class="flex flex-row w-fit px-3 py-1 text-sm text-blue-100 border border-blue-700 bg-blue-900 group-hover:translate-y-[20px] group-hover:opacity-0 group-hover:duration-800 ease-out"
+      >
+        UI
+      </div>
+    </div>
+    <div class="group-hover:opacity-100 opacity-0 group-hover:translate-y-0 translate-y-8 absolute right-4 bottom-4 transition-all duration-700 flex flex-row items-center">
+      <p class="text-blue-200 italic h-full px-4 h-full">{unistellar.cover.action}</p>
+    <div class="text-gray-50 bg-blue-600 border-blue-500 p-4 rounded-full w-fit border border-2 "><Icons name="external" size="16"/></div>
+    </div>
+  </a>
+</Card>
+
+<script>
+  import { gsap } from 'gsap';
+
+  let cardRef = document.getElementById('cardContainer');
+  let imgRef = document.getElementById('backgroundImg');
+  let imgRef2 = document.getElementById('backgroundImg2');
+
+  gsap.set([imgRef, imgRef2], { scale: 1, opacity: 1, filter: 'blur(0px)' });
+
+  if (cardRef && imgRef) {
+    cardRef.addEventListener('mouseenter', () => {
+      gsap.to(imgRef, {
+        scale: 1.5,
+        duration: 1,
+        opacity: 0,
+        filter: 'blur(5px)',
+      });
+      gsap.to(imgRef2, {
+        scale: 1.5,
+        duration: 1,
+        opacity: 0,
+        delay:0.2,
+      });
+    });
+
+    // Réinitialisation quand la souris quitte
+      cardRef.addEventListener('mouseleave', () => {
+        gsap.to(imgRef, {
+          scale: 1,
+          duration: 1,
+          opacity: 1,
+          filter: 'blur(0px)',
+        });
+        gsap.to(imgRef2, {
+          scale: 1,
+          duration: 1,
+          opacity: 1,
+          delay:0.2,
+        });
+      });
+    
+  }
+
+</script>
