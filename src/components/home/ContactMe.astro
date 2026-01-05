@@ -5,7 +5,8 @@ import Action from '@components/Action.astro';
 const { content } = Astro.props;
 ---
 
-<Card style="accent" class="flex items-center p-8 gap-4 grow-1">
+<Card style="accent" class="relative flex items-center p-8 gap-4 grow-1 overflow-hidden">
+  <div class="cursor-circle bg-blue-700 opacity-20"></div>
   <h2
     class="text-center content-center flex-auto text-xl font-bold dark:text-slate-50 transition-all"
   >
@@ -25,4 +26,37 @@ const { content } = Astro.props;
     externalLink="true"
     link={content.contact.button.url}
   />
+  
 </Card>
+
+<script>
+  import { gsap } from "gsap";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const circle = document.querySelector(".cursor-circle");
+
+
+    document.addEventListener("mousemove", (e) => {
+      gsap.to(circle, {
+        x: e.pageX-window.innerWidth/2,
+        y: e.pageY-window.innerHeight/2,
+        duration: 0.2,
+        ease: "power.inOut",
+      });
+    });
+  });
+</script>
+
+
+<style>
+  .cursor-circle {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+
+    filter: blur(50px);
+  }
+</style>
