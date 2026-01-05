@@ -4,6 +4,7 @@ import { Image } from 'astro:assets';
 import coverUni from '@assets/unistellar/blackhole-object.png';
 import coverUniBackground from '@assets/unistellar/blackhole-background.png';
 import Paragraph from '@components/Paragraph.astro';
+import Icons from '@components/Icons.astro'
 
 import { getTranslation } from '@utils/handleLocales';
 
@@ -64,6 +65,10 @@ const unistellar = getTranslation(lang, 'unistellar');
         UI
       </div>
     </div>
+    <div class="group-hover:opacity-100 opacity-0 group-hover:translate-y-0 translate-y-8 absolute right-4 bottom-4 transition-all duration-700 flex flex-row items-center">
+      <p class="text-blue-200 italic h-full px-4 h-full">{unistellar.cover.action}</p>
+    <div class="text-gray-50 bg-blue-600 border-blue-500 p-4 rounded-full w-fit border border-2 "><Icons name="external" size="16"/></div>
+    </div>
   </a>
 </Card>
 
@@ -109,7 +114,5 @@ const unistellar = getTranslation(lang, 'unistellar');
       });
     
   }
-
-
 
 </script>
