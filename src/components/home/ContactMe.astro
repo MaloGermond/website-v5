@@ -34,12 +34,12 @@ const { content } = Astro.props;
 
   document.addEventListener("DOMContentLoaded", () => {
     const circle = document.querySelector(".cursor-circle");
-
+    console.log(window)
 
     document.addEventListener("mousemove", (e) => {
       gsap.to(circle, {
-        x: e.pageX-window.innerWidth/2,
-        y: e.pageY-window.innerHeight/2,
+        x: e.clientX-window.innerWidth/2-30,
+        y: e.clientY-window.innerHeight/2-80,
         duration: 0.2,
         ease: "power.inOut",
       });
