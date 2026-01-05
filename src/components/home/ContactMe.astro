@@ -1,0 +1,28 @@
+---
+import Card from '@components/Card.astro';
+import Action from '@components/Action.astro';
+
+const { content } = Astro.props;
+---
+
+<Card style="accent" class="flex items-center p-8 gap-4 grow-1">
+  <h2
+    class="text-center content-center flex-auto text-xl font-bold dark:text-slate-50 transition-all"
+  >
+    {content.contact.title}
+  </h2>
+  <p
+    class="paragraph text-center content-center flex-auto text-lg font-light text-gray-800 dark:text-gray-200 transition-all"
+  >
+    {content.contact.description}
+  </p>
+
+  <Action
+    label={content.contact.button.text}
+    id="Calendly"
+    role="primary"
+    size="large"
+    externalLink="true"
+    link={content.contact.button.url}
+  />
+</Card>
