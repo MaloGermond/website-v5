@@ -3,10 +3,11 @@ import Card from '@components/Card.astro';
 import Action from '@components/Action.astro';
 
 const { content } = Astro.props;
+
 ---
 
 <Card style="accent" class="relative flex items-center p-8 gap-4 grow-1 overflow-hidden">
-  <div class="cursor-circle dark:bg-blue-700 bg-blue-300 dark:opacity-20  "></div>
+  <div id="lightRef" class="dark:bg-blue-700 bg-blue-300 dark:opacity-20  "></div>
   <h2
     class="text-center content-center flex-auto text-xl font-bold dark:text-slate-50 transition-all z-1"
   >
@@ -34,13 +35,13 @@ const { content } = Astro.props;
   import { gsap } from "gsap";
 
   document.addEventListener("DOMContentLoaded", () => {
-    const circle = document.querySelector(".cursor-circle");
-    console.log(window)
+    const circle = document.querySelector("#lightRef");
 
     document.addEventListener("mousemove", (e) => {
+      const rect = circle.getBoundingClientRect();
       gsap.to(circle, {
-        x: e.clientX-window.innerWidth/2-30,
-        y: e.clientY-window.innerHeight/2-80,
+        x: e.pageX-rect.left,
+        y: e.pageY-rect.top,
         duration: 0.6,
         ease: "sine",
       });
@@ -60,7 +61,7 @@ const { content } = Astro.props;
 
 
 <style>
-  .cursor-circle {
+  #lightRef {
     position: absolute;
     width: 400px;
     height: 400px;
