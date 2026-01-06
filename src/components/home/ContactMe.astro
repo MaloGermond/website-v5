@@ -9,12 +9,12 @@ const { content } = Astro.props;
 <Card style="accent" class="relative flex items-center p-8 gap-4 grow-1 overflow-hidden">
   <div id="lightRef" class="dark:bg-blue-700 bg-blue-300 dark:opacity-20  "></div>
   <h2
-    class="text-center content-center flex-auto text-xl font-bold dark:text-slate-50 transition-all z-1"
+    class="text-center content-center flex-auto text-xl font-bold dark:text-slate-50 transition-all z-1 select-none"
   >
     {content.contact.title}
   </h2>
   <p
-    class="paragraph text-center content-center flex-auto text-lg font-light text-gray-800 dark:text-gray-200 transition-all z-1"
+    class="paragraph text-center content-center flex-auto text-lg font-light text-gray-800 dark:text-gray-200 transition-all z-1 select-none"
   >
     {content.contact.description}
   </p>
