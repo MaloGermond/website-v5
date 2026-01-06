@@ -6,14 +6,14 @@ const { content } = Astro.props;
 ---
 
 <Card style="accent" class="relative flex items-center p-8 gap-4 grow-1 overflow-hidden">
-  <div class="cursor-circle bg-blue-700 opacity-20"></div>
+  <div class="cursor-circle dark:bg-blue-700 bg-blue-300 dark:opacity-20  "></div>
   <h2
-    class="text-center content-center flex-auto text-xl font-bold dark:text-slate-50 transition-all"
+    class="text-center content-center flex-auto text-xl font-bold dark:text-slate-50 transition-all z-1"
   >
     {content.contact.title}
   </h2>
   <p
-    class="paragraph text-center content-center flex-auto text-lg font-light text-gray-800 dark:text-gray-200 transition-all"
+    class="paragraph text-center content-center flex-auto text-lg font-light text-gray-800 dark:text-gray-200 transition-all z-1"
   >
     {content.contact.description}
   </p>
@@ -24,6 +24,7 @@ const { content } = Astro.props;
     role="primary"
     size="large"
     externalLink="true"
+    class="z-1"
     link={content.contact.button.url}
   />
   

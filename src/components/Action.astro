@@ -1,5 +1,5 @@
 ---
-const { role = 'default', label=false, id=label, size="medium", externalLink=false, link="/", icon=false, lang="fr" } = Astro.props;
+const { role = 'default', label=false, id=label, size="medium", externalLink=false, link="/", icon=false, lang="fr", class:classList } = Astro.props;
 
 import Icons from "@components/Icons.astro";
 
@@ -52,7 +52,7 @@ const redirect = externalLink ? link : `/${lang}/${link}`;
 ---
 
 <a
-  class=`${px} ${py} rounded-full border flex flex-row gap-2 items-center ${font} ${text} ${border} ${bg} ${hover} select-none transition-all duration-300 ease-out outline-offset-4 align-middle`
+  class=`${px} ${py} rounded-full border flex flex-row gap-2 items-center ${font} ${text} ${border} ${bg} ${hover} select-none transition-all duration-300 ease-out outline-offset-4 align-middle ${classList}`
   href={redirect}
   {...linkAttrs}
   data-umami-event="click"
