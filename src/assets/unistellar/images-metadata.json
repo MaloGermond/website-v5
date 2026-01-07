@@ -1,31 +1,31 @@
 {
   "blackhole-background": {
     "alt": {
-      "fr": "",
-      "en": ""
+      "fr": "Arrière-plan représentant un fond d'étoile",
+      "en": "Background depicting a starry sky."
     }
   },
   "blackhole-object": {
     "alt": {
-      "fr": "",
-      "en": ""
+      "fr": "Représentation artistique d’un trou noir avec effet de lentille gravitationnelle.",
+      "en": "Artistic depiction of a black hole with gravitational lensing effect."
     }
   },
   "catalog": {
     "alt": {
-      "fr": "",
-      "en": ""
+      "fr": "Capture d’écran du catalogue d’objets célestes de l’application Unistellar.",
+      "en": "Screenshot of the celestial objects catalog in the Unistellar app."
     }
   },
   "earth": {
     "alt": {
       "fr": "Vue satellite d’une planète évoquant la Terre, les nuages reflétant la lumière du soleil levant.",
-      "en": ""
+      "en": "Satellite view of an Earth-like planet, with clouds reflecting the rising sun’s light."
     }
   },
   "icons": {
     "alt": {
-      "fr": "",
+      "fr": "Jeu d’icônes stylisées pour de l'application Unistellar, incluant télescope, étoiles et planètes.",
       "en": ""
     }
   },
@@ -38,7 +38,7 @@
   "login": {
     "alt": {
       "fr": "Maquettes mobiles de l'application Unistellar : écran de confirmation d'email (gauche), écran d'accueil avec un télescope rouge et le slogan 'Stand out, look up' (centre), et écran de confirmation d'envoi de lien par email (droite).",
-      "en": ""
+      "en": "Unistellar app mobile mockups: email confirmation screen (left), home screen with a red telescope and the slogan 'Stand out, look up' (center), and email link confirmation screen (right)."
     }
   },
   "observation": {

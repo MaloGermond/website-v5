@@ -6,31 +6,12 @@ import InfoColumn from '@components/project/InfoColumn.astro';
 import Mosaic from '@components/project/Mosaic.astro';
 import Frame from "@components/Frame.astro"
 
-// 1. Import dynamique des images
-const loadScreens = import.meta.glob(
-  '../../assets/unistellar/*{jpg,png,gif,webp}'
-);
+import {loadScreensOnce} from "@utils/useScreens"
 
-// 2. Crée un objet indexé par le nom de fichier (sans extension)
-const images = {};
-
-// 3. Résous les promesses et traite les résultats
-const promises = Object.entries(loadScreens).map(async ([path, importFn]) => {
-  const screen = await importFn(); // Résout la promesse pour chaque image
-  const fileName = path.split('/').pop(); // Ex: "image1.png"
-  const name = fileName.replace(/\.\w+$/, ''); // Supprime l'extension (ex: "image1")
-
-  images[name] = {
-    src: screen.default.src,
-    width: screen.default.width,
-    height: screen.default.height,
-    format: screen.default.format,
-    name: name,
-  };
-});
-
-// 4. Attends que toutes les promesses soient résolues
-await Promise.all(promises);
+const screens = import.meta.glob("../../assets/unistellar/*{jpg,png,gif,webp}");
+const metadata = await import("../../assets/unistellar/images-metadata.json");
+const images = await loadScreensOnce(screens,metadata);
+console.log({images})
 
 const mosaicScreens = Object.values(images).filter((el) =>
   el.name.startsWith('screen-')
