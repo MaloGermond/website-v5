@@ -4,6 +4,7 @@ import { Image } from 'astro:assets';
 import Paragraph from '@components/Paragraph.astro';
 import InfoColumn from '@components/project/InfoColumn.astro';
 import Mosaic from '@components/project/Mosaic.astro';
+import Frame from "@components/Frame.astro"
 
 // 1. Import dynamique des images
 const loadScreens = import.meta.glob(
@@ -80,6 +81,7 @@ const mosaicScreens = Object.values(images).filter((el) =>
   />
 </section>
 <section>
+  <Frame src={images['login']}/>
   <Image src={images['login']} alt="" class="max-w-7xl p-4 w-full m-auto" />
 
   <Image src={images['catalog']} alt="" class="max-w-7xl p-4 w-full m-auto" />

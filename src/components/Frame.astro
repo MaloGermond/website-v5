@@ -1,0 +1,12 @@
+---
+import { Image } from 'astro:assets';
+
+const {src, alt=""} = Astro.props
+
+---
+
+<figure class="group max-w-7xl p-4 w-full m-auto">
+	<div class="w-full overflow-hidden">
+	 <Image src={src} alt={alt} class="w-full scale-110 group-hover:scale-100 transition-all duration-300 ease-out cursor-pointer" />
+	</div>
+</figure>
