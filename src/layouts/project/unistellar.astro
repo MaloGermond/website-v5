@@ -1,5 +1,6 @@
 ---
-const { content } = Astro.props;
+const { content} = Astro.props;
+const { lang } = Astro.params;
 import { Image } from 'astro:assets';
 import Paragraph from '@components/Paragraph.astro';
 import InfoColumn from '@components/project/InfoColumn.astro';
@@ -11,7 +12,6 @@ import {loadScreensOnce} from "@utils/useScreens"
 const screens = import.meta.glob("../../assets/unistellar/*{jpg,png,gif,webp}");
 const metadata = await import("../../assets/unistellar/images-metadata.json");
 const images = await loadScreensOnce(screens,metadata);
-console.log({images})
 
 const mosaicScreens = Object.values(images).filter((el) =>
   el.name.startsWith('screen-')
@@ -30,13 +30,13 @@ const mosaicScreens = Object.values(images).filter((el) =>
   </h1>
   <Image
     src={images['earth']}
-    alt={content.hero.earthAlt}
+    alt={images['earth']?.alt?.[lang]}
     class="absolute bottom-0 sm:bottom-[-60px] md:bottom-[-100px] lg:bottom-[-150px] xl:bottom-[-200px] 2xl:bottom-[-350px] left-1/2 translate-x-[-50%] translate-y-2/4 fade-in animation-duration-2 animation-delay-8 opacity-0"
     priority
   />
   <Image
     src={images['screen-unistellar-home']}
-    alt={content.hero.screenHomeAlt}
+    alt={images['screen-unistellar-home']?.alt?.[lang]}
     class="absolute bottom-[-300px] left-1/2 translate-x-[-50%] w-xs fade-in animation-duration-1 animation-delay-2 opacity-0"
     priority
   />
@@ -63,27 +63,27 @@ const mosaicScreens = Object.values(images).filter((el) =>
 </section>
 <section>
   <Frame src={images['login']}/>
-  <Image src={images['login']} alt="" class="max-w-7xl p-4 w-full m-auto" />
+  <Image src={images['login']} alt="{images['login']?.alt?.[lang]}" class="max-w-7xl p-4 w-full m-auto" />
 
-  <Image src={images['catalog']} alt="" class="max-w-7xl p-4 w-full m-auto" />
+  <Image src={images['catalog']} alt={images['catalog']?.alt?.[lang]} class="max-w-7xl p-4 w-full m-auto" />
 
   <Image
     src={images['onboarding']}
-    alt=""
+    alt={images['catalog']?.alt?.[lang]}
     class="max-w-7xl p-4 w-full m-auto"
   />
 
   <Image
     src={images['observation']}
-    alt=""
+    alt={images['catalog']?.alt?.[lang]}
     class="max-w-7xl p-4 w-full m-auto"
   />
 
-  <Image src={images['icons']} alt="" class="max-w-7xl p-4 w-full m-auto" />
+  <Image src={images['icons']} alt={images['icons']?.alt?.[lang]} class="max-w-7xl p-4 w-full m-auto" />
 
   <Image
     src={images['illustrations']}
-    alt=""
+    alt={images['catalog']?.alt?.[lang]}
     class="max-w-7xl p-4 w-full m-auto"
   />
 </section>

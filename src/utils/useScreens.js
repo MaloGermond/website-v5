@@ -18,7 +18,7 @@ export async function loadScreensOnce(loadScreens, metadata) {
       height: screen.default.height,
       format: screen.default.format,
       name: name,
-      metadata: metadata.default[name],
+      alt: metadata.default[name].alt,
     };
   });
 
