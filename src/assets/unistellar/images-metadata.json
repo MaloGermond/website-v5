@@ -11,12 +11,6 @@
       "en": ""
     }
   },
-  "blackhole": {
-    "alt": {
-      "fr": "",
-      "en": ""
-    }
-  },
   "catalog": {
     "alt": {
       "fr": "",
@@ -126,6 +120,12 @@
     }
   },
   "screen-unistellar-unscrew": {
+    "alt": {
+      "fr": "",
+      "en": ""
+    }
+  },
+  "blackhole": {
     "alt": {
       "fr": "",
       "en": ""

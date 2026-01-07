@@ -19,20 +19,38 @@ const outputFile = path.join(imagesDir, '/images-metadata.json');
 const getFileNameWithoutExt = (file) => path.parse(file).name;
 
 // Crée un objet vide pour stocker les métadonnées
-const metadata = {};
+const imagesStore = [];
 
 // Lit le contenu du dossier
 fs.readdirSync(imagesDir)
   .filter((file) => /\.(png|jpe?g)$/i.test(file)) // Filtre les fichiers PNG/JPEG
   .forEach((file) => {
     const fileName = getFileNameWithoutExt(file);
+    imagesStore.push(fileName);
+  });
+
+// Lit le contenu de images-metadata.json s'il existe, sinon initialise un objet vide
+let metadata = {};
+
+if (fs.existsSync(outputFile)) {
+  const fileContent = fs.readFileSync(outputFile, 'utf-8');
+  if (fileContent) {
+    metadata = JSON.parse(fileContent);
+  }
+}
+
+// Met à jour les métadonnées : ajoute les nouvelles images si elles n'existent pas déjà
+imagesStore.forEach((fileName) => {
+  if (!metadata[fileName]) {
+    console.info('Add new source: ', fileName);
     metadata[fileName] = {
       alt: {
         fr: '',
         en: '',
       },
     };
-  });
+  }
+});
 
 // Écrit le résultat dans un fichier JSON
 fs.writeFileSync(outputFile, JSON.stringify(metadata, null, 2));
