@@ -63,28 +63,11 @@ const mosaicScreens = Object.values(images).filter((el) =>
 </section>
 <section>
   <Frame src={images['login']} alt={images['login']?.alt?.[lang]}/>
-
-  <Image src={images['catalog']} alt={images['catalog']?.alt?.[lang]} class="max-w-7xl p-4 w-full m-auto" />
-
-  <Image
-    src={images['onboarding']}
-    alt={images['catalog']?.alt?.[lang]}
-    class="max-w-7xl p-4 w-full m-auto"
-  />
-
-  <Image
-    src={images['observation']}
-    alt={images['catalog']?.alt?.[lang]}
-    class="max-w-7xl p-4 w-full m-auto"
-  />
-
-  <Image src={images['icons']} alt={images['icons']?.alt?.[lang]} class="max-w-7xl p-4 w-full m-auto" />
-
-  <Image
-    src={images['illustrations']}
-    alt={images['catalog']?.alt?.[lang]}
-    class="max-w-7xl p-4 w-full m-auto"
-  />
+  <Frame src={images['catalog']} alt={images['catalog']?.alt?.[lang]}/>
+  <Frame src={images['onboarding']} alt={images['onboarding']?.alt?.[lang]}/>
+  <Frame src={images['observation']} alt={images['observation']?.alt?.[lang]}/>
+  <Frame src={images['icons']} alt={images['icons']?.alt?.[lang]}/>
+  <Frame src={images['illustrations']} alt={images['illustrations']?.alt?.[lang]}/>
 </section>
 
 <style>
