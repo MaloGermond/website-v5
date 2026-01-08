@@ -1,13 +1,84 @@
 ---
 import { Image } from 'astro:assets';
 
-const {src, alt=""} = Astro.props
+const { src, alt = '' } = Astro.props;
 const { lang } = Astro.params;
-
 ---
 
 <figure class="group max-w-7xl p-4 w-full m-auto">
-	<div class="w-full overflow-hidden">
-	 <Image src={src} alt={alt} class="w-full scale-110 group-hover:scale-100 transition-all duration-300 ease-out cursor-pointer" />
-	</div>
+  <div class="relative top-0 left-0 frame w-full overflow-hidden">
+    <Image
+      src={src}
+      alt={alt}
+      class="w-full scale-110 group-hover:scale-100 transition-all duration-300 ease-out cursor-pointer"
+    />
+  </div>
 </figure>
+
+
+<style global>
+  .fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto !important;
+    height: auto !important;
+    padding: 1rem;
+    z-index: 50;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .fullscreen img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const elements = document.querySelectorAll('.frame');
+
+    elements.forEach((frame) => {
+      let isFullscreen = false;
+      const img = frame.querySelector('img');
+
+      frame.addEventListener('click', () => {
+        isFullscreen = !isFullscreen;
+
+        if (isFullscreen) {
+          // Clone l'image pour éviter les conflits de style
+          const clone = img.cloneNode(true);
+          const fullScreenDiv = document.createElement('div');
+          fullScreenDiv.className = 'fullscreen';
+          fullScreenDiv.appendChild(clone);
+          document.body.appendChild(fullScreenDiv);
+
+          // Animation d'apparition
+          gsap.fromTo(
+            clone,
+            { scale: 0.9, opacity: 0 },
+            { scale: 1, opacity: 1, duration: 0.5, ease: 'power2.out' }
+          );
+
+          // Ferme au clic sur l'overlay
+          fullScreenDiv.addEventListener('click', () => {
+            gsap.to(clone, {
+              scale: 0.9,
+              opacity: 0,
+              duration: 0.3,
+              onComplete: () => fullScreenDiv.remove(),
+            });
+            isFullscreen = false;
+          });
+        }
+      });
+    });
+  });
+</script>
