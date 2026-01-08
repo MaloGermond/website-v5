@@ -63,18 +63,18 @@ const { lang } = Astro.params;
           // Animation d'apparition
           gsap.fromTo(
             clone,
-            { scale: 0.9, opacity: 0 },
-            { scale: 1, opacity: 1, duration: 0.5, ease: 'power2.out' }
+            { scale: 0.9, opacity: 0.4, filter: "blur(2px)"},
+            { scale: 1, opacity: 1, duration: 0.5, filter: "blur(0px)", ease: 'power2.inOut' }
           );
 
           // Ferme au clic sur l'overlay
           fullScreenDiv.addEventListener('click', () => {
             gsap.to(clone, {
-              scale: 0.9,
               opacity: 0,
               duration: 0.3,
               onComplete: () => fullScreenDiv.remove(),
             });
+            
             isFullscreen = false;
           });
         }

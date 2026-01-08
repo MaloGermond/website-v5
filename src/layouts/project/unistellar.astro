@@ -62,8 +62,7 @@ const mosaicScreens = Object.values(images).filter((el) =>
   />
 </section>
 <section>
-  <Frame src={images['login']}/>
-  <Image src={images['login']} alt="{images['login']?.alt?.[lang]}" class="max-w-7xl p-4 w-full m-auto" />
+  <Frame src={images['login']} alt={images['login']?.alt?.[lang]}/>
 
   <Image src={images['catalog']} alt={images['catalog']?.alt?.[lang]} class="max-w-7xl p-4 w-full m-auto" />
 
