@@ -1,0 +1,134 @@
+{
+  "blackhole-background": {
+    "alt": {
+      "fr": "Arrière-plan représentant un fond d'étoile",
+      "en": "Background depicting a starry sky."
+    }
+  },
+  "blackhole-object": {
+    "alt": {
+      "fr": "Représentation artistique d’un trou noir avec effet de lentille gravitationnelle.",
+      "en": "Artistic depiction of a black hole with gravitational lensing effect."
+    }
+  },
+  "catalog": {
+    "alt": {
+      "fr": "Capture d’écran du catalogue d’objets célestes de l’application Unistellar.",
+      "en": "Screenshot of the celestial objects catalog in the Unistellar app."
+    }
+  },
+  "earth": {
+    "alt": {
+      "fr": "Vue satellite d’une planète évoquant la Terre, les nuages reflétant la lumière du soleil levant.",
+      "en": "Satellite view of an Earth-like planet, with clouds reflecting the rising sun’s light."
+    }
+  },
+  "icons": {
+    "alt": {
+      "fr": "Jeu d’icônes stylisées pour de l'application Unistellar, incluant télescope, étoiles et planètes.",
+      "en": ""
+    }
+  },
+  "illustrations": {
+    "alt": {
+      "fr": "",
+      "en": ""
+    }
+  },
+  "login": {
+    "alt": {
+      "fr": "Maquettes mobiles de l'application Unistellar : écran de confirmation d'email (gauche), écran d'accueil avec un télescope rouge et le slogan 'Stand out, look up' (centre), et écran de confirmation d'envoi de lien par email (droite).",
+      "en": "Unistellar app mobile mockups: email confirmation screen (left), home screen with a red telescope and the slogan 'Stand out, look up' (center), and email link confirmation screen (right)."
+    }
+  },
+  "observation": {
+    "alt": {
+      "fr": "",
+      "en": ""
+    }
+  },
+  "onboarding": {
+    "alt": {
+      "fr": "",
+      "en": ""
+    }
+  },
+  "screen-unistellar-catalog": {
+    "alt": {
+      "fr": "",
+      "en": ""
+    }
+  },
+  "screen-unistellar-check": {
+    "alt": {
+      "fr": "",
+      "en": ""
+    }
+  },
+  "screen-unistellar-confirm": {
+    "alt": {
+      "fr": "",
+      "en": ""
+    }
+  },
+  "screen-unistellar-consent": {
+    "alt": {
+      "fr": "",
+      "en": ""
+    }
+  },
+  "screen-unistellar-face": {
+    "alt": {
+      "fr": "",
+      "en": ""
+    }
+  },
+  "screen-unistellar-home": {
+    "alt": {
+      "fr": "",
+      "en": ""
+    }
+  },
+  "screen-unistellar-laboratory": {
+    "alt": {
+      "fr": "",
+      "en": ""
+    }
+  },
+  "screen-unistellar-login": {
+    "alt": {
+      "fr": "",
+      "en": ""
+    }
+  },
+  "screen-unistellar-observation": {
+    "alt": {
+      "fr": "",
+      "en": ""
+    }
+  },
+  "screen-unistellar-settings": {
+    "alt": {
+      "fr": "",
+      "en": ""
+    }
+  },
+  "screen-unistellar-tube": {
+    "alt": {
+      "fr": "",
+      "en": ""
+    }
+  },
+  "screen-unistellar-unscrew": {
+    "alt": {
+      "fr": "",
+      "en": ""
+    }
+  },
+  "blackhole": {
+    "alt": {
+      "fr": "",
+      "en": ""
+    }
+  }
+}

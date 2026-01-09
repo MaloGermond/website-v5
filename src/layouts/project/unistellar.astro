@@ -1,35 +1,17 @@
 ---
-const { content } = Astro.props;
+const { content} = Astro.props;
+const { lang } = Astro.params;
 import { Image } from 'astro:assets';
 import Paragraph from '@components/Paragraph.astro';
 import InfoColumn from '@components/project/InfoColumn.astro';
 import Mosaic from '@components/project/Mosaic.astro';
+import Frame from "@components/Frame.astro"
 
-// 1. Import dynamique des images
-const loadScreens = import.meta.glob(
-  '../../assets/unistellar/*{jpg,png,gif,webp}'
-);
+import {loadScreensOnce} from "@utils/useScreens"
 
-// 2. Crée un objet indexé par le nom de fichier (sans extension)
-const images = {};
-
-// 3. Résous les promesses et traite les résultats
-const promises = Object.entries(loadScreens).map(async ([path, importFn]) => {
-  const screen = await importFn(); // Résout la promesse pour chaque image
-  const fileName = path.split('/').pop(); // Ex: "image1.png"
-  const name = fileName.replace(/\.\w+$/, ''); // Supprime l'extension (ex: "image1")
-
-  images[name] = {
-    src: screen.default.src,
-    width: screen.default.width,
-    height: screen.default.height,
-    format: screen.default.format,
-    name: name,
-  };
-});
-
-// 4. Attends que toutes les promesses soient résolues
-await Promise.all(promises);
+const screens = import.meta.glob("../../assets/unistellar/*{jpg,png,gif,webp}");
+const metadata = await import("../../assets/unistellar/images-metadata.json");
+const images = await loadScreensOnce(screens,metadata);
 
 const mosaicScreens = Object.values(images).filter((el) =>
   el.name.startsWith('screen-')
@@ -38,7 +20,7 @@ const mosaicScreens = Object.values(images).filter((el) =>
 
 <section class="relative bg-gray-900 overflow-hidden h-screen">
   <div
-    class="absolute bottom-0 w-full h-full bg-gradient-to-t from-[#8BB0F9] from-0% via-transparent via-50% to-transparent to-100% fade-in animation-duration-2 animation-delay-4 opacity-0"
+    class="absolute bottom-0 w-full h-full bg-gradient-to-t from-[#8BB0F9] from-0% via-transparent via-50% to-transparent to-100% fade-in animation-duration-2 animation-delay-2 opacity-0"
   >
   </div>
   <h1
@@ -48,14 +30,14 @@ const mosaicScreens = Object.values(images).filter((el) =>
   </h1>
   <Image
     src={images['earth']}
-    alt={content.hero.earthAlt}
-    class="absolute bottom-0 sm:bottom-[-60px] md:bottom-[-100px] lg:bottom-[-150px] xl:bottom-[-200px] 2xl:bottom-[-350px] left-1/2 translate-x-[-50%] translate-y-2/4 fade-in animation-duration-4 animation-delay-8 opacity-0"
+    alt={images['earth']?.alt?.[lang]}
+    class="absolute bottom-0 sm:bottom-[-60px] md:bottom-[-100px] lg:bottom-[-150px] xl:bottom-[-200px] 2xl:bottom-[-350px] left-1/2 translate-x-[-50%] translate-y-2/4 fade-in animation-duration-2 animation-delay-8 opacity-0"
     priority
   />
   <Image
     src={images['screen-unistellar-home']}
-    alt={content.hero.screenHomeAlt}
-    class="absolute bottom-[-300px] left-1/2 translate-x-[-50%] w-xs fade-in animation-duration-2 animation-delay-2 opacity-0"
+    alt={images['screen-unistellar-home']?.alt?.[lang]}
+    class="absolute bottom-[-300px] left-1/2 translate-x-[-50%] w-xs fade-in animation-duration-1 animation-delay-2 opacity-0"
     priority
   />
 </section>
@@ -80,29 +62,12 @@ const mosaicScreens = Object.values(images).filter((el) =>
   />
 </section>
 <section>
-  <Image src={images['login']} alt="" class="max-w-7xl p-4 w-full m-auto" />
-
-  <Image src={images['catalog']} alt="" class="max-w-7xl p-4 w-full m-auto" />
-
-  <Image
-    src={images['onboarding']}
-    alt=""
-    class="max-w-7xl p-4 w-full m-auto"
-  />
-
-  <Image
-    src={images['observation']}
-    alt=""
-    class="max-w-7xl p-4 w-full m-auto"
-  />
-
-  <Image src={images['icons']} alt="" class="max-w-7xl p-4 w-full m-auto" />
-
-  <Image
-    src={images['illustrations']}
-    alt=""
-    class="max-w-7xl p-4 w-full m-auto"
-  />
+  <Frame src={images['login']} alt={images['login']?.alt?.[lang]}/>
+  <Frame src={images['catalog']} alt={images['catalog']?.alt?.[lang]}/>
+  <Frame src={images['onboarding']} alt={images['onboarding']?.alt?.[lang]}/>
+  <Frame src={images['observation']} alt={images['observation']?.alt?.[lang]}/>
+  <Frame src={images['icons']} alt={images['icons']?.alt?.[lang]}/>
+  <Frame src={images['illustrations']} alt={images['illustrations']?.alt?.[lang]}/>
 </section>
 
 <style>

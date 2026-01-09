@@ -1,0 +1,83 @@
+---
+import Card from '@components/Card.astro';
+import Action from '@components/Action.astro';
+
+const { content } = Astro.props;
+---
+
+<Card
+  style="accent"
+  class="relative flex items-center p-8 gap-4 grow-1 overflow-hidden"
+>
+  <div id="lightSource" class="dark:bg-blue-700 bg-blue-300 dark:opacity-20">
+  </div>
+  <h2
+    class="text-center content-center flex-auto text-xl font-bold dark:text-slate-50 transition-all z-1 select-none"
+  >
+    {content.contact.title}
+  </h2>
+  <p
+    class="paragraph text-center content-center flex-auto text-lg font-light text-gray-800 dark:text-gray-200 transition-all z-1 select-none"
+  >
+    {content.contact.description}
+  </p>
+
+  <Action
+    label={content.contact.button.text}
+    id="Calendly"
+    role="primary"
+    size="large"
+    externalLink="true"
+    class="z-1"
+    link={content.contact.button.url}
+  />
+</Card>
+
+<script>
+  import { gsap } from 'gsap';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const circle = document.querySelector('#lightSource');
+
+    document.addEventListener('mousemove', (e) => {
+      const container = circle?.parentElement.getBoundingClientRect();
+      const element = circle.getBoundingClientRect();
+
+      const relativeX = e.clientX - (container.left+container.width/2)
+      const relativeY = e.clientY - (container.top+container.height/2)-160
+
+      gsap.to(circle, {
+        x: relativeX,
+        y: relativeY,
+        duration: 0.6,
+        ease: 'sine',
+      });
+
+    });
+  });
+</script>
+
+<style>
+  #lightSource {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    pointer-events: none;
+    /*transform: translate(-50%, -50%);*/
+    filter: blur(50px);
+    /*animation: pulse 6s ease-in-out infinite;*/
+    transform-origin: center;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(0.8);
+      animation-timing-function: ease-in-out;
+    }
+    50% {
+      transform: scale(1.5);
+    }
+  }
+</style>

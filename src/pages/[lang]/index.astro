@@ -1,6 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import SocialLinks from '@components/SocialLinks.astro';
+import ContactMe from '@components/home/ContactMe.astro'
 import Card from '@components/Card.astro';
 import ValueCard from '@components/values/ValueCard.astro';
 import Action from "@components/Action.astro"
@@ -9,7 +10,6 @@ import CoverUnistellar from "@components/project/CoverUnistellar.astro"
 import { getTranslation} from '@utils/handleLocales';
 
 import { locales } from '@locales/config.json';
-
 
 const { lang } = Astro.params;
 
@@ -71,19 +71,6 @@ const content = getTranslation(lang)
 
   <div class="flex flex-row flex-wrap gap-2 col-span-full sm:col-span-6 md:col-span-8">
     <CoverUnistellar/>
-    <Card style="accent" class="flex items-center p-8 gap-4 grow-1">
-      <h2
-        class="text-center content-center flex-auto text-xl font-bold dark:text-slate-50 transition-all"
-      >
-        {content.contact.title}
-      </h2>
-      <p
-        class="paragraph text-center content-center flex-auto text-lg font-light text-gray-800 dark:text-gray-200 transition-all"
-      >
-        {content.contact.description}
-      </p>
-      
-      <Action label={content.contact.button.text} id="Calendly" role="primary" size="large" externalLink="true" link={content.contact.button.url}/>
-    </Card>
+    <ContactMe content={content}/>
   </div>
 </Layout>
