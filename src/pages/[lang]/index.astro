@@ -5,7 +5,8 @@ import ContactMe from '@components/home/ContactMe.astro'
 import Card from '@components/Card.astro';
 import ValueCard from '@components/values/ValueCard.astro';
 import Action from "@components/Action.astro"
-import CoverUnistellar from "@components/project/CoverUnistellar.astro"
+import CoverUnistellar from "@components/home/CoverUnistellar.astro"
+import CoverUnistellarUX from "@components/home/CoverUnistellarUX.astro"
 
 import { getTranslation} from '@utils/handleLocales';
 
@@ -71,6 +72,7 @@ const content = getTranslation(lang)
 
   <div class="flex flex-row flex-wrap gap-2 col-span-full sm:col-span-6 md:col-span-8">
     <CoverUnistellar/>
+    <CoverUnistellarUX/>
     <ContactMe content={content}/>
   </div>
 </Layout>
