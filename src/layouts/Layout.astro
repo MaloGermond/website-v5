@@ -18,6 +18,10 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
       (function () {
         var theme = localStorage.getItem('theme') || 'light';
         document.documentElement.classList.add(theme);
+        // Sans ça, un navigateur en préférence système sombre peint son
+        // canevas natif en noir avant que le CSS du site (qui dit "clair")
+        // ait chargé, provoquant un flash sombre même en thème light.
+        document.documentElement.style.colorScheme = theme;
       })();
     </script>
 
