@@ -11,8 +11,16 @@ const slug = Astro.url.pathname;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
 
-<html lang={lang} class="light">
+<html lang={lang}>
   <head>
+    <!-- Applique le thème persisté avant le rendu pour éviter le flash -->
+    <script is:inline>
+      (function () {
+        var theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.classList.add(theme);
+      })();
+    </script>
+
     <!-- Encodage et compatibilité -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
