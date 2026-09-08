@@ -79,4 +79,5 @@ Preact is used only where interactivity is needed (`client:load` directive), e.g
 ## Workflow
 
 - **Branches**: create a dedicated branch off `dev` (never `main`), named `<ticket-number>-<ticket-name>` in kebab-case (e.g. `42-add-dark-mode`). Without a ticket number, use a `feature/` or `bugfix/` prefix.
+- **Commits**: see `.claude/rules/commit-convention.md` for the commit message convention (gitmoji + description format, glossary, examples).
 - **Pull requests**: open PRs as **draft**, targeting `dev` (never `main`). If the branch/task maps to a GitHub issue, link it in the PR description with a closing keyword (`Closes #<number>`, `Fixes #<number>`).
