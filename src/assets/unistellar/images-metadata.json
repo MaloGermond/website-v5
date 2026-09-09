@@ -130,5 +130,137 @@
       "fr": "",
       "en": ""
     }
+  },
+  "cover-hand-phone": {
+    "alt": {
+      "fr": "Une main tient un iPhone affichant l’application Unistellar sur l’écran d’observation de la nébuleuse de l’Aigle, devant un fond dégradé vert.",
+      "en": "A hand holds an iPhone showing the Unistellar app on the Eagle nebula observation screen, against a green gradient background."
+    }
+  },
+  "man stand by telescope": {
+    "alt": {
+      "fr": "Croquis au trait d’une personne se tenant à côté d’un télescope Unistellar.",
+      "en": "Line sketch of a person standing next to a Unistellar telescope."
+    }
+  },
+  "screen-unistellar-v1-observation": {
+    "alt": {
+      "fr": "Version 1.0 de l’écran d’observation Unistellar, avec une navigation par croix directionnelle et des boutons ronds.",
+      "en": "Version 1.0 of the Unistellar observation screen, with a directional pad and round buttons."
+    }
+  },
+  "unistellar-screens-lowfy-catalog": {
+    "alt": {
+      "fr": "Maquette basse fidélité de l’écran catalogue.",
+      "en": "Low-fidelity mockup of the catalog screen."
+    }
+  },
+  "unistellar-screens-lowfy-goToPage": {
+    "alt": {
+      "fr": "Maquette basse fidélité de l’écran de navigation vers un objet.",
+      "en": "Low-fidelity mockup of the go-to-object screen."
+    }
+  },
+  "unistellar-screens-lowfy-homePage": {
+    "alt": {
+      "fr": "Maquette basse fidélité de l’écran d’accueil.",
+      "en": "Low-fidelity mockup of the home screen."
+    }
+  },
+  "unistellar-screens-lowfy-manualTarget": {
+    "alt": {
+      "fr": "Maquette basse fidélité de l’écran de ciblage manuel.",
+      "en": "Low-fidelity mockup of the manual targeting screen."
+    }
+  },
+  "unistellar-screens-lowfy-movePage": {
+    "alt": {
+      "fr": "Maquette basse fidélité de l’écran de déplacement du télescope.",
+      "en": "Low-fidelity mockup of the telescope move screen."
+    }
+  },
+  "unistellar-screens-lowfy-objectPage": {
+    "alt": {
+      "fr": "Maquette basse fidélité de la fiche d’un objet céleste.",
+      "en": "Low-fidelity mockup of a celestial object detail screen."
+    }
+  },
+  "unistellar-screens-lowfy-observation": {
+    "alt": {
+      "fr": "Maquette basse fidélité de l’écran d’observation.",
+      "en": "Low-fidelity mockup of the observation screen."
+    }
+  },
+  "unistellar-screens-lowfy-tutorial": {
+    "alt": {
+      "fr": "Maquette basse fidélité de l’écran de tutoriel.",
+      "en": "Low-fidelity mockup of the tutorial screen."
+    }
+  },
+  "unistellar-screens-wireframe-discoverPage": {
+    "alt": {
+      "fr": "Wireframe de l’écran de découverte.",
+      "en": "Wireframe of the discover screen."
+    }
+  },
+  "unistellar-screens-wireframe-goToPage": {
+    "alt": {
+      "fr": "Wireframe de l’écran de navigation vers un objet.",
+      "en": "Wireframe of the go-to-object screen."
+    }
+  },
+  "unistellar-screens-wireframe-homePage": {
+    "alt": {
+      "fr": "Wireframe de l’écran d’accueil.",
+      "en": "Wireframe of the home screen."
+    }
+  },
+  "unistellar-screens-wireframe-manualTarget": {
+    "alt": {
+      "fr": "Wireframe de l’écran de ciblage manuel.",
+      "en": "Wireframe of the manual targeting screen."
+    }
+  },
+  "unistellar-screens-wireframe-move": {
+    "alt": {
+      "fr": "Wireframe de l’écran de déplacement du télescope.",
+      "en": "Wireframe of the telescope move screen."
+    }
+  },
+  "unistellar-screens-wireframe-object": {
+    "alt": {
+      "fr": "Wireframe de la fiche d’un objet céleste.",
+      "en": "Wireframe of a celestial object detail screen."
+    }
+  },
+  "unistellar-screens-wireframe-objectPage": {
+    "alt": {
+      "fr": "Wireframe de la fiche d’un objet céleste.",
+      "en": "Wireframe of a celestial object detail screen."
+    }
+  },
+  "unistellar-screens-wireframe-observation": {
+    "alt": {
+      "fr": "Wireframe de l’écran d’observation.",
+      "en": "Wireframe of the observation screen."
+    }
+  },
+  "unistellar-screens-wireframe-observationPage": {
+    "alt": {
+      "fr": "Wireframe de l’écran d’observation.",
+      "en": "Wireframe of the observation screen."
+    }
+  },
+  "unistellar-screens-wireframe-tutorial": {
+    "alt": {
+      "fr": "Wireframe de l’écran de tutoriel.",
+      "en": "Wireframe of the tutorial screen."
+    }
+  },
+  "unistellar-ux-analysis": {
+    "alt": {
+      "fr": "Écran d’observation Unistellar annoté de cercles et flèches soulignant les zones d’interaction analysées lors de l’étude d’usabilité.",
+      "en": "Unistellar observation screen annotated with circles and arrows highlighting the interaction zones analyzed during the usability study."
+    }
   }
 }

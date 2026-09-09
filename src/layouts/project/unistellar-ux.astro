@@ -11,9 +11,6 @@ import LineIcon from '@components/project/LineIcon.astro';
 
 import { loadScreensOnce } from '@utils/useScreens';
 
-import coverHandPhone from '../../assets/unistellar-ux/cover-hand-phone.png';
-import screenV1Observation from '../../assets/unistellar-ux/screen-v1-observation.png';
-
 const screens = import.meta.glob(
   '../../assets/unistellar/*{jpg,png,gif,webp}'
 );
@@ -50,7 +47,7 @@ const lightSection = 'bg-[#F5F6F4] dark:bg-[#0B1512]';
       >
       </div>
       <Image
-        src={coverHandPhone}
+        src={images['cover-hand-phone']}
         alt={content.hero.photoAlt}
         class="w-2/3 sm:w-1/2 md:w-3/4 h-auto"
       />
@@ -117,7 +114,11 @@ const lightSection = 'bg-[#F5F6F4] dark:bg-[#0B1512]';
       </h2>
       <div class="relative flex items-end gap-6">
         <div class="relative w-1/3">
-          <Image src={screenV1Observation} alt="" class="w-full h-auto" />
+          <Image
+            src={images['screen-unistellar-v1-observation']}
+            alt=""
+            class="w-full h-auto"
+          />
           <p class={`mt-2 text-xs text-center ${inkMuted}`}>
             {content.impact.before}
             <span class="block uppercase tracking-wide">
