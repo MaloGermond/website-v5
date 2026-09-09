@@ -6,7 +6,7 @@ import { getTranslation } from '@utils/handleLocales';
 
 //1.  Handling slugs to get local and project
 export function getStaticPaths() {
-  const projects = ['unistellar'];
+  const projects = ['unistellar', 'unistellar-ux'];
 
   const path = locales.flatMap((lang) =>
     projects.map((project) => ({

@@ -1,0 +1,194 @@
+---
+const { content} = Astro.props;
+const { lang } = Astro.params;
+import { Image } from 'astro:assets';
+import Paragraph from '@components/Paragraph.astro';
+import InfoColumn from '@components/project/InfoColumn.astro';
+import Metrics from '@components/project/Metrics.astro';
+import Mosaic from '@components/project/Mosaic.astro';
+import SlideCard from '@components/project/SlideCard.astro';
+import Quote from '@components/project/Quote.astro';
+import TagList from '@components/project/TagList.astro';
+import GreyBlock from '@components/project/GreyBlock.astro';
+
+import {loadScreensOnce} from "@utils/useScreens"
+
+const screens = import.meta.glob("../../assets/unistellar/*{jpg,png,gif,webp}");
+const metadata = await import("../../assets/unistellar/images-metadata.json");
+const images = await loadScreensOnce(screens,metadata);
+
+const mosaicScreens = Object.values(images).filter((el) =>
+  el.name.startsWith('screen-')
+);
+---
+
+<section class="relative bg-gray-900 overflow-hidden h-screen">
+  <div
+    class="absolute bottom-0 w-full h-full bg-gradient-to-t from-[#8BB0F9] from-0% via-transparent via-50% to-transparent to-100% fade-in animation-duration-2 animation-delay-2 opacity-0"
+  >
+  </div>
+  <h1
+    class="text-[10vw] font-avara w-full text-center pt-25 md:pt-40 text-gray-50 fade-in animation-duration-2 opacity-0"
+  >
+    {content.hero.title}
+  </h1>
+  <p
+    class="w-full text-center text-gray-300 sm:text-xl fade-in animation-duration-2 animation-delay-4 opacity-0"
+  >
+    {content.hero.tagline}
+  </p>
+  <Image
+    src={images['earth']}
+    alt={images['earth']?.alt?.[lang]}
+    class="absolute bottom-0 sm:bottom-[-60px] md:bottom-[-100px] lg:bottom-[-150px] xl:bottom-[-200px] 2xl:bottom-[-350px] left-1/2 translate-x-[-50%] translate-y-2/4 fade-in animation-duration-2 animation-delay-8 opacity-0"
+    priority
+  />
+  <Image
+    src={images['screen-unistellar-home']}
+    alt={images['screen-unistellar-home']?.alt?.[lang]}
+    class="absolute bottom-[-300px] left-1/2 translate-x-[-50%] w-xs fade-in animation-duration-1 animation-delay-2 opacity-0"
+    priority
+  />
+</section>
+
+<section class="px-8 py-16 max-w-7xl m-auto">
+  <p class="text-sm px-4 mb-2 text-gray-400 dark:text-gray-400">
+    {content.period}
+  </p>
+  <h2
+    class="font-avara paragraph text-xl sm:text-4xl max-w-3xl p-4 dark:text-gray-50"
+  >
+    {content.contexte}
+  </h2>
+  <div class="flex flex-row flex-wrap">
+    <InfoColumn title={content.roles.title} items={content.roles.items} />
+    <InfoColumn title={content.skills.title} items={content.skills.items} />
+    <InfoColumn title={content.teamsTitle} items={content.teams} />
+  </div>
+  <Metrics items={content.metrics} />
+</section>
+
+<section class="slide px-8 py-16 max-w-5xl m-auto flex flex-col items-center gap-8">
+  <h2 class="font-avara text-xl sm:text-4xl text-center dark:text-gray-50">
+    {content.principles.title}
+  </h2>
+  <div class="flex flex-row flex-wrap justify-center gap-4">
+    {
+      content.principles.items.map((principle) => (
+        <SlideCard title={principle.title} text={principle.text} />
+      ))
+    }
+  </div>
+  <Paragraph
+    class="text-center max-w-2xl text-gray-500 dark:text-gray-400"
+    content={content.principles.closing}
+  />
+</section>
+
+<section class="slide px-8 py-16 flex items-center justify-center">
+  <Quote quote={content.quote.text} attribution={content.quote.attribution} />
+</section>
+
+<Mosaic images={mosaicScreens} />
+
+<section class="slide px-8 py-16 max-w-6xl m-auto flex flex-col items-center gap-8">
+  <h2 class="font-avara text-xl sm:text-4xl text-center dark:text-gray-50">
+    {content.problems.title}
+  </h2>
+  <div class="flex flex-row flex-wrap justify-center gap-4">
+    {
+      content.problems.items.map((problem) => (
+        <SlideCard
+          kicker={problem.kicker}
+          title={problem.title}
+          text={problem.text}
+        />
+      ))
+    }
+  </div>
+</section>
+
+<section class="slide px-8 py-16 max-w-5xl m-auto flex flex-col items-center gap-8">
+  <h2 class="font-avara text-xl sm:text-4xl text-center dark:text-gray-50">
+    {content.approach.title}
+  </h2>
+  <div class="flex flex-row flex-wrap justify-center gap-4">
+    {
+      content.approach.steps.map((step) => (
+        <SlideCard
+          kicker={step.subtitle}
+          title={step.title}
+          text={step.text}
+        />
+      ))
+    }
+  </div>
+  <GreyBlock label={content.approach.title} ratio="aspect-[21/9]" />
+  <p class="text-sm italic text-gray-400">{content.approach.tagline}</p>
+</section>
+
+<section class="slide px-8 py-16 max-w-3xl m-auto flex flex-col items-center gap-8">
+  <h2 class="font-avara text-xl sm:text-4xl text-center dark:text-gray-50">
+    {content.methodology.title}
+  </h2>
+  <TagList items={content.methodology.tags} />
+  <Paragraph
+    class="text-center text-gray-500 dark:text-gray-400"
+    content={content.methodology.text}
+  />
+</section>
+
+<section class="slide px-8 py-16 max-w-4xl m-auto flex flex-col items-center gap-8">
+  <h2 class="font-avara text-xl sm:text-4xl text-center dark:text-gray-50">
+    {content.transformation.title}
+  </h2>
+  <Paragraph
+    class="text-center max-w-2xl text-gray-500 dark:text-gray-400"
+    content={content.transformation.text}
+  />
+  <div class="relative w-full max-w-2xl">
+    <GreyBlock label={content.transformation.title} ratio="aspect-[16/10]" />
+    <span
+      class="absolute top-4 left-4 px-3 py-1 text-xs bg-gray-900 text-gray-50"
+    >
+      {content.transformation.before}
+    </span>
+    <span
+      class="absolute top-4 right-4 px-3 py-1 text-xs bg-blue-700 text-gray-50"
+    >
+      {content.transformation.after}
+    </span>
+  </div>
+</section>
+
+<section class="slide px-8 py-16 max-w-5xl m-auto flex flex-col items-center gap-8">
+  <h2 class="font-avara text-xl sm:text-4xl text-center dark:text-gray-50">
+    {content.results.title}
+  </h2>
+  <Metrics items={content.results.metrics} />
+</section>
+
+<section class="slide px-8 py-16 max-w-6xl m-auto flex flex-col items-center gap-8">
+  <h2 class="font-avara text-xl sm:text-4xl text-center dark:text-gray-50">
+    {content.takeaways.title}
+  </h2>
+  <div class="flex flex-row flex-wrap justify-center gap-4">
+    {
+      content.takeaways.items.map((takeaway) => (
+        <SlideCard title={takeaway.title} text={takeaway.text} />
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  section {
+    height: auto;
+    min-height: 80svh;
+  }
+
+  .slide {
+    display: flex;
+    justify-content: center;
+  }
+</style>

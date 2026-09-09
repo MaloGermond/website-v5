@@ -11,11 +11,10 @@
   },
   "hero": {
     "title": "Unistellar App",
-    "tagline": "Elevating the stargazer's journey",
     "earthAlt": "Satellite view of Earth at night, showing Europe with city lights illuminating the continent, clouds over the Atlantic Ocean, and part of Africa visible in the bottom left. The image captures the planet’s curvature and the atmosphere lit by the sun.",
     "screenHomeAlt": "Screenshot of the Unistellar mobile app showing the eVscope telescope control interface. The screen displays the telescope name 'My Odyssey,' its battery level at 50%, a 'Watch' button to start observation, and a tutorial titled 'How to get a perfect focus with your eVscope telescope.' In the background, an image of the telescope pointed toward space with Earth in the distance."
   },
-  "period": "2021 – 2024",
+  "period": "2021 – 2023",
   "contexte": "In 2022, Unistellar, a leader in smart telescopes, underwent a full rebranding to solidify its market position.",
   "purpose": "A year later, the challenge began: adapting this visual identity, originally designed for posters and social media, to an app with significant technical constraints.",
   "metrics": [
@@ -23,7 +22,6 @@
     { "value": "3k", "label": "Daily active users" },
     { "value": "Android & iOS", "label": "Platforms" }
   ],
-  "teamsTitle": "Team",
   "teams": ["2 developers (Swift & Compose)", "1 QA", "1 PM"],
   "skills": {
     "title": "Skills",
@@ -39,108 +37,13 @@
     "title": "Roles",
     "items": ["Lead design", "User Experience", "UI designer", "Art director"]
   },
-  "principles": {
-    "title": "My design principles",
-    "items": [
-      {
-        "title": "Tangible",
-        "text": "Turning abstract strategy into a concrete, human-centered product."
-      },
-      {
-        "title": "Emotion",
-        "text": "Design that moves users is a powerful driver of success."
-      },
-      {
-        "title": "Empathy",
-        "text": "Standing in the user's shoes fuels creativity."
-      },
-      {
-        "title": "Essential",
-        "text": "Prioritizing the essential for a clear, effortless experience."
-      }
-    ],
-    "closing": "Unistellar is a tech-driven company above all: building trust in UX methods took consistency — and repeated results."
-  },
-  "quote": {
-    "text": "At first, I was excited to start, but now I feel completely lost and don't know where to go next.",
-    "attribution": "User, initial usability study"
-  },
-  "problems": {
-    "title": "What was holding users back",
-    "items": [
-      {
-        "kicker": "Cognitive load",
-        "title": "Talk like your users",
-        "text": "Azimuth, RA/DEC, J2000: jargon that blocks more than it helps."
-      },
-      {
-        "kicker": "Guidance",
-        "title": "A guide, not a remote",
-        "text": "Faced with a huge catalog, users got stuck with no suggestions."
-      },
-      {
-        "kicker": "Interaction",
-        "title": "A stagnant experience",
-        "text": "Once triggered, nothing more happens — users become passive."
-      },
-      {
-        "kicker": "Emotion",
-        "title": "Actions with no payoff",
-        "text": "Some actions added neither emotion nor perceived value."
-      }
-    ]
-  },
-  "approach": {
-    "title": "A two-step method",
-    "steps": [
-      {
-        "title": "Design the right thing",
-        "subtitle": "Discover → Define",
-        "text": "Understand the problem before reaching for solutions."
-      },
-      {
-        "title": "Design it right",
-        "subtitle": "Explore → Validate",
-        "text": "Test, measure, iterate until the solution holds."
-      }
-    ],
-    "tagline": "Translating ideas into actionable opportunities."
-  },
-  "methodology": {
-    "title": "Methodology",
-    "tags": ["Feedback", "Survey", "Interviews", "UEQ", "Usability testing"],
-    "text": "Our starting assumption — simplifying flows would be enough — turned out incomplete: reducing cognitive load and guiding users mattered just as much."
-  },
-  "transformation": {
-    "title": "From frustration to satisfaction",
-    "text": "Users loved the telescope but got stuck in the app. We turned that disappointment into satisfaction — not by changing the product, but how it was discovered.",
-    "before": "V1.0",
-    "after": "V3.0"
-  },
-  "results": {
-    "title": "Design that shows in the numbers",
-    "metrics": [
-      { "value": "+45", "label": "NPS points" },
-      { "value": "+800%", "label": "User growth" },
-      { "value": "4★+", "label": "Rating maintained" },
-      { "value": "40+", "label": "NPS score" }
-    ]
-  },
-  "takeaways": {
-    "title": "Key takeaways",
-    "items": [
-      {
-        "title": "Communicate as much as you build",
-        "text": "A feature nobody understands goes unused."
-      },
-      {
-        "title": "Make the useful visible",
-        "text": "An invisible product loses its perceived value."
-      },
-      {
-        "title": "Set measurable goals",
-        "text": "Without a benchmark, progress can't be tracked."
-      }
-    ]
-  }
+  "hook": "Lost inside their own telescope. Despite 50k downloads and 3k daily users, many dropped off before their first observation.",
+  "challengeTitle": "Problem",
+  "challenge": "How could we reduce the friction Unistellar users felt while discovering the app's features, turning a first launch into a first successful observation?",
+  "processTitle": "Methodology",
+  "process": "User feedback, surveys, interviews, UEQ measurements, and usability tests guided every iteration, from onboarding to telescope focusing.",
+  "resolutionTitle": "Resolution",
+  "resolution": "A redesigned onboarding flow, clearer navigation, and the new design system rolled out across the whole application.",
+  "resultsTitle": "Impact",
+  "results": "A 45% increase in NPS, reflecting a smoother experience and users more willing to recommend the app."
 }

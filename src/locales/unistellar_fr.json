@@ -4,18 +4,17 @@
     "description": ""
   },
   "cover": {
-    "title": "Rendre  accessible l’astronomie",
+    "title": "Rendre  accessible l’astronomie",
     "imageName": "blackhole.png",
     "alt": "Capture d’écran de l’application mobile Unistellar montrant un téléphone avec une vue immersive de la Terre depuis l’espace en arrière-plan. L’interface présente un télescope connecté au premier plan, une section intitulée « Mon Odyssée », ainsi que des informations sur la batterie et le stockage. L’application est dédiée à l’astronomie et à la gestion de télescopes intelligents.",
     "action": "Voir le use case"
   },
   "hero": {
     "title": "Unistellar app",
-    "tagline": "Élever le voyage de l'observateur d'étoiles",
     "earthAlt": "Vue satellite de la Terre de nuit, montrant l’Europe éclairée par les lumières des villes, des nuages au-dessus de l’océan Atlantique et une partie de l’Afrique visible en bas à gauche. L’image capture la courbure de la planète et l’atmosphère terrestre éclairée par le soleil.",
     "screenHomeAlt": "Capture d’écran de l’application Unistellar sur mobile affichant l’interface de contrôle du télescope eVscope. L’écran montre le nom du télescope « My Odyssey », son niveau de batterie à 50 %, un bouton « Observer » pour lancer l’observation, et un tutoriel intitulé « Comment obtenir une mise au point parfaite avec votre télescope eVscope ». En arrière-plan, une image du télescope pointé vers l’espace avec la Terre en fond."
   },
-  "period": "2021 – 2024",
+  "period": "2021 – 2023",
   "contexte": "En 2022, Unistellar, leader des télescopes connectés, lance un rebranding complet pour affirmer sa position sur le marché.",
   "purpose": "Un an plus tard, le travail commence : adapter cette identité visuelle, pensée pour des affiches et des réseaux sociaux, à une application soumise à des contraintes fortes.",
   "metrics": [
@@ -23,7 +22,6 @@
     { "value": "3k", "label": "Utilisateurs actifs par jour" },
     { "value": "Android & iOS", "label": "Plateformes" }
   ],
-  "teamsTitle": "Équipe",
   "teams": [
     "2 développeurs (Swift & Compose)",
     "1 responsable qualité (QA)",
@@ -48,114 +46,13 @@
       "Direction artistique"
     ]
   },
-  "principles": {
-    "title": "Ma philosophie de design",
-    "items": [
-      {
-        "title": "Tangible",
-        "text": "Transformer une stratégie abstraite en produit concret, centré sur l'humain."
-      },
-      {
-        "title": "Émotion",
-        "text": "Un design qui touche les utilisateurs est un moteur de réussite."
-      },
-      {
-        "title": "Empathie",
-        "text": "Se mettre à la place de l'utilisateur nourrit la créativité."
-      },
-      {
-        "title": "Essentiel",
-        "text": "Prioriser l'essentiel pour une expérience claire et sans effort."
-      }
-    ],
-    "closing": "Unistellar est avant tout une entreprise technique : instaurer la confiance dans les méthodes UX a demandé de la constance — et des résultats répétés."
-  },
-  "quote": {
-    "text": "Au début, j'étais motivé. Maintenant, je suis complètement perdu et je ne sais plus où aller.",
-    "attribution": "Utilisateur, étude d'usabilité initiale"
-  },
-  "problems": {
-    "title": "Ce qui bloquait",
-    "items": [
-      {
-        "kicker": "Charge cognitive",
-        "title": "Parler la langue des utilisateurs",
-        "text": "Azimut, RA/DEC, J2000 : un jargon qui bloque plus qu'il n'aide."
-      },
-      {
-        "kicker": "Guidage",
-        "title": "Un guide, pas une télécommande",
-        "text": "Face à un catalogue immense, les utilisateurs restaient bloqués, sans suggestion."
-      },
-      {
-        "kicker": "Interaction",
-        "title": "Une expérience qui stagne",
-        "text": "Une fois l'action lancée, plus rien ne se passe : l'utilisateur devient spectateur."
-      },
-      {
-        "kicker": "Émotion",
-        "title": "Des actions sans relief",
-        "text": "Certaines actions n'apportaient ni émotion, ni valeur perçue."
-      }
-    ]
-  },
-  "approach": {
-    "title": "Une méthode en deux temps",
-    "steps": [
-      {
-        "title": "Concevoir la bonne chose",
-        "subtitle": "Discover → Define",
-        "text": "Comprendre le problème avant de chercher des solutions."
-      },
-      {
-        "title": "Bien la concevoir",
-        "subtitle": "Explore → Validate",
-        "text": "Tester, mesurer, itérer jusqu'à la solution juste."
-      }
-    ],
-    "tagline": "Traduire des idées en opportunités concrètes."
-  },
-  "methodology": {
-    "title": "Méthodologie",
-    "tags": [
-      "Feedbacks",
-      "Survey",
-      "Interviews",
-      "UEQ",
-      "Test d'utilisabilité"
-    ],
-    "text": "Notre hypothèse de départ — simplifier les parcours suffirait — s'est révélée incomplète : réduire la charge cognitive et mieux guider comptaient tout autant."
-  },
-  "transformation": {
-    "title": "De la frustration à la satisfaction",
-    "text": "Les utilisateurs adoraient le télescope, mais butaient sur l'application. Nous avons transformé cette déception en satisfaction — sans changer le produit, mais la façon de le découvrir.",
-    "before": "V1.0",
-    "after": "V3.0"
-  },
-  "results": {
-    "title": "Un design qui se mesure",
-    "metrics": [
-      { "value": "+45", "label": "Points de NPS" },
-      { "value": "+800%", "label": "Croissance des utilisateurs" },
-      { "value": "4★+", "label": "Note maintenue" },
-      { "value": "40+", "label": "Score NPS" }
-    ]
-  },
-  "takeaways": {
-    "title": "Ce qu'on en retient",
-    "items": [
-      {
-        "title": "Communiquer autant que développer",
-        "text": "Une fonctionnalité mal expliquée reste inutilisée."
-      },
-      {
-        "title": "Rendre l'utile visible",
-        "text": "Un produit invisible perd de sa valeur perçue."
-      },
-      {
-        "title": "Fixer des objectifs mesurables",
-        "text": "Sans repère chiffré, impossible de suivre le progrès."
-      }
-    ]
-  }
+  "hook": "Perdus dans leur propre télescope. Malgré une base de 50k téléchargements et 3k utilisateurs quotidiens, beaucoup abandonnaient avant leur première observation.",
+  "challengeTitle": "Problème",
+  "challenge": "Comment réduire la friction ressentie par les utilisateurs Unistellar lors de la découverte des fonctionnalités, pour transformer l'ouverture de l'application en une première observation réussie ?",
+  "processTitle": "Méthodologie",
+  "process": "Retours utilisateurs, enquêtes, entretiens, mesures UEQ et tests d'utilisabilité ont guidé chaque itération, de l'onboarding jusqu'à la mise au point du télescope.",
+  "resolutionTitle": "Résolution",
+  "resolution": "Refonte du parcours d'onboarding, clarification de la navigation et déclinaison du nouveau design system sur l'ensemble de l'application.",
+  "resultsTitle": "Impact",
+  "results": "Un score NPS en hausse de 45 %, signe d'une expérience plus fluide et d'utilisateurs qui recommandent davantage l'application."
 }
