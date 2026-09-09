@@ -46,8 +46,30 @@
     "title": "La méthode",
     "paragraphs": [
       "Sans budget dédié ni accès formel aux utilisateurs, j’ai organisé dans l’urgence des sessions de test terrain.",
-      "Le choix s’est porté sur les nouveaux utilisateurs découvrant le produit pour la première fois : résoudre leurs points de blocage, c’était aussi améliorer l’expérience de tous, par ricochet. Protocole simple mais rigoureux : capture d’écran, enregistrement vidéo de la scène, verbalisation à voix haute, puis questionnaire de ressenti à chaud.",
-      "À partir de ces observations, j’ai reconstruit les grands moments du parcours, connexion, orientation, découverte du catalogue, et pour chacun identifié les points de friction ainsi que l’état émotionnel de l’utilisateur à cet instant."
+      "Le choix s’est porté sur les nouveaux utilisateurs découvrant le produit pour la première fois : résoudre leurs points de blocage, c’était aussi améliorer l’expérience de tous, par ricochet. Protocole simple mais rigoureux : capture d’écran, enregistrement vidéo de la scène, verbalisation à voix haute, puis questionnaire de ressenti à chaud."
+    ],
+    "journeyIntro": "À partir de ces observations, j’ai reconstruit les grands moments du parcours.\nConnexion, orientation, découverte du catalogue, et pour chacun identifié les points de friction ainsi que l’état émotionnel de l’utilisateur à cet instant.",
+    "journey": [
+      {
+        "label": "Connexion",
+        "title": "Create Actions That Inspire and Engage",
+        "text": "Some app actions fail to connect emotionally or offer practical value, creating unnecessary frustration and lowering user satisfaction."
+      },
+      {
+        "label": "Orientation",
+        "title": "Be a Guide for Users Through Their Discovery",
+        "text": "When faced with an overwhelming number of objects to observe, users often feel confused and uncertain about where to begin. Offering curated suggestions can eliminate the \"blank page\" effect and help them engage meaningfully."
+      },
+      {
+        "label": "Select Target",
+        "title": "Guide Users to Quick Insights",
+        "text": "Interaction zones has a lack of hierarchy and meaningful associations, leaving users confused when trying to complete an action. Clear guidance and structured design are critical to enhancing usability and enabling efficient navigation."
+      },
+      {
+        "label": "Enhanced Vision",
+        "title": "A Stagnant Experience Deteriorates Over Time",
+        "text": "Once the action is triggered, no further interaction with the image is possible. The user becomes passive, leading to boredom and disengagement."
+      }
     ],
     "quotes": [
       {
@@ -94,7 +116,12 @@
   },
   "facilitation": {
     "title": "La facilitation",
-    "text": "Face à une équipe de développement au départ sceptique, la restitution s’est faite en deux temps : présenter le problème seul, sans solution préconçue, pour susciter la réflexion collective, puis partager les pistes envisagées. Cette approche a permis de transformer un \"on ne peut rien faire\" initial en engagement réel, en montrant que le design pouvait rendre le sujet excitant plutôt que contraignant."
+    "intro": "Face à une équipe de développement au départ sceptique, la restitution s’est faite en deux temps :",
+    "steps": [
+      "Présenter le problème seul, sans solution préconçue, pour susciter la réflexion collective,",
+      "Partager les pistes envisagées."
+    ],
+    "text": "Cette approche a permis de transformer un \"on ne peut rien faire\" initial en engagement réel, en montrant que le design pouvait rendre le sujet excitant plutôt que contraignant."
   },
   "results": {
     "title": "Les résultats",

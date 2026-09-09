@@ -46,8 +46,30 @@
     "title": "The method",
     "paragraphs": [
       "With no dedicated budget or formal access to users, I put together field test sessions on short notice.",
-      "The focus was new users discovering the product for the first time: solving their blockers would also improve the experience for everyone else, by extension. A simple but rigorous protocol: screen capture, video recording of the scene, thinking aloud, then a hot debrief questionnaire.",
-      "From these observations, I reconstructed the key moments of the journey — connecting, orienting, discovering the catalog — and for each one identified the friction points as well as the user's emotional state at that moment."
+      "The focus was new users discovering the product for the first time: solving their blockers would also improve the experience for everyone else, by extension. A simple but rigorous protocol: screen capture, video recording of the scene, thinking aloud, then a hot debrief questionnaire."
+    ],
+    "journeyIntro": "From these observations, I reconstructed the key moments of the journey.\nConnecting, orienting, discovering the catalog — and for each one identified the friction points as well as the user's emotional state at that moment.",
+    "journey": [
+      {
+        "label": "Connexion",
+        "title": "Create Actions That Inspire and Engage",
+        "text": "Some app actions fail to connect emotionally or offer practical value, creating unnecessary frustration and lowering user satisfaction."
+      },
+      {
+        "label": "Orientation",
+        "title": "Be a Guide for Users Through Their Discovery",
+        "text": "When faced with an overwhelming number of objects to observe, users often feel confused and uncertain about where to begin. Offering curated suggestions can eliminate the \"blank page\" effect and help them engage meaningfully."
+      },
+      {
+        "label": "Select Target",
+        "title": "Guide Users to Quick Insights",
+        "text": "Interaction zones has a lack of hierarchy and meaningful associations, leaving users confused when trying to complete an action. Clear guidance and structured design are critical to enhancing usability and enabling efficient navigation."
+      },
+      {
+        "label": "Enhanced Vision",
+        "title": "A Stagnant Experience Deteriorates Over Time",
+        "text": "Once the action is triggered, no further interaction with the image is possible. The user becomes passive, leading to boredom and disengagement."
+      }
     ],
     "quotes": [
       {
@@ -94,7 +116,12 @@
   },
   "facilitation": {
     "title": "The facilitation",
-    "text": "Facing a development team that was initially skeptical, the debrief happened in two steps: presenting the problem alone, with no preconceived solution, to spark collective thinking, then sharing the directions under consideration. This approach turned an initial \"there's nothing we can do\" into real engagement, by showing that design could make the subject exciting rather than constraining."
+    "intro": "Facing a development team that was initially skeptical, the debrief happened in two steps:",
+    "steps": [
+      "Presenting the problem alone, with no preconceived solution, to spark collective thinking,",
+      "Sharing the directions under consideration."
+    ],
+    "text": "This approach turned an initial \"there's nothing we can do\" into real engagement, by showing that design could make the subject exciting rather than constraining."
   },
   "results": {
     "title": "The results",
