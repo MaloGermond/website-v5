@@ -4,24 +4,24 @@
     "description": ""
   },
   "cover": {
-    "title": "Élever le voyage de l’observateur d’étoiles",
+    "title": "Créer une expérience à partir de rien",
     "imageName": "blackhole.png",
     "alt": "Capture d’écran de l’application mobile Unistellar montrant un téléphone avec une vue immersive de la Terre depuis l’espace en arrière-plan. L’interface présente un télescope connecté au premier plan, une section intitulée « Mon Odyssée », ainsi que des informations sur la batterie et le stockage. L’application est dédiée à l’astronomie et à la gestion de télescopes intelligents.",
     "action": "Voir le study case UX"
   },
   "hero": {
-    "title": "Unistellar UX",
-    "tagline": "Élever le voyage de l'observateur d'étoiles",
-    "earthAlt": "Vue satellite de la Terre de nuit, montrant l’Europe éclairée par les lumières des villes, des nuages au-dessus de l’océan Atlantique et une partie de l’Afrique visible en bas à gauche. L’image capture la courbure de la planète et l’atmosphère terrestre éclairée par le soleil.",
-    "screenHomeAlt": "Capture d’écran de l’application Unistellar sur mobile affichant l’interface de contrôle du télescope eVscope. L’écran montre le nom du télescope « My Odyssey », son niveau de batterie à 50 %, un bouton « Observer » pour lancer l’observation, et un tutoriel intitulé « Comment obtenir une mise au point parfaite avec votre télescope eVscope ». En arrière-plan, une image du télescope pointé vers l’espace avec la Terre en fond."
+    "title": "Élever le voyage de l’observateur d’étoiles",
+    "metaApp": "Unistellar App",
+    "metaClient": "Unistellar",
+    "metaPeriod": "2021 – 2024",
+    "metrics": [
+      "50k téléchargements",
+      "3k utilisateurs quotidiens",
+      "Android - iOS"
+    ],
+    "photoAlt": "Une main tient un iPhone affichant l’application Unistellar sur l’écran d’observation de la nébuleuse de l’Aigle, devant un fond dégradé vert."
   },
-  "period": "2021 – 2024",
   "contexte": "En 2022, Unistellar, leader des télescopes connectés, lance un rebranding complet pour affirmer sa position sur le marché.",
-  "metrics": [
-    { "value": "50k", "label": "Téléchargements" },
-    { "value": "3k", "label": "Utilisateurs actifs par jour" },
-    { "value": "Android & iOS", "label": "Plateformes" }
-  ],
   "teamsTitle": "Équipe",
   "teams": [
     "2 développeurs (Swift & Compose)",
@@ -48,112 +48,224 @@
     ]
   },
   "principles": {
+    "intro1": "Unistellar est une entreprise avant tout technique, où l’innovation rencontre l’excellence technique.",
+    "intro2": "Pour y répondre, j’ai travaillé à instaurer la confiance dans les méthodologies UX et les retours utilisateurs, en obtenant des succès répétés qui en ont démontré la valeur.",
     "title": "Ma philosophie de design",
     "items": [
       {
+        "icon": "tangible",
         "title": "Tangible",
-        "text": "Transformer une stratégie abstraite en produit concret, centré sur l'humain."
+        "text": "Je transforme des stratégies abstraites en produits concrets et centrés sur l’humain."
       },
       {
-        "title": "Émotion",
-        "text": "Un design qui touche les utilisateurs est un moteur de réussite."
-      },
-      {
+        "icon": "empathy",
         "title": "Empathie",
-        "text": "Se mettre à la place de l'utilisateur nourrit la créativité."
+        "text": "Me mettre à la place de l’utilisateur nourrit ma créativité et m’ouvre à d’autres points de vue."
       },
       {
+        "icon": "emotions",
+        "title": "Émotions",
+        "text": "Un design efficace doit engager les utilisateurs émotionnellement : c’est un moteur de réussite puissant."
+      },
+      {
+        "icon": "star",
         "title": "Essentiel",
-        "text": "Prioriser l'essentiel pour une expérience claire et sans effort."
+        "text": "Prioriser les besoins essentiels pour livrer une expérience claire et sans effort."
       }
-    ],
-    "closing": "Unistellar est avant tout une entreprise technique : instaurer la confiance dans les méthodes UX a demandé de la constance — et des résultats répétés."
+    ]
   },
   "quote": {
-    "text": "Au début, j'étais motivé. Maintenant, je suis complètement perdu et je ne sais plus où aller.",
-    "attribution": "Utilisateur, étude d'usabilité initiale"
+    "text": "Au début, j’étais motivé. Maintenant, je suis complètement perdu et je ne sais plus où aller.",
+    "attribution": "Utilisateur, phase initiale de l’étude d’usabilité"
+  },
+  "impact": {
+    "title": "Design impact",
+    "text": "Nos utilisateurs adoraient le design du télescope, mais se sentaient frustrés en explorant ses fonctionnalités. Nous avons transformé cette déception en satisfaction, simplifiant l’expérience et augmentant le NPS de 45 %.",
+    "before": "V 1.0",
+    "beforeLabel": "Avant",
+    "after": "V 3.0",
+    "afterLabel": "Maintenant"
+  },
+  "insights": {
+    "title": "Insights",
+    "intro1": "Notre hypothèse de départ était que simplifier les parcours utilisateurs suffirait à réduire la frustration.",
+    "intro2": "En croisant les retours de plusieurs sources, nous avons confirmé qu’améliorer le guidage et réduire la charge cognitive étaient tout aussi déterminants.",
+    "methodologyTitle": "Méthodologie",
+    "methodology": [
+      { "icon": "feedback", "label": "Feedbacks" },
+      { "icon": "survey", "label": "Survey" },
+      { "icon": "interview", "label": "Interviews" },
+      { "icon": "ueq", "label": "UEQ" },
+      { "icon": "usability", "label": "Usability test" }
+    ],
+    "quotes": [
+      {
+        "tag": "Guidage",
+        "time": "10:21",
+        "text": "Donc là je peux faire la mise au point maintenant ?."
+      },
+      {
+        "tag": "Contrôle explicite",
+        "time": "19:03",
+        "text": "Essayons de pointer un truc ? Non, je voulais aller sur l’étoile qui brille le plus."
+      },
+      {
+        "tag": "Adaptabilité",
+        "time": "11:54",
+        "text": "Bah j’essaye, oui je vois qu’j’ai pointé une étoile, et j’aimerais savoir ce que je suis en train de regarder."
+      },
+      {
+        "tag": "Guidage",
+        "time": "12:13",
+        "text": "Je sais plus où je dois aller moi…"
+      },
+      {
+        "tag": "Guidage",
+        "time": "18:39",
+        "text": "Je crois que j’ai pas reconnu que c’était un joystick… Un bouton plutôt."
+      },
+      {
+        "tag": "Charge de travail",
+        "time": "09:02",
+        "text": "Alors démarrer l’observation… my god, je suis paumé là !"
+      }
+    ]
+  },
+  "approach": {
+    "title": "Traduire des idées en opportunités concrètes",
+    "functionTag": "Concevoir la bonne chose",
+    "formsTag": "Bien la concevoir",
+    "steps": [
+      {
+        "stage": "Discover",
+        "text": "Collaborer avec l’équipe pour identifier les zones à fort impact et aligner les efforts sur les objectifs stratégiques."
+      },
+      {
+        "stage": "Define",
+        "text": "Développer et tester des wireframes avec les utilisateurs, en optimisant des résultats mesurables comme la réduction du temps pour accomplir une action."
+      },
+      {
+        "stage": "Explore",
+        "text": "Générer des solutions qui s’intègrent à l’écosystème produit, avec des spécifications d’implémentation détaillées."
+      },
+      {
+        "stage": "Validate",
+        "text": "Utiliser retours qualitatifs et KPI quantitatifs (NPS, taux d’engagement…) pour mesurer le succès et informer les itérations suivantes."
+      }
+    ]
   },
   "problems": {
     "title": "Ce qui bloquait",
     "items": [
       {
-        "kicker": "Charge cognitive",
+        "kicker": "Charge de travail",
         "title": "Parler la langue des utilisateurs",
-        "text": "Azimut, RA/DEC, J2000 : un jargon qui bloque plus qu'il n'aide."
+        "text": "Le vocabulaire (Azimut, RA/DEC, J2000) est inconnu des utilisateurs et crée des barrières à la compréhension."
       },
       {
         "kicker": "Guidage",
-        "title": "Un guide, pas une télécommande",
-        "text": "Face à un catalogue immense, les utilisateurs restaient bloqués, sans suggestion."
+        "title": "Prioriser l’information",
+        "text": "L’absence de hiérarchie claire empêche de naviguer efficacement ; un contenu structuré guide l’attention."
       },
       {
-        "kicker": "Interaction",
+        "kicker": "Guidage",
+        "title": "Un guide pour la découverte",
+        "text": "Face à un nombre écrasant d’objets, les utilisateurs se sentent perdus ; des suggestions organisées évitent l’effet page blanche."
+      },
+      {
+        "kicker": "Adaptabilité",
         "title": "Une expérience qui stagne",
-        "text": "Une fois l'action lancée, plus rien ne se passe : l'utilisateur devient spectateur."
+        "text": "Une fois l’action déclenchée, plus aucune interaction n’est possible : l’utilisateur devient passif."
       },
       {
-        "kicker": "Émotion",
-        "title": "Des actions sans relief",
-        "text": "Certaines actions n'apportaient ni émotion, ni valeur perçue."
+        "kicker": "Charge de travail",
+        "title": "Des actions qui inspirent et engagent",
+        "text": "Certaines actions n’apportent ni connexion émotionnelle ni valeur pratique, générant de la frustration."
+      },
+      {
+        "kicker": "Guidage",
+        "title": "Des insights en un coup d’œil",
+        "text": "Le manque de hiérarchie dans les zones d’interaction laisse les utilisateurs perdus face à l’action à accomplir."
       }
     ]
   },
-  "approach": {
-    "title": "Une méthode en deux temps",
-    "steps": [
+  "screens": [
+    {
+      "title": "Observation",
+      "image": "screen-unistellar-observation",
+      "items": [
+        {
+          "kicker": "Adaptabilité",
+          "title": "Une fonction qui guide l’émotion",
+          "text": "La page ressemble plus à une télécommande qu’à une fenêtre inspirante sur l’univers."
+        },
+        {
+          "kicker": "Charge de travail",
+          "title": "Simplifier les actions principales",
+          "text": "Regrouper et organiser les actions clés de la page pour une expérience plus claire et intuitive.",
+          "stat": "+10%",
+          "statLabel": "Score d’utilisabilité"
+        }
+      ]
+    },
+    {
+      "title": "Catalogue",
+      "image": "screen-unistellar-catalog",
+      "items": [
+        {
+          "kicker": "Guidage",
+          "title": "Illustrations au service du choix",
+          "text": "Mettre en avant l’action du télescope plutôt qu’une catégorisation d’illustrations que personne ne comprend.",
+          "stat": "-40s",
+          "statLabel": "Temps de décision"
+        },
+        {
+          "kicker": "Adaptabilité",
+          "title": "Engager par la récompense",
+          "text": "Débloquer les images des objets observés, avec leurs détails, pour éveiller la curiosité."
+        }
+      ]
+    }
+  ],
+  "results": {
+    "title": "Transformer le design en croissance mesurable",
+    "stats": [
       {
-        "title": "Concevoir la bonne chose",
-        "subtitle": "Discover → Define",
-        "text": "Comprendre le problème avant de chercher des solutions."
+        "value": "40+",
+        "label": "Score NPS",
+        "text": "Une hausse de 45 % du NPS en deux ans a fait passer le produit dans la catégorie 40+, la référence en matière de satisfaction client."
       },
       {
-        "title": "Bien la concevoir",
-        "subtitle": "Explore → Validate",
-        "text": "Tester, mesurer, itérer jusqu'à la solution juste."
+        "value": "+80k",
+        "label": "Utilisateurs",
+        "text": "Grâce à des améliorations produit stratégiques, l’application a connu une croissance de 800 % de sa base d’utilisateurs en deux ans."
+      },
+      {
+        "value": "4/5",
+        "label": "Étoiles sur les stores",
+        "text": "Malgré une croissance de 800 %, le produit a conservé une note moyenne de 4 étoiles sur les stores."
       }
-    ],
-    "tagline": "Traduire des idées en opportunités concrètes."
-  },
-  "methodology": {
-    "title": "Méthodologie",
-    "tags": [
-      "Feedbacks",
-      "Survey",
-      "Interviews",
-      "UEQ",
-      "Test d'utilisabilité"
-    ],
-    "text": "Notre hypothèse de départ — simplifier les parcours suffirait — s'est révélée incomplète : réduire la charge cognitive et mieux guider comptaient tout autant."
-  },
-  "transformation": {
-    "title": "De la frustration à la satisfaction",
-    "text": "Les utilisateurs adoraient le télescope, mais butaient sur l'application. Nous avons transformé cette déception en satisfaction — sans changer le produit, mais la façon de le découvrir.",
-    "before": "V1.0",
-    "after": "V3.0"
-  },
-  "results": {
-    "title": "Un design qui se mesure",
-    "metrics": [
-      { "value": "+45", "label": "Points de NPS" },
-      { "value": "+800%", "label": "Croissance des utilisateurs" },
-      { "value": "4★+", "label": "Note maintenue" },
-      { "value": "40+", "label": "Score NPS" }
     ]
   },
   "takeaways": {
-    "title": "Ce qu'on en retient",
+    "title": "Enseignements et résultats",
+    "intro1": "Communiquer les fonctionnalités est aussi important que les développer. Une communication claire évite la frustration et engage les utilisateurs.",
+    "intro2": "Si l’usabilité apporte de la simplicité, elle peut aussi rendre le design moins visible, au risque de perdre en attrait. Des KPI définis tôt nous ont aidés à détecter et corriger les problèmes d’engagement efficacement.",
     "items": [
       {
-        "title": "Communiquer autant que développer",
-        "text": "Une fonctionnalité mal expliquée reste inutilisée."
+        "icon": "feedback",
+        "title": "Communiquer efficacement les fonctionnalités",
+        "text": "Développer une fonctionnalité n’est que la moitié du chemin ; sa communication est tout aussi essentielle pour l’adoption."
       },
       {
-        "title": "Rendre l'utile visible",
-        "text": "Un produit invisible perd de sa valeur perçue."
+        "icon": "idea",
+        "title": "Équilibrer utilité et visibilité",
+        "text": "La fonctionnalité, aussi cruciale soit-elle, reste souvent invisible ; des éléments visibles aident à en percevoir la valeur."
       },
       {
-        "title": "Fixer des objectifs mesurables",
-        "text": "Sans repère chiffré, impossible de suivre le progrès."
+        "icon": "goal",
+        "title": "Fixer des objectifs clairs et quantifiables",
+        "text": "Définir des objectifs mesurables avant de démarrer permet de suivre les progrès dans la durée."
       }
     ]
   }

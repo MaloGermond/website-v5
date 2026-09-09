@@ -1,194 +1,333 @@
 ---
-const { content} = Astro.props;
+const { content } = Astro.props;
 const { lang } = Astro.params;
 import { Image } from 'astro:assets';
 import Paragraph from '@components/Paragraph.astro';
 import InfoColumn from '@components/project/InfoColumn.astro';
-import Metrics from '@components/project/Metrics.astro';
 import Mosaic from '@components/project/Mosaic.astro';
-import SlideCard from '@components/project/SlideCard.astro';
 import Quote from '@components/project/Quote.astro';
-import TagList from '@components/project/TagList.astro';
-import GreyBlock from '@components/project/GreyBlock.astro';
+import Verbatim from '@components/project/Verbatim.astro';
+import LineIcon from '@components/project/LineIcon.astro';
 
-import {loadScreensOnce} from "@utils/useScreens"
+import { loadScreensOnce } from '@utils/useScreens';
 
-const screens = import.meta.glob("../../assets/unistellar/*{jpg,png,gif,webp}");
-const metadata = await import("../../assets/unistellar/images-metadata.json");
-const images = await loadScreensOnce(screens,metadata);
+import coverHandPhone from '../../assets/unistellar-ux/cover-hand-phone.png';
+import screenV1Observation from '../../assets/unistellar-ux/screen-v1-observation.png';
+
+const screens = import.meta.glob(
+  '../../assets/unistellar/*{jpg,png,gif,webp}'
+);
+const metadata = await import('../../assets/unistellar/images-metadata.json');
+const images = await loadScreensOnce(screens, metadata);
 
 const mosaicScreens = Object.values(images).filter((el) =>
   el.name.startsWith('screen-')
 );
+
+const ink = 'text-[#123832] dark:text-gray-50';
+const inkMuted = 'text-[#123832]/70 dark:text-gray-400';
+const lightSection = 'bg-[#F5F6F4] dark:bg-[#0B1512]';
 ---
 
-<section class="relative bg-gray-900 overflow-hidden h-screen">
-  <div
-    class="absolute bottom-0 w-full h-full bg-gradient-to-t from-[#8BB0F9] from-0% via-transparent via-50% to-transparent to-100% fade-in animation-duration-2 animation-delay-2 opacity-0"
-  >
+<section class={`${lightSection} px-8 py-20 md:py-28`}>
+  <div class="max-w-6xl m-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <div>
+      <h1
+        class={`font-serif text-4xl sm:text-5xl md:text-6xl leading-[1.05] ${ink}`}
+      >
+        {content.hero.title}
+      </h1>
+      <div class="mt-12 flex flex-col gap-1">
+        <p class={`text-sm ${ink}`}>{content.hero.metaApp}</p>
+        <div class="w-10 h-px bg-[#123832]/40 my-1"></div>
+        <p class={`text-sm italic ${inkMuted}`}>{content.hero.metaClient}</p>
+        <p class={`text-sm ${inkMuted}`}>{content.hero.metaPeriod}</p>
+      </div>
+    </div>
+    <div class="relative flex justify-center md:justify-end">
+      <div
+        class="absolute right-8 top-4 w-2/3 h-[90%] bg-gradient-to-b from-[#B9F2CA] to-[#E9FBEF] -z-10"
+      >
+      </div>
+      <Image
+        src={coverHandPhone}
+        alt={content.hero.photoAlt}
+        class="w-2/3 sm:w-1/2 md:w-3/4 h-auto"
+      />
+      <ul class={`absolute bottom-0 right-0 text-right text-sm ${inkMuted}`}>
+        {content.hero.metrics.map((metric) => <li>{metric}</li>)}
+      </ul>
+    </div>
   </div>
-  <h1
-    class="text-[10vw] font-avara w-full text-center pt-25 md:pt-40 text-gray-50 fade-in animation-duration-2 opacity-0"
-  >
-    {content.hero.title}
-  </h1>
-  <p
-    class="w-full text-center text-gray-300 sm:text-xl fade-in animation-duration-2 animation-delay-4 opacity-0"
-  >
-    {content.hero.tagline}
-  </p>
-  <Image
-    src={images['earth']}
-    alt={images['earth']?.alt?.[lang]}
-    class="absolute bottom-0 sm:bottom-[-60px] md:bottom-[-100px] lg:bottom-[-150px] xl:bottom-[-200px] 2xl:bottom-[-350px] left-1/2 translate-x-[-50%] translate-y-2/4 fade-in animation-duration-2 animation-delay-8 opacity-0"
-    priority
-  />
-  <Image
-    src={images['screen-unistellar-home']}
-    alt={images['screen-unistellar-home']?.alt?.[lang]}
-    class="absolute bottom-[-300px] left-1/2 translate-x-[-50%] w-xs fade-in animation-duration-1 animation-delay-2 opacity-0"
-    priority
-  />
 </section>
 
-<section class="px-8 py-16 max-w-7xl m-auto">
-  <p class="text-sm px-4 mb-2 text-gray-400 dark:text-gray-400">
-    {content.period}
-  </p>
-  <h2
-    class="font-avara paragraph text-xl sm:text-4xl max-w-3xl p-4 dark:text-gray-50"
-  >
-    {content.contexte}
-  </h2>
-  <div class="flex flex-row flex-wrap">
-    <InfoColumn title={content.roles.title} items={content.roles.items} />
-    <InfoColumn title={content.skills.title} items={content.skills.items} />
-    <InfoColumn title={content.teamsTitle} items={content.teams} />
+<section class={`${lightSection} px-8 py-16 border-t border-[#123832]/10`}>
+  <div class="max-w-6xl m-auto">
+    <p class={`text-lg sm:text-2xl max-w-2xl mb-8 ${ink}`}>
+      {content.contexte}
+    </p>
+    <div class="flex flex-row flex-wrap gap-8">
+      <InfoColumn title={content.roles.title} items={content.roles.items} />
+      <InfoColumn title={content.skills.title} items={content.skills.items} />
+      <InfoColumn title={content.teamsTitle} items={content.teams} />
+    </div>
   </div>
-  <Metrics items={content.metrics} />
 </section>
 
-<section class="slide px-8 py-16 max-w-5xl m-auto flex flex-col items-center gap-8">
-  <h2 class="font-avara text-xl sm:text-4xl text-center dark:text-gray-50">
-    {content.principles.title}
-  </h2>
-  <div class="flex flex-row flex-wrap justify-center gap-4">
-    {
-      content.principles.items.map((principle) => (
-        <SlideCard title={principle.title} text={principle.text} />
-      ))
-    }
+<section class={`${lightSection} px-8 py-20 md:py-28`}>
+  <div class="max-w-6xl m-auto grid grid-cols-1 md:grid-cols-2 gap-16">
+    <div class="flex flex-col gap-6">
+      <p class={`text-2xl sm:text-3xl leading-snug ${ink}`}>
+        {content.principles.intro1}
+      </p>
+      <p class={`text-2xl sm:text-3xl leading-snug ${ink}`}>
+        {content.principles.intro2}
+      </p>
+    </div>
+    <div>
+      <p class={`text-sm uppercase tracking-wide mb-6 ${inkMuted}`}>
+        {content.principles.title}
+      </p>
+      <div class="grid grid-cols-2 gap-x-8 gap-y-10">
+        {
+          content.principles.items.map((principle) => (
+            <div>
+              <LineIcon name={principle.icon} class={ink} />
+              <h3 class={`mt-3 text-lg font-medium ${ink}`}>
+                {principle.title}
+              </h3>
+              <p class={`mt-1 text-sm ${inkMuted}`}>{principle.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
   </div>
-  <Paragraph
-    class="text-center max-w-2xl text-gray-500 dark:text-gray-400"
-    content={content.principles.closing}
-  />
 </section>
 
-<section class="slide px-8 py-16 flex items-center justify-center">
+<section class={`${lightSection} px-8 py-20 md:py-28 flex justify-center`}>
   <Quote quote={content.quote.text} attribution={content.quote.attribution} />
+</section>
+
+<section class={`${lightSection} px-8 py-20 md:py-28 border-t border-[#123832]/10`}>
+  <div class="max-w-6xl m-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+    <div>
+      <h2 class={`font-avara uppercase text-3xl sm:text-5xl mb-8 ${ink}`}>
+        {content.impact.title}
+      </h2>
+      <div class="relative flex items-end gap-6">
+        <div class="relative w-1/3">
+          <Image src={screenV1Observation} alt="" class="w-full h-auto" />
+          <p class={`mt-2 text-xs text-center ${inkMuted}`}>
+            {content.impact.before}
+            <span class="block uppercase tracking-wide">
+              {content.impact.beforeLabel}
+            </span>
+          </p>
+        </div>
+        <div class="relative w-1/2">
+          <Image
+            src={images['screen-unistellar-observation']}
+            alt=""
+            class="w-full h-auto"
+          />
+          <p class={`mt-2 text-xs text-center ${inkMuted}`}>
+            {content.impact.after}
+            <span class="block uppercase tracking-wide">
+              {content.impact.afterLabel}
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <Paragraph
+      class={`text-xl sm:text-2xl leading-snug ${ink}`}
+      content={content.impact.text}
+    />
+  </div>
 </section>
 
 <Mosaic images={mosaicScreens} />
 
-<section class="slide px-8 py-16 max-w-6xl m-auto flex flex-col items-center gap-8">
-  <h2 class="font-avara text-xl sm:text-4xl text-center dark:text-gray-50">
-    {content.problems.title}
-  </h2>
-  <div class="flex flex-row flex-wrap justify-center gap-4">
-    {
-      content.problems.items.map((problem) => (
-        <SlideCard
-          kicker={problem.kicker}
-          title={problem.title}
-          text={problem.text}
-        />
-      ))
-    }
+<section class={`${lightSection} px-8 py-20 md:py-28`}>
+  <div class="max-w-6xl m-auto">
+    <h2 class={`font-avara uppercase text-3xl sm:text-5xl mb-8 ${ink}`}>
+      {content.insights.title}
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+      <p class={`text-lg sm:text-xl leading-snug ${ink}`}>
+        {content.insights.intro1}
+      </p>
+      <p class={`text-lg sm:text-xl leading-snug ${ink}`}>
+        {content.insights.intro2}
+      </p>
+    </div>
+    <p class={`text-sm uppercase tracking-wide mb-4 ${inkMuted}`}>
+      {content.insights.methodologyTitle}
+    </p>
+    <div class="flex flex-row flex-wrap gap-x-10 gap-y-4 mb-16">
+      {
+        content.insights.methodology.map((method) => (
+          <div class="flex items-center gap-2">
+            <LineIcon name={method.icon} size="20" class={ink} />
+            <span class={`text-sm ${ink}`}>{method.label}</span>
+          </div>
+        ))
+      }
+    </div>
+    <div class="flex flex-row flex-wrap gap-4">
+      {
+        content.insights.quotes.map((quote) => (
+          <Verbatim tag={quote.tag} time={quote.time} text={quote.text} />
+        ))
+      }
+    </div>
   </div>
 </section>
 
-<section class="slide px-8 py-16 max-w-5xl m-auto flex flex-col items-center gap-8">
-  <h2 class="font-avara text-xl sm:text-4xl text-center dark:text-gray-50">
-    {content.approach.title}
-  </h2>
-  <div class="flex flex-row flex-wrap justify-center gap-4">
-    {
-      content.approach.steps.map((step) => (
-        <SlideCard
-          kicker={step.subtitle}
-          title={step.title}
-          text={step.text}
-        />
-      ))
-    }
-  </div>
-  <GreyBlock label={content.approach.title} ratio="aspect-[21/9]" />
-  <p class="text-sm italic text-gray-400">{content.approach.tagline}</p>
-</section>
-
-<section class="slide px-8 py-16 max-w-3xl m-auto flex flex-col items-center gap-8">
-  <h2 class="font-avara text-xl sm:text-4xl text-center dark:text-gray-50">
-    {content.methodology.title}
-  </h2>
-  <TagList items={content.methodology.tags} />
-  <Paragraph
-    class="text-center text-gray-500 dark:text-gray-400"
-    content={content.methodology.text}
-  />
-</section>
-
-<section class="slide px-8 py-16 max-w-4xl m-auto flex flex-col items-center gap-8">
-  <h2 class="font-avara text-xl sm:text-4xl text-center dark:text-gray-50">
-    {content.transformation.title}
-  </h2>
-  <Paragraph
-    class="text-center max-w-2xl text-gray-500 dark:text-gray-400"
-    content={content.transformation.text}
-  />
-  <div class="relative w-full max-w-2xl">
-    <GreyBlock label={content.transformation.title} ratio="aspect-[16/10]" />
-    <span
-      class="absolute top-4 left-4 px-3 py-1 text-xs bg-gray-900 text-gray-50"
-    >
-      {content.transformation.before}
-    </span>
-    <span
-      class="absolute top-4 right-4 px-3 py-1 text-xs bg-blue-700 text-gray-50"
-    >
-      {content.transformation.after}
-    </span>
+<section class={`${lightSection} px-8 py-20 md:py-28 border-t border-[#123832]/10`}>
+  <div class="max-w-6xl m-auto">
+    <h2 class={`font-avara text-3xl sm:text-5xl mb-12 max-w-3xl ${ink}`}>
+      {content.approach.title}
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      {
+        content.approach.steps.map((step, i) => (
+          <div>
+            <p class={`text-xs uppercase tracking-wide mb-2 ${inkMuted}`}>
+              {i < 2 ? content.approach.functionTag : content.approach.formsTag}
+            </p>
+            <div class="flex gap-1 mb-3">
+              {Array.from({ length: 4 }).map((_, d) => (
+                <span
+                  class={`w-2 h-2 rotate-45 ${d <= i ? 'bg-[#2FBF8F]' : 'bg-[#123832]/15'}`}
+                />
+              ))}
+            </div>
+            <h3 class={`text-lg font-medium mb-2 ${ink}`}>{step.stage}</h3>
+            <p class={`text-sm ${inkMuted}`}>{step.text}</p>
+          </div>
+        ))
+      }
+    </div>
   </div>
 </section>
 
-<section class="slide px-8 py-16 max-w-5xl m-auto flex flex-col items-center gap-8">
-  <h2 class="font-avara text-xl sm:text-4xl text-center dark:text-gray-50">
-    {content.results.title}
-  </h2>
-  <Metrics items={content.results.metrics} />
+<section class={`${lightSection} px-8 py-20 md:py-28`}>
+  <div class="max-w-6xl m-auto">
+    <h2 class={`font-avara text-2xl sm:text-4xl mb-12 max-w-2xl ${ink}`}>
+      {content.problems.title}
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      {
+        content.problems.items.map((problem) => (
+          <div>
+            <span class="inline-block px-2 py-0.5 mb-3 text-[10px] uppercase tracking-wide border border-[#123832]/30 rounded-full text-[#123832]/70 dark:text-gray-400 dark:border-gray-600">
+              {problem.kicker}
+            </span>
+            <h3 class={`text-lg font-medium mb-2 ${ink}`}>{problem.title}</h3>
+            <p class={`text-sm ${inkMuted}`}>{problem.text}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
 </section>
 
-<section class="slide px-8 py-16 max-w-6xl m-auto flex flex-col items-center gap-8">
-  <h2 class="font-avara text-xl sm:text-4xl text-center dark:text-gray-50">
-    {content.takeaways.title}
-  </h2>
-  <div class="flex flex-row flex-wrap justify-center gap-4">
-    {
-      content.takeaways.items.map((takeaway) => (
-        <SlideCard title={takeaway.title} text={takeaway.text} />
-      ))
-    }
+{
+  content.screens.map((screen) => (
+    <section class={`${lightSection} px-8 py-20 md:py-28 border-t border-[#123832]/10`}>
+      <div class="max-w-6xl m-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div class="order-2 md:order-1 flex flex-col gap-10">
+          {screen.items.map((item) => (
+            <div>
+              <span class="inline-block px-2 py-0.5 mb-3 text-[10px] uppercase tracking-wide border border-[#123832]/30 rounded-full text-[#123832]/70 dark:text-gray-400 dark:border-gray-600">
+                {item.kicker}
+              </span>
+              <h3 class={`text-xl font-medium mb-2 ${ink}`}>{item.title}</h3>
+              <p class={`text-sm max-w-sm ${inkMuted}`}>{item.text}</p>
+              {item.stat && (
+                <p class="mt-3 text-2xl font-medium text-[#2FBF8F]">
+                  {item.stat}
+                  <span class={`block text-xs font-normal ${inkMuted}`}>
+                    {item.statLabel}
+                  </span>
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
+        <div class="order-1 md:order-2 flex justify-center">
+          <Image
+            src={images[screen.image]}
+            alt={images[screen.image]?.alt?.[lang]}
+            class="w-2/3 md:w-3/4 h-auto"
+          />
+        </div>
+      </div>
+    </section>
+  ))
+}
+
+<section class={`${lightSection} px-8 py-20 md:py-28`}>
+  <div class="max-w-6xl m-auto">
+    <h2 class={`font-avara text-3xl sm:text-5xl mb-16 max-w-2xl ${ink}`}>
+      {content.results.title}
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      {
+        content.results.stats.map((stat) => (
+          <div class="flex flex-col items-start gap-4">
+            <div class="relative w-28 h-28 flex items-center justify-center">
+              <span class="absolute inset-0 rounded-full bg-[#DCF4E3]" />
+              <span class="absolute inset-3 rounded-full bg-[#C3ECD1]" />
+              <span
+                class="relative text-2xl font-medium text-[#2FBF8F]"
+                style="font-variant-numeric: tabular-nums;"
+              >
+                {stat.value}
+              </span>
+            </div>
+            <p class={`text-sm uppercase tracking-wide ${inkMuted}`}>
+              {stat.label}
+            </p>
+            <p class={`text-sm ${inkMuted}`}>{stat.text}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<section class={`${lightSection} px-8 py-20 md:py-28 border-t border-[#123832]/10`}>
+  <div class="max-w-6xl m-auto grid grid-cols-1 md:grid-cols-2 gap-16">
+    <div>
+      <h2 class={`font-avara text-3xl sm:text-5xl mb-8 ${ink}`}>
+        {content.takeaways.title}
+      </h2>
+      <p class={`text-lg sm:text-xl leading-snug mb-6 ${ink}`}>
+        {content.takeaways.intro1}
+      </p>
+      <p class={`text-lg sm:text-xl leading-snug ${ink}`}>
+        {content.takeaways.intro2}
+      </p>
+    </div>
+    <div class="flex flex-col gap-10">
+      {
+        content.takeaways.items.map((item) => (
+          <div>
+            <LineIcon name={item.icon} size="24" class={ink} />
+            <h3 class={`mt-2 text-lg font-medium ${ink}`}>{item.title}</h3>
+            <p class={`mt-1 text-sm ${inkMuted}`}>{item.text}</p>
+          </div>
+        ))
+      }
+    </div>
   </div>
 </section>
 
 <style>
   section {
     height: auto;
-    min-height: 80svh;
-  }
-
-  .slide {
-    display: flex;
-    justify-content: center;
   }
 </style>
