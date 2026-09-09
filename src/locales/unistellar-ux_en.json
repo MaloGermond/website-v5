@@ -1,7 +1,7 @@
 {
   "meta": {
     "pageTitle": "Unistellar — UX Case Study",
-    "description": ""
+    "description": "Adopting change instead of just shipping it: a UX case study of the Unistellar app redesign."
   },
   "cover": {
     "title": "Reducing friction",
@@ -9,251 +9,99 @@
     "imageAlt": "Screenshot of the Unistellar app on a tablet, showing the celestial object catalog grid with the Moon and Jupiter.",
     "action": "See the UX case study"
   },
+  "nav": [
+    "Introduction",
+    "The problem",
+    "The method",
+    "The facilitation",
+    "The results",
+    "The learning"
+  ],
   "hero": {
-    "title": "Elevating the stargazer's journey",
-    "metaApp": "Unistellar App",
-    "metaClient": "Unistellar",
-    "metaPeriod": "2021 – 2024",
-    "metrics": ["50k downloads", "3k daily users", "Android - iOS"],
-    "photoAlt": "A hand holds an iPhone showing the Unistellar app on the Eagle nebula observation screen, against a green gradient background."
-  },
-  "contexte": "In 2022, Unistellar, a leader in smart telescopes, underwent a full rebranding to solidify its market position.",
-  "teamsTitle": "Team",
-  "teams": ["2 developers (Swift & Compose)", "1 QA", "1 PM"],
-  "skills": {
-    "title": "Skills",
-    "items": [
-      "Mobile patterns",
-      "Design system",
-      "Teamwork",
-      "Motion design",
-      "Illustrations"
+    "title": "Adopt the change, don’t just ship it",
+    "client": "Unistellar",
+    "period": "2021 – 2024",
+    "app": "Unistellar App",
+    "metrics": [
+      "50k downloads",
+      "3k daily users",
+      "Android - iOS"
     ]
   },
-  "roles": {
-    "title": "Roles",
-    "items": ["Lead design", "User Experience", "UI designer", "Art director"]
+  "problem": {
+    "context": {
+      "title": "The context",
+      "text": "We just shipped V2, designed without any chance for upfront user testing — an ambitious visual redesign that was objectively a success on its own terms. Once live, the first feedback comes in.",
+      "quote": "I was super motivated to get started, but now I feel completely lost — I don’t know where to go next."
+    },
+    "issue": {
+      "title": "The problem",
+      "text1": "Version two marked a complete visual overhaul of the product. The interface was objectively more modern, better structured.",
+      "text2": "And yet, on release, the welcome was cold: long-time users weren’t asking for a new experience, they wanted their bearings back. An interface judged better, but experienced as worse.",
+      "beforeImage": "screen-unistellar-v1-observation",
+      "afterImage": "screen-unistellar-v2-observation"
+    }
   },
-  "principles": {
-    "intro1": "Unistellar is a tech-driven company where innovation meets technical excellence.",
-    "intro2": "To address this, I worked to build trust in UX methodologies and user feedback, achieving recurring successes that demonstrated its value.",
-    "title": "My design principles",
-    "items": [
-      {
-        "icon": "tangible",
-        "title": "Tangible",
-        "text": "I focus on transforming abstract strategies into meaningful, human-centered products that solve real problems."
-      },
-      {
-        "icon": "empathy",
-        "title": "Empathy",
-        "text": "Putting myself in the user's shoes drives creativity and allows me to explore perspectives different from my own."
-      },
-      {
-        "icon": "emotions",
-        "title": "Emotions",
-        "text": "Effective design should engage users emotionally, serving as a powerful driver of success."
-      },
-      {
-        "icon": "star",
-        "title": "Essential",
-        "text": "Prioritize essential user needs to deliver a clear, effortless experience."
-      }
-    ]
-  },
-  "quote": {
-    "text": "At first, I was excited to start, but now I feel completely lost and don't know where to go next.",
-    "attribution": "User during the initial usability study phase"
-  },
-  "impact": {
-    "title": "Design impact",
-    "text": "Our users were thrilled with the telescope's design but felt frustrated when trying to explore its features. We transformed this disappointment into satisfaction, simplifying the experience and increasing NPS by 45%.",
-    "before": "V 1.0",
-    "beforeLabel": "Before",
-    "after": "V 3.0",
-    "afterLabel": "Now"
-  },
-  "insights": {
-    "title": "Insights",
-    "intro1": "Our initial assumption was that simplifying user flows could reduce frustration.",
-    "intro2": "By collecting feedback from multiple sources, we reinforced our understanding that improving guidance and reducing cognitive overload were key to enhancing the experience.",
-    "methodologyTitle": "Methodology",
-    "methodology": [
-      { "icon": "feedback", "label": "Feedbacks" },
-      { "icon": "survey", "label": "Survey" },
-      { "icon": "interview", "label": "Interviews" },
-      { "icon": "ueq", "label": "UEQ" },
-      { "icon": "usability", "label": "Usability test" }
+  "method": {
+    "title": "The method",
+    "paragraphs": [
+      "With no dedicated budget or formal access to users, I put together field test sessions on short notice.",
+      "The focus was new users discovering the product for the first time: solving their blockers would also improve the experience for everyone else, by extension. A simple but rigorous protocol: screen capture, video recording of the scene, thinking aloud, then a hot debrief questionnaire.",
+      "From these observations, I reconstructed the key moments of the journey — connecting, orienting, discovering the catalog — and for each one identified the friction points as well as the user's emotional state at that moment."
     ],
     "quotes": [
       {
         "tag": "Guidance",
         "time": "10:21",
-        "text": "Donc là je peux faire la mise au point maintenant ?."
+        "text": "So can I focus it now?."
       },
       {
         "tag": "Explicit control",
         "time": "19:03",
-        "text": "Essayons de pointer un truc ? Non, je voulais aller sur l’étoile qui brille le plus."
+        "text": "Let's try pointing at something? No, I wanted to go to the brightest star."
       },
       {
         "tag": "Adaptability",
         "time": "11:54",
-        "text": "Bah j’essaye, oui je vois qu’j’ai pointé une étoile, et j’aimerais savoir ce que je suis en train de regarder."
+        "text": "Well I'm trying, yeah I see I've pointed at a star, and I'd like to know what I'm actually looking at."
       },
       {
         "tag": "Guidance",
         "time": "12:13",
-        "text": "Je sais plus où je dois aller moi…"
+        "text": "I don't know where I'm supposed to go…"
+      },
+      {
+        "tag": "Guidance",
+        "time": "14:35",
+        "text": "No but I... OK, and how do I know it's found it,"
       },
       {
         "tag": "Guidance",
         "time": "18:39",
-        "text": "Je crois que j’ai pas reconnu que c’était un joystick… Un bouton plutôt."
+        "text": "I don't think I recognized that was a joystick… Actually, I had trouble telling that you can steer in different directions with it… [I wanted to see] A button instead."
+      },
+      {
+        "tag": "Guidance",
+        "time": "07:58",
+        "text": "Azimuth, I have no idea what that means…"
       },
       {
         "tag": "Workload",
         "time": "09:02",
-        "text": "Alors démarrer l’observation… my god, je suis paumé là !"
+        "text": "So starting the observation… oh my god, I'm totally lost here!"
       }
     ]
   },
-  "approach": {
-    "title": "Translating ideas into actionable opportunities",
-    "functionTag": "Design the right thing",
-    "formsTag": "Design it right",
-    "steps": [
-      {
-        "stage": "Discover",
-        "text": "Collaborate with the team to identify high-impact areas for innovation, ensuring efforts align with strategic goals."
-      },
-      {
-        "stage": "Define",
-        "text": "Develop and test wireframe solutions with users, optimizing for measurable outcomes like reduced time to complete an action."
-      },
-      {
-        "stage": "Explore",
-        "text": "Generate solutions that integrate seamlessly into the product ecosystem, creating detailed implementation specifications."
-      },
-      {
-        "stage": "Validate",
-        "text": "Use qualitative feedback and quantitative KPIs (e.g., NPS, engagement rates) to measure success and inform future iterations."
-      }
-    ]
+  "facilitation": {
+    "title": "The facilitation",
+    "text": "Facing a development team that was initially skeptical, the debrief happened in two steps: presenting the problem alone, with no preconceived solution, to spark collective thinking, then sharing the directions under consideration. This approach turned an initial \"there's nothing we can do\" into real engagement, by showing that design could make the subject exciting rather than constraining."
   },
-  "problems": {
-    "title": "What was holding users back",
-    "items": [
-      {
-        "kicker": "Workload",
-        "title": "Talk like your users",
-        "text": "Vocabulary such as Azimuth, RA/DEC, or J2000 is unfamiliar to users and creates barriers to understanding."
-      },
-      {
-        "kicker": "Guidance",
-        "title": "Prioritising information",
-        "text": "The lack of a clear information hierarchy prevents users from navigating effectively; structured content guides attention."
-      },
-      {
-        "kicker": "Guidance",
-        "title": "A guide for discovery",
-        "text": "Faced with an overwhelming number of objects, users feel confused; curated suggestions eliminate the blank-page effect."
-      },
-      {
-        "kicker": "Adaptability",
-        "title": "A stagnant experience",
-        "text": "Once the action is triggered, no further interaction is possible — the user becomes passive."
-      },
-      {
-        "kicker": "Workload",
-        "title": "Actions that inspire and engage",
-        "text": "Some actions fail to connect emotionally or offer practical value, creating unnecessary frustration."
-      },
-      {
-        "kicker": "Guidance",
-        "title": "Quick insights at a glance",
-        "text": "A lack of hierarchy in interaction zones leaves users confused about the action to complete."
-      }
-    ]
-  },
-  "screens": [
-    {
-      "title": "Observation",
-      "image": "screen-unistellar-observation",
-      "items": [
-        {
-          "kicker": "Adaptability",
-          "title": "Emotion guiding function",
-          "text": "The page feels more like a remote control than an inspiring window into the universe."
-        },
-        {
-          "kicker": "Workload",
-          "title": "Streamline main actions",
-          "text": "Bring together and organize the page's key actions for a clearer and more intuitive experience.",
-          "stat": "+10%",
-          "statLabel": "Usability score"
-        }
-      ]
-    },
-    {
-      "title": "Catalog",
-      "image": "screen-unistellar-catalog",
-      "items": [
-        {
-          "kicker": "Guidance",
-          "title": "Illustrations to support choice",
-          "text": "Highlight the telescope's action instead of relying on a solution that classifies illustrations into categories no one understands.",
-          "stat": "-40s",
-          "statLabel": "Decision time"
-        },
-        {
-          "kicker": "Adaptability",
-          "title": "Engage user with reward",
-          "text": "Unlock images of objects as they are observed, along with their details, to spark curiosity."
-        }
-      ]
-    }
-  ],
   "results": {
-    "title": "Turning design into measurable growth",
-    "stats": [
-      {
-        "value": "40+",
-        "label": "NPS rating",
-        "text": "A 45% increase in NPS over two years propelled our product into the 40+ score category, a standard for customer satisfaction."
-      },
-      {
-        "value": "+80k",
-        "label": "Users",
-        "text": "Through strategic design and product improvements, the application achieved an 800% increase in its user base over two years."
-      },
-      {
-        "value": "4/5",
-        "label": "Stars on stores",
-        "text": "Even with an 800% growth in users, the product retained a 4-star average rating in app stores."
-      }
-    ]
+    "title": "The results",
+    "text": "V3 simplified sign-in, guided orientation step by step, and put the catalog back at the center of the experience. NPS improved significantly, confirmed by additional usability tests."
   },
-  "takeaways": {
-    "title": "Key takeaways and outcomes",
-    "intro1": "Communicating features is as important as developing them. Clear communication prevents frustration and engages users.",
-    "intro2": "While usability adds simplicity, it can make design less noticeable, risking a loss of appeal. Early KPIs helped us detect and address user engagement issues effectively.",
-    "items": [
-      {
-        "icon": "feedback",
-        "title": "Communicate features effectively",
-        "text": "Developing a feature is only half the journey; clear communication about its benefits and usage is equally essential to drive adoption."
-      },
-      {
-        "icon": "idea",
-        "title": "Balance utility with visibility",
-        "text": "While functionality is crucial, it often remains invisible to users. Visible elements help them perceive and appreciate its value."
-      },
-      {
-        "icon": "goal",
-        "title": "Set clear, quantifiable goals",
-        "text": "Defining measurable objectives before starting ensures that progress can be tracked effectively over time."
-      }
-    ]
+  "learning": {
+    "title": "The learning",
+    "text": "A paradox appeared after the fact: long-time users, who had never really run into the connection and orientation issues, didn't perceive the improvement, even though the data showed a clear drop in blockers. A reminder that perceived experience and usage metrics don't always tell the same story, and that solving a problem measured through users and data doesn't guarantee it will match the user's felt experience."
   }
 }
