@@ -4,9 +4,9 @@
     "description": ""
   },
   "cover": {
-    "title": "Create an experience from nothing",
-    "imageName": "blackhole.png",
-    "alt": "Screenshot of the Unistellar mobile app showing a phone with an immersive view of Earth from space in the background. The interface features a connected telescope in the foreground, a section titled 'My Odyssey,' and information about battery and storage. The app is dedicated to astronomy and smart telescope management.",
+    "title": "Reducing friction",
+    "subtitle": "Turning a task-driven experience into a user-driven one.",
+    "imageAlt": "Screenshot of the Unistellar app on a tablet, showing the celestial object catalog grid with the Moon and Jupiter.",
     "action": "See the UX case study"
   },
   "hero": {

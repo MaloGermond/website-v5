@@ -4,9 +4,9 @@
     "description": ""
   },
   "cover": {
-    "title": "Créer une expérience à partir de rien",
-    "imageName": "blackhole.png",
-    "alt": "Capture d’écran de l’application mobile Unistellar montrant un téléphone avec une vue immersive de la Terre depuis l’espace en arrière-plan. L’interface présente un télescope connecté au premier plan, une section intitulée « Mon Odyssée », ainsi que des informations sur la batterie et le stockage. L’application est dédiée à l’astronomie et à la gestion de télescopes intelligents.",
+    "title": "Réduire la friction",
+    "subtitle": "Transformer une expérience pensée pour la tâche en une expérience pensée pour l’utilisateur.",
+    "imageAlt": "Capture d’écran de l’application Unistellar sur tablette, affichant la grille du catalogue d’objets célestes avec la Lune et Jupiter.",
     "action": "Voir le study case UX"
   },
   "hero": {
