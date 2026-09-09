@@ -149,6 +149,12 @@
       "en": "Version 1.0 of the Unistellar observation screen, with a directional pad and round buttons."
     }
   },
+  "screen-unistellar-v2-observation": {
+    "alt": {
+      "fr": "Version 2.0 de l’écran d’observation Unistellar, épurée avec contrôles de zoom, capture et amélioration de la vision.",
+      "en": "Version 2.0 of the Unistellar observation screen, streamlined with zoom, capture and vision-enhancement controls."
+    }
+  },
   "unistellar-screens-lowfy-catalog": {
     "alt": {
       "fr": "Maquette basse fidélité de l’écran catalogue.",
