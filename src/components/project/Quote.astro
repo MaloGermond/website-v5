@@ -2,15 +2,15 @@
 const { quote, attribution } = Astro.props;
 ---
 
-<blockquote class="relative max-w-2xl pl-8 border-l-4 border-[#123832]">
+<blockquote class="relative max-w-2xl pl-8 border-l-4 border-on-surface-default">
   <span
-    class="absolute -top-10 -left-4 text-[7rem] leading-none text-[#123832]/15 select-none"
+    class="absolute -top-10 -left-4 text-[7rem] leading-none text-on-surface-default/15 select-none"
     aria-hidden="true">“</span
   >
-  <p class="relative text-2xl sm:text-3xl leading-snug text-[#123832] dark:text-gray-50">
+  <p class="relative text-2xl sm:text-3xl leading-snug text-on-surface-default">
     {quote}
   </p>
-  <cite class="block mt-6 text-sm not-italic text-[#123832]/60 dark:text-gray-400 text-right"
+  <cite class="block mt-6 text-sm not-italic text-on-surface-subdue text-right"
     >{attribution}</cite
   >
 </blockquote>
