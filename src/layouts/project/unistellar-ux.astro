@@ -12,10 +12,10 @@ const screens = import.meta.glob(
 const metadata = await import('../../assets/unistellar/images-metadata.json');
 const images = await loadScreensOnce(screens, metadata);
 
-const bg = 'bg-[#070709]';
-const ink = 'text-white';
-const inkMuted = 'text-[#9e9ea0]';
-const inkFaint = 'text-[#565658]';
+const bg = 'bg-background';
+const ink = 'text-on-surface-default';
+const inkMuted = 'text-on-surface-subdue';
+const inkFaint = 'text-on-surface-subdue/50';
 
 const navSections = [
   { id: 'introduction', label: content.nav[0] },
@@ -38,7 +38,7 @@ const navSections = [
         <a
           href={`#${section.id}`}
           data-nav-link={section.id}
-          class="text-sm font-light leading-[17px] text-[#565658] transition-colors duration-300"
+          class="text-sm font-light leading-[17px] text-on-surface-subdue/50 transition-colors duration-300"
         >
           {section.label}
         </a>
@@ -58,7 +58,7 @@ const navSections = [
     <div class="w-full max-w-6xl mt-24 flex flex-row justify-between items-end gap-8">
       <div class="flex flex-col gap-1">
         <p class={`text-xs ${ink}`}>{content.hero.client}</p>
-        <div class="w-10 h-px bg-[#9e9ea0] my-1"></div>
+        <div class="w-10 h-px bg-on-surface-subdue my-1"></div>
         <p class={`text-sm ${inkMuted}`}>{content.hero.app}</p>
         <p class={`text-xs ${inkMuted}`}>{content.hero.period}</p>
       </div>
@@ -197,10 +197,14 @@ const navSections = [
     sectionIds.forEach((id, i) => {
       const link = links.get(id);
       if (!link) return;
-      link.classList.remove('text-white', 'text-[#9e9ea0]', 'text-[#565658]');
-      if (i === activeIndex) link.classList.add('text-white');
-      else if (i < activeIndex) link.classList.add('text-[#9e9ea0]');
-      else link.classList.add('text-[#565658]');
+      link.classList.remove(
+        'text-on-surface-default',
+        'text-on-surface-subdue',
+        'text-on-surface-subdue/50'
+      );
+      if (i === activeIndex) link.classList.add('text-on-surface-default');
+      else if (i < activeIndex) link.classList.add('text-on-surface-subdue');
+      else link.classList.add('text-on-surface-subdue/50');
     });
   }
 
