@@ -1,0 +1,13 @@
+---
+const { quote, attribution } = Astro.props;
+---
+
+<blockquote class="max-w-3xl mx-auto text-center px-8">
+  <p
+    class="font-avara text-2xl sm:text-4xl md:text-5xl leading-tight dark:text-gray-50"
+  >
+    “{quote}”
+  </p>
+  <cite class="block mt-6 text-sm not-italic text-gray-400">{attribution}</cite
+  >
+</blockquote>
