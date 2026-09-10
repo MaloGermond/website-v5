@@ -3,6 +3,7 @@ import Layout from '@layouts/Layout.astro';
 
 import { getImage } from 'astro:assets';
 import PhoneMockupPreview from '@components/PhoneMockupPreview.jsx';
+import Card from '@components/Card.astro';
 
 import { locales } from '@locales/config.json';
 import { loadScreensOnce } from '@utils/useScreens';
@@ -81,5 +82,40 @@ const images = [
       PhoneMockup
     </h2>
     <PhoneMockupPreview images={images} client:load />
+  </section>
+
+  <section class="mb-16">
+    <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
+      Card
+    </h2>
+    <div class="flex flex-row flex-wrap gap-4">
+      <Card padding="4" class="w-64">
+        <h3 class="text-lg font-bold dark:text-slate-100">Default, padding 4</h3>
+        <p class="text-sm text-slate-500 dark:text-slate-400">
+          style="default" (the fallback) — slate background, slate border.
+        </p>
+      </Card>
+
+      <Card style="accent" padding="4" class="w-64">
+        <h3 class="text-lg font-bold dark:text-slate-100">Accent, padding 4</h3>
+        <p class="text-sm text-slate-500 dark:text-slate-400">
+          style="accent" — blue background, blue border.
+        </p>
+      </Card>
+
+      <Card padding="2" class="w-64">
+        <h3 class="text-lg font-bold dark:text-slate-100">Default, padding 2</h3>
+        <p class="text-sm text-slate-500 dark:text-slate-400">
+          Lower padding value for tighter layouts.
+        </p>
+      </Card>
+
+      <Card style="accent" padding="2" class="w-64 flex-row items-center gap-3">
+        <h3 class="text-lg font-bold dark:text-slate-100">Row</h3>
+        <p class="text-sm text-slate-500 dark:text-slate-400">
+          class overrides flex-col with flex-row.
+        </p>
+      </Card>
+    </div>
   </section>
 </Layout>
