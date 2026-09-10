@@ -23,7 +23,6 @@ const images = await loadScreensOnce(screens, metadata);
 const bg = 'bg-background';
 const ink = 'text-on-surface-default';
 const inkMuted = 'text-on-surface-subdue';
-const inkFaint = 'text-on-surface-subdue/50';
 
 const navSections = [
   { id: 'introduction', label: content.nav[0] },
@@ -46,7 +45,7 @@ const navSections = [
         <a
           href={`#${section.id}`}
           data-nav-link={section.id}
-          class="text-sm font-light leading-[17px] text-on-surface-subdue/50 transition-colors duration-300"
+          class="text-sm font-light leading-[17px] text-on-surface-subdue transition-colors duration-300"
         >
           {section.label}
         </a>
@@ -134,9 +133,9 @@ const navSections = [
     </div>
   </section>
 
-  <section id="method" class="bg-surface-raise px-8 py-28 md:py-36 lg:pl-64">
+  <section id="method" class={`${bg} px-8 py-28 md:py-36 lg:pl-64`}>
     <div class="max-w-6xl m-auto">
-      <h2 class={`font-avara text-3xl ${inkFaint}`}>{content.method.title}</h2>
+      <h2 class={`font-avara text-3xl ${inkMuted}`}>{content.method.title}</h2>
       <div class="mt-8 max-w-xl flex flex-col gap-6">
         {
           content.method.paragraphs.map((paragraph) => (
@@ -186,7 +185,7 @@ const navSections = [
 
   <section id="facilitation" class={`${bg} px-8 py-28 md:py-36 lg:pl-64`}>
     <div class="max-w-6xl m-auto">
-      <h2 class={`font-avara text-3xl ${inkFaint}`}>
+      <h2 class={`font-avara text-3xl ${inkMuted}`}>
         {content.facilitation.title}
       </h2>
       <p class={`mt-8 max-w-xl text-xl leading-relaxed ${ink}`}>
@@ -207,7 +206,7 @@ const navSections = [
 
   <section id="results" class={`${bg} px-8 py-28 md:py-36 lg:pl-64`}>
     <div class="max-w-6xl m-auto">
-      <h2 class={`font-avara text-3xl ${inkFaint}`}>{content.results.title}</h2>
+      <h2 class={`font-avara text-3xl ${inkMuted}`}>{content.results.title}</h2>
       <p class={`mt-8 max-w-xl text-xl leading-relaxed ${ink}`}>
         {content.results.text}
       </p>
@@ -216,7 +215,7 @@ const navSections = [
 
   <section id="learning" class={`${bg} px-8 py-28 md:py-36 lg:pl-64`}>
     <div class="max-w-6xl m-auto">
-      <h2 class={`font-avara text-3xl ${inkFaint}`}>{content.learning.title}</h2>
+      <h2 class={`font-avara text-3xl ${inkMuted}`}>{content.learning.title}</h2>
       <p class={`mt-8 max-w-xl text-xl leading-relaxed ${ink}`}>
         {content.learning.text}
       </p>
@@ -252,14 +251,10 @@ const navSections = [
     sectionIds.forEach((id, i) => {
       const link = links.get(id);
       if (!link) return;
-      link.classList.remove(
-        'text-on-surface-default',
-        'text-on-surface-subdue',
-        'text-on-surface-subdue/50'
+      link.classList.remove('text-on-surface-default', 'text-on-surface-subdue');
+      link.classList.add(
+        i === activeIndex ? 'text-on-surface-default' : 'text-on-surface-subdue'
       );
-      if (i === activeIndex) link.classList.add('text-on-surface-default');
-      else if (i < activeIndex) link.classList.add('text-on-surface-subdue');
-      else link.classList.add('text-on-surface-subdue/50');
     });
   }
 
