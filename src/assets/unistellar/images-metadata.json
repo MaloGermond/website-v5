@@ -173,6 +173,102 @@
       "en": "Unistellar V3 home screen with a photo of the telescope, the \"My Odyssey\" device card, battery level and a Watch button."
     }
   },
+  "screen-unistellar-v3-account-confirmationEmail": {
+    "alt": {
+      "fr": "Écran « Confirm your email », demandant de cliquer sur le lien reçu par email pour confirmer le compte.",
+      "en": "\"Confirm your email\" screen, asking the user to click the emailed link to confirm their account."
+    }
+  },
+  "screen-unistellar-v3-account-reveivedEmail": {
+    "alt": {
+      "fr": "Écran « You've Got Mail! », confirmant l’envoi d’un lien de réinitialisation de mot de passe par email.",
+      "en": "\"You've Got Mail!\" screen, confirming a password-reset link was sent by email."
+    }
+  },
+  "screen-unistellar-v3-catalog-filled": {
+    "alt": {
+      "fr": "Écran catalogue Unistellar V3 rempli, avec le Soleil et plusieurs nébuleuses/galaxies, et la navigation basse Home/Catalog/Science/Gallery.",
+      "en": "Unistellar V3 catalog screen populated with the Sun and several nebulae/galaxies, with the Home/Catalog/Science/Gallery bottom navigation."
+    }
+  },
+  "screen-unistellar-v3-objectPage": {
+    "alt": {
+      "fr": "Fiche détail de l’amas d’Hercule avec altitude, durée de visibilité, azimut et description de l’objet.",
+      "en": "Detail page for the Hercules Cluster with altitude, time visible, azimuth and an object description."
+    }
+  },
+  "screen-unistellar-v3-setting": {
+    "alt": {
+      "fr": "Écran de réglages du télescope : statut, batterie, stockage, modèle, actions Park/Turn off et paramètres Wi-Fi.",
+      "en": "Telescope settings screen: status, battery, storage, model, Park/Turn off actions and Wi-Fi settings."
+    }
+  },
+  "screen-unistellar-v3-gallery-01": {
+    "alt": {
+      "fr": "Étape 1/6 du tutoriel de montage : placer le filtre solaire sur le tube du télescope.",
+      "en": "Step 1/6 of the setup tutorial: place the solar filter on the telescope tube."
+    }
+  },
+  "screen-unistellar-v3-gallery-02": {
+    "alt": {
+      "fr": "Étape 2/6 du tutoriel de montage : dévisser le trépied.",
+      "en": "Step 2/6 of the setup tutorial: unscrew the tripod."
+    }
+  },
+  "screen-unistellar-v3-gallery-03": {
+    "alt": {
+      "fr": "Étape 3/6 du tutoriel de montage : orienter le télescope face au soleil.",
+      "en": "Step 3/6 of the setup tutorial: face the telescope toward the sun."
+    }
+  },
+  "screen-unistellar-v3-gallery-04": {
+    "alt": {
+      "fr": "Étape 4/6 du tutoriel de montage : visser le télescope sur le trépied.",
+      "en": "Step 4/6 of the setup tutorial: screw the telescope onto the tripod."
+    }
+  },
+  "screen-unistellar-v3-gallery-05": {
+    "alt": {
+      "fr": "Étape 5/6 du tutoriel de montage : sortir le filtre solaire de son emballage.",
+      "en": "Step 5/6 of the setup tutorial: take the solar filter out of its packaging."
+    }
+  },
+  "screen-unistellar-v3-observation-eagle": {
+    "alt": {
+      "fr": "Résultat d’observation de la nébuleuse de l’Aigle (M16), avec les actions carte, capture photo et menu Move/Observation/Edit.",
+      "en": "Observation result for the Eagle Nebula (M16), with map, photo capture actions and the Move/Observation/Edit menu."
+    }
+  },
+  "screen-unistellar-v3-observation-helix": {
+    "alt": {
+      "fr": "Résultat d’observation de la nébuleuse de l’Hélice (Helix Nebula).",
+      "en": "Observation result for the Helix Nebula."
+    }
+  },
+  "screen-unistellar-v3-observation-horsehead": {
+    "alt": {
+      "fr": "Résultat d’observation de la nébuleuse de la Tête de Cheval (Horsehead Nebula).",
+      "en": "Observation result for the Horsehead Nebula."
+    }
+  },
+  "screen-unistellar-v3-observation-moon": {
+    "alt": {
+      "fr": "Résultat d’observation de la Lune.",
+      "en": "Observation result for the Moon."
+    }
+  },
+  "screen-unistellar-v3-observation-orion": {
+    "alt": {
+      "fr": "Résultat d’observation de la grande nébuleuse d’Orion.",
+      "en": "Observation result for the Great Nebula in Orion."
+    }
+  },
+  "screen-unistellar-v3-observation-triangulum": {
+    "alt": {
+      "fr": "Résultat d’observation de la galaxie du Triangle (Triangulum Galaxy).",
+      "en": "Observation result for the Triangulum Galaxy."
+    }
+  },
   "unistellar-screens-lowfy-catalog": {
     "alt": {
       "fr": "Maquette basse fidélité de l’écran catalogue.",
