@@ -1,0 +1,192 @@
+{
+  "meta": {
+    "pageTitle": "Unistellar — Study case UX",
+    "description": "Adopter le changement, pas juste le livrer : étude UX de la refonte de l'application Unistellar."
+  },
+  "cover": {
+    "title": "Réduire la friction",
+    "subtitle": "Transformer une expérience pensée pour la tâche en une expérience pensée pour l’utilisateur.",
+    "imageAlt": "Capture d’écran de l’application Unistellar sur tablette, affichant la grille du catalogue d’objets célestes avec la Lune et Jupiter.",
+    "action": "Voir le study case UX"
+  },
+  "nav": [
+    "Introduction",
+    "Le problème",
+    "La méthode",
+    "La facilitation",
+    "Les résultats",
+    "L’apprentissage"
+  ],
+  "hero": {
+    "title": "Adopter le changement pas juste le livrer",
+    "client": "Unistellar",
+    "period": "2021 – 2024",
+    "app": "Unistellar App",
+    "metrics": [
+      "50k téléchargements",
+      "3k utilisateurs quotidiens",
+      "Android - iOS"
+    ]
+  },
+  "problem": {
+    "context": {
+      "title": "Le contexte",
+      "text": "On vient de livrer la V2 qui a été conçue sans possibilité de test utilisateur en amont, une refonte visuelle ambitieuse et objectivement réussie sur la forme. Une fois livrée, les premiers retours tombent.",
+      "quote": "J’étais super motivé pour commencer, mais maintenant je me sens complètement perdu, je ne sais pas où aller ensuite."
+    },
+    "issue": {
+      "title": "Le problème",
+      "text1": "La version deux a marqué une refonte visuelle complète du produit. L’interface était objectivement plus moderne, mieux structurée.",
+      "text2": "Et pourtant, à sa sortie, l’accueil a été froid : les utilisateurs historiques ne demandaient pas une nouvelle expérience, ils voulaient retrouver leurs repères. Une interface jugée meilleure, mais vécue comme pire.",
+      "beforeImage": "unistellar-screen-v1-observation",
+      "afterImage": "unistellar-screen-v2-observation"
+    }
+  },
+  "method": {
+    "title": "La méthode",
+    "paragraphs": [
+      "Sans budget dédié ni accès formel aux utilisateurs, j’ai organisé dans l’urgence des sessions de test terrain.",
+      "Le choix s’est porté sur les nouveaux utilisateurs découvrant le produit pour la première fois : résoudre leurs points de blocage, c’était aussi améliorer l’expérience de tous, par ricochet. Protocole simple mais rigoureux : capture d’écran, enregistrement vidéo de la scène, verbalisation à voix haute, puis questionnaire de ressenti à chaud."
+    ],
+    "journeyIntro": "À partir de ces observations, j’ai reconstruit les grands moments du parcours.\nConnexion, orientation, découverte du catalogue, et pour chacun identifié les points de friction ainsi que l’état émotionnel de l’utilisateur à cet instant.",
+    "wireframeImage": "unistellar-screens-wireframe-discoverPage",
+    "journey": [
+      {
+        "label": "Connexion",
+        "title": "Create Actions That Inspire and Engage",
+        "text": "Some app actions fail to connect emotionally or offer practical value, creating unnecessary frustration and lowering user satisfaction."
+      },
+      {
+        "label": "Orientation",
+        "title": "Be a Guide for Users Through Their Discovery",
+        "text": "When faced with an overwhelming number of objects to observe, users often feel confused and uncertain about where to begin. Offering curated suggestions can eliminate the \"blank page\" effect and help them engage meaningfully."
+      },
+      {
+        "label": "Select Target",
+        "title": "Guide Users to Quick Insights",
+        "text": "Interaction zones has a lack of hierarchy and meaningful associations, leaving users confused when trying to complete an action. Clear guidance and structured design are critical to enhancing usability and enabling efficient navigation."
+      },
+      {
+        "label": "Enhanced Vision",
+        "title": "A Stagnant Experience Deteriorates Over Time",
+        "text": "Once the action is triggered, no further interaction with the image is possible. The user becomes passive, leading to boredom and disengagement."
+      }
+    ],
+    "quotes": [
+      {
+        "tag": "Guidage",
+        "time": "10:21",
+        "text": "Donc là je peux faire la mise au point maintenant ?."
+      },
+      {
+        "tag": "Contrôle explicite",
+        "time": "19:03",
+        "text": "Essayons de pointer un truc ? Non, je voulais aller sur l’étoiles qui brillent le plus."
+      },
+      {
+        "tag": "Adaptabilité",
+        "time": "11:54",
+        "text": "Bah j’essaye de, oui je vois que j’ai pointé une étoile, et j’aimerais savoir ce que je suis en train de regarder."
+      },
+      {
+        "tag": "Guidage",
+        "time": "12:13",
+        "text": "Je sais plus où je dois aller moi…"
+      },
+      {
+        "tag": "Guidage",
+        "time": "14:35",
+        "text": "Non mais j… OK, et comment je sais qu’il l’a trouvé,"
+      },
+      {
+        "tag": "Guidage",
+        "time": "18:39",
+        "text": "Je crois que j’ai pas reconnu que c’était un joystick… En fait, j’avais du mal à me dire qu’on peut orienter dans différentes positions avec ça… [je voulais voir] Un bouton plutôt."
+      },
+      {
+        "tag": "Guidage",
+        "time": "07:58",
+        "text": "Azimut je ne sais pas ce que ca veut dire…"
+      },
+      {
+        "tag": "Charge de travail",
+        "time": "09:02",
+        "text": "Alors démarrer l’observation. Oh my god, je suis paumé là !"
+      }
+    ]
+  },
+  "facilitation": {
+    "title": "La facilitation",
+    "intro": "Face à une équipe de développement au départ sceptique, la restitution s’est faite en deux temps :",
+    "steps": [
+      "Présenter le problème seul, sans solution préconçue, pour susciter la réflexion collective,",
+      "Partager les pistes envisagées."
+    ],
+    "text": "Cette approche a permis de transformer un \"on ne peut rien faire\" initial en engagement réel, en montrant que le design pouvait rendre le sujet excitant plutôt que contraignant.",
+    "gallery": [
+      "unistellar-screens-lowfy-tutorial",
+      "unistellar-screens-lowfy-homePage",
+      "unistellar-screens-lowfy-observation",
+      "unistellar-screens-lowfy-goToPage",
+      "unistellar-screens-lowfy-manualTarget",
+      "unistellar-screens-lowfy-movePage",
+      "unistellar-screens-lowfy-objectPage",
+      "unistellar-screens-lowfy-catalog",
+      "unistellar-screens-wireframe-tutorial",
+      "unistellar-screens-wireframe-discoverPage",
+      "unistellar-screens-wireframe-homePage",
+      "unistellar-screens-wireframe-observation",
+      "unistellar-screens-wireframe-observationPage",
+      "unistellar-screens-wireframe-goToPage",
+      "unistellar-screens-wireframe-manualTarget",
+      "unistellar-screens-wireframe-move",
+      "unistellar-screens-wireframe-object",
+      "unistellar-screens-wireframe-objectPage"
+    ]
+  },
+  "results": {
+    "title": "Les résultats",
+    "text": "La V3 a simplifié la connexion, accompagné l’orientation étape par étape, et remis le catalogue au centre de l’expérience. Le NPS a progressé de manière significative, confirmé par des tests utilisateurs complémentaires.",
+    "items": [
+      {
+        "tag": "Adaptabilité",
+        "title": "Emotion Guiding Function",
+        "text": "The page feels more like a remote control than an inspiring window into the universe",
+        "image": "mockup-v1-observation"
+      },
+      {
+        "tag": "Charge de travail",
+        "title": "Streamline Main Actions",
+        "text": "Bring together and organize the page's key actions for a clearer and more intuitive experience.",
+        "image": "mockup-v1-catalog"
+      },
+      {
+        "tag": "Guidage",
+        "title": "Be straightforward",
+        "text": "Break down the page's complexity into distinct uses to better guide and support the user.",
+        "image": "mockup-v3-observation"
+      },
+      {
+        "tag": "Adaptabilité",
+        "title": "Engage user with reward",
+        "text": "Unlock images of objects as they are observed, along with their details, to spark curiosity.",
+        "image": "mockup-v3-catalog"
+      },
+      {
+        "tag": "Guidage",
+        "title": "Seamless Return to the Main Task",
+        "text": "Keep the telescope image at the center to guide users back seamlessly.",
+        "image": "mockup-v3-objectPage"
+      }
+    ],
+    "comparison": {
+      "beforeImage": "mockup-v1-objectPage",
+      "afterImage": "mockup-v3-objectPage"
+    }
+  },
+  "learning": {
+    "title": "L’apprentissage",
+    "text": "Un paradoxe est apparu après coup : les utilisateurs historiques, jamais vraiment confrontés aux <u>problèmes de connexion</u> et <u>d’orientation</u>, n’ont pas perçu l’amélioration, alors que les données montraient une nette diminution des blocages. Un rappel que la perception d’expérience et la mesure d’usage ne racontent pas toujours la même histoire, et que résoudre un problème mesuré à l’aide d’utilisateurs et de données ne garantit pas de faire correspondre le ressenti utilisateur.",
+    "image": "screen-unistellar-v3-observation-moon"
+  }
+}

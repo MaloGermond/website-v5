@@ -1,0 +1,19 @@
+---
+const { items } = Astro.props;
+---
+
+<div class="flex flex-row flex-wrap gap-8 sm:gap-16">
+  {
+    Object(items).map((el) => (
+      <div class="p-4">
+        <p
+          class="font-avara text-2xl sm:text-4xl text-gray-900 dark:text-gray-50"
+          style="font-variant-numeric: tabular-nums;"
+        >
+          {el.value}
+        </p>
+        <p class="text-sm text-gray-400 dark:text-gray-400">{el.label}</p>
+      </div>
+    ))
+  }
+</div>

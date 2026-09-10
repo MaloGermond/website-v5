@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets';
+import cardScreen from '@assets/home/card-catalog-screen.png';
+
+import { getTranslation } from '@utils/handleLocales';
+
+const { lang } = Astro.params;
+
+const unistellarUX = getTranslation(lang, 'unistellar-ux');
+---
+
+<article
+  class="group relative flex aspect-[283/421] w-64 shrink-0 grow-0 overflow-hidden rounded-[32px] bg-gradient-to-br from-[#010146] to-[#040017] sm:w-72"
+>
+  <a
+    class="flex h-full w-full flex-col"
+    href=`/${lang}/unistellar-ux`
+    aria-label={unistellarUX.cover.action}
+    data-umami-event="click"
+    data-umami-event-id="Unistellar UX"
+    data-umami-event-type="button"
+  >
+    <div class="relative h-[69%] w-full overflow-hidden">
+      <Image
+        src={cardScreen}
+        alt={unistellarUX.cover.imageAlt}
+        class="h-full w-full object-cover object-left-top transition-transform duration-700 ease-out group-hover:scale-105"
+      />
+    </div>
+    <div class="flex flex-1 flex-col justify-center gap-2 px-6">
+      <p class="font-avara text-xl font-bold leading-tight text-gray-50">
+        {unistellarUX.cover.title}
+      </p>
+      <p class="text-base font-light leading-normal text-gray-200">
+        {unistellarUX.cover.subtitle}
+      </p>
+    </div>
+  </a>
+</article>

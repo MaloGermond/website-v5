@@ -130,5 +130,293 @@
       "fr": "",
       "en": ""
     }
+  },
+  "cover-hand-phone": {
+    "alt": {
+      "fr": "Une main tient un iPhone affichant l’application Unistellar sur l’écran d’observation de la nébuleuse de l’Aigle, devant un fond dégradé vert.",
+      "en": "A hand holds an iPhone showing the Unistellar app on the Eagle nebula observation screen, against a green gradient background."
+    }
+  },
+  "unistellar-screen-v1-observation": {
+    "alt": {
+      "fr": "Version 1.0 de l’écran d’observation Unistellar, avec une navigation par croix directionnelle et des boutons ronds.",
+      "en": "Version 1.0 of the Unistellar observation screen, with a directional pad and round buttons."
+    }
+  },
+  "unistellar-screen-v2-observation": {
+    "alt": {
+      "fr": "Version 2.0 de l’écran d’observation Unistellar, épurée avec contrôles de zoom, capture et amélioration de la vision.",
+      "en": "Version 2.0 of the Unistellar observation screen, streamlined with zoom, capture and vision-enhancement controls."
+    }
+  },
+  "screen-unistella-catalog": {
+    "alt": {
+      "fr": "Écran catalogue Unistellar V3, sombre, avec filtres « Sky window » et « Nebula » et une grille de nébuleuses/galaxies.",
+      "en": "Unistellar V3 catalog screen, dark theme, with \"Sky window\" and \"Nebula\" filters and a grid of nebulae/galaxies."
+    }
+  },
+  "screen-unistellar-v3-gallery-previewPicture": {
+    "alt": {
+      "fr": "Écran de prévisualisation d’une observation capturée (amas globulaire d’Hercule) avec les actions supprimer, informations et partager.",
+      "en": "Preview screen for a captured observation (Hercules Globular Cluster) with delete, information and share actions."
+    }
+  },
+  "screen-unistellar-v3-gallery-selected": {
+    "alt": {
+      "fr": "Écran de galerie Unistellar V3 en mode sélection multiple, une observation cochée, avec la navigation basse Home/Catalog/Science/Gallery.",
+      "en": "Unistellar V3 gallery screen in multi-select mode, one observation checked, with the Home/Catalog/Science/Gallery bottom navigation."
+    }
+  },
+  "screen-unistellar-v3-home": {
+    "alt": {
+      "fr": "Écran d’accueil Unistellar V3 avec le télescope en photo, la carte de l’appareil « My Odyssey », le niveau de batterie et un bouton Watch.",
+      "en": "Unistellar V3 home screen with a photo of the telescope, the \"My Odyssey\" device card, battery level and a Watch button."
+    }
+  },
+  "screen-unistellar-v3-account-confirmationEmail": {
+    "alt": {
+      "fr": "Écran « Confirm your email », demandant de cliquer sur le lien reçu par email pour confirmer le compte.",
+      "en": "\"Confirm your email\" screen, asking the user to click the emailed link to confirm their account."
+    }
+  },
+  "screen-unistellar-v3-account-reveivedEmail": {
+    "alt": {
+      "fr": "Écran « You've Got Mail! », confirmant l’envoi d’un lien de réinitialisation de mot de passe par email.",
+      "en": "\"You've Got Mail!\" screen, confirming a password-reset link was sent by email."
+    }
+  },
+  "screen-unistellar-v3-catalog-filled": {
+    "alt": {
+      "fr": "Écran catalogue Unistellar V3 rempli, avec le Soleil et plusieurs nébuleuses/galaxies, et la navigation basse Home/Catalog/Science/Gallery.",
+      "en": "Unistellar V3 catalog screen populated with the Sun and several nebulae/galaxies, with the Home/Catalog/Science/Gallery bottom navigation."
+    }
+  },
+  "screen-unistellar-v3-objectPage": {
+    "alt": {
+      "fr": "Fiche détail de l’amas d’Hercule avec altitude, durée de visibilité, azimut et description de l’objet.",
+      "en": "Detail page for the Hercules Cluster with altitude, time visible, azimuth and an object description."
+    }
+  },
+  "screen-unistellar-v3-setting": {
+    "alt": {
+      "fr": "Écran de réglages du télescope : statut, batterie, stockage, modèle, actions Park/Turn off et paramètres Wi-Fi.",
+      "en": "Telescope settings screen: status, battery, storage, model, Park/Turn off actions and Wi-Fi settings."
+    }
+  },
+  "screen-unistellar-v3-gallery-01": {
+    "alt": {
+      "fr": "Étape 1/6 du tutoriel de montage : placer le filtre solaire sur le tube du télescope.",
+      "en": "Step 1/6 of the setup tutorial: place the solar filter on the telescope tube."
+    }
+  },
+  "screen-unistellar-v3-gallery-02": {
+    "alt": {
+      "fr": "Étape 2/6 du tutoriel de montage : dévisser le trépied.",
+      "en": "Step 2/6 of the setup tutorial: unscrew the tripod."
+    }
+  },
+  "screen-unistellar-v3-gallery-03": {
+    "alt": {
+      "fr": "Étape 3/6 du tutoriel de montage : orienter le télescope face au soleil.",
+      "en": "Step 3/6 of the setup tutorial: face the telescope toward the sun."
+    }
+  },
+  "screen-unistellar-v3-gallery-04": {
+    "alt": {
+      "fr": "Étape 4/6 du tutoriel de montage : visser le télescope sur le trépied.",
+      "en": "Step 4/6 of the setup tutorial: screw the telescope onto the tripod."
+    }
+  },
+  "screen-unistellar-v3-gallery-05": {
+    "alt": {
+      "fr": "Étape 5/6 du tutoriel de montage : sortir le filtre solaire de son emballage.",
+      "en": "Step 5/6 of the setup tutorial: take the solar filter out of its packaging."
+    }
+  },
+  "screen-unistellar-v3-observation-eagle": {
+    "alt": {
+      "fr": "Résultat d’observation de la nébuleuse de l’Aigle (M16), avec les actions carte, capture photo et menu Move/Observation/Edit.",
+      "en": "Observation result for the Eagle Nebula (M16), with map, photo capture actions and the Move/Observation/Edit menu."
+    }
+  },
+  "screen-unistellar-v3-observation-helix": {
+    "alt": {
+      "fr": "Résultat d’observation de la nébuleuse de l’Hélice (Helix Nebula).",
+      "en": "Observation result for the Helix Nebula."
+    }
+  },
+  "screen-unistellar-v3-observation-horsehead": {
+    "alt": {
+      "fr": "Résultat d’observation de la nébuleuse de la Tête de Cheval (Horsehead Nebula).",
+      "en": "Observation result for the Horsehead Nebula."
+    }
+  },
+  "screen-unistellar-v3-observation-moon": {
+    "alt": {
+      "fr": "Résultat d’observation de la Lune.",
+      "en": "Observation result for the Moon."
+    }
+  },
+  "screen-unistellar-v3-observation-orion": {
+    "alt": {
+      "fr": "Résultat d’observation de la grande nébuleuse d’Orion.",
+      "en": "Observation result for the Great Nebula in Orion."
+    }
+  },
+  "screen-unistellar-v3-observation-triangulum": {
+    "alt": {
+      "fr": "Résultat d’observation de la galaxie du Triangle (Triangulum Galaxy).",
+      "en": "Observation result for the Triangulum Galaxy."
+    }
+  },
+  "mockup-v1-catalog": {
+    "alt": {
+      "fr": "Rendu 3D d’un iPhone affichant l’écran catalogue de la V1 d’Unistellar, avec recherche, objets recommandés et sections « s’estompant »/« apparaissant bientôt ».",
+      "en": "3D phone mockup showing the Unistellar V1 catalog screen, with search, recommended objects, and \"fading\"/\"coming soon\" sections."
+    }
+  },
+  "mockup-v1-objectPage": {
+    "alt": {
+      "fr": "Rendu 3D d’un iPhone affichant la fiche détail de la galaxie du Sombrero (M104) dans la V1 d’Unistellar, avec altitude, azimut et carte du ciel.",
+      "en": "3D phone mockup showing the Sombrero Galaxy (M104) detail page in Unistellar V1, with altitude, azimuth and sky map."
+    }
+  },
+  "mockup-v1-observation": {
+    "alt": {
+      "fr": "Rendu 3D d’un iPhone affichant l’écran d’observation de la V1 d’Unistellar, avec la nébuleuse d’Orion et la navigation par croix directionnelle.",
+      "en": "3D phone mockup showing the Unistellar V1 observation screen, with the Orion Nebula and the directional pad navigation."
+    }
+  },
+  "mockup-v3-catalog": {
+    "alt": {
+      "fr": "Rendu 3D d’un iPhone affichant l’écran catalogue de la V3 d’Unistellar, avec le Soleil, plusieurs nébuleuses/galaxies et la navigation basse.",
+      "en": "3D phone mockup showing the Unistellar V3 catalog screen, with the Sun, several nebulae/galaxies and the bottom navigation."
+    }
+  },
+  "mockup-v3-objectPage": {
+    "alt": {
+      "fr": "Rendu 3D d’un iPhone affichant la fiche détail de la galaxie du Sombrero dans la V3 d’Unistellar, avec altitude, durée de visibilité et azimut.",
+      "en": "3D phone mockup showing the Sombrero Galaxy detail page in Unistellar V3, with altitude, time visible and azimuth."
+    }
+  },
+  "mockup-v3-observation": {
+    "alt": {
+      "fr": "Rendu 3D d’un iPhone affichant le résultat d’observation de la grande nébuleuse d’Orion dans la V3 d’Unistellar, avec les actions carte, capture et menu Move/Observation/Edit.",
+      "en": "3D phone mockup showing the Great Nebula in Orion observation result in Unistellar V3, with map, capture actions and the Move/Observation/Edit menu."
+    }
+  },
+  "unistellar-screens-lowfy-catalog": {
+    "alt": {
+      "fr": "Maquette basse fidélité de l’écran catalogue.",
+      "en": "Low-fidelity mockup of the catalog screen."
+    }
+  },
+  "unistellar-screens-lowfy-goToPage": {
+    "alt": {
+      "fr": "Maquette basse fidélité de l’écran de navigation vers un objet.",
+      "en": "Low-fidelity mockup of the go-to-object screen."
+    }
+  },
+  "unistellar-screens-lowfy-homePage": {
+    "alt": {
+      "fr": "Maquette basse fidélité de l’écran d’accueil.",
+      "en": "Low-fidelity mockup of the home screen."
+    }
+  },
+  "unistellar-screens-lowfy-manualTarget": {
+    "alt": {
+      "fr": "Maquette basse fidélité de l’écran de ciblage manuel.",
+      "en": "Low-fidelity mockup of the manual targeting screen."
+    }
+  },
+  "unistellar-screens-lowfy-movePage": {
+    "alt": {
+      "fr": "Maquette basse fidélité de l’écran de déplacement du télescope.",
+      "en": "Low-fidelity mockup of the telescope move screen."
+    }
+  },
+  "unistellar-screens-lowfy-objectPage": {
+    "alt": {
+      "fr": "Maquette basse fidélité de la fiche d’un objet céleste.",
+      "en": "Low-fidelity mockup of a celestial object detail screen."
+    }
+  },
+  "unistellar-screens-lowfy-observation": {
+    "alt": {
+      "fr": "Maquette basse fidélité de l’écran d’observation.",
+      "en": "Low-fidelity mockup of the observation screen."
+    }
+  },
+  "unistellar-screens-lowfy-tutorial": {
+    "alt": {
+      "fr": "Maquette basse fidélité de l’écran de tutoriel.",
+      "en": "Low-fidelity mockup of the tutorial screen."
+    }
+  },
+  "unistellar-screens-wireframe-discoverPage": {
+    "alt": {
+      "fr": "Wireframe de l’écran de découverte.",
+      "en": "Wireframe of the discover screen."
+    }
+  },
+  "unistellar-screens-wireframe-goToPage": {
+    "alt": {
+      "fr": "Wireframe de l’écran de navigation vers un objet.",
+      "en": "Wireframe of the go-to-object screen."
+    }
+  },
+  "unistellar-screens-wireframe-homePage": {
+    "alt": {
+      "fr": "Wireframe de l’écran d’accueil.",
+      "en": "Wireframe of the home screen."
+    }
+  },
+  "unistellar-screens-wireframe-manualTarget": {
+    "alt": {
+      "fr": "Wireframe de l’écran de ciblage manuel.",
+      "en": "Wireframe of the manual targeting screen."
+    }
+  },
+  "unistellar-screens-wireframe-move": {
+    "alt": {
+      "fr": "Wireframe de l’écran de déplacement du télescope.",
+      "en": "Wireframe of the telescope move screen."
+    }
+  },
+  "unistellar-screens-wireframe-object": {
+    "alt": {
+      "fr": "Wireframe de la fiche d’un objet céleste.",
+      "en": "Wireframe of a celestial object detail screen."
+    }
+  },
+  "unistellar-screens-wireframe-objectPage": {
+    "alt": {
+      "fr": "Wireframe de la fiche d’un objet céleste.",
+      "en": "Wireframe of a celestial object detail screen."
+    }
+  },
+  "unistellar-screens-wireframe-observation": {
+    "alt": {
+      "fr": "Wireframe de l’écran d’observation.",
+      "en": "Wireframe of the observation screen."
+    }
+  },
+  "unistellar-screens-wireframe-observationPage": {
+    "alt": {
+      "fr": "Wireframe de l’écran d’observation.",
+      "en": "Wireframe of the observation screen."
+    }
+  },
+  "unistellar-screens-wireframe-tutorial": {
+    "alt": {
+      "fr": "Wireframe de l’écran de tutoriel.",
+      "en": "Wireframe of the tutorial screen."
+    }
+  },
+  "unistellar-ux-analysis": {
+    "alt": {
+      "fr": "Écran d’observation Unistellar annoté de cercles et flèches soulignant les zones d’interaction analysées lors de l’étude d’usabilité.",
+      "en": "Unistellar observation screen annotated with circles and arrows highlighting the interaction zones analyzed during the usability study."
+    }
   }
 }

@@ -1,0 +1,15 @@
+---
+const { tag, time, text, class: classList = '' } = Astro.props;
+---
+
+<div class={`p-5 rounded-2xl bg-surface-raise max-w-sm ${classList}`}>
+  <span
+    class="inline-block px-3 py-1 mb-2 text-xs font-medium uppercase tracking-wide text-on-info bg-info rounded-lg"
+  >
+    {tag}
+  </span>
+  <p class="text-on-surface-default">
+    <span class="font-medium">User ({time})</span>
+    {' '}{text}
+  </p>
+</div>
