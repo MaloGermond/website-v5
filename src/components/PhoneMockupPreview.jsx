@@ -187,7 +187,7 @@ function PhoneMockupSvg({
       )}
 
       {showStatusBar && (
-        <g transform={`translate(${NUDGE.x} ${NUDGE.y})`} clip-path={`url(#${clipId})`}>
+        <g transform={`translate(${NUDGE.x} ${NUDGE.y})`}>
           <path
             d="M14.7917 0C6.62248 0 0 6.62249 0 14.7917C0 22.9609 6.62248 29.5834 14.7917 29.5834H85.1524C93.3217 29.5834 99.9442 22.9609 99.9442 14.7917C99.9442 6.62249 93.3217 0 85.1524 0H14.7917Z"
             fill="black"
