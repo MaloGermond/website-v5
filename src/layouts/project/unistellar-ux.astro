@@ -3,6 +3,7 @@ const { content } = Astro.props;
 const { lang } = Astro.params;
 import { Image } from 'astro:assets';
 import Verbatim from '@components/project/Verbatim.astro';
+import PhoneMockup from '@components/PhoneMockup.astro';
 import manWithTelescope from '@assets/unistellar/man-with-a-telescope.svg';
 
 import { loadScreensOnce } from '@utils/useScreens';
@@ -100,17 +101,29 @@ const navSections = [
       <p class={`mt-6 max-w-xl text-xl leading-relaxed ${ink}`}>
         {content.problem.issue.text2}
       </p>
-      <div class="mt-20 flex flex-row flex-wrap gap-6">
-        <Image
-          src={images[content.problem.issue.beforeImage]}
-          alt={images[content.problem.issue.beforeImage]?.alt?.[lang]}
-          class="w-[45%] sm:w-64 h-auto"
-        />
-        <Image
-          src={images[content.problem.issue.afterImage]}
-          alt={images[content.problem.issue.afterImage]?.alt?.[lang]}
-          class="w-[45%] sm:w-64 h-auto"
-        />
+      <div class="mt-20 flex flex-row flex-wrap gap-8">
+        <div class="w-[42%] sm:w-56">
+          <p class={`mb-2 text-center text-xs uppercase tracking-wide ${inkMuted}`}>
+            V1
+          </p>
+          <PhoneMockup
+            src={images[content.problem.issue.beforeImage]?.src}
+            alt={images[content.problem.issue.beforeImage]?.alt?.[lang]}
+            overlay
+            floating={false}
+          />
+        </div>
+        <div class="w-[42%] sm:w-56">
+          <p class={`mb-2 text-center text-xs uppercase tracking-wide ${inkMuted}`}>
+            V2
+          </p>
+          <PhoneMockup
+            src={images[content.problem.issue.afterImage]?.src}
+            alt={images[content.problem.issue.afterImage]?.alt?.[lang]}
+            overlay
+            floating={false}
+          />
+        </div>
       </div>
     </div>
   </section>
