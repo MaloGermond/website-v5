@@ -49,6 +49,7 @@
       "Le choix s’est porté sur les nouveaux utilisateurs découvrant le produit pour la première fois : résoudre leurs points de blocage, c’était aussi améliorer l’expérience de tous, par ricochet. Protocole simple mais rigoureux : capture d’écran, enregistrement vidéo de la scène, verbalisation à voix haute, puis questionnaire de ressenti à chaud."
     ],
     "journeyIntro": "À partir de ces observations, j’ai reconstruit les grands moments du parcours.\nConnexion, orientation, découverte du catalogue, et pour chacun identifié les points de friction ainsi que l’état émotionnel de l’utilisateur à cet instant.",
+    "wireframeImage": "unistellar-screens-wireframe-discoverPage",
     "journey": [
       {
         "label": "Connexion",

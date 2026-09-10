@@ -49,6 +49,7 @@
       "The focus was new users discovering the product for the first time: solving their blockers would also improve the experience for everyone else, by extension. A simple but rigorous protocol: screen capture, video recording of the scene, thinking aloud, then a hot debrief questionnaire."
     ],
     "journeyIntro": "From these observations, I reconstructed the key moments of the journey.\nConnecting, orienting, discovering the catalog — and for each one identified the friction points as well as the user's emotional state at that moment.",
+    "wireframeImage": "unistellar-screens-wireframe-discoverPage",
     "journey": [
       {
         "label": "Connexion",
