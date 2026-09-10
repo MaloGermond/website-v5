@@ -1,0 +1,47 @@
+---
+import '@styles/global.css';
+
+import { getImage } from 'astro:assets';
+import PhoneMockup from '@components/PhoneMockup.astro';
+
+import screenHome from '@assets/unistellar/screen-unistellar-home.png';
+import screenCatalog from '@assets/unistellar/screen-unistellar-catalog.png';
+import screenV2Observation from '@assets/unistellar/screen-unistellar-v2-observation.png';
+
+const homeImage = await getImage({ src: screenHome, width: 800 });
+const catalogImage = await getImage({ src: screenCatalog, width: 800 });
+const observationImage = await getImage({ src: screenV2Observation, width: 800 });
+---
+
+<html lang="en" class="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Components</title>
+  </head>
+  <body class="bg-gray-100 dark:bg-gray-900 p-8">
+    <h1 class="font-avara text-3xl text-gray-900 dark:text-gray-50 mb-8">
+      Components
+    </h1>
+
+    <section class="mb-16">
+      <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
+        PhoneMockup
+      </h2>
+      <div class="flex flex-row flex-wrap gap-8">
+        <div class="w-48">
+          <PhoneMockup src={homeImage.src} alt="Unistellar app home screen" />
+        </div>
+        <div class="w-48">
+          <PhoneMockup src={catalogImage.src} alt="Unistellar app catalog screen" />
+        </div>
+        <div class="w-48">
+          <PhoneMockup
+            src={observationImage.src}
+            alt="Unistellar app observation screen"
+          />
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+---
+// Phone frame mockup, matching the "Mockup-face" component from the
+// Unistellar UX Penpot file. Frame geometry (bezel radius, screen inset,
+// notch) is transcribed from that component; side buttons and the subtle
+// bezel sheen are omitted for a simpler, fully responsive SVG.
+const { src, alt = '' } = Astro.props;
+
+const clipId = `phone-screen-${Math.random().toString(36).slice(2, 9)}`;
+---
+
+<svg
+  viewBox="0 0 600 1221"
+  class="w-full h-auto"
+  role="img"
+  aria-label={alt}
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <defs>
+    <clipPath id={clipId}>
+      <path
+        d="M95,23 H506 A64,64 0 0 1 570,87 V1129 A64,64 0 0 1 506,1193 H95 A64,64 0 0 1 31,1129 V87 A64,64 0 0 1 95,23 Z"
+      />
+    </clipPath>
+  </defs>
+  <image
+    href={src}
+    x="31"
+    y="23"
+    width="539"
+    height="1170"
+    preserveAspectRatio="xMidYMid slice"
+    clip-path={`url(#${clipId})`}
+  />
+  <path
+    fill-rule="evenodd"
+    d="M94,0 H506 A94,94 0 0 1 600,94 V1127 A94,94 0 0 1 506,1221 H94 A94,94 0 0 1 0,1127 V94 A94,94 0 0 1 94,0 Z
+       M95,23 H506 A64,64 0 0 1 570,87 V1129 A64,64 0 0 1 506,1193 H95 A64,64 0 0 1 31,1129 V87 A64,64 0 0 1 95,23 Z"
+    fill="#0b0b0d"
+  />
+  <rect x="215" y="41" width="170" height="50" rx="25" fill="#0b0b0d" />
+</svg>
