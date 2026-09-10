@@ -269,6 +269,42 @@
       "en": "Observation result for the Triangulum Galaxy."
     }
   },
+  "mockup-v1-catalog": {
+    "alt": {
+      "fr": "Rendu 3D d’un iPhone affichant l’écran catalogue de la V1 d’Unistellar, avec recherche, objets recommandés et sections « s’estompant »/« apparaissant bientôt ».",
+      "en": "3D phone mockup showing the Unistellar V1 catalog screen, with search, recommended objects, and \"fading\"/\"coming soon\" sections."
+    }
+  },
+  "mockup-v1-objectPage": {
+    "alt": {
+      "fr": "Rendu 3D d’un iPhone affichant la fiche détail de la galaxie du Sombrero (M104) dans la V1 d’Unistellar, avec altitude, azimut et carte du ciel.",
+      "en": "3D phone mockup showing the Sombrero Galaxy (M104) detail page in Unistellar V1, with altitude, azimuth and sky map."
+    }
+  },
+  "mockup-v1-observation": {
+    "alt": {
+      "fr": "Rendu 3D d’un iPhone affichant l’écran d’observation de la V1 d’Unistellar, avec la nébuleuse d’Orion et la navigation par croix directionnelle.",
+      "en": "3D phone mockup showing the Unistellar V1 observation screen, with the Orion Nebula and the directional pad navigation."
+    }
+  },
+  "mockup-v3-catalog": {
+    "alt": {
+      "fr": "Rendu 3D d’un iPhone affichant l’écran catalogue de la V3 d’Unistellar, avec le Soleil, plusieurs nébuleuses/galaxies et la navigation basse.",
+      "en": "3D phone mockup showing the Unistellar V3 catalog screen, with the Sun, several nebulae/galaxies and the bottom navigation."
+    }
+  },
+  "mockup-v3-objectPage": {
+    "alt": {
+      "fr": "Rendu 3D d’un iPhone affichant la fiche détail de la galaxie du Sombrero dans la V3 d’Unistellar, avec altitude, durée de visibilité et azimut.",
+      "en": "3D phone mockup showing the Sombrero Galaxy detail page in Unistellar V3, with altitude, time visible and azimuth."
+    }
+  },
+  "mockup-v3-observation": {
+    "alt": {
+      "fr": "Rendu 3D d’un iPhone affichant le résultat d’observation de la grande nébuleuse d’Orion dans la V3 d’Unistellar, avec les actions carte, capture et menu Move/Observation/Edit.",
+      "en": "3D phone mockup showing the Great Nebula in Orion observation result in Unistellar V3, with map, capture actions and the Move/Observation/Edit menu."
+    }
+  },
   "unistellar-screens-lowfy-catalog": {
     "alt": {
       "fr": "Maquette basse fidélité de l’écran catalogue.",
