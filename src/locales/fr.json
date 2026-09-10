@@ -48,7 +48,10 @@
     "nav": {
       "projects": {
         "title": "Projets",
-        "items": [{ "label": "Unistellar", "slug": "unistellar" }]
+        "items": [
+          { "label": "Rendre accessible l’astronomie", "slug": "unistellar" },
+          { "label": "Réduire la friction", "slug": "unistellar-ux" }
+        ]
       },
       "design": {
         "title": "Design",

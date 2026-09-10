@@ -48,7 +48,10 @@
     "nav": {
       "projects": {
         "title": "Projects",
-        "items": [{ "label": "Unistellar", "slug": "unistellar" }]
+        "items": [
+          { "label": "Democratizing astronomy", "slug": "unistellar" },
+          { "label": "Reducing friction", "slug": "unistellar-ux" }
+        ]
       },
       "design": {
         "title": "Design",
