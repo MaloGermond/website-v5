@@ -147,42 +147,71 @@
   "results": {
     "title": "The results",
     "text": "V3 simplified sign-in, guided orientation step by step, and put the catalog back at the center of the experience. NPS improved significantly, confirmed by additional usability tests.",
-    "items": [
+    "pages": [
       {
-        "tag": "Adaptability",
-        "title": "Emotion Guiding Function",
-        "text": "The page feels more like a remote control than an inspiring window into the universe",
-        "image": "mockup-v1-observation"
+        "beforeImage": "mockup-v1-observation",
+        "afterImage": "mockup-v3-observation",
+        "items": [
+          {
+            "tag": "Adaptability",
+            "title": "Emotion Guiding Function",
+            "text": "The page feels more like a remote control than an inspiring window into the universe"
+          },
+          {
+            "tag": "Workload",
+            "title": "Streamline Main Actions",
+            "text": "Bring together and organize the page's key actions for a clearer and more intuitive experience."
+          },
+          {
+            "tag": "Guiding",
+            "title": "Be straightforward",
+            "text": "Break down the page's complexity into distinct uses to better guide and support the user."
+          }
+        ]
       },
       {
-        "tag": "Workload",
-        "title": "Streamline Main Actions",
-        "text": "Bring together and organize the page's key actions for a clearer and more intuitive experience.",
-        "image": "mockup-v1-catalog"
+        "beforeImage": "mockup-v1-catalog",
+        "afterImage": "mockup-v3-catalog",
+        "items": [
+          {
+            "tag": "Guiding",
+            "title": "Illustrations to Support Choice",
+            "text": "Highlight the telescope's action instead of relying on a solution that classifies illustrations into categories that no one understands."
+          },
+          {
+            "tag": "Adaptability",
+            "title": "Engage user with reward",
+            "text": "Unlock images of objects as they are observed, along with their details, to spark curiosity."
+          },
+          {
+            "tag": "Guiding",
+            "title": "Seamless Return to the Main Task",
+            "text": "Keep the telescope image at the center to guide users back seamlessly."
+          }
+        ]
       },
       {
-        "tag": "Guiding",
-        "title": "Be straightforward",
-        "text": "Break down the page's complexity into distinct uses to better guide and support the user.",
-        "image": "mockup-v3-observation"
-      },
-      {
-        "tag": "Adaptability",
-        "title": "Engage user with reward",
-        "text": "Unlock images of objects as they are observed, along with their details, to spark curiosity.",
-        "image": "mockup-v3-catalog"
-      },
-      {
-        "tag": "Guiding",
-        "title": "Seamless Return to the Main Task",
-        "text": "Keep the telescope image at the center to guide users back seamlessly.",
-        "image": "mockup-v3-objectPage"
+        "beforeImage": "mockup-v1-objectPage",
+        "afterImage": "mockup-v3-objectPage",
+        "items": [
+          {
+            "tag": "Guiding",
+            "title": "Illustrations to Support Choice",
+            "text": "Highlight the telescope's action instead of relying on a solution that classifies illustrations into categories that no one understands."
+          },
+          {
+            "tag": "Adaptability",
+            "title": "Engage user with reward",
+            "text": "Unlock images of objects as they are observed, along with their details, to spark curiosity."
+          },
+          {
+            "tag": "Guiding",
+            "title": "Seamless Return to the Main Task",
+            "text": "Keep the telescope image at the center to guide users back seamlessly."
+          }
+        ]
       }
-    ],
-    "comparison": {
-      "beforeImage": "mockup-v1-objectPage",
-      "afterImage": "mockup-v3-objectPage"
-    }
+    ]
   },
   "learning": {
     "title": "The learning",

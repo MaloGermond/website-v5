@@ -230,51 +230,46 @@ const navSections = [
         {content.results.text}
       </p>
 
-      <div class="mt-20 flex flex-col gap-16">
+      <div class="mt-20 flex flex-col gap-20">
         {
-          content.results.items.map((item, i) => (
-            <div
-              class={`flex flex-col md:flex-row items-center gap-10 ${i % 2 === 1 ? 'md:flex-row-reverse' : ''}`}
-            >
-              <img
-                src={images[item.image]?.src}
-                alt={images[item.image]?.alt?.[lang]}
-                class="w-48 sm:w-56 shrink-0"
-                loading="lazy"
-              />
-              <div class="flex-1 max-w-md">
-                <span class="inline-block px-3 py-1 mb-2 text-xs font-medium uppercase tracking-wide text-on-info bg-info rounded-lg">
-                  {item.tag}
-                </span>
-                <h3 class={`text-lg font-medium ${ink}`}>{item.title}</h3>
-                <p class={`mt-2 text-sm ${inkMuted}`}>{item.text}</p>
+          content.results.pages.map((page) => (
+            <div class="flex flex-col gap-10">
+              <div class="flex flex-row flex-wrap justify-center gap-8">
+                <div class="w-[42%] sm:w-56">
+                  <p class={`mb-2 text-center text-xs uppercase tracking-wide ${inkMuted}`}>
+                    V1
+                  </p>
+                  <img
+                    src={images[page.beforeImage]?.src}
+                    alt={images[page.beforeImage]?.alt?.[lang]}
+                    class="w-full h-auto"
+                  />
+                </div>
+                <div class="w-[42%] sm:w-56">
+                  <p class={`mb-2 text-center text-xs uppercase tracking-wide ${inkMuted}`}>
+                    V3
+                  </p>
+                  <img
+                    src={images[page.afterImage]?.src}
+                    alt={images[page.afterImage]?.alt?.[lang]}
+                    class="w-full h-auto"
+                  />
+                </div>
+              </div>
+              <div class="flex flex-row flex-wrap justify-center gap-8">
+                {page.items.map((item) => (
+                  <div class="w-full max-w-xs">
+                    <span class="inline-block px-3 py-1 mb-2 text-xs font-medium uppercase tracking-wide text-on-info bg-info rounded-lg">
+                      {item.tag}
+                    </span>
+                    <h3 class={`text-lg font-medium ${ink}`}>{item.title}</h3>
+                    <p class={`mt-2 text-sm ${inkMuted}`}>{item.text}</p>
+                  </div>
+                ))}
               </div>
             </div>
           ))
         }
-      </div>
-
-      <div class="mt-20 flex flex-row flex-wrap justify-center gap-8">
-        <div class="w-[42%] sm:w-56">
-          <p class={`mb-2 text-center text-xs uppercase tracking-wide ${inkMuted}`}>
-            V1
-          </p>
-          <img
-            src={images[content.results.comparison.beforeImage]?.src}
-            alt={images[content.results.comparison.beforeImage]?.alt?.[lang]}
-            class="w-full h-auto"
-          />
-        </div>
-        <div class="w-[42%] sm:w-56">
-          <p class={`mb-2 text-center text-xs uppercase tracking-wide ${inkMuted}`}>
-            V3
-          </p>
-          <img
-            src={images[content.results.comparison.afterImage]?.src}
-            alt={images[content.results.comparison.afterImage]?.alt?.[lang]}
-            class="w-full h-auto"
-          />
-        </div>
       </div>
     </div>
   </section>
