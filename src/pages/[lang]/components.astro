@@ -8,8 +8,11 @@ import { locales } from '@locales/config.json';
 
 import screenHome from '@assets/unistellar/screen-unistellar-home.png';
 import screenCatalog from '@assets/unistellar/screen-unistellar-catalog.png';
-import screenV1Observation from '@assets/unistellar/screen-unistellar-v1-observation.png';
-import screenV2Observation from '@assets/unistellar/screen-unistellar-v2-observation.png';
+import screenV1Observation from '@assets/unistellar/unistellar-screen-v1-observation.png';
+import screenV2Observation from '@assets/unistellar/unistellar-screen-v2-observation.png';
+import screenV3Home from '@assets/unistellar/screen-unistellar-v3-home.png';
+import screenV3GalleryPreview from '@assets/unistellar/screen-unistellar-v3-gallery-previewPicture.png';
+import screenV3GallerySelected from '@assets/unistellar/screen-unistellar-v3-gallery-selected.png';
 
 export function getStaticPaths() {
   return locales.map((loc) => ({ params: { lang: loc } }));
@@ -21,10 +24,13 @@ const homeImage = await getImage({ src: screenHome, width: 800 });
 const catalogImage = await getImage({ src: screenCatalog, width: 800 });
 const observationV1Image = await getImage({ src: screenV1Observation, width: 800 });
 const observationV2Image = await getImage({ src: screenV2Observation, width: 800 });
+const v3HomeImage = await getImage({ src: screenV3Home, width: 800 });
+const v3GalleryPreviewImage = await getImage({ src: screenV3GalleryPreview, width: 800 });
+const v3GallerySelectedImage = await getImage({ src: screenV3GallerySelected, width: 800 });
 
 // Home and Catalog screenshots already bake in their own status bar /
 // home indicator, so the overlay defaults to off for those (still
-// toggleable manually); the Observation screens don't, so it defaults on.
+// toggleable manually); the other screens don't, so it defaults on.
 const images = [
   {
     src: homeImage.src,
@@ -48,6 +54,24 @@ const images = [
     src: observationV2Image.src,
     alt: 'Unistellar app observation screen, V2',
     label: 'Observation V2',
+    defaultChrome: true,
+  },
+  {
+    src: v3HomeImage.src,
+    alt: 'Unistellar app home screen, V3',
+    label: 'Home V3',
+    defaultChrome: true,
+  },
+  {
+    src: v3GalleryPreviewImage.src,
+    alt: 'Unistellar app gallery preview screen, V3',
+    label: 'Gallery preview V3',
+    defaultChrome: true,
+  },
+  {
+    src: v3GallerySelectedImage.src,
+    alt: 'Unistellar app gallery selection screen, V3',
+    label: 'Gallery selected V3',
     defaultChrome: true,
   },
 ];

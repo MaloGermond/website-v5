@@ -38,8 +38,8 @@
       "title": "Le problème",
       "text1": "La version deux a marqué une refonte visuelle complète du produit. L’interface était objectivement plus moderne, mieux structurée.",
       "text2": "Et pourtant, à sa sortie, l’accueil a été froid : les utilisateurs historiques ne demandaient pas une nouvelle expérience, ils voulaient retrouver leurs repères. Une interface jugée meilleure, mais vécue comme pire.",
-      "beforeImage": "screen-unistellar-v1-observation",
-      "afterImage": "screen-unistellar-v2-observation"
+      "beforeImage": "unistellar-screen-v1-observation",
+      "afterImage": "unistellar-screen-v2-observation"
     }
   },
   "method": {

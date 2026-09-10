@@ -38,8 +38,8 @@
       "title": "The problem",
       "text1": "Version two marked a complete visual overhaul of the product. The interface was objectively more modern, better structured.",
       "text2": "And yet, on release, the welcome was cold: long-time users weren’t asking for a new experience, they wanted their bearings back. An interface judged better, but experienced as worse.",
-      "beforeImage": "screen-unistellar-v1-observation",
-      "afterImage": "screen-unistellar-v2-observation"
+      "beforeImage": "unistellar-screen-v1-observation",
+      "afterImage": "unistellar-screen-v2-observation"
     }
   },
   "method": {

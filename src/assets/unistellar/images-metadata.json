@@ -137,16 +137,40 @@
       "en": "A hand holds an iPhone showing the Unistellar app on the Eagle nebula observation screen, against a green gradient background."
     }
   },
-  "screen-unistellar-v1-observation": {
+  "unistellar-screen-v1-observation": {
     "alt": {
       "fr": "Version 1.0 de l’écran d’observation Unistellar, avec une navigation par croix directionnelle et des boutons ronds.",
       "en": "Version 1.0 of the Unistellar observation screen, with a directional pad and round buttons."
     }
   },
-  "screen-unistellar-v2-observation": {
+  "unistellar-screen-v2-observation": {
     "alt": {
       "fr": "Version 2.0 de l’écran d’observation Unistellar, épurée avec contrôles de zoom, capture et amélioration de la vision.",
       "en": "Version 2.0 of the Unistellar observation screen, streamlined with zoom, capture and vision-enhancement controls."
+    }
+  },
+  "screen-unistella-catalog": {
+    "alt": {
+      "fr": "Écran catalogue Unistellar V3, sombre, avec filtres « Sky window » et « Nebula » et une grille de nébuleuses/galaxies.",
+      "en": "Unistellar V3 catalog screen, dark theme, with \"Sky window\" and \"Nebula\" filters and a grid of nebulae/galaxies."
+    }
+  },
+  "screen-unistellar-v3-gallery-previewPicture": {
+    "alt": {
+      "fr": "Écran de prévisualisation d’une observation capturée (amas globulaire d’Hercule) avec les actions supprimer, informations et partager.",
+      "en": "Preview screen for a captured observation (Hercules Globular Cluster) with delete, information and share actions."
+    }
+  },
+  "screen-unistellar-v3-gallery-selected": {
+    "alt": {
+      "fr": "Écran de galerie Unistellar V3 en mode sélection multiple, une observation cochée, avec la navigation basse Home/Catalog/Science/Gallery.",
+      "en": "Unistellar V3 gallery screen in multi-select mode, one observation checked, with the Home/Catalog/Science/Gallery bottom navigation."
+    }
+  },
+  "screen-unistellar-v3-home": {
+    "alt": {
+      "fr": "Écran d’accueil Unistellar V3 avec le télescope en photo, la carte de l’appareil « My Odyssey », le niveau de batterie et un bouton Watch.",
+      "en": "Unistellar V3 home screen with a photo of the telescope, the \"My Odyssey\" device card, battery level and a Watch button."
     }
   },
   "unistellar-screens-lowfy-catalog": {
