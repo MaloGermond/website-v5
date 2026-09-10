@@ -41,6 +41,31 @@ const observationImage = await getImage({ src: screenV2Observation, width: 800 }
         <PhoneMockup
           src={observationImage.src}
           alt="Unistellar app observation screen"
+          floating={false}
+        />
+      </div>
+      <div class="w-48">
+        <PhoneMockup
+          src={homeImage.src}
+          alt="Unistellar app home screen, no status/nav bar"
+          showStatusBar={false}
+          showNavBar={false}
+        />
+      </div>
+      <div class="w-48">
+        <PhoneMockup
+          src={catalogImage.src}
+          alt="Unistellar app catalog screen, shared bar background"
+          barBackground="#ffffff"
+        />
+      </div>
+      <div class="w-48">
+        <PhoneMockup
+          src={observationImage.src}
+          alt="Unistellar app observation screen, separate bar backgrounds"
+          separateBarBackgrounds
+          statusBarBackground="#050505"
+          navBarBackground="#ffffff"
         />
       </div>
     </div>
