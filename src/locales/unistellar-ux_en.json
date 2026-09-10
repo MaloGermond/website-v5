@@ -121,14 +121,71 @@
       "Presenting the problem alone, with no preconceived solution, to spark collective thinking,",
       "Sharing the directions under consideration."
     ],
-    "text": "This approach turned an initial \"there's nothing we can do\" into real engagement, by showing that design could make the subject exciting rather than constraining."
+    "text": "This approach turned an initial \"there's nothing we can do\" into real engagement, by showing that design could make the subject exciting rather than constraining.",
+    "gallery": [
+      "unistellar-screens-lowfy-tutorial",
+      "unistellar-screens-lowfy-homePage",
+      "unistellar-screens-lowfy-observation",
+      "unistellar-screens-lowfy-goToPage",
+      "unistellar-screens-lowfy-manualTarget",
+      "unistellar-screens-lowfy-movePage",
+      "unistellar-screens-lowfy-objectPage",
+      "unistellar-screens-lowfy-catalog",
+      "unistellar-screens-wireframe-tutorial",
+      "unistellar-screens-wireframe-discoverPage",
+      "unistellar-screens-wireframe-homePage",
+      "unistellar-screens-wireframe-observation",
+      "unistellar-screens-wireframe-observationPage",
+      "unistellar-screens-wireframe-goToPage",
+      "unistellar-screens-wireframe-manualTarget",
+      "unistellar-screens-wireframe-move",
+      "unistellar-screens-wireframe-object",
+      "unistellar-screens-wireframe-objectPage"
+    ]
   },
   "results": {
     "title": "The results",
-    "text": "V3 simplified sign-in, guided orientation step by step, and put the catalog back at the center of the experience. NPS improved significantly, confirmed by additional usability tests."
+    "text": "V3 simplified sign-in, guided orientation step by step, and put the catalog back at the center of the experience. NPS improved significantly, confirmed by additional usability tests.",
+    "items": [
+      {
+        "tag": "Adaptability",
+        "title": "Emotion Guiding Function",
+        "text": "The page feels more like a remote control than an inspiring window into the universe",
+        "image": "mockup-v1-observation"
+      },
+      {
+        "tag": "Workload",
+        "title": "Streamline Main Actions",
+        "text": "Bring together and organize the page's key actions for a clearer and more intuitive experience.",
+        "image": "mockup-v1-catalog"
+      },
+      {
+        "tag": "Guiding",
+        "title": "Be straightforward",
+        "text": "Break down the page's complexity into distinct uses to better guide and support the user.",
+        "image": "mockup-v3-observation"
+      },
+      {
+        "tag": "Adaptability",
+        "title": "Engage user with reward",
+        "text": "Unlock images of objects as they are observed, along with their details, to spark curiosity.",
+        "image": "mockup-v3-catalog"
+      },
+      {
+        "tag": "Guiding",
+        "title": "Seamless Return to the Main Task",
+        "text": "Keep the telescope image at the center to guide users back seamlessly.",
+        "image": "mockup-v3-objectPage"
+      }
+    ],
+    "comparison": {
+      "beforeImage": "mockup-v1-objectPage",
+      "afterImage": "mockup-v3-objectPage"
+    }
   },
   "learning": {
     "title": "The learning",
-    "text": "A paradox appeared after the fact: long-time users, who had never really run into the connection and orientation issues, didn't perceive the improvement, even though the data showed a clear drop in blockers. A reminder that perceived experience and usage metrics don't always tell the same story, and that solving a problem measured through users and data doesn't guarantee it will match the user's felt experience."
+    "text": "A paradox appeared after the fact: long-time users, who had never really run into the <u>connection</u> and <u>orientation</u> issues, didn't perceive the improvement, even though the data showed a clear drop in blockers. A reminder that perceived experience and usage metrics don't always tell the same story, and that solving a problem measured through users and data doesn't guarantee it will match the user's felt experience.",
+    "image": "screen-unistellar-v3-observation-moon"
   }
 }

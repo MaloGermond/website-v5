@@ -201,6 +201,19 @@ const navSections = [
       <p class={`mt-6 max-w-xl text-xl leading-relaxed ${ink}`}>
         {content.facilitation.text}
       </p>
+      <div class="mt-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        {
+          content.facilitation.gallery.map((name, i) => (
+            <img
+              src={images[name]?.src}
+              alt={images[name]?.alt?.[lang]}
+              class="w-full h-auto rounded-lg shadow-[inset_0_0_0_1px_rgb(0_0_0_/_8%)] dark:shadow-[inset_0_0_0_1px_rgb(255_255_255_/_8%)]"
+              style={`transform: rotate(${i % 2 === 0 ? '-1.5deg' : '1.5deg'})`}
+              loading="lazy"
+            />
+          ))
+        }
+      </div>
     </div>
   </section>
 
@@ -210,15 +223,70 @@ const navSections = [
       <p class={`mt-8 max-w-xl text-xl leading-relaxed ${ink}`}>
         {content.results.text}
       </p>
+
+      <div class="mt-20 flex flex-col gap-16">
+        {
+          content.results.items.map((item, i) => (
+            <div
+              class={`flex flex-col md:flex-row items-center gap-10 ${i % 2 === 1 ? 'md:flex-row-reverse' : ''}`}
+            >
+              <img
+                src={images[item.image]?.src}
+                alt={images[item.image]?.alt?.[lang]}
+                class="w-48 sm:w-56 shrink-0"
+                loading="lazy"
+              />
+              <div class="flex-1 max-w-md">
+                <span class="inline-block px-3 py-1 mb-2 text-xs font-medium uppercase tracking-wide text-on-info bg-info rounded-lg">
+                  {item.tag}
+                </span>
+                <h3 class={`text-lg font-medium ${ink}`}>{item.title}</h3>
+                <p class={`mt-2 text-sm ${inkMuted}`}>{item.text}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="mt-20 flex flex-row flex-wrap justify-center gap-8">
+        <div class="w-[42%] sm:w-56">
+          <p class={`mb-2 text-center text-xs uppercase tracking-wide ${inkMuted}`}>
+            V1
+          </p>
+          <img
+            src={images[content.results.comparison.beforeImage]?.src}
+            alt={images[content.results.comparison.beforeImage]?.alt?.[lang]}
+            class="w-full h-auto"
+          />
+        </div>
+        <div class="w-[42%] sm:w-56">
+          <p class={`mb-2 text-center text-xs uppercase tracking-wide ${inkMuted}`}>
+            V3
+          </p>
+          <img
+            src={images[content.results.comparison.afterImage]?.src}
+            alt={images[content.results.comparison.afterImage]?.alt?.[lang]}
+            class="w-full h-auto"
+          />
+        </div>
+      </div>
     </div>
   </section>
 
   <section id="learning" class={`${bg} px-8 py-28 md:py-36 lg:pl-64`}>
-    <div class="max-w-6xl m-auto">
-      <h2 class={`font-avara text-3xl ${inkMuted}`}>{content.learning.title}</h2>
-      <p class={`mt-8 max-w-xl text-xl leading-relaxed ${ink}`}>
-        {content.learning.text}
-      </p>
+    <div class="max-w-6xl m-auto flex flex-col md:flex-row items-start gap-10">
+      <div class="flex-1">
+        <h2 class={`font-avara text-3xl ${inkMuted}`}>{content.learning.title}</h2>
+        <p
+          class={`mt-8 max-w-xl text-xl leading-relaxed [&_u]:decoration-1 [&_u]:underline-offset-4 ${ink}`}
+          set:html={content.learning.text}
+        />
+      </div>
+      <img
+        src={images[content.learning.image]?.src}
+        alt={images[content.learning.image]?.alt?.[lang]}
+        class="w-32 sm:w-40 shrink-0 rounded-2xl shadow-[inset_0_0_0_1px_rgb(0_0_0_/_8%)] dark:shadow-[inset_0_0_0_1px_rgb(255_255_255_/_8%)]"
+      />
     </div>
   </section>
 </div>

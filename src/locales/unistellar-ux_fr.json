@@ -121,14 +121,71 @@
       "Présenter le problème seul, sans solution préconçue, pour susciter la réflexion collective,",
       "Partager les pistes envisagées."
     ],
-    "text": "Cette approche a permis de transformer un \"on ne peut rien faire\" initial en engagement réel, en montrant que le design pouvait rendre le sujet excitant plutôt que contraignant."
+    "text": "Cette approche a permis de transformer un \"on ne peut rien faire\" initial en engagement réel, en montrant que le design pouvait rendre le sujet excitant plutôt que contraignant.",
+    "gallery": [
+      "unistellar-screens-lowfy-tutorial",
+      "unistellar-screens-lowfy-homePage",
+      "unistellar-screens-lowfy-observation",
+      "unistellar-screens-lowfy-goToPage",
+      "unistellar-screens-lowfy-manualTarget",
+      "unistellar-screens-lowfy-movePage",
+      "unistellar-screens-lowfy-objectPage",
+      "unistellar-screens-lowfy-catalog",
+      "unistellar-screens-wireframe-tutorial",
+      "unistellar-screens-wireframe-discoverPage",
+      "unistellar-screens-wireframe-homePage",
+      "unistellar-screens-wireframe-observation",
+      "unistellar-screens-wireframe-observationPage",
+      "unistellar-screens-wireframe-goToPage",
+      "unistellar-screens-wireframe-manualTarget",
+      "unistellar-screens-wireframe-move",
+      "unistellar-screens-wireframe-object",
+      "unistellar-screens-wireframe-objectPage"
+    ]
   },
   "results": {
     "title": "Les résultats",
-    "text": "La V3 a simplifié la connexion, accompagné l’orientation étape par étape, et remis le catalogue au centre de l’expérience. Le NPS a progressé de manière significative, confirmé par des tests utilisateurs complémentaires."
+    "text": "La V3 a simplifié la connexion, accompagné l’orientation étape par étape, et remis le catalogue au centre de l’expérience. Le NPS a progressé de manière significative, confirmé par des tests utilisateurs complémentaires.",
+    "items": [
+      {
+        "tag": "Adaptabilité",
+        "title": "Emotion Guiding Function",
+        "text": "The page feels more like a remote control than an inspiring window into the universe",
+        "image": "mockup-v1-observation"
+      },
+      {
+        "tag": "Charge de travail",
+        "title": "Streamline Main Actions",
+        "text": "Bring together and organize the page's key actions for a clearer and more intuitive experience.",
+        "image": "mockup-v1-catalog"
+      },
+      {
+        "tag": "Guidage",
+        "title": "Be straightforward",
+        "text": "Break down the page's complexity into distinct uses to better guide and support the user.",
+        "image": "mockup-v3-observation"
+      },
+      {
+        "tag": "Adaptabilité",
+        "title": "Engage user with reward",
+        "text": "Unlock images of objects as they are observed, along with their details, to spark curiosity.",
+        "image": "mockup-v3-catalog"
+      },
+      {
+        "tag": "Guidage",
+        "title": "Seamless Return to the Main Task",
+        "text": "Keep the telescope image at the center to guide users back seamlessly.",
+        "image": "mockup-v3-objectPage"
+      }
+    ],
+    "comparison": {
+      "beforeImage": "mockup-v1-objectPage",
+      "afterImage": "mockup-v3-objectPage"
+    }
   },
   "learning": {
     "title": "L’apprentissage",
-    "text": "Un paradoxe est apparu après coup : les utilisateurs historiques, jamais vraiment confrontés aux problèmes de connexion et d’orientation, n’ont pas perçu l’amélioration, alors que les données montraient une nette diminution des blocages. Un rappel que la perception d’expérience et la mesure d’usage ne racontent pas toujours la même histoire, et que résoudre un problème mesuré à l’aide d’utilisateurs et de données ne garantit pas de faire correspondre le ressenti utilisateur."
+    "text": "Un paradoxe est apparu après coup : les utilisateurs historiques, jamais vraiment confrontés aux <u>problèmes de connexion</u> et <u>d’orientation</u>, n’ont pas perçu l’amélioration, alors que les données montraient une nette diminution des blocages. Un rappel que la perception d’expérience et la mesure d’usage ne racontent pas toujours la même histoire, et que résoudre un problème mesuré à l’aide d’utilisateurs et de données ne garantit pas de faire correspondre le ressenti utilisateur.",
+    "image": "screen-unistellar-v3-observation-moon"
   }
 }
