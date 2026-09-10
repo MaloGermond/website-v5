@@ -4,16 +4,24 @@ import '@styles/global.css';
 import { getImage } from 'astro:assets';
 import PhoneMockup from '@components/PhoneMockup.astro';
 
+import { locales } from '@locales/config.json';
+
 import screenHome from '@assets/unistellar/screen-unistellar-home.png';
 import screenCatalog from '@assets/unistellar/screen-unistellar-catalog.png';
 import screenV2Observation from '@assets/unistellar/screen-unistellar-v2-observation.png';
+
+export function getStaticPaths() {
+  return locales.map((loc) => ({ params: { lang: loc } }));
+}
+
+const { lang } = Astro.params;
 
 const homeImage = await getImage({ src: screenHome, width: 800 });
 const catalogImage = await getImage({ src: screenCatalog, width: 800 });
 const observationImage = await getImage({ src: screenV2Observation, width: 800 });
 ---
 
-<html lang="en" class="light">
+<html lang={lang} class="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
