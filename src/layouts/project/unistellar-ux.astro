@@ -1,12 +1,18 @@
 ---
 const { content } = Astro.props;
 const { lang } = Astro.params;
-import { Image } from 'astro:assets';
 import Verbatim from '@components/project/Verbatim.astro';
 import PhoneMockup from '@components/PhoneMockup.astro';
-import manWithTelescope from '@assets/unistellar/man-with-a-telescope.svg';
+import manWithTelescopeRaw from '@assets/unistellar/man-with-a-telescope.svg?raw';
 
 import { loadScreensOnce } from '@utils/useScreens';
+
+// Inlined (not <Image>) so its stroke="currentColor" paths can pick up the
+// on-surface-default text color instead of staying hardcoded black.
+const manWithTelescope = manWithTelescopeRaw.replace(
+  '<svg ',
+  '<svg class="w-full h-auto" '
+);
 
 const screens = import.meta.glob(
   '../../assets/unistellar/*{jpg,png,gif,webp}'
@@ -156,11 +162,10 @@ const navSections = [
       </p>
 
       <div class="mt-16 flex flex-col md:flex-row items-start gap-10">
-        <Image
-          src={manWithTelescope}
-          alt=""
+        <div
+          class={`w-32 md:w-40 shrink-0 ${ink}`}
           aria-hidden="true"
-          class="w-32 md:w-40 h-auto shrink-0"
+          set:html={manWithTelescope}
         />
         <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {
