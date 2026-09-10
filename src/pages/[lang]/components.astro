@@ -23,8 +23,8 @@ const catalogImage = await getImage({ src: screenCatalog, width: 800 });
 const observationV1Image = await getImage({ src: screenV1Observation, width: 800 });
 const observationV2Image = await getImage({ src: screenV2Observation, width: 800 });
 
-// Every screen-unistellar-v* asset is auto-added to the picker below (chrome
-// shown by default, since these captures don't bake in their own status
+// Every screen-unistellar-v* asset is auto-added to the picker below (push
+// layout by default, since these captures don't bake in their own status
 // bar), so new ones just need to land in src/assets/unistellar/.
 const screens = import.meta.glob('../../assets/unistellar/*{jpg,png,gif,webp}');
 const metadata = await import('../../assets/unistellar/images-metadata.json');
@@ -36,36 +36,36 @@ const v3Images = Object.values(allScreens)
     src: img.src,
     alt: img.alt?.[lang] || img.name,
     label: img.name.replace('screen-unistellar-', ''),
-    defaultChrome: true,
+    defaultOverlay: false,
   }));
 
-// Home and Catalog screenshots already bake in their own status bar /
-// home indicator, so the overlay defaults to off for those (still
-// toggleable manually).
+// Home and Catalog screenshots already bake in their own status bar / home
+// indicator, so our bars default to overlaying on top of the full
+// screenshot instead of pushing (and duplicating) their own.
 const images = [
   {
     src: homeImage.src,
     alt: 'Unistellar app home screen',
     label: 'Home',
-    defaultChrome: false,
+    defaultOverlay: true,
   },
   {
     src: catalogImage.src,
     alt: 'Unistellar app catalog screen',
     label: 'Catalog',
-    defaultChrome: false,
+    defaultOverlay: true,
   },
   {
     src: observationV1Image.src,
     alt: 'Unistellar app observation screen, V1',
     label: 'Observation V1',
-    defaultChrome: true,
+    defaultOverlay: false,
   },
   {
     src: observationV2Image.src,
     alt: 'Unistellar app observation screen, V2',
     label: 'Observation V2',
-    defaultChrome: true,
+    defaultOverlay: false,
   },
   ...v3Images,
 ];
