@@ -29,20 +29,30 @@ const clipId = `phone-screen-${uid}`;
 const filterId = `phone-shadow-${uid}`;
 const gradientId = `phone-stroke-${uid}`;
 
-// Screen cutout geometry, from the Penpot mask path.
+// Screen cutout geometry, from the Penpot mask path. Status bar and nav bar
+// are laid out like flex rows: each takes its own space (when shown) and the
+// screenshot fills whatever remains, rather than the bars overlaying it.
 const screen = { x: 32.2891, y: 16, width: 314.225, height: 681.219 };
-const statusBar = { x: screen.x, y: screen.y, width: 314.733, height: 43.2905 };
+const statusBarHeight = showStatusBar ? 43.2905 : 0;
+const navBarHeight = showNavBar ? 16.7209 : 0;
+const statusBar = { x: screen.x, y: screen.y, width: 314.733, height: statusBarHeight };
 const navBar = {
   x: screen.x,
-  y: screen.y + screen.height - 16.7209,
+  y: screen.y + screen.height - navBarHeight,
   width: 313.517,
-  height: 16.7209,
+  height: navBarHeight,
 };
 const nudge = {
   x: screen.x + (screen.width - 99.9442) / 2,
   y: screen.y + 11,
   width: 99.9442,
   height: 29.5834,
+};
+const screenshotArea = {
+  x: screen.x,
+  y: screen.y + statusBarHeight,
+  width: screen.width,
+  height: screen.height - statusBarHeight - navBarHeight,
 };
 ---
 
@@ -147,10 +157,10 @@ const nudge = {
 
   <image
     href={src}
-    x={screen.x}
-    y={screen.y}
-    width={screen.width}
-    height={screen.height}
+    x={screenshotArea.x}
+    y={screenshotArea.y}
+    width={screenshotArea.width}
+    height={screenshotArea.height}
     preserveAspectRatio="xMidYMid slice"
     clip-path={`url(#${clipId})`}
   />

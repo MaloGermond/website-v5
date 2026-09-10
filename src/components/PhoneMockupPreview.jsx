@@ -1,13 +1,6 @@
 import { useState } from 'preact/hooks';
 
 const SCREEN = { x: 32.2891, y: 16, width: 314.225, height: 681.219 };
-const STATUS_BAR = { x: SCREEN.x, y: SCREEN.y, width: 314.733, height: 43.2905 };
-const NAV_BAR = {
-  x: SCREEN.x,
-  y: SCREEN.y + SCREEN.height - 16.7209,
-  width: 313.517,
-  height: 16.7209,
-};
 const NUDGE = {
   x: SCREEN.x + (SCREEN.width - 99.9442) / 2,
   y: SCREEN.y + 11,
@@ -26,6 +19,25 @@ function PhoneMockupSvg({
   const clipId = `phone-screen-${uid}`;
   const filterId = `phone-shadow-${uid}`;
   const gradientId = `phone-stroke-${uid}`;
+
+  // Status bar and nav bar are laid out like flex rows: each takes its own
+  // space (when shown) and the screenshot fills whatever remains, rather
+  // than the bars overlaying it.
+  const statusBarHeight = showStatusBar ? 43.2905 : 0;
+  const navBarHeight = showNavBar ? 16.7209 : 0;
+  const STATUS_BAR = { x: SCREEN.x, y: SCREEN.y, width: 314.733, height: statusBarHeight };
+  const NAV_BAR = {
+    x: SCREEN.x,
+    y: SCREEN.y + SCREEN.height - navBarHeight,
+    width: 313.517,
+    height: navBarHeight,
+  };
+  const screenshotArea = {
+    x: SCREEN.x,
+    y: SCREEN.y + statusBarHeight,
+    width: SCREEN.width,
+    height: SCREEN.height - statusBarHeight - navBarHeight,
+  };
 
   return (
     <svg
@@ -115,10 +127,10 @@ function PhoneMockupSvg({
 
       <image
         href={src}
-        x={SCREEN.x}
-        y={SCREEN.y}
-        width={SCREEN.width}
-        height={SCREEN.height}
+        x={screenshotArea.x}
+        y={screenshotArea.y}
+        width={screenshotArea.width}
+        height={screenshotArea.height}
         preserveAspectRatio="xMidYMid slice"
         clip-path={`url(#${clipId})`}
       />
