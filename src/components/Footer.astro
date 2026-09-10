@@ -1,0 +1,47 @@
+---
+const { lang = 'fr' } = Astro.props;
+
+import { getTranslation } from '@utils/handleLocales';
+import SocialLinks from '@components/SocialLinks.astro';
+import Action from '@components/Action.astro';
+
+const content = getTranslation(lang);
+const currentYear = new Date().getFullYear();
+---
+
+<footer
+  class="w-full mt-16 border-t border-gray-300/50 dark:border-gray-700 bg-gray-100/40 dark:bg-gray-900/40 backdrop-blur-sm"
+>
+  <div
+    class="max-w-7xl mx-auto px-6 py-8 flex flex-col gap-6 md:flex-row md:items-center md:justify-between"
+  >
+    <div class="flex flex-col gap-1 text-center md:text-left">
+      <span class="font-bold text-gray-900 dark:text-gray-50"
+        >{content.hero.name}</span
+      >
+      <span class="text-sm text-gray-500 dark:text-gray-400">
+        © {currentYear} {content.hero.name} — {content.footer.rights}
+      </span>
+    </div>
+
+    <nav
+      aria-label={content.footer.navLabel}
+      class="flex flex-row justify-center gap-2"
+    >
+      <Action label={content.footer.home} lang={lang} link="" />
+    </nav>
+
+    <div class="flex flex-row flex-wrap justify-center gap-2">
+      {
+        content.socialLinks.map((link) => (
+          <SocialLinks
+            href={link.href}
+            label={link.label}
+            color={link.color}
+            icon={link.icon}
+          />
+        ))
+      }
+    </div>
+  </div>
+</footer>
