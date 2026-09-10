@@ -42,5 +42,23 @@
       "text": "Let's talk",
       "url": "https://calendly.com/calendly-matchalo/30min"
     }
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "nav": {
+      "projects": {
+        "title": "Projects",
+        "items": [{ "label": "Unistellar", "slug": "unistellar" }]
+      },
+      "design": {
+        "title": "Design",
+        "items": [{ "label": "Components" }]
+      },
+      "products": {
+        "title": "Products",
+        "items": [{ "label": "Sketching tools" }]
+      },
+      "socials": { "title": "Socials" }
+    }
   }
 }
