@@ -212,3 +212,19 @@ html {
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
 }
+
+@keyframes phoneFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3%);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .phone-float {
+    animation: phoneFloat 6s ease-in-out infinite;
+  }
+}
