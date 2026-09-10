@@ -52,11 +52,11 @@
       },
       "design": {
         "title": "Design",
-        "items": [{ "label": "Composants" }]
+        "items": [{ "label": "Composants", "slug": "components" }]
       },
       "products": {
         "title": "Produits",
-        "items": [{ "label": "Outils de sketch" }]
+        "items": [{ "label": "Outils de sketch", "href": "https://sketching-tools.xyz" }]
       },
       "socials": { "title": "Réseaux" }
     }
