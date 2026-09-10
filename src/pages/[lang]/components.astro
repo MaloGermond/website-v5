@@ -4,6 +4,11 @@ import Layout from '@layouts/Layout.astro';
 import { getImage } from 'astro:assets';
 import PhoneMockupPreview from '@components/project/PhoneMockupPreview.jsx';
 import CoverUnistellarUX from '@components/project/CoverUnistellarUX.astro';
+import CoverUnistellar from '@components/project/CoverUnistellar.astro';
+import InfoColumn from '@components/project/InfoColumn.astro';
+import Metrics from '@components/project/Metrics.astro';
+import Mosaic from '@components/project/Mosaic.astro';
+import Verbatim from '@components/project/Verbatim.astro';
 
 import { locales } from '@locales/config.json';
 import { loadScreensOnce } from '@utils/useScreens';
@@ -70,6 +75,10 @@ const images = [
   },
   ...v3Images,
 ];
+
+const mosaicImages = Object.values(allScreens)
+  .filter((img) => img.name.startsWith('screen-'))
+  .slice(0, 8);
 ---
 
 <Layout pageTitle="Components" lang={lang} class="max-w-7xl mx-auto p-6 pt-24">
@@ -89,5 +98,62 @@ const images = [
       CoverUnistellarUX
     </h2>
     <CoverUnistellarUX />
+  </section>
+
+  <section class="mb-16">
+    <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
+      CoverUnistellar
+    </h2>
+    <div class="max-w-2xl">
+      <CoverUnistellar />
+    </div>
+  </section>
+
+  <section class="mb-16">
+    <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
+      InfoColumn
+    </h2>
+    <div class="flex flex-row flex-wrap">
+      <InfoColumn title="Rôles" items={['Design lead', 'UX', 'UI', 'Direction artistique']} />
+      <InfoColumn title="Compétences" items={['Patterns mobiles', 'Design system', 'Motion design']} />
+    </div>
+  </section>
+
+  <section class="mb-16">
+    <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
+      Metrics
+    </h2>
+    <Metrics
+      items={[
+        { value: '40+', label: 'Score NPS' },
+        { value: '+80k', label: 'Utilisateurs' },
+        { value: '4/5', label: 'Étoiles sur les stores' },
+      ]}
+    />
+  </section>
+
+  <section class="mb-16">
+    <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
+      Verbatim
+    </h2>
+    <div class="flex flex-row flex-wrap gap-4">
+      <Verbatim
+        tag="Guidage"
+        time="10:21"
+        text="Donc là je peux faire la mise au point maintenant ?."
+      />
+      <Verbatim
+        tag="Charge de travail"
+        time="09:02"
+        text="Alors démarrer l’observation. Oh my god, je suis paumé là !"
+      />
+    </div>
+  </section>
+
+  <section class="mb-16">
+    <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
+      Mosaic
+    </h2>
+    <Mosaic images={mosaicImages} col={4} />
   </section>
 </Layout>
