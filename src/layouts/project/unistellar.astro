@@ -75,24 +75,6 @@ const mosaicScreens = Object.values(images).filter((el) =>
   <Frame src={images['illustrations']} alt={images['illustrations']?.alt?.[lang]}/>
 </section>
 
-<section class="px-8 py-16 max-w-7xl m-auto flex flex-col gap-16">
-  <Paragraph
-    class="font-avara paragraphe text-xl sm:text-4xl max-w-3xl dark:text-gray-50"
-    content={content.hook}
-  />
-  <div class="flex flex-col gap-4 max-w-3xl">
-    <InfoColumn title={content.challengeTitle} items={[content.challenge]} />
-  </div>
-  <div class="flex flex-col gap-4 max-w-3xl">
-    <InfoColumn title={content.processTitle} items={[content.process]} />
-  </div>
-  <div class="flex flex-col gap-4 max-w-3xl">
-    <InfoColumn title={content.resolutionTitle} items={[content.resolution]} />
-  </div>
-  <div class="flex flex-col gap-4 max-w-3xl">
-    <InfoColumn title={content.resultsTitle} items={[content.results]} />
-  </div>
-</section>
 
 <style>
   section {
