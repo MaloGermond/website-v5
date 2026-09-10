@@ -44,8 +44,21 @@
     }
   },
   "footer": {
-    "navLabel": "Navigation",
-    "home": "Accueil",
-    "rights": "Tous droits réservés."
+    "rights": "Tous droits réservés.",
+    "nav": {
+      "projects": {
+        "title": "Projets",
+        "items": [{ "label": "Unistellar", "slug": "unistellar" }]
+      },
+      "design": {
+        "title": "Design",
+        "items": [{ "label": "Composants" }]
+      },
+      "products": {
+        "title": "Produits",
+        "items": [{ "label": "Outils de sketch" }]
+      },
+      "socials": { "title": "Réseaux" }
+    }
   }
 }

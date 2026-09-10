@@ -2,46 +2,70 @@
 const { lang = 'fr' } = Astro.props;
 
 import { getTranslation } from '@utils/handleLocales';
-import SocialLinks from '@components/SocialLinks.astro';
-import Action from '@components/Action.astro';
 
 const content = getTranslation(lang);
 const currentYear = new Date().getFullYear();
+
+const { projects, design, products, socials } = content.footer.nav;
+
+const linkClass =
+  'text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-50 transition-colors';
+const titleClass = 'text-sm font-bold text-gray-900 dark:text-gray-50';
+const placeholderClass = 'text-sm text-gray-400 dark:text-gray-500';
 ---
 
 <footer
   class="w-full mt-16 border-t border-gray-300/50 dark:border-gray-700 bg-gray-100/40 dark:bg-gray-900/40 backdrop-blur-sm"
 >
-  <div
-    class="max-w-7xl mx-auto px-6 py-8 flex flex-col gap-6 md:flex-row md:items-center md:justify-between"
-  >
-    <div class="flex flex-col gap-1 text-center md:text-left">
-      <span class="font-bold text-gray-900 dark:text-gray-50"
-        >{content.hero.name}</span
-      >
-      <span class="text-sm text-gray-500 dark:text-gray-400">
-        © {currentYear} {content.hero.name} — {content.footer.rights}
-      </span>
+  <div class="max-w-7xl mx-auto px-6 py-12 flex flex-col gap-10">
+    <span class="text-2xl font-bold text-gray-900 dark:text-gray-50">
+      {content.hero.name}
+    </span>
+
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-8">
+      <nav aria-label={projects.title} class="flex flex-col gap-3">
+        <span class={titleClass}>{projects.title}</span>
+        {
+          projects.items.map((item) => (
+            <a href={`/${lang}/${item.slug}/`} class={linkClass}>
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+
+      <div class="flex flex-col gap-3">
+        <span class={titleClass}>{design.title}</span>
+        {design.items.map((item) => <span class={placeholderClass}>{item.label}</span>)}
+      </div>
+
+      <div class="flex flex-col gap-3">
+        <span class={titleClass}>{products.title}</span>
+        {products.items.map((item) => <span class={placeholderClass}>{item.label}</span>)}
+      </div>
+
+      <nav aria-label={socials.title} class="flex flex-col gap-3">
+        <span class={titleClass}>{socials.title}</span>
+        {
+          content.socialLinks.map((link) => (
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class={linkClass}
+              data-umami-event="click"
+              data-umami-event-id={link.label}
+              data-umami-event-type="social link"
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </nav>
     </div>
 
-    <nav
-      aria-label={content.footer.navLabel}
-      class="flex flex-row justify-center gap-2"
-    >
-      <Action label={content.footer.home} lang={lang} link="" />
-    </nav>
-
-    <div class="flex flex-row flex-wrap justify-center gap-2">
-      {
-        content.socialLinks.map((link) => (
-          <SocialLinks
-            href={link.href}
-            label={link.label}
-            color={link.color}
-            icon={link.icon}
-          />
-        ))
-      }
-    </div>
+    <span class="text-xs text-gray-500 dark:text-gray-400">
+      © {currentYear} {content.hero.name} — {content.footer.rights}
+    </span>
   </div>
 </footer>
