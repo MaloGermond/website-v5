@@ -242,13 +242,20 @@ function PhoneMockupSvg({
 
 export default function PhoneMockupPreview({ images }) {
   const [imageIndex, setImageIndex] = useState(0);
-  const [showStatusBar, setShowStatusBar] = useState(true);
-  const [showNavBar, setShowNavBar] = useState(true);
+  const [showStatusBar, setShowStatusBar] = useState(images[0].defaultChrome ?? true);
+  const [showNavBar, setShowNavBar] = useState(images[0].defaultChrome ?? true);
   const [floating, setFloating] = useState(true);
   const [separateBarBackgrounds, setSeparateBarBackgrounds] = useState(false);
   const [barBackground, setBarBackground] = useState('#00000000');
   const [statusBarBackground, setStatusBarBackground] = useState('#000000');
   const [navBarBackground, setNavBarBackground] = useState('#ffffff');
+
+  const selectImage = (index) => {
+    setImageIndex(index);
+    const defaultChrome = images[index].defaultChrome ?? true;
+    setShowStatusBar(defaultChrome);
+    setShowNavBar(defaultChrome);
+  };
 
   const barBgEnabled = barBackground !== '#00000000';
   const statusBarBg = separateBarBackgrounds
@@ -285,7 +292,7 @@ export default function PhoneMockupPreview({ images }) {
           <select
             class="border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 rounded px-2 py-1"
             value={imageIndex}
-            onChange={(e) => setImageIndex(Number(e.currentTarget.value))}
+            onChange={(e) => selectImage(Number(e.currentTarget.value))}
           >
             {images.map((img, i) => (
               <option value={i}>{img.label}</option>
@@ -308,7 +315,7 @@ export default function PhoneMockupPreview({ images }) {
             checked={showNavBar}
             onChange={(e) => setShowNavBar(e.currentTarget.checked)}
           />
-          Nav bar (home indicator)
+          Home indicator
         </label>
 
         <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
@@ -340,7 +347,7 @@ export default function PhoneMockupPreview({ images }) {
               />
             </label>
             <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
-              Nav bar background
+              Home indicator background
               <input
                 type="color"
                 value={navBarBackground}

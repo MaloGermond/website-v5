@@ -22,18 +22,33 @@ const catalogImage = await getImage({ src: screenCatalog, width: 800 });
 const observationV1Image = await getImage({ src: screenV1Observation, width: 800 });
 const observationV2Image = await getImage({ src: screenV2Observation, width: 800 });
 
+// Home and Catalog screenshots already bake in their own status bar /
+// home indicator, so the overlay defaults to off for those (still
+// toggleable manually); the Observation screens don't, so it defaults on.
 const images = [
-  { src: homeImage.src, alt: 'Unistellar app home screen', label: 'Home' },
-  { src: catalogImage.src, alt: 'Unistellar app catalog screen', label: 'Catalog' },
+  {
+    src: homeImage.src,
+    alt: 'Unistellar app home screen',
+    label: 'Home',
+    defaultChrome: false,
+  },
+  {
+    src: catalogImage.src,
+    alt: 'Unistellar app catalog screen',
+    label: 'Catalog',
+    defaultChrome: false,
+  },
   {
     src: observationV1Image.src,
     alt: 'Unistellar app observation screen, V1',
     label: 'Observation V1',
+    defaultChrome: true,
   },
   {
     src: observationV2Image.src,
     alt: 'Unistellar app observation screen, V2',
     label: 'Observation V2',
+    defaultChrome: true,
   },
 ];
 ---
