@@ -1,0 +1,53 @@
+---
+import UserJourneyStep from '@components/project/UserJourneyStep.astro';
+
+const { items, class: classList = '' } = Astro.props;
+---
+
+<div class={`flex flex-col sm:flex-row ${classList}`}>
+  {
+    items.map((item, i) => (
+      <div
+        data-journey-reveal
+        class={`relative flex flex-1 flex-col justify-end p-4 sm:h-[740px] sm:overflow-hidden ${i > 0 ? 'sm:border-l sm:border-surface-subdue' : ''}`}
+      >
+        <div class="hidden sm:block absolute inset-0">
+          <img src={item.image} alt="" class="absolute inset-0 w-full h-full object-cover" />
+          <div
+            data-journey-curtain
+            class="absolute inset-0 bg-background transition-transform ease-out"
+            style="transform: translateY(0)"
+          />
+        </div>
+        <UserJourneyStep class="relative z-10" label={item.label} title={item.title} text={item.text} />
+      </div>
+    ))
+  }
+</div>
+
+<script>
+  const cards = document.querySelectorAll<HTMLElement>('[data-journey-reveal]');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  cards.forEach((card) => {
+    const curtain = card.querySelector<HTMLElement>('[data-journey-curtain]');
+    if (!curtain || prefersReducedMotion) return;
+
+    card.addEventListener('mouseenter', () => {
+      curtain.style.transitionDuration = '600ms';
+      curtain.style.transform = 'translateY(-100%)';
+    });
+
+    card.addEventListener('mouseleave', () => {
+      // Snap the curtain below the frame with no transition, then re-enable
+      // it and slide back up — the cover always travels bottom-to-top,
+      // whether it's revealing (leaving through the top) or re-covering
+      // (entering from the bottom), never reversing direction.
+      curtain.style.transitionDuration = '0ms';
+      curtain.style.transform = 'translateY(100%)';
+      curtain.getBoundingClientRect();
+      curtain.style.transitionDuration = '600ms';
+      curtain.style.transform = 'translateY(0)';
+    });
+  });
+</script>

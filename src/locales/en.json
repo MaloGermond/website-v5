@@ -49,8 +49,8 @@
       "projects": {
         "title": "Projects",
         "items": [
-          { "label": "Democratizing astronomy", "slug": "unistellar" },
-          { "label": "Reducing friction", "slug": "unistellar-ux" }
+          { "label": "Unistellar - DA", "slug": "unistellar" },
+          { "label": "Unistellar use case", "slug": "unistellar-ux" }
         ]
       },
       "design": {

@@ -418,5 +418,29 @@
       "fr": "Écran d’observation Unistellar annoté de cercles et flèches soulignant les zones d’interaction analysées lors de l’étude d’usabilité.",
       "en": "Unistellar observation screen annotated with circles and arrows highlighting the interaction zones analyzed during the usability study."
     }
+  },
+  "eVscope occulaire": {
+    "alt": {
+      "fr": "Gros plan sur l’oculaire du télescope eVscope, avec l’inscription « Nikon Eyepiece Technology ».",
+      "en": "Close-up on the eVscope telescope's eyepiece, showing the \"Nikon Eyepiece Technology\" branding."
+    }
+  },
+  "eVscope focus": {
+    "alt": {
+      "fr": "Gros plan sur la molette de mise au point du télescope eVscope.",
+      "en": "Close-up on the eVscope telescope's focus wheel."
+    }
+  },
+  "observation nuit": {
+    "alt": {
+      "fr": "Silhouette d’une personne observant le ciel au télescope au coucher du soleil.",
+      "en": "Silhouette of a person observing the sky through a telescope at sunset."
+    }
+  },
+  "horsehead": {
+    "alt": {
+      "fr": "Photo de la nébuleuse de la Tête de Cheval dans un champ d’étoiles.",
+      "en": "Photo of the Horsehead Nebula in a star field."
+    }
   }
 }

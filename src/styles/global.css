@@ -142,7 +142,7 @@
   --surface-raise: var(--color-gray-50);
   --on-surface-subdue: var(--color-gray-500);
   --on-surface-default: var(--color-gray-900);
-  --on-surface-raise: var(--color-gray-900);
+  --on-surface-raise: var(--color-blue-500);
   --on-surface-warning: var(--color-amber-600);
   --on-surface-alerte: var(--color-red-600);
   --on-surface-success: var(--color-green-600);
@@ -157,7 +157,7 @@
   --surface-raise: var(--color-gray-700);
   --on-surface-subdue: var(--color-gray-500);
   --on-surface-default: var(--color-gray-50);
-  --on-surface-raise: var(--color-gray-50);
+  --on-surface-raise: var(--color-blue-300);
   --on-surface-warning: var(--color-amber-400);
   --on-surface-alerte: var(--color-red-400);
   --on-surface-success: var(--color-green-400);

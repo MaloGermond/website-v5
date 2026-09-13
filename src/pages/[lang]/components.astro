@@ -9,14 +9,16 @@ import InfoColumn from '@components/project/InfoColumn.astro';
 import Metrics from '@components/project/Metrics.astro';
 import Mosaic from '@components/project/Mosaic.astro';
 import Verbatim from '@components/project/Verbatim.astro';
+import UserJourneyStep from '@components/project/UserJourneyStep.astro';
+import UserJourneyReveal from '@components/project/UserJourneyReveal.astro';
 
 import { locales } from '@locales/config.json';
 import { loadScreensOnce } from '@utils/useScreens';
 
-import screenHome from '@assets/unistellar/screen-unistellar-home.png';
-import screenCatalog from '@assets/unistellar/screen-unistellar-catalog.png';
-import screenV1Observation from '@assets/unistellar/unistellar-screen-v1-observation.png';
-import screenV2Observation from '@assets/unistellar/unistellar-screen-v2-observation.png';
+import screenHome from '@assets/unistellar/eVscope occulaire.png';
+import screenCatalog from '@assets/unistellar/eVscope focus.png';
+import screenV1Observation from '@assets/unistellar/observation nuit.png';
+import screenV2Observation from '@assets/unistellar/horsehead.png';
 
 export function getStaticPaths() {
   return locales.map((loc) => ({ params: { lang: loc } }));
@@ -140,14 +142,70 @@ const mosaicImages = Object.values(allScreens)
       <Verbatim
         tag="Guidage"
         time="10:21"
+        name="Camille"
         text="Donc là je peux faire la mise au point maintenant ?."
+        lang={lang}
       />
       <Verbatim
         tag="Charge de travail"
         time="09:02"
+        name="Suzanne"
         text="Alors démarrer l’observation. Oh my god, je suis paumé là !"
+        lang={lang}
       />
     </div>
+  </section>
+
+  <section class="mb-16">
+    <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
+      UserJourneyStep
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <UserJourneyStep
+        label="Connexion"
+        title="Create Actions That Inspire and Engage"
+        text="Some app actions fail to connect emotionally or offer practical value, creating unnecessary frustration and lowering user satisfaction."
+      />
+      <UserJourneyStep
+        label="Guidage"
+        title="Be a Guide for Users Through Their Discovery"
+        text="When faced with an overwhelming number of objects to observe, users often feel confused and uncertain about where to begin."
+      />
+    </div>
+  </section>
+
+  <section class="mb-16">
+    <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
+      UserJourneyReveal
+    </h2>
+    <UserJourneyReveal
+      items={[
+        {
+          label: 'Unboxing',
+          title: 'La première impression compte',
+          text: "L'utilisateur découvre le produit et forme sa première impression, c'est le moment qui pose le ton émotionnel de toute l'expérience.",
+          image: homeImage.src,
+        },
+        {
+          label: 'Setup',
+          title: 'Chaque friction est un abandon possible',
+          text: "L'utilisateur configure et active le produit, l'enjeu ici c'est de réduire la charge cognitive pour éviter l'abandon.",
+          image: catalogImage.src,
+        },
+        {
+          label: 'Observation',
+          title: "Laisser place à l'émerveillement",
+          text: "L'utilisateur est en interaction directe avec le ciel, c'est le cœur de la valeur du produit, l'expérience doit s'effacer pour laisser place à l'émerveillement.",
+          image: observationV1Image.src,
+        },
+        {
+          label: 'Shared',
+          title: 'Le vécu devient contenu',
+          text: "L'utilisateur transforme son expérience personnelle en contenu social, c'est le moment qui crée de la rétention et de la viralité.",
+          image: observationV2Image.src,
+        },
+      ]}
+    />
   </section>
 
   <section class="mb-16">
