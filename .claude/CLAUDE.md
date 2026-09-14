@@ -80,3 +80,4 @@ Preact is used only where interactivity is needed (`client:load` directive), e.g
 
 - **Branches**: create a dedicated branch off `dev` (never `main`), named `<ticket-number>-<ticket-name>` in kebab-case (e.g. `42-add-dark-mode`). Without a ticket number, use a `feature/` or `bugfix/` prefix.
 - **Pull requests**: open PRs as **draft**, targeting `dev` (never `main`). If the branch/task maps to a GitHub issue, link it in the PR description with a closing keyword (`Closes #<number>`, `Fixes #<number>`).
+- **Components**: whenever a component under `src/components/` is created or its markup/styling changes, add or update a demo for it on `src/pages/[lang]/components.astro` in the same change — that page is the living reference for every component's current look, independent of whether it's wired into a real page yet.

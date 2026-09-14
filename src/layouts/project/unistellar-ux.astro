@@ -3,6 +3,7 @@ const { content } = Astro.props;
 const { lang } = Astro.params;
 import Verbatim from '@components/project/Verbatim.astro';
 import UserJourneyStep from '@components/project/UserJourneyStep.astro';
+import Quote from '@components/project/Quote.astro';
 
 const ink = 'text-on-surface-default';
 const inkMuted = 'text-on-surface-subdue';
@@ -68,15 +69,7 @@ const navSections = [
       <p class={`mt-8 max-w-xl text-xl leading-relaxed ${ink}`}>
         {content.problem.context.text}
       </p>
-      <blockquote class="relative mt-20 max-w-xl">
-        <span
-          class={`block text-6xl leading-none ${inkMuted}`}
-          aria-hidden="true">"</span
-        >
-        <p class={`-mt-8 text-3xl sm:text-4xl leading-snug ${ink}`}>
-          {content.problem.context.quote}
-        </p>
-      </blockquote>
+      <Quote class="mt-20 max-w-xl" text={content.problem.context.quote} />
     </div>
   </section>
 

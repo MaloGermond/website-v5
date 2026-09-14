@@ -1,0 +1,96 @@
+---
+import UserJourneyStep from '@components/project/UserJourneyStep.astro';
+
+const { items, class: classList = '' } = Astro.props;
+---
+
+<div class={`flex flex-col sm:flex-row ${classList}`}>
+  {
+    items.map((item, i) => (
+      <div
+        data-step-reveal
+        class={`relative flex flex-1 flex-col justify-end p-4 sm:h-[740px] sm:overflow-hidden ${i > 0 ? 'sm:border-l sm:border-surface-subdue' : ''}`}
+      >
+        <div class="hidden sm:block absolute inset-0">
+          <img
+            data-step-reveal-image
+            src={item.image}
+            alt=""
+            class="absolute inset-0 w-full h-full object-cover"
+            style="transform: translateY(16px) scale(1.05)"
+          />
+          <div
+            aria-hidden="true"
+            class="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-background from-[16%] via-background/[48.8%] via-[84%] to-background/0 pointer-events-none"
+          />
+          <div
+            data-step-reveal-curtain
+            class="absolute inset-0 bg-background"
+            style="transform: translateY(0)"
+          />
+        </div>
+        <UserJourneyStep class="relative z-10" label={item.label} title={item.title} text={item.text} />
+      </div>
+    ))
+  }
+</div>
+
+<script>
+  // Strong deceleration toward the end (ease-out-expo-ish), and slow enough
+  // to read as a deliberate reveal rather than a flicker.
+  const REVEAL_TRANSITION = 'transform 1200ms cubic-bezier(.30,0,.30,1)';
+
+  const cards = document.querySelectorAll<HTMLElement>('[data-step-reveal]');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Subtle parallax nudge that rides along under the curtain: the image
+  // itself also drifts up a little on both appearance and disappearance,
+  // instead of just sitting still while the curtain wipes over it. Scaled
+  // up slightly so it overflows its frame and never exposes the page
+  // background underneath while it's offset.
+  const IMAGE_OFFSET = 16;
+  const IMAGE_SCALE = 1.05;
+  const imageTransform = (offsetPx: number) => `translateY(${offsetPx}px) scale(${IMAGE_SCALE})`;
+
+  cards.forEach((card) => {
+    const curtain = card.querySelector<HTMLElement>('[data-step-reveal-curtain]');
+    const image = card.querySelector<HTMLElement>('[data-step-reveal-image]');
+    if (!curtain || prefersReducedMotion) return;
+
+    card.addEventListener('mouseenter', () => {
+      curtain.style.transition = REVEAL_TRANSITION;
+      curtain.style.transform = 'translateY(-100%)';
+
+      // Snap the image back down below its resting spot first — the curtain
+      // is still fully covering at this exact instant, so the jump is
+      // invisible — then let it rise, so it always arrives from below even
+      // after a previous hover left it further up.
+      if (image) {
+        image.style.transition = 'none';
+        image.style.transform = imageTransform(IMAGE_OFFSET);
+        image.getBoundingClientRect();
+        image.style.transition = REVEAL_TRANSITION;
+        image.style.transform = imageTransform(0);
+      }
+    });
+
+    card.addEventListener('mouseleave', () => {
+      // Snap the curtain below the frame with no transition, then re-enable
+      // it and slide back up — the cover always travels bottom-to-top,
+      // whether it's revealing (leaving through the top) or re-covering
+      // (entering from the bottom), never reversing direction.
+      curtain.style.transition = 'none';
+      curtain.style.transform = 'translateY(100%)';
+      curtain.getBoundingClientRect();
+      curtain.style.transition = REVEAL_TRANSITION;
+      curtain.style.transform = 'translateY(0)';
+
+      // The image gets no reset here: it simply continues up from wherever
+      // it settled, rather than jumping back down first.
+      if (image) {
+        image.style.transition = REVEAL_TRANSITION;
+        image.style.transform = imageTransform(-IMAGE_OFFSET);
+      }
+    });
+  });
+</script>

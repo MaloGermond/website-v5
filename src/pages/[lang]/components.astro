@@ -10,7 +10,9 @@ import Metrics from '@components/project/Metrics.astro';
 import Mosaic from '@components/project/Mosaic.astro';
 import Verbatim from '@components/project/Verbatim.astro';
 import UserJourneyStep from '@components/project/UserJourneyStep.astro';
-import UserJourneyReveal from '@components/project/UserJourneyReveal.astro';
+import StepReveal from '@components/project/StepReveal.astro';
+import InternalLink from '@components/project/InternalLink.astro';
+import Quote from '@components/project/Quote.astro';
 
 import { locales } from '@locales/config.json';
 import { loadScreensOnce } from '@utils/useScreens';
@@ -176,9 +178,9 @@ const mosaicImages = Object.values(allScreens)
 
   <section class="mb-16">
     <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
-      UserJourneyReveal
+      StepReveal
     </h2>
-    <UserJourneyReveal
+    <StepReveal
       items={[
         {
           label: 'Unboxing',
@@ -205,6 +207,34 @@ const mosaicImages = Object.values(allScreens)
           image: observationV2Image.src,
         },
       ]}
+    />
+  </section>
+
+  <section class="mb-16">
+    <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
+      InternalLink
+    </h2>
+    <div class="flex flex-row flex-wrap gap-4">
+      <InternalLink
+        title="Rendre Accessible l'Astronomie"
+        subtitle="Unistellar"
+        href={`/${lang}/unistellar`}
+      />
+      <InternalLink
+        title="Réduire la Friction"
+        subtitle="Unistellar UX"
+        href={`/${lang}/unistellar-ux`}
+      />
+    </div>
+  </section>
+
+  <section class="mb-16">
+    <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
+      Quote
+    </h2>
+    <Quote
+      class="max-w-xl"
+      text="J'étais super motivé pour commencer, mais maintenant je me sens complètement perdu, je ne sais pas où aller ensuite."
     />
   </section>
 
