@@ -57,40 +57,54 @@ const { items, class: classList = '' } = Astro.props;
     const image = card.querySelector<HTMLElement>('[data-step-reveal-image]');
     if (!curtain || prefersReducedMotion) return;
 
-    card.addEventListener('mouseenter', () => {
-      curtain.style.transition = REVEAL_TRANSITION;
-      curtain.style.transform = 'translateY(-100%)';
+    // Tracks where the curtain actually settled, so the snap-then-slide
+    // trick only fires when it's genuinely safe (curtain fully at rest,
+    // off-screen either way). If a hover is interrupted mid-flight — the
+    // mouse leaves before the reveal finishes, or vice versa — this stays
+    // at 'revealing'/'hiding' and we skip the snap entirely, letting the
+    // transition redirect smoothly from wherever it currently is instead
+    // of jump-cutting. That trades strict bottom-to-top purity for no
+    // visible pop, which only matters in this rapid-interruption case.
+    let state: 'covered' | 'revealing' | 'revealed' | 'hiding' = 'covered';
 
-      // Snap the image back down below its resting spot first — the curtain
-      // is still fully covering at this exact instant, so the jump is
-      // invisible — then let it rise, so it always arrives from below even
-      // after a previous hover left it further up.
-      if (image) {
+    curtain.addEventListener('transitionend', (event) => {
+      if (event.propertyName !== 'transform') return;
+      state = curtain.style.transform === 'translateY(-100%)' ? 'revealed' : 'covered';
+    });
+
+    card.addEventListener('mouseenter', () => {
+      // Only safe to snap the image while the curtain is confirmed fully
+      // covering (opaque, at rest) — otherwise the jump would show through.
+      if (image && state === 'covered') {
         image.style.transition = 'none';
         image.style.transform = imageTransform(IMAGE_OFFSET);
         image.getBoundingClientRect();
+      }
+      curtain.style.transition = REVEAL_TRANSITION;
+      curtain.style.transform = 'translateY(-100%)';
+      if (image) {
         image.style.transition = REVEAL_TRANSITION;
         image.style.transform = imageTransform(0);
       }
+      state = 'revealing';
     });
 
     card.addEventListener('mouseleave', () => {
-      // Snap the curtain below the frame with no transition, then re-enable
-      // it and slide back up — the cover always travels bottom-to-top,
-      // whether it's revealing (leaving through the top) or re-covering
-      // (entering from the bottom), never reversing direction.
-      curtain.style.transition = 'none';
-      curtain.style.transform = 'translateY(100%)';
-      curtain.getBoundingClientRect();
+      // Only safe to snap the curtain below while it's confirmed fully
+      // retracted (off-screen, at rest) — either off-screen position is
+      // invisible, so the jump can't be seen. Mid-flight, skip it.
+      if (state === 'revealed') {
+        curtain.style.transition = 'none';
+        curtain.style.transform = 'translateY(100%)';
+        curtain.getBoundingClientRect();
+      }
       curtain.style.transition = REVEAL_TRANSITION;
       curtain.style.transform = 'translateY(0)';
-
-      // The image gets no reset here: it simply continues up from wherever
-      // it settled, rather than jumping back down first.
       if (image) {
         image.style.transition = REVEAL_TRANSITION;
         image.style.transform = imageTransform(-IMAGE_OFFSET);
       }
+      state = 'hiding';
     });
   });
 </script>
