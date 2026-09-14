@@ -4,6 +4,7 @@ const { lang } = Astro.params;
 import Verbatim from '@components/project/Verbatim.astro';
 import UserJourneyStep from '@components/project/UserJourneyStep.astro';
 import Quote from '@components/project/Quote.astro';
+import TableOfContents from '@components/project/TableOfContents.astro';
 
 const ink = 'text-on-surface-default';
 const inkMuted = 'text-on-surface-subdue';
@@ -21,23 +22,10 @@ const navSections = [
 ---
 
 <div>
-  <nav
-    id="ux-nav"
-    class="hidden lg:flex fixed left-14 top-1/2 -translate-y-1/2 z-10 flex-col gap-[8px] opacity-0 transition-opacity duration-500 pointer-events-none"
-    aria-label="Sections de l'étude de cas"
-  >
-    {
-      navSections.map((section) => (
-        <a
-          href={`#${section.id}`}
-          data-nav-link={section.id}
-          class="text-sm font-light leading-[17px] text-on-surface-subdue transition-colors duration-300"
-        >
-          {section.label}
-        </a>
-      ))
-    }
-  </nav>
+  <TableOfContents
+    items={navSections}
+    class="hidden lg:flex fixed left-14 top-1/2 -translate-y-1/2 z-10"
+  />
 
   <section
     id="introduction"
@@ -174,56 +162,3 @@ const navSections = [
     </div>
   </section>
 </div>
-
-<script>
-  const sectionIds = [
-    'introduction',
-    'problem',
-    'method',
-    'facilitation',
-    'results',
-    'learning',
-  ];
-  const sections = sectionIds
-    .map((id) => document.getElementById(id))
-    .filter((el): el is HTMLElement => el !== null);
-  const nav = document.getElementById('ux-nav');
-  const links = new Map(
-    Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]')).map(
-      (link) => [link.dataset.navLink, link]
-    )
-  );
-
-  let activeIndex = 0;
-
-  function updateNav() {
-    if (!nav) return;
-    nav.classList.toggle('opacity-0', activeIndex === 0);
-    nav.classList.toggle('pointer-events-none', activeIndex === 0);
-    sectionIds.forEach((id, i) => {
-      const link = links.get(id);
-      if (!link) return;
-      link.classList.remove('text-on-surface-default', 'text-on-surface-subdue');
-      link.classList.add(
-        i === activeIndex ? 'text-on-surface-default' : 'text-on-surface-subdue'
-      );
-    });
-  }
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          const index = sectionIds.indexOf(id);
-          if (index !== -1) activeIndex = index;
-        }
-      });
-      updateNav();
-    },
-    { rootMargin: '-50% 0px -50% 0px' }
-  );
-
-  sections.forEach((section) => observer.observe(section));
-  updateNav();
-</script>

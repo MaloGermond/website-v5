@@ -13,6 +13,7 @@ import UserJourneyStep from '@components/project/UserJourneyStep.astro';
 import StepReveal from '@components/project/StepReveal.astro';
 import InternalLink from '@components/project/InternalLink.astro';
 import Quote from '@components/project/Quote.astro';
+import TableOfContents from '@components/project/TableOfContents.astro';
 
 import { locales } from '@locales/config.json';
 import { loadScreensOnce } from '@utils/useScreens';
@@ -235,6 +236,21 @@ const mosaicImages = Object.values(allScreens)
     <Quote
       class="max-w-xl"
       text="J'étais super motivé pour commencer, mais maintenant je me sens complètement perdu, je ne sais pas où aller ensuite."
+    />
+  </section>
+
+  <section class="mb-16">
+    <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
+      TableOfContents
+    </h2>
+    <TableOfContents
+      alwaysVisible
+      activeId="toc-demo-b"
+      items={[
+        { id: 'toc-demo-a', label: 'Introduction' },
+        { id: 'toc-demo-b', label: 'Le problème' },
+        { id: 'toc-demo-c', label: 'La méthode' },
+      ]}
     />
   </section>
 
