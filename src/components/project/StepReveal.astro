@@ -9,7 +9,7 @@ const { items, class: classList = '' } = Astro.props;
     items.map((item, i) => (
       <div
         data-step-reveal
-        class={`relative flex flex-1 flex-col justify-end p-4 sm:h-[740px] sm:overflow-hidden ${i > 0 ? 'sm:border-l sm:border-surface-subdue' : ''}`}
+        class={`relative isolate flex flex-1 flex-col justify-end p-4 sm:h-[740px] sm:overflow-hidden ${i > 0 ? 'sm:border-l sm:border-surface-subdue' : ''}`}
       >
         <div class="hidden sm:block absolute inset-0">
           <img
