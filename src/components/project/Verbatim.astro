@@ -1,0 +1,34 @@
+---
+const { tag, time, name, text, lang = 'fr', class: classList = '' } = Astro.props;
+
+const labels = {
+  fr: { timestamp: 'Horodatage', name: 'Nom' },
+  en: { timestamp: 'Timestamp', name: 'Name' },
+};
+const l = labels[lang] ?? labels.fr;
+---
+
+<div
+  class={`relative bg-surface-default border border-surface-subdue rounded-2xl pt-6 pb-4 px-4 max-w-[349px] ${classList}`}
+>
+  <span
+    class="absolute top-0 left-5 -translate-y-1/2 inline-block px-3 py-1 text-sm font-normal text-on-info bg-info rounded-lg"
+  >
+    {tag}
+  </span>
+  <p class="text-[22px] font-normal text-on-surface-default">{text}</p>
+  <div class="mt-4 flex flex-row gap-2">
+    <div class="flex-1 p-2 rounded bg-surface-subdue">
+      <span class="block text-xs font-medium uppercase tracking-[0.4px] text-on-surface-subdue">
+        {l.timestamp}
+      </span>
+      <span class="block mt-1 text-lg font-medium text-on-surface-default">{time}</span>
+    </div>
+    <div class="flex-1 p-2 rounded bg-surface-subdue">
+      <span class="block text-xs font-medium uppercase tracking-[0.4px] text-on-surface-subdue">
+        {l.name}
+      </span>
+      <span class="block mt-1 text-lg font-medium text-on-surface-default">{name}</span>
+    </div>
+  </div>
+</div>

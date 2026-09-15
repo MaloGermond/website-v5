@@ -48,15 +48,18 @@
     "nav": {
       "projects": {
         "title": "Projects",
-        "items": [{ "label": "Unistellar", "slug": "unistellar" }]
+        "items": [
+          { "label": "Unistellar - DA", "slug": "unistellar" },
+          { "label": "Unistellar use case", "slug": "unistellar-ux" }
+        ]
       },
       "design": {
         "title": "Design",
-        "items": [{ "label": "Components" }]
+        "items": [{ "label": "Components", "slug": "components" }]
       },
       "products": {
         "title": "Products",
-        "items": [{ "label": "Sketching tools" }]
+        "items": [{ "label": "Sketching tools", "href": "https://sketching-tools.xyz" }]
       },
       "socials": { "title": "Socials" }
     }

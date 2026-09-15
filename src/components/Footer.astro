@@ -12,7 +12,6 @@ const { projects, design, products, socials } = content.footer.nav;
 // it does not follow the site's light/dark theme toggle.
 const linkClass = 'text-base font-light text-white';
 const titleClass = 'text-base font-bold tracking-wide text-white';
-const placeholderClass = 'text-base font-light text-white';
 ---
 
 <footer class="w-full mt-16 border-t border-gray-700 bg-gray-900">
@@ -35,19 +34,31 @@ const placeholderClass = 'text-base font-light text-white';
         </div>
       </nav>
 
-      <div class="flex flex-col gap-2">
+      <nav aria-label={design.title} class="flex flex-col gap-2">
         <span class={titleClass}>{design.title}</span>
         <div class="flex flex-col gap-1">
-          {design.items.map((item) => <span class={placeholderClass}>{item.label}</span>)}
+          {
+            design.items.map((item) => (
+              <a href={`/${lang}/${item.slug}/`} class={linkClass}>
+                {item.label}
+              </a>
+            ))
+          }
         </div>
-      </div>
+      </nav>
 
-      <div class="flex flex-col gap-2">
+      <nav aria-label={products.title} class="flex flex-col gap-2">
         <span class={titleClass}>{products.title}</span>
         <div class="flex flex-col gap-1">
-          {products.items.map((item) => <span class={placeholderClass}>{item.label}</span>)}
+          {
+            products.items.map((item) => (
+              <a href={item.href} target="_blank" rel="noopener noreferrer" class={linkClass}>
+                {item.label}
+              </a>
+            ))
+          }
         </div>
-      </div>
+      </nav>
 
       <nav aria-label={socials.title} class="flex flex-col gap-2">
         <span class={titleClass}>{socials.title}</span>

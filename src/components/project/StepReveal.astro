@@ -1,0 +1,110 @@
+---
+import UserJourneyStep from '@components/project/UserJourneyStep.astro';
+
+const { items, class: classList = '' } = Astro.props;
+---
+
+<div class={`flex flex-col sm:flex-row ${classList}`}>
+  {
+    items.map((item, i) => (
+      <div
+        data-step-reveal
+        class={`relative flex flex-1 flex-col justify-end p-4 sm:h-[740px] sm:overflow-hidden ${i > 0 ? 'sm:border-l sm:border-surface-subdue' : ''}`}
+      >
+        <div class="hidden sm:block absolute inset-0">
+          <img
+            data-step-reveal-image
+            src={item.image}
+            alt=""
+            class="absolute inset-0 w-full h-full object-cover"
+            style="transform: translateY(16px) scale(1.05)"
+          />
+          <div
+            aria-hidden="true"
+            class="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-background from-[16%] via-background/[48.8%] via-[84%] to-background/0 pointer-events-none"
+          />
+          <div
+            data-step-reveal-curtain
+            class="absolute inset-0 bg-background"
+            style="transform: translateY(0)"
+          />
+        </div>
+        <UserJourneyStep class="relative z-10" label={item.label} title={item.title} text={item.text} />
+      </div>
+    ))
+  }
+</div>
+
+<script>
+  // Strong deceleration toward the end (ease-out-expo-ish), and slow enough
+  // to read as a deliberate reveal rather than a flicker.
+  const REVEAL_TRANSITION = 'transform 1200ms cubic-bezier(.30,0,.30,1)';
+
+  const cards = document.querySelectorAll<HTMLElement>('[data-step-reveal]');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Subtle parallax nudge that rides along under the curtain: the image
+  // itself also drifts up a little on both appearance and disappearance,
+  // instead of just sitting still while the curtain wipes over it. Scaled
+  // up slightly so it overflows its frame and never exposes the page
+  // background underneath while it's offset.
+  const IMAGE_OFFSET = 16;
+  const IMAGE_SCALE = 1.05;
+  const imageTransform = (offsetPx: number) => `translateY(${offsetPx}px) scale(${IMAGE_SCALE})`;
+
+  cards.forEach((card) => {
+    const curtain = card.querySelector<HTMLElement>('[data-step-reveal-curtain]');
+    const image = card.querySelector<HTMLElement>('[data-step-reveal-image]');
+    if (!curtain || prefersReducedMotion) return;
+
+    // Tracks where the curtain actually settled, so the snap-then-slide
+    // trick only fires when it's genuinely safe (curtain fully at rest,
+    // off-screen either way). If a hover is interrupted mid-flight — the
+    // mouse leaves before the reveal finishes, or vice versa — this stays
+    // at 'revealing'/'hiding' and we skip the snap entirely, letting the
+    // transition redirect smoothly from wherever it currently is instead
+    // of jump-cutting. That trades strict bottom-to-top purity for no
+    // visible pop, which only matters in this rapid-interruption case.
+    let state: 'covered' | 'revealing' | 'revealed' | 'hiding' = 'covered';
+
+    curtain.addEventListener('transitionend', (event) => {
+      if (event.propertyName !== 'transform') return;
+      state = curtain.style.transform === 'translateY(-100%)' ? 'revealed' : 'covered';
+    });
+
+    card.addEventListener('mouseenter', () => {
+      // Only safe to snap the image while the curtain is confirmed fully
+      // covering (opaque, at rest) — otherwise the jump would show through.
+      if (image && state === 'covered') {
+        image.style.transition = 'none';
+        image.style.transform = imageTransform(IMAGE_OFFSET);
+        image.getBoundingClientRect();
+      }
+      curtain.style.transition = REVEAL_TRANSITION;
+      curtain.style.transform = 'translateY(-100%)';
+      if (image) {
+        image.style.transition = REVEAL_TRANSITION;
+        image.style.transform = imageTransform(0);
+      }
+      state = 'revealing';
+    });
+
+    card.addEventListener('mouseleave', () => {
+      // Only safe to snap the curtain below while it's confirmed fully
+      // retracted (off-screen, at rest) — either off-screen position is
+      // invisible, so the jump can't be seen. Mid-flight, skip it.
+      if (state === 'revealed') {
+        curtain.style.transition = 'none';
+        curtain.style.transform = 'translateY(100%)';
+        curtain.getBoundingClientRect();
+      }
+      curtain.style.transition = REVEAL_TRANSITION;
+      curtain.style.transform = 'translateY(0)';
+      if (image) {
+        image.style.transition = REVEAL_TRANSITION;
+        image.style.transform = imageTransform(-IMAGE_OFFSET);
+      }
+      state = 'hiding';
+    });
+  });
+</script>
