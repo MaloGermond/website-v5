@@ -12,13 +12,13 @@
   "nav": [
     "Introduction",
     "The problem",
-    "The method",
     "The facilitation",
+    "The learning",
     "The results",
-    "The learning"
+    "The method"
   ],
   "hero": {
-    "title": "Adopt the change, don’t just ship it",
+    "title": "Adopt the change, \ndon’t just ship it",
     "client": "Unistellar",
     "period": "2021 – 2024",
     "app": "Unistellar App",
@@ -28,194 +28,20 @@
       "Android - iOS"
     ]
   },
-  "problem": {
-    "context": {
-      "title": "The context",
-      "text": "We just shipped V2, designed without any chance for upfront user testing — an ambitious visual redesign that was objectively a success on its own terms. Once live, the first feedback comes in.",
-      "quote": "I was super motivated to get started, but now I feel completely lost — I don’t know where to go next."
+  "introduction": {
+    "period": "2021-2023",
+    "headline": "On vient de relase la version deux \nde l’application qui, marque un travail de refonte visuelle complète \ndu produit.",
+    "text": "L’interface peu accessible et incohérante fait place a une interface plus moderne, mieux structurée.",
+    "link": {
+      "title": "Rendre Accessible l’Astronomie",
+      "subtitle": "Unistellar"
     },
-    "issue": {
-      "title": "The problem",
-      "text1": "Version two marked a complete visual overhaul of the product. The interface was objectively more modern, better structured.",
-      "text2": "And yet, on release, the welcome was cold: long-time users weren’t asking for a new experience, they wanted their bearings back. An interface judged better, but experienced as worse.",
-      "beforeImage": "unistellar-screen-v1-observation",
-      "afterImage": "unistellar-screen-v2-observation"
-    }
+    "quote": "Et pourtant, à sa sortie, l’accueil a été froid : les utilisateurs historiques ne demandaient pas une nouvelle expérience, ils voulaient retrouver leurs repères. Une interface jugée meilleure, mais vécue comme pire."
   },
-  "method": {
-    "title": "The method",
-    "paragraphs": [
-      "With no dedicated budget or formal access to users, I put together field test sessions on short notice.",
-      "The focus was new users discovering the product for the first time: solving their blockers would also improve the experience for everyone else, by extension. A simple but rigorous protocol: screen capture, video recording of the scene, thinking aloud, then a hot debrief questionnaire."
-    ],
-    "journeyIntro": "From these observations, I reconstructed the key moments of the journey.\nConnecting, orienting, discovering the catalog — and for each one identified the friction points as well as the user's emotional state at that moment.",
-    "wireframeImage": "unistellar-screens-wireframe-discoverPage",
-    "journey": [
-      {
-        "label": "Connexion",
-        "title": "Create Actions That Inspire and Engage",
-        "text": "Some app actions fail to connect emotionally or offer practical value, creating unnecessary frustration and lowering user satisfaction."
-      },
-      {
-        "label": "Orientation",
-        "title": "Be a Guide for Users Through Their Discovery",
-        "text": "When faced with an overwhelming number of objects to observe, users often feel confused and uncertain about where to begin. Offering curated suggestions can eliminate the \"blank page\" effect and help them engage meaningfully."
-      },
-      {
-        "label": "Select Target",
-        "title": "Guide Users to Quick Insights",
-        "text": "Interaction zones has a lack of hierarchy and meaningful associations, leaving users confused when trying to complete an action. Clear guidance and structured design are critical to enhancing usability and enabling efficient navigation."
-      },
-      {
-        "label": "Enhanced Vision",
-        "title": "A Stagnant Experience Deteriorates Over Time",
-        "text": "Once the action is triggered, no further interaction with the image is possible. The user becomes passive, leading to boredom and disengagement."
-      }
-    ],
-    "quotes": [
-      {
-        "tag": "Guidance",
-        "time": "10:21",
-        "text": "So can I focus it now?."
-      },
-      {
-        "tag": "Explicit control",
-        "time": "19:03",
-        "text": "Let's try pointing at something? No, I wanted to go to the brightest star."
-      },
-      {
-        "tag": "Adaptability",
-        "time": "11:54",
-        "text": "Well I'm trying, yeah I see I've pointed at a star, and I'd like to know what I'm actually looking at."
-      },
-      {
-        "tag": "Guidance",
-        "time": "12:13",
-        "text": "I don't know where I'm supposed to go…"
-      },
-      {
-        "tag": "Guidance",
-        "time": "14:35",
-        "text": "No but I... OK, and how do I know it's found it,"
-      },
-      {
-        "tag": "Guidance",
-        "time": "18:39",
-        "text": "I don't think I recognized that was a joystick… Actually, I had trouble telling that you can steer in different directions with it… [I wanted to see] A button instead."
-      },
-      {
-        "tag": "Guidance",
-        "time": "07:58",
-        "text": "Azimuth, I have no idea what that means…"
-      },
-      {
-        "tag": "Workload",
-        "time": "09:02",
-        "text": "So starting the observation… oh my god, I'm totally lost here!"
-      }
-    ]
-  },
-  "facilitation": {
-    "title": "The facilitation",
-    "intro": "Facing a development team that was initially skeptical, the debrief happened in two steps:",
-    "steps": [
-      "Presenting the problem alone, with no preconceived solution, to spark collective thinking,",
-      "Sharing the directions under consideration."
-    ],
-    "text": "This approach turned an initial \"there's nothing we can do\" into real engagement, by showing that design could make the subject exciting rather than constraining.",
-    "gallery": [
-      "unistellar-screens-lowfy-tutorial",
-      "unistellar-screens-lowfy-homePage",
-      "unistellar-screens-lowfy-observation",
-      "unistellar-screens-lowfy-goToPage",
-      "unistellar-screens-lowfy-manualTarget",
-      "unistellar-screens-lowfy-movePage",
-      "unistellar-screens-lowfy-objectPage",
-      "unistellar-screens-lowfy-catalog",
-      "unistellar-screens-wireframe-tutorial",
-      "unistellar-screens-wireframe-discoverPage",
-      "unistellar-screens-wireframe-homePage",
-      "unistellar-screens-wireframe-observation",
-      "unistellar-screens-wireframe-observationPage",
-      "unistellar-screens-wireframe-goToPage",
-      "unistellar-screens-wireframe-manualTarget",
-      "unistellar-screens-wireframe-move",
-      "unistellar-screens-wireframe-object",
-      "unistellar-screens-wireframe-objectPage"
-    ]
-  },
-  "results": {
-    "title": "The results",
-    "text": "V3 simplified sign-in, guided orientation step by step, and put the catalog back at the center of the experience. NPS improved significantly, confirmed by additional usability tests.",
-    "pages": [
-      {
-        "beforeImage": "mockup-v1-observation",
-        "afterImage": "mockup-v3-observation",
-        "items": [
-          {
-            "tag": "Adaptability",
-            "title": "Emotion Guiding Function",
-            "text": "The page feels more like a remote control than an inspiring window into the universe"
-          },
-          {
-            "tag": "Workload",
-            "title": "Streamline Main Actions",
-            "text": "Bring together and organize the page's key actions for a clearer and more intuitive experience."
-          },
-          {
-            "tag": "Guiding",
-            "title": "Be straightforward",
-            "text": "Break down the page's complexity into distinct uses to better guide and support the user."
-          }
-        ]
-      },
-      {
-        "beforeImage": "mockup-v1-catalog",
-        "afterImage": "mockup-v3-catalog",
-        "items": [
-          {
-            "tag": "Guiding",
-            "title": "Illustrations to Support Choice",
-            "text": "Highlight the telescope's action instead of relying on a solution that classifies illustrations into categories that no one understands."
-          },
-          {
-            "tag": "Adaptability",
-            "title": "Engage user with reward",
-            "text": "Unlock images of objects as they are observed, along with their details, to spark curiosity."
-          },
-          {
-            "tag": "Guiding",
-            "title": "Seamless Return to the Main Task",
-            "text": "Keep the telescope image at the center to guide users back seamlessly."
-          }
-        ]
-      },
-      {
-        "beforeImage": "mockup-v1-objectPage",
-        "afterImage": "mockup-v3-objectPage",
-        "items": [
-          {
-            "tag": "Guiding",
-            "title": "Illustrations to Support Choice",
-            "text": "Highlight the telescope's action instead of relying on a solution that classifies illustrations into categories that no one understands."
-          },
-          {
-            "tag": "Adaptability",
-            "title": "Engage user with reward",
-            "text": "Unlock images of objects as they are observed, along with their details, to spark curiosity."
-          },
-          {
-            "tag": "Guiding",
-            "title": "Seamless Return to the Main Task",
-            "text": "Keep the telescope image at the center to guide users back seamlessly."
-          }
-        ]
-      }
-    ]
-  },
-  "learning": {
-    "title": "The learning",
-    "text": "A paradox appeared after the fact: long-time users, who had never really run into the <u>connection</u> and <u>orientation</u> issues, didn't perceive the improvement, even though the data showed a clear drop in blockers. A reminder that perceived experience and usage metrics don't always tell the same story, and that solving a problem measured through users and data doesn't guarantee it will match the user's felt experience.",
-    "image": "screen-unistellar-v3-observation-moon"
+  "problem": {
+    "quote": "J’étais super motivé pour commencer, mais maintenant je me sens complètement perdu, je ne sais pas où aller ensuite.",
+    "heading": "Mieux sur le papier,\npire à l’usage",
+    "text1": "La direction est satisfaite du produit et peine à comprendre ces retours. \nSon hypothèse est que ces retours ne reflètent qu’un ressenti isolé, pas une tendance de fond. Pour aider à trancher, un premier travail de collecte est organisé : commentaires sur les réseaux, retours du service support, tout est centralisé, lu et annoter.",
+    "text2": "À l’aide des données le pattern se confirme. Ce sont majoritairement les utilisateurs historiques qui expriment cette frustration. Cette lecture change la donne, elle ouvre la porte, jusque-là fermée, à mener de vrais tests utilisateurs."
   }
 }

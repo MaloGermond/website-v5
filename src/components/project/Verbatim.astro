@@ -1,11 +1,5 @@
 ---
-const { tag, time, name, text, lang = 'fr', class: classList = '' } = Astro.props;
-
-const labels = {
-  fr: { timestamp: 'Horodatage', name: 'Nom' },
-  en: { timestamp: 'Timestamp', name: 'Name' },
-};
-const l = labels[lang] ?? labels.fr;
+const { tag, stage, user, text, class: classList = '' } = Astro.props;
 ---
 
 <div
@@ -20,15 +14,15 @@ const l = labels[lang] ?? labels.fr;
   <div class="mt-4 flex flex-row gap-2">
     <div class="flex-1 p-2 rounded bg-surface-subdue">
       <span class="block text-xs font-medium uppercase tracking-[0.4px] text-on-surface-subdue">
-        {l.timestamp}
+        Stages
       </span>
-      <span class="block mt-1 text-lg font-medium text-on-surface-default">{time}</span>
+      <span class="block mt-1 text-lg font-medium text-on-surface-default">{stage}</span>
     </div>
     <div class="flex-1 p-2 rounded bg-surface-subdue">
       <span class="block text-xs font-medium uppercase tracking-[0.4px] text-on-surface-subdue">
-        {l.name}
+        User
       </span>
-      <span class="block mt-1 text-lg font-medium text-on-surface-default">{name}</span>
+      <span class="block mt-1 text-lg font-medium text-on-surface-default">{user}</span>
     </div>
   </div>
 </div>

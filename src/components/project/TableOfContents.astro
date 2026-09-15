@@ -50,11 +50,19 @@ const visibility = alwaysVisible
 
     const alwaysVisible = nav.dataset.tocAlwaysVisible === 'true';
     let activeIndex = 0;
+    // Tracks which observed sections currently intersect. Distinct from
+    // activeIndex === 0: content above the first tracked section (e.g. a
+    // hero with no id of its own) never intersects, so this stays empty
+    // there and the nav stays hidden. It's a live set, not a one-way
+    // latch, so scrolling back up above the first section (out of every
+    // tracked section) hides the nav again instead of leaving it stuck on.
+    const intersecting = new Set<string>();
 
     function update() {
       if (!alwaysVisible) {
-        nav.classList.toggle('opacity-0', activeIndex === 0);
-        nav.classList.toggle('pointer-events-none', activeIndex === 0);
+        const hasEntered = intersecting.size > 0;
+        nav.classList.toggle('opacity-0', !hasEntered);
+        nav.classList.toggle('pointer-events-none', !hasEntered);
       }
       sectionIds.forEach((id, i) => {
         const link = links.get(id);
@@ -70,9 +78,13 @@ const visibility = alwaysVisible
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          const id = entry.target.id;
           if (entry.isIntersecting) {
-            const index = sectionIds.indexOf(entry.target.id);
+            intersecting.add(id);
+            const index = sectionIds.indexOf(id);
             if (index !== -1) activeIndex = index;
+          } else {
+            intersecting.delete(id);
           }
         });
         update();

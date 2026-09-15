@@ -5,7 +5,7 @@ const { text, class: classList = '' } = Astro.props;
 <blockquote class={`relative ${classList}`}>
   <svg
     viewBox="43595 23 88 63"
-    class="absolute -left-8 -top-9 h-[63px] w-[88px] text-on-surface-subdue opacity-20"
+    class="absolute -left-8 -top-[22px] h-[47px] w-[66px] text-on-surface-subdue opacity-20"
     aria-hidden="true"
   >
     <path
@@ -13,5 +13,5 @@ const { text, class: classList = '' } = Astro.props;
       fill="currentColor"
     />
   </svg>
-  <p class="relative text-3xl leading-snug text-on-surface-default">{text}</p>
+  <p class="relative text-3xl font-light leading-snug text-on-surface-default">{text}</p>
 </blockquote>

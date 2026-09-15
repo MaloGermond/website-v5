@@ -1,23 +1,20 @@
 ---
 const { content } = Astro.props;
 const { lang } = Astro.params;
-import Verbatim from '@components/project/Verbatim.astro';
-import UserJourneyStep from '@components/project/UserJourneyStep.astro';
 import Quote from '@components/project/Quote.astro';
 import TableOfContents from '@components/project/TableOfContents.astro';
+import InternalLink from '@components/project/InternalLink.astro';
 
 const ink = 'text-on-surface-default';
 const inkMuted = 'text-on-surface-subdue';
 
-const resultsItems = content.results.pages.flatMap((page) => page.items);
-
 const navSections = [
   { id: 'introduction', label: content.nav[0] },
   { id: 'problem', label: content.nav[1] },
-  { id: 'method', label: content.nav[2] },
-  { id: 'facilitation', label: content.nav[3] },
+  { id: 'facilitation', label: content.nav[2] },
+  { id: 'learning', label: content.nav[3] },
   { id: 'results', label: content.nav[4] },
-  { id: 'learning', label: content.nav[5] },
+  { id: 'method', label: content.nav[5] },
 ];
 ---
 
@@ -27,12 +24,9 @@ const navSections = [
     class="hidden lg:flex fixed left-14 top-1/2 -translate-y-1/2 z-10"
   />
 
-  <section
-    id="introduction"
-    class="min-h-screen flex flex-col items-center justify-center px-8 py-20"
-  >
+  <section class="min-h-screen flex flex-col items-center justify-center px-8 py-20">
     <h1
-      class={`font-avara text-4xl sm:text-5xl md:text-6xl text-center leading-[1.05] max-w-4xl ${ink}`}
+      class={`font-avara text-4xl sm:text-5xl md:text-6xl text-center leading-[1.05] max-w-4xl whitespace-pre-line ${ink}`}
     >
       {content.hero.title}
     </h1>
@@ -49,116 +43,38 @@ const navSections = [
     </div>
   </section>
 
-  <section id="problem" class="px-8 py-28 md:py-36 lg:pl-64">
-    <div class="max-w-6xl m-auto">
-      <h2 class={`font-avara text-3xl ${inkMuted}`}>
-        {content.problem.context.title}
+  <section id="introduction" class="px-8 py-28 md:py-36">
+    <div class="max-w-5xl mx-auto">
+      <p class={`text-sm ${inkMuted}`}>{content.introduction.period}</p>
+      <h2 class={`mt-4 max-w-[700px] font-avara text-4xl leading-tight whitespace-pre-line ${ink}`}>
+        {content.introduction.headline}
       </h2>
-      <p class={`mt-8 max-w-xl text-xl leading-relaxed ${ink}`}>
-        {content.problem.context.text}
-      </p>
-      <Quote class="mt-20 max-w-xl" text={content.problem.context.quote} />
-    </div>
-  </section>
-
-  <section class="px-8 py-28 md:py-36 lg:pl-64">
-    <div class="max-w-6xl m-auto">
-      <h2 class={`font-avara text-3xl ${inkMuted}`}>
-        {content.problem.issue.title}
-      </h2>
-      <p class={`mt-8 max-w-xl text-xl leading-relaxed ${ink}`}>
-        {content.problem.issue.text1}
-      </p>
-      <p class={`mt-6 max-w-xl text-xl leading-relaxed ${ink}`}>
-        {content.problem.issue.text2}
-      </p>
-    </div>
-  </section>
-
-  <section id="method" class="px-8 py-28 md:py-36 lg:pl-64">
-    <div class="max-w-6xl m-auto">
-      <h2 class={`font-avara text-3xl ${inkMuted}`}>{content.method.title}</h2>
-      <div class="mt-8 max-w-xl flex flex-col gap-6">
-        {
-          content.method.paragraphs.map((paragraph) => (
-            <p class={`text-xl leading-relaxed ${ink}`}>{paragraph}</p>
-          ))
-        }
-      </div>
-      <div class="mt-20 flex flex-row flex-wrap gap-6">
-        {
-          content.method.quotes.map((quote, i) => (
-            <Verbatim
-              tag={quote.tag}
-              time={quote.time}
-              name={quote.name ?? '—'}
-              text={quote.text}
-              lang={lang}
-              class={i % 2 === 1 ? 'sm:mt-10' : ''}
-            />
-          ))
-        }
-      </div>
-
-      <p class={`mt-20 max-w-xl text-xl leading-relaxed whitespace-pre-line ${ink}`}>
-        {content.method.journeyIntro}
-      </p>
-
-      <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {
-          content.method.journey.map((step) => (
-            <UserJourneyStep label={step.label} title={step.title} text={step.text} />
-          ))
-        }
+      <div class="mt-16 max-w-[482px] flex flex-col gap-8">
+        <p class={`text-2xl leading-relaxed ${ink}`}>{content.introduction.text}</p>
+        <InternalLink
+          title={content.introduction.link.title}
+          subtitle={content.introduction.link.subtitle}
+          href={`/${lang}/unistellar`}
+        />
+        <p class={`text-2xl leading-relaxed ${ink}`}>{content.introduction.quote}</p>
       </div>
     </div>
   </section>
 
-  <section id="facilitation" class="px-8 py-28 md:py-36 lg:pl-64">
-    <div class="max-w-6xl m-auto">
-      <h2 class={`font-avara text-3xl ${inkMuted}`}>
-        {content.facilitation.title}
-      </h2>
-      <p class={`mt-8 max-w-xl text-xl leading-relaxed ${ink}`}>
-        {content.facilitation.intro}
-      </p>
-      <ol class="mt-4 max-w-xl list-decimal list-inside flex flex-col gap-1">
-        {
-          content.facilitation.steps.map((step) => (
-            <li class={`text-xl leading-relaxed ${ink}`}>{step}</li>
-          ))
-        }
-      </ol>
-      <p class={`mt-6 max-w-xl text-xl leading-relaxed ${ink}`}>
-        {content.facilitation.text}
-      </p>
-    </div>
-  </section>
-
-  <section id="results" class="px-8 py-28 md:py-36 lg:pl-64">
-    <div class="max-w-6xl m-auto">
-      <h2 class={`font-avara text-3xl ${inkMuted}`}>{content.results.title}</h2>
-      <p class={`mt-8 max-w-xl text-xl leading-relaxed ${ink}`}>
-        {content.results.text}
-      </p>
-
-      <div class="mt-20 max-w-xl grid grid-cols-1 sm:grid-cols-2 gap-8">
-        {
-          resultsItems.map((item) => (
-            <UserJourneyStep label={item.tag} title={item.title} text={item.text} />
-          ))
-        }
+  <section id="problem" class="px-8 py-28 md:py-36">
+    <div class="max-w-5xl mx-auto">
+      <Quote class="max-w-xl" text={content.problem.quote} />
+      <div class="mt-16 max-w-[482px] flex flex-col gap-16">
+        <div>
+          <h2 class={`font-avara text-3xl whitespace-pre-line ${inkMuted}`}>
+            {content.problem.heading}
+          </h2>
+          <p class={`mt-6 text-2xl leading-relaxed whitespace-pre-line ${ink}`}>
+            {content.problem.text1}
+          </p>
+        </div>
+        <p class={`text-2xl leading-relaxed ${ink}`}>{content.problem.text2}</p>
       </div>
-    </div>
-  </section>
-
-  <section id="learning" class="px-8 py-28 md:py-36 lg:pl-64">
-    <div class="max-w-6xl m-auto">
-      <h2 class={`font-avara text-3xl ${inkMuted}`}>{content.learning.title}</h2>
-      <p
-        class={`mt-8 max-w-xl text-xl leading-relaxed [&_u]:decoration-1 [&_u]:underline-offset-4 ${ink}`}
-        set:html={content.learning.text}
-      />
     </div>
   </section>
 </div>
