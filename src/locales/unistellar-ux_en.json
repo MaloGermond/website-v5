@@ -12,10 +12,10 @@
   "nav": [
     "Introduction",
     "The problem",
+    "The method",
     "The facilitation",
     "The learning",
-    "The results",
-    "The method"
+    "The results"
   ],
   "hero": {
     "title": "Adopt the change, \ndon’t just ship it",
@@ -43,5 +43,98 @@
     "heading": "Mieux sur le papier,\npire à l’usage",
     "text1": "La direction est satisfaite du produit et peine à comprendre ces retours. \nSon hypothèse est que ces retours ne reflètent qu’un ressenti isolé, pas une tendance de fond. Pour aider à trancher, un premier travail de collecte est organisé : commentaires sur les réseaux, retours du service support, tout est centralisé, lu et annoter.",
     "text2": "À l’aide des données le pattern se confirme. Ce sont majoritairement les utilisateurs historiques qui expriment cette frustration. Cette lecture change la donne, elle ouvre la porte, jusque-là fermée, à mener de vrais tests utilisateurs."
+  },
+  "method": {
+    "heading": "Aller chercher la vérité terrain",
+    "text1": "Le terrain de la recherche utilisateur avait déjà été posé en amont. \nL’enjeu était de cadrer rapidement un protocole de recherche et identifier des utilisateurs disponibles pour y participer. Le choix s’est porté sur les nouveaux utilisateurs découvrant le produit pour la première fois : résoudre leurs points de blocage, c’était aussi améliorer l’expérience de tous, par ricochet.",
+    "journey": [
+      {
+        "label": "Unboxing",
+        "title": "La premier impression compte",
+        "text": "L’utilisateur découvre le produit et forme sa première impression, c’est le moment qui pose le ton émitonnel de toutes l’expérience.",
+        "image": "eVscope occulaire"
+      },
+      {
+        "label": "Setup",
+        "title": "Chaque friction est un abandon possible",
+        "text": "L’utilisateur configure et active le produit, l’enjeu ici c’est de réduire la charge cognitive pour éviter l’abandon.",
+        "image": "eVscope focus"
+      },
+      {
+        "label": "Observation",
+        "title": "Laisser place à l’émerveillement",
+        "text": "L’utilisateur est en interaction directe avec le ciel, c’est le coeur de la valeur du produit, l’écpérienc doit s’éffacer pour laisser place à l’émerveillement.",
+        "image": "observation nuit"
+      },
+      {
+        "label": "Shared",
+        "title": "Le vécu devient contenu",
+        "text": "L’utilisateur transforme son expérience personnel en contenu social, c’est le moment qui crée de la rétention et de la viralité.",
+        "image": "horsehead"
+      }
+    ],
+    "reconstructedText": "À partir de ces observations, j’ai reconstruit les grands moments du parcours, connexion, orientation, découverte du catalogue. Chaque point de friction a été identifié, positionné et référencé, de sorte que chacun puisse être retracé jusqu’à son origine, avant d’être synthétisé.",
+    "methodologyText": "La méthodologie retenu fût un test utilisateur en contexte naturel. J’ai établie une grille d’observation et ai fais une captation audio et vidéo des écrans et de la scène. \nJe vais ensuite retranscire l’ensemble des échanges pour associer chaque verbatim à un moment précis de la video de context et de la capture écrans.\nJ’inclue aussi à la fin du test un retours utilisateur accompagner d’un NPS et d’un attrackdiff pour identifier des opportunités et prioriser les besoins exprimés. \nDurant la session, un développeur m’accompagne, je le brief au préalable pour observer sans intervenir, afin qu’il constate par lui-même les réactions des utilisateurs plutôt que d’en recevoir seulement une synthèse a posteriori.",
+    "quotes": [
+      {
+        "tag": "Guidance",
+        "stage": "Enhanced vision",
+        "user": "Henri",
+        "text": "So can I focus it now?"
+      },
+      {
+        "tag": "Explicit control",
+        "stage": "Observation",
+        "user": "Suzanne",
+        "text": "Let's try pointing at something? No, I wanted to go to the brightest star."
+      },
+      {
+        "tag": "Adaptability",
+        "stage": "Recherche",
+        "user": "Henri",
+        "text": "Well I'm trying, yeah I see I've pointed at a star, and I'd like to know what I'm actually looking at."
+      },
+      {
+        "tag": "Guidance",
+        "stage": "Connexion",
+        "user": "Lize",
+        "text": "I don't know where I'm supposed to go..."
+      },
+      {
+        "tag": "Guidance",
+        "stage": "Orientation",
+        "user": "Pierre",
+        "text": "No but I... OK, and how do I know it's found it,"
+      },
+      {
+        "tag": "Guidance",
+        "stage": "18:39",
+        "user": "Marc",
+        "text": "I don't think I recognized that was a joystick... Actually, I had trouble telling that you can steer in different directions with it... [I wanted to see] A button instead."
+      },
+      {
+        "tag": "Guidance",
+        "stage": "Pointer",
+        "user": "Suzanne",
+        "text": "Azimuth, I have no idea what that means..."
+      },
+      {
+        "tag": "Workload",
+        "stage": "Orientation",
+        "user": "Jean-Marc",
+        "text": "So starting the observation...\noh my god, I'm totally lost here!"
+      }
+    ]
+  },
+  "results": {
+    "items": [
+      {
+        "label": "Observation",
+        "title": "Emotion Guiding Function",
+        "text": "The page feels more like a remote control than an inspiring window into the universe.\n\nI create a large visual space for the image of the sky and reduce the affordance of remote controle",
+        "beforeImage": "unistellar-screen-v1-observation",
+        "afterImage": "screen-unistellar-v3-observation-orion"
+      }
+    ]
   }
 }

@@ -21,14 +21,25 @@ function contrastColor(hex, fallback) {
   return luminance > 0.55 ? '#020B25' : '#ffffff';
 }
 
-function PhoneMockupSvg({ src, alt, overlay, floating, statusBarBg, navBarBg, uid }) {
+function PhoneMockupSvg({
+  src,
+  alt,
+  overlayStatusBar,
+  overlayHomeIndicator,
+  floating,
+  statusBarBg,
+  navBarBg,
+  statusBarTextColor,
+  navBarTextColor,
+  uid,
+}) {
   const clipId = `phone-screen-${uid}`;
   const filterId = `phone-shadow-${uid}`;
   const gradientId = `phone-stroke-${uid}`;
 
   // By default the status bar and home indicator each reserve their own
-  // space (flex-row style) and the screenshot fills what's left; with
-  // `overlay` they're drawn on top of a full-height screenshot instead.
+  // space (flex-row style) and the screenshot fills what's left; each can
+  // be overlaid on top of a full-height screenshot instead, independently.
   const STATUS_BAR = { x: SCREEN.x, y: SCREEN.y, width: 314.733, height: STATUS_BAR_HEIGHT };
   const NAV_BAR = {
     x: SCREEN.x,
@@ -36,18 +47,32 @@ function PhoneMockupSvg({ src, alt, overlay, floating, statusBarBg, navBarBg, ui
     width: 313.517,
     height: NAV_BAR_HEIGHT,
   };
-  const screenshotArea = overlay
-    ? SCREEN
-    : {
-        x: SCREEN.x,
-        y: SCREEN.y + STATUS_BAR_HEIGHT,
-        width: SCREEN.width,
-        height: SCREEN.height - STATUS_BAR_HEIGHT - NAV_BAR_HEIGHT,
-      };
+  const screenshotArea = {
+    x: SCREEN.x,
+    y: SCREEN.y + (overlayStatusBar ? 0 : STATUS_BAR_HEIGHT),
+    width: SCREEN.width,
+    height:
+      SCREEN.height -
+      (overlayStatusBar ? 0 : STATUS_BAR_HEIGHT) -
+      (overlayHomeIndicator ? 0 : NAV_BAR_HEIGHT),
+  };
 
-  const statusIconColor = contrastColor(statusBarBg, '#020B25');
-  const notchColor = contrastColor(statusBarBg, '#000000');
-  const navPillColor = contrastColor(navBarBg, '#020B25');
+  // With no background set and no manual override, we can't know what the
+  // screenshot behind a transparent bar looks like, so a single flat
+  // fallback color risks disappearing against it. `mix-blend-mode:
+  // difference` against a white layer self-inverts against whatever is
+  // underneath, staying legible on any screenshot with no manual tuning.
+  const statusBarAdaptive = !statusBarBg && !statusBarTextColor;
+  const navBarAdaptive = !navBarBg && !navBarTextColor;
+
+  const statusIconColor =
+    statusBarTextColor || (statusBarAdaptive ? '#ffffff' : contrastColor(statusBarBg, '#020B25'));
+  // The dynamic island is a physical hardware element, not UI chrome — it
+  // stays dark regardless of the bar background. The home indicator pill sits
+  // on top of app UI, so it still adapts for contrast.
+  const notchColor = '#000000';
+  const navPillColor =
+    navBarTextColor || (navBarAdaptive ? '#ffffff' : contrastColor(navBarBg, '#020B25'));
 
   return (
     <svg
@@ -157,7 +182,7 @@ function PhoneMockupSvg({ src, alt, overlay, floating, statusBarBg, navBarBg, ui
         )}
         <g
           transform={`translate(${STATUS_BAR.x} ${STATUS_BAR.y})`}
-          style={`color: ${statusIconColor}`}
+          style={`color: ${statusIconColor}; ${statusBarAdaptive ? 'mix-blend-mode: difference;' : ''}`}
         >
           <path
             d="M29.8949 18.3086C31.72 18.3086 33.3081 19.6064 33.3081 22.6877V22.6996C33.3081 25.5795 32.0104 27.2861 29.8593 27.2861C28.289 27.2861 27.1157 26.3557 26.8431 25.0462L26.8313 24.981H28.3364L28.3542 25.0402C28.5794 25.6387 29.1068 26.0298 29.8593 26.0298C31.2163 26.0298 31.7911 24.7025 31.8563 23.067C31.8563 23.0018 31.8622 22.9366 31.8622 22.8714H31.7437C31.4296 23.547 30.683 24.1455 29.5097 24.1455C27.8683 24.1455 26.7187 22.9485 26.7187 21.3248V21.313C26.7187 19.5767 28.0401 18.3086 29.8949 18.3086ZM29.889 22.9722C30.8548 22.9722 31.5956 22.2729 31.5956 21.307V21.2952C31.5956 20.3174 30.8548 19.553 29.9067 19.553C28.9645 19.553 28.212 20.3056 28.212 21.2596V21.2715C28.212 22.2611 28.9171 22.9722 29.889 22.9722ZM35.7071 21.5322C35.1679 21.5322 34.7649 21.1174 34.7649 20.596C34.7649 20.0686 35.1679 19.6597 35.7071 19.6597C36.2523 19.6597 36.6493 20.0686 36.6493 20.596C36.6493 21.1174 36.2523 21.5322 35.7071 21.5322ZM35.7071 25.9291C35.1679 25.9291 34.7649 25.5202 34.7649 24.9928C34.7649 24.4654 35.1679 24.0566 35.7071 24.0566C36.2523 24.0566 36.6493 24.4654 36.6493 24.9928C36.6493 25.5202 36.2523 25.9291 35.7071 25.9291ZM42.2541 27.0728V25.4313H38.0706V24.181C39.1787 22.2552 40.3934 20.2878 41.5549 18.522H43.7178V24.1692H44.8673V25.4313H43.7178V27.0728H42.2541ZM39.4927 24.2047H42.2778V19.7427H42.1889C41.3119 21.0819 40.3223 22.664 39.4927 24.1158V24.2047ZM48.1197 27.0728V20.0271H48.0189L45.8916 21.5322V20.0923L48.1256 18.522H49.6485V27.0728H48.1197Z"
@@ -201,9 +226,6 @@ function PhoneMockupSvg({ src, alt, overlay, floating, statusBarBg, navBarBg, ui
         <path
           d="M14.7917 0C6.62248 0 0 6.62249 0 14.7917C0 22.9609 6.62248 29.5834 14.7917 29.5834H85.1524C93.3217 29.5834 99.9442 22.9609 99.9442 14.7917C99.9442 6.62249 93.3217 0 85.1524 0H14.7917Z"
           fill={notchColor}
-          stroke="#ffffff"
-          stroke-opacity="0.35"
-          stroke-width="1"
         />
       </g>
 
@@ -224,6 +246,7 @@ function PhoneMockupSvg({ src, alt, overlay, floating, statusBarBg, navBarBg, ui
           height="2.50814"
           rx="1.25407"
           fill={navPillColor}
+          style={navBarAdaptive ? 'mix-blend-mode: difference' : undefined}
         />
       </g>
     </svg>
@@ -232,29 +255,30 @@ function PhoneMockupSvg({ src, alt, overlay, floating, statusBarBg, navBarBg, ui
 
 export default function PhoneMockupPreview({ images }) {
   const [imageIndex, setImageIndex] = useState(0);
-  const [overlay, setOverlay] = useState(images[0].defaultOverlay ?? false);
-  const [floating, setFloating] = useState(true);
-  const [separateBarBackgrounds, setSeparateBarBackgrounds] = useState(false);
-  const [barBackground, setBarBackground] = useState('#00000000');
-  const [statusBarBackground, setStatusBarBackground] = useState('#000000');
+  const [overlayStatusBar, setOverlayStatusBar] = useState(images[0].defaultOverlay ?? false);
+  const [overlayHomeIndicator, setOverlayHomeIndicator] = useState(
+    images[0].defaultOverlay ?? false,
+  );
+  const [floating, setFloating] = useState(false);
+  const [statusBarTransparent, setStatusBarTransparent] = useState(true);
+  const [statusBarBackground, setStatusBarBackground] = useState('#ffffff');
+  const [navBarTransparent, setNavBarTransparent] = useState(true);
   const [navBarBackground, setNavBarBackground] = useState('#ffffff');
+  const [customStatusIconColor, setCustomStatusIconColor] = useState(false);
+  const [statusIconColorValue, setStatusIconColorValue] = useState('#020b25');
+  const [customNavPillColor, setCustomNavPillColor] = useState(false);
+  const [navPillColorValue, setNavPillColorValue] = useState('#020b25');
 
   const selectImage = (index) => {
     setImageIndex(index);
-    setOverlay(images[index].defaultOverlay ?? false);
+    setOverlayStatusBar(images[index].defaultOverlay ?? false);
+    setOverlayHomeIndicator(images[index].defaultOverlay ?? false);
   };
 
-  const barBgEnabled = barBackground !== '#00000000';
-  const statusBarBg = separateBarBackgrounds
-    ? statusBarBackground
-    : barBgEnabled
-      ? barBackground
-      : null;
-  const navBarBg = separateBarBackgrounds
-    ? navBarBackground
-    : barBgEnabled
-      ? barBackground
-      : null;
+  const statusBarBg = statusBarTransparent ? null : statusBarBackground;
+  const navBarBg = navBarTransparent ? null : navBarBackground;
+  const statusBarTextColor = customStatusIconColor ? statusIconColorValue : null;
+  const navBarTextColor = customNavPillColor ? navPillColorValue : null;
 
   const image = images[imageIndex];
 
@@ -264,10 +288,13 @@ export default function PhoneMockupPreview({ images }) {
         <PhoneMockupSvg
           src={image.src}
           alt={image.alt}
-          overlay={overlay}
+          overlayStatusBar={overlayStatusBar}
+          overlayHomeIndicator={overlayHomeIndicator}
           floating={floating}
           statusBarBg={statusBarBg}
           navBarBg={navBarBg}
+          statusBarTextColor={statusBarTextColor}
+          navBarTextColor={navBarTextColor}
           uid="preview"
         />
       </div>
@@ -289,68 +316,111 @@ export default function PhoneMockupPreview({ images }) {
         <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
           <input
             type="checkbox"
-            checked={overlay}
-            onChange={(e) => setOverlay(e.currentTarget.checked)}
-          />
-          Overlay bars on screen
-        </label>
-
-        <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
-          <input
-            type="checkbox"
             checked={floating}
             onChange={(e) => setFloating(e.currentTarget.checked)}
           />
           Floating animation
         </label>
 
-        <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
-          <input
-            type="checkbox"
-            checked={separateBarBackgrounds}
-            onChange={(e) => setSeparateBarBackgrounds(e.currentTarget.checked)}
-          />
-          Separate bar backgrounds
-        </label>
-
-        {separateBarBackgrounds ? (
-          <>
+        <div class="flex flex-col gap-2 border-t border-gray-200 dark:border-gray-700 pt-3">
+          <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+            Status bar
+          </span>
+          <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+            <input
+              type="checkbox"
+              checked={overlayStatusBar}
+              onChange={(e) => setOverlayStatusBar(e.currentTarget.checked)}
+            />
+            Overlay on screen
+          </label>
+          <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+            <input
+              type="checkbox"
+              checked={statusBarTransparent}
+              onChange={(e) => setStatusBarTransparent(e.currentTarget.checked)}
+            />
+            Transparent background
+          </label>
+          {!statusBarTransparent && (
             <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
-              Status bar background
+              Background color
               <input
                 type="color"
                 value={statusBarBackground}
                 onInput={(e) => setStatusBarBackground(e.currentTarget.value)}
               />
             </label>
+          )}
+          <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+            <input
+              type="checkbox"
+              checked={customStatusIconColor}
+              onChange={(e) => setCustomStatusIconColor(e.currentTarget.checked)}
+            />
+            Custom icon color
+          </label>
+          {customStatusIconColor && (
             <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
-              Home indicator background
+              Icon color
+              <input
+                type="color"
+                value={statusIconColorValue}
+                onInput={(e) => setStatusIconColorValue(e.currentTarget.value)}
+              />
+            </label>
+          )}
+        </div>
+
+        <div class="flex flex-col gap-2 border-t border-gray-200 dark:border-gray-700 pt-3">
+          <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+            Home indicator
+          </span>
+          <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+            <input
+              type="checkbox"
+              checked={overlayHomeIndicator}
+              onChange={(e) => setOverlayHomeIndicator(e.currentTarget.checked)}
+            />
+            Overlay on screen
+          </label>
+          <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+            <input
+              type="checkbox"
+              checked={navBarTransparent}
+              onChange={(e) => setNavBarTransparent(e.currentTarget.checked)}
+            />
+            Transparent background
+          </label>
+          {!navBarTransparent && (
+            <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+              Background color
               <input
                 type="color"
                 value={navBarBackground}
                 onInput={(e) => setNavBarBackground(e.currentTarget.value)}
               />
             </label>
-          </>
-        ) : (
+          )}
           <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
             <input
               type="checkbox"
-              checked={barBgEnabled}
-              onChange={(e) =>
-                setBarBackground(e.currentTarget.checked ? '#ffffff' : '#00000000')
-              }
+              checked={customNavPillColor}
+              onChange={(e) => setCustomNavPillColor(e.currentTarget.checked)}
             />
-            Bar background
-            {barBgEnabled && (
+            Custom pill color
+          </label>
+          {customNavPillColor && (
+            <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+              Pill color
               <input
                 type="color"
-                value={barBackground}
-                onInput={(e) => setBarBackground(e.currentTarget.value)}
+                value={navPillColorValue}
+                onInput={(e) => setNavPillColorValue(e.currentTarget.value)}
               />
-            )}
-          </label>
-        )}
+            </label>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -50,36 +50,9 @@ const v3Images = Object.values(allScreens)
     defaultOverlay: false,
   }));
 
-// Home and Catalog screenshots already bake in their own status bar / home
-// indicator, so our bars default to overlaying on top of the full
-// screenshot instead of pushing (and duplicating) their own.
-const images = [
-  {
-    src: homeImage.src,
-    alt: 'Unistellar app home screen',
-    label: 'Home',
-    defaultOverlay: true,
-  },
-  {
-    src: catalogImage.src,
-    alt: 'Unistellar app catalog screen',
-    label: 'Catalog',
-    defaultOverlay: true,
-  },
-  {
-    src: observationV1Image.src,
-    alt: 'Unistellar app observation screen, V1',
-    label: 'Observation V1',
-    defaultOverlay: false,
-  },
-  {
-    src: observationV2Image.src,
-    alt: 'Unistellar app observation screen, V2',
-    label: 'Observation V2',
-    defaultOverlay: false,
-  },
-  ...v3Images,
-];
+// Only the screen-unistellar-v* captures are real app screens; the picker
+// is restricted to those (no illustration/eVscope shots).
+const images = v3Images;
 
 const mosaicImages = Object.values(allScreens)
   .filter((img) => img.name.startsWith('screen-'))
@@ -145,13 +118,11 @@ const mosaicImages = Object.values(allScreens)
       <Verbatim
         tag="Guidage"
         stage="Enhanced vision"
-        user="Henri"
         text="Donc là je peux faire la mise au point maintenant ?"
       />
       <Verbatim
         tag="Charge de travail"
         stage="Orientation"
-        user="Jean-Marc"
         text="Alors démarrer l’observation. Oh my god, je suis paumé là !"
       />
     </div>

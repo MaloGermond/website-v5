@@ -1,28 +1,21 @@
 ---
-const { tag, stage, user, text, class: classList = '' } = Astro.props;
+const { tag, stage, text, class: classList = '' } = Astro.props;
 ---
 
-<div
-  class={`relative bg-surface-default border border-surface-subdue rounded-2xl pt-6 pb-4 px-4 max-w-[349px] ${classList}`}
->
-  <span
-    class="absolute top-0 left-5 -translate-y-1/2 inline-block px-3 py-1 text-sm font-normal text-on-info bg-info rounded-lg"
-  >
-    {tag}
-  </span>
+<div class={`bg-surface-raise border border-on-surface-subdue rounded p-4 max-w-[349px] ${classList}`}>
   <p class="text-[22px] font-normal text-on-surface-default">{text}</p>
   <div class="mt-4 flex flex-row gap-2">
-    <div class="flex-1 p-2 rounded bg-surface-subdue">
+    <div class="flex-1 p-2 rounded border border-on-surface-subdue">
       <span class="block text-xs font-medium uppercase tracking-[0.4px] text-on-surface-subdue">
         Stages
       </span>
       <span class="block mt-1 text-lg font-medium text-on-surface-default">{stage}</span>
     </div>
-    <div class="flex-1 p-2 rounded bg-surface-subdue">
+    <div class="flex-1 p-2 rounded border border-on-surface-subdue">
       <span class="block text-xs font-medium uppercase tracking-[0.4px] text-on-surface-subdue">
-        User
+        Heristique
       </span>
-      <span class="block mt-1 text-lg font-medium text-on-surface-default">{user}</span>
+      <span class="block mt-1 text-lg font-medium text-on-surface-default">{tag}</span>
     </div>
   </div>
 </div>

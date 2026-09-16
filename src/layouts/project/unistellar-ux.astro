@@ -4,17 +4,34 @@ const { lang } = Astro.params;
 import Quote from '@components/project/Quote.astro';
 import TableOfContents from '@components/project/TableOfContents.astro';
 import InternalLink from '@components/project/InternalLink.astro';
+import StepReveal from '@components/project/StepReveal.astro';
+import Verbatim from '@components/project/Verbatim.astro';
+import UserJourneyStep from '@components/project/UserJourneyStep.astro';
+import PhoneMockup from '@components/project/PhoneMockup.astro';
+
+import { loadScreensOnce } from '@utils/useScreens';
+
+const screens = import.meta.glob('../../assets/unistellar/*{jpg,png,gif,webp}');
+const metadata = await import('../../assets/unistellar/images-metadata.json');
+const images = await loadScreensOnce(screens, metadata);
 
 const ink = 'text-on-surface-default';
 const inkMuted = 'text-on-surface-subdue';
 
+const journeyItems = content.method.journey.map((step) => ({
+  label: step.label,
+  title: step.title,
+  text: step.text,
+  image: images[step.image]?.src,
+}));
+
 const navSections = [
   { id: 'introduction', label: content.nav[0] },
   { id: 'problem', label: content.nav[1] },
-  { id: 'facilitation', label: content.nav[2] },
-  { id: 'learning', label: content.nav[3] },
-  { id: 'results', label: content.nav[4] },
-  { id: 'method', label: content.nav[5] },
+  { id: 'method', label: content.nav[2] },
+  { id: 'facilitation', label: content.nav[3] },
+  { id: 'learning', label: content.nav[4] },
+  { id: 'results', label: content.nav[5] },
 ];
 ---
 
@@ -50,13 +67,13 @@ const navSections = [
         {content.introduction.headline}
       </h2>
       <div class="mt-16 max-w-[482px] flex flex-col gap-8">
-        <p class={`text-2xl leading-relaxed ${ink}`}>{content.introduction.text}</p>
+        <p class={`text-[22px] leading-relaxed ${ink}`}>{content.introduction.text}</p>
         <InternalLink
           title={content.introduction.link.title}
           subtitle={content.introduction.link.subtitle}
           href={`/${lang}/unistellar`}
         />
-        <p class={`text-2xl leading-relaxed ${ink}`}>{content.introduction.quote}</p>
+        <p class={`text-[22px] leading-relaxed ${ink}`}>{content.introduction.quote}</p>
       </div>
     </div>
   </section>
@@ -69,12 +86,78 @@ const navSections = [
           <h2 class={`font-avara text-3xl whitespace-pre-line ${inkMuted}`}>
             {content.problem.heading}
           </h2>
-          <p class={`mt-6 text-2xl leading-relaxed whitespace-pre-line ${ink}`}>
+          <p class={`mt-6 text-[22px] leading-relaxed whitespace-pre-line ${ink}`}>
             {content.problem.text1}
           </p>
         </div>
-        <p class={`text-2xl leading-relaxed ${ink}`}>{content.problem.text2}</p>
+        <p class={`text-[22px] leading-relaxed ${ink}`}>{content.problem.text2}</p>
       </div>
+    </div>
+  </section>
+
+  <section id="method" class="px-8 py-28 md:py-36">
+    <div class="max-w-5xl mx-auto">
+      <h2 class={`font-avara text-3xl whitespace-pre-line ${inkMuted}`}>{content.method.heading}</h2>
+      <p class={`mt-6 max-w-[482px] text-[22px] leading-relaxed whitespace-pre-line ${ink}`}>
+        {content.method.text1}
+      </p>
+
+      <StepReveal class="mt-16" items={journeyItems} />
+
+      <div class="mt-16 flex flex-col md:flex-row gap-8 md:gap-[154px]">
+        <p class={`md:w-[354px] text-lg font-light leading-relaxed whitespace-pre-line ${inkMuted}`}>
+          {content.method.methodologyText}
+        </p>
+        <p class={`md:w-[524px] text-2xl font-medium leading-relaxed ${ink}`}>
+          {content.method.reconstructedText}
+        </p>
+      </div>
+
+      <div class="mt-20 columns-1 sm:columns-2 gap-6">
+        {
+          content.method.quotes.map((quote) => (
+            <Verbatim
+              tag={quote.tag}
+              stage={quote.stage}
+              text={quote.text}
+              class="mb-6 break-inside-avoid"
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="results" class="px-8 py-28 md:py-36">
+    <div class="max-w-5xl mx-auto">
+      {
+        content.results.items.map((item) => (
+          <div class="relative flex h-[480px] flex-row flex-wrap items-center gap-8 overflow-hidden rounded-lg bg-gradient-to-b from-[#e4ecfe] to-[#e4eefe] px-4">
+            <div class="flex flex-1 flex-wrap items-center justify-center gap-12">
+              <div class="w-32 shrink-0 sm:w-44">
+                <PhoneMockup
+                  src={images[item.beforeImage]?.src}
+                  alt={images[item.beforeImage]?.alt?.[lang]}
+                  floating={false}
+                />
+              </div>
+              <div class="w-32 shrink-0 sm:w-44">
+                <PhoneMockup
+                  src={images[item.afterImage]?.src}
+                  alt={images[item.afterImage]?.alt?.[lang]}
+                  floating={false}
+                />
+              </div>
+            </div>
+            <UserJourneyStep
+              class="flex-1 min-w-[227px] max-w-[237px]"
+              label={item.label}
+              title={item.title}
+              text={item.text}
+            />
+          </div>
+        ))
+      }
     </div>
   </section>
 </div>

@@ -6,28 +6,26 @@ const {
   src,
   alt = '',
   // Gentle up/down floating loop; disable for a static mockup.
-  floating = true,
-  // false (default): status bar and home indicator each reserve their own
-  // space and the screenshot fills what's left. true: both are drawn on
-  // top of a full-height screenshot instead.
-  overlay = false,
-  // Shared background color applied behind both the status bar and the
-  // home indicator bar. Leave unset for a transparent overlay (icons only).
-  barBackground = null,
-  // When true, statusBarBackground / navBarBackground are used instead of
-  // barBackground, letting each bar have its own background color.
-  separateBarBackgrounds = false,
+  floating = false,
+  // false (default): the status bar / home indicator reserves its own
+  // space and the screenshot fills what's left. true: drawn on top of a
+  // full-height screenshot instead. Set independently per bar since a
+  // screenshot can already bake in one of the two.
+  overlayStatusBar = false,
+  overlayHomeIndicator = false,
+  // Background color behind each bar. Leave unset for a transparent bar
+  // (icons only, screenshot shows through).
   statusBarBackground = null,
   navBarBackground = null,
+  // Manual override for the icon/pill color, for when the screenshot
+  // behind a transparent bar is too close to the auto-contrast fallback
+  // to stay legible (e.g. a dark screenshot under dark status icons).
+  statusBarTextColor = null,
+  navBarTextColor = null,
 } = Astro.props;
 
-const resolvedStatusBarBg = separateBarBackgrounds
-  ? statusBarBackground
-  : barBackground;
-const resolvedNavBarBg = separateBarBackgrounds ? navBarBackground : barBackground;
-
 // Picks a readable icon/text color for a given background so the status
-// bar, notch and home indicator stay legible whatever color is set.
+// bar and home indicator stay legible whatever color is set.
 function contrastColor(hex, fallback) {
   if (!hex) return fallback;
   const clean = hex.replace('#', '');
@@ -39,9 +37,23 @@ function contrastColor(hex, fallback) {
   return luminance > 0.55 ? '#020B25' : '#ffffff';
 }
 
-const statusIconColor = contrastColor(resolvedStatusBarBg, '#020B25');
-const notchColor = contrastColor(resolvedStatusBarBg, '#000000');
-const navPillColor = contrastColor(resolvedNavBarBg, '#020B25');
+// With no background set and no manual override, we can't know what the
+// screenshot behind a transparent bar looks like, so a single flat fallback
+// color risks disappearing against it (e.g. dark icons on a dark photo).
+// `mix-blend-mode: difference` against a white layer self-inverts against
+// whatever is underneath, staying legible on any screenshot with no manual
+// tuning needed.
+const statusBarAdaptive = !statusBarBackground && !statusBarTextColor;
+const navBarAdaptive = !navBarBackground && !navBarTextColor;
+
+const statusIconColor =
+  statusBarTextColor || (statusBarAdaptive ? '#ffffff' : contrastColor(statusBarBackground, '#020B25'));
+// The dynamic island is a physical hardware element, not UI chrome — it
+// stays dark regardless of the bar background. The home indicator pill sits
+// on top of app UI, so it still adapts for contrast.
+const notchColor = '#000000';
+const navPillColor =
+  navBarTextColor || (navBarAdaptive ? '#ffffff' : contrastColor(navBarBackground, '#020B25'));
 
 const uid = Math.random().toString(36).slice(2, 9);
 const clipId = `phone-screen-${uid}`;
@@ -49,10 +61,8 @@ const filterId = `phone-shadow-${uid}`;
 const gradientId = `phone-stroke-${uid}`;
 
 // Screen cutout geometry, from the Penpot mask path. Status bar and home
-// indicator are always shown; by default they lay out like flex rows (each
-// reserves its own space and the screenshot fills what's left) unless
-// `overlay` is set, in which case they're drawn on top of a full-height
-// screenshot instead.
+// indicator are always shown; by default they each reserve their own space
+// and the screenshot fills what's left, unless overlaid per-bar instead.
 const screen = { x: 32.2891, y: 16, width: 314.225, height: 681.219 };
 const statusBarHeight = 43.2905;
 const navBarHeight = 16.7209;
@@ -69,14 +79,15 @@ const nudge = {
   width: 99.9442,
   height: 29.5834,
 };
-const screenshotArea = overlay
-  ? screen
-  : {
-      x: screen.x,
-      y: screen.y + statusBarHeight,
-      width: screen.width,
-      height: screen.height - statusBarHeight - navBarHeight,
-    };
+const screenshotArea = {
+  x: screen.x,
+  y: screen.y + (overlayStatusBar ? 0 : statusBarHeight),
+  width: screen.width,
+  height:
+    screen.height -
+    (overlayStatusBar ? 0 : statusBarHeight) -
+    (overlayHomeIndicator ? 0 : navBarHeight),
+};
 ---
 
 <svg
@@ -189,16 +200,19 @@ const screenshotArea = overlay
   />
 
   <g clip-path={`url(#${clipId})`}>
-    {resolvedStatusBarBg && (
+    {statusBarBackground && (
       <rect
         x={statusBar.x}
         y={statusBar.y}
         width={statusBar.width}
         height={statusBar.height}
-        fill={resolvedStatusBarBg}
+        fill={statusBarBackground}
       />
     )}
-    <g transform={`translate(${statusBar.x} ${statusBar.y})`} style={`color: ${statusIconColor}`}>
+    <g
+      transform={`translate(${statusBar.x} ${statusBar.y})`}
+      style={`color: ${statusIconColor}; ${statusBarAdaptive ? 'mix-blend-mode: difference;' : ''}`}
+    >
       <path
         d="M29.8949 18.3086C31.72 18.3086 33.3081 19.6064 33.3081 22.6877V22.6996C33.3081 25.5795 32.0104 27.2861 29.8593 27.2861C28.289 27.2861 27.1157 26.3557 26.8431 25.0462L26.8313 24.981H28.3364L28.3542 25.0402C28.5794 25.6387 29.1068 26.0298 29.8593 26.0298C31.2163 26.0298 31.7911 24.7025 31.8563 23.067C31.8563 23.0018 31.8622 22.9366 31.8622 22.8714H31.7437C31.4296 23.547 30.683 24.1455 29.5097 24.1455C27.8683 24.1455 26.7187 22.9485 26.7187 21.3248V21.313C26.7187 19.5767 28.0401 18.3086 29.8949 18.3086ZM29.889 22.9722C30.8548 22.9722 31.5956 22.2729 31.5956 21.307V21.2952C31.5956 20.3174 30.8548 19.553 29.9067 19.553C28.9645 19.553 28.212 20.3056 28.212 21.2596V21.2715C28.212 22.2611 28.9171 22.9722 29.889 22.9722ZM35.7071 21.5322C35.1679 21.5322 34.7649 21.1174 34.7649 20.596C34.7649 20.0686 35.1679 19.6597 35.7071 19.6597C36.2523 19.6597 36.6493 20.0686 36.6493 20.596C36.6493 21.1174 36.2523 21.5322 35.7071 21.5322ZM35.7071 25.9291C35.1679 25.9291 34.7649 25.5202 34.7649 24.9928C34.7649 24.4654 35.1679 24.0566 35.7071 24.0566C36.2523 24.0566 36.6493 24.4654 36.6493 24.9928C36.6493 25.5202 36.2523 25.9291 35.7071 25.9291ZM42.2541 27.0728V25.4313H38.0706V24.181C39.1787 22.2552 40.3934 20.2878 41.5549 18.522H43.7178V24.1692H44.8673V25.4313H43.7178V27.0728H42.2541ZM39.4927 24.2047H42.2778V19.7427H42.1889C41.3119 21.0819 40.3223 22.664 39.4927 24.1158V24.2047ZM48.1197 27.0728V20.0271H48.0189L45.8916 21.5322V20.0923L48.1256 18.522H49.6485V27.0728H48.1197Z"
         fill="currentColor"
@@ -241,20 +255,17 @@ const screenshotArea = overlay
     <path
       d="M14.7917 0C6.62248 0 0 6.62249 0 14.7917C0 22.9609 6.62248 29.5834 14.7917 29.5834H85.1524C93.3217 29.5834 99.9442 22.9609 99.9442 14.7917C99.9442 6.62249 93.3217 0 85.1524 0H14.7917Z"
       fill={notchColor}
-      stroke="#ffffff"
-      stroke-opacity="0.35"
-      stroke-width="1"
     />
   </g>
 
   <g clip-path={`url(#${clipId})`}>
-    {resolvedNavBarBg && (
+    {navBarBackground && (
       <rect
         x={navBar.x}
         y={navBar.y}
         width={navBar.width}
         height={navBar.height}
-        fill={resolvedNavBarBg}
+        fill={navBarBackground}
       />
     )}
     <rect
@@ -264,6 +275,7 @@ const screenshotArea = overlay
       height="2.50814"
       rx="1.25407"
       fill={navPillColor}
+      style={navBarAdaptive ? 'mix-blend-mode: difference' : undefined}
     />
   </g>
 </svg>
