@@ -7,7 +7,7 @@ const { title, items, reveal = false } = Astro.props;
     {title}
   </h3>{
     Object(items).map((el) => (
-      <p class="text-sm sm:text-xl dark:text-gray-50" data-reveal-item={reveal ? '' : undefined}>{el}</p>
+      <p class="text-sm sm:text-xl text-pretty dark:text-gray-50" data-reveal-item={reveal ? '' : undefined}>{el}</p>
     ))
   }
 </div>
