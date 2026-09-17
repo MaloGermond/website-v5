@@ -7,10 +7,11 @@ const { slug, lang } = Astro.props;
 ---
 
 <header
-  class="fixed top-0 left-1/2 -translate-x-1/2 w-full flex z-10 max-w-2xl"
+  class="fixed top-0 left-1/2 -translate-x-1/2 w-full flex justify-center z-10 max-w-2xl overflow-hidden"
 >
   <div
-    class="w-full my-4 mx-4 p-2 flex flex-row items-center justify-between rounded-full border-1 border-gray-400/50 dark:border-gray-700 gap-2 z-10 bg-gray-100/10 dark:bg-gray-900/20 backdrop-blur-sm"
+    id="headerPill"
+    class="header-pill w-full my-4 mx-4 p-2 flex flex-row items-center justify-between rounded-full border-1 border-gray-400/50 dark:border-gray-700 gap-2 z-10 bg-gray-100/10 dark:bg-gray-900/20 backdrop-blur-sm"
   >
     <div class="flex lex-row">
       <Action label="Home" lang={lang}/>
@@ -21,4 +22,66 @@ const { slug, lang } = Astro.props;
     </div>
   </div>
 </header>
+
+<style>
+  .header-pill {
+    max-width: 100%;
+    transition:
+      max-width 500ms cubic-bezier(0.16, 1, 0.3, 1),
+      padding-inline 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .header-pill.is-retracted {
+    max-width: 70%;
+    padding-inline: 0.5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .header-pill {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+
+  const pill = document.getElementById('headerPill');
+  const prefersReducedMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  ).matches;
+
+  if (pill && !prefersReducedMotion) {
+    gsap.fromTo(
+      pill,
+      { yPercent: 130 },
+      { yPercent: 0, duration: 0.9, ease: 'power3.out' }
+    );
+  }
+
+  const SCROLL_RETRACT_THRESHOLD = 80;
+  let lastScrollY = window.scrollY;
+  let tickingScroll = false;
+
+  function updateHeaderRetractState() {
+    const currentScrollY = window.scrollY;
+    const isScrollingDown = currentScrollY > lastScrollY;
+    const isPastThreshold = currentScrollY > SCROLL_RETRACT_THRESHOLD;
+
+    pill?.classList.toggle('is-retracted', isScrollingDown && isPastThreshold);
+
+    lastScrollY = currentScrollY;
+    tickingScroll = false;
+  }
+
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (tickingScroll) return;
+      window.requestAnimationFrame(updateHeaderRetractState);
+      tickingScroll = true;
+    },
+    { passive: true }
+  );
+</script>
 
