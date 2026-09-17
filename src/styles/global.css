@@ -42,13 +42,13 @@
     Satoshi, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
-  --color-gray-50: oklch(0.9892 0.0053 286.3);
-  --color-gray-100: oklch(0.959 0.004 286.32);
-  --color-gray-200: oklch(0.9042 0.0027 286.35);
+  --color-gray-50: #fcfcff;
+  --color-gray-100: #f5f5fa;
+  --color-gray-200: #e7e7eb;
 
-  --color-gray-300: oklch(0.8147 0.0028 286.34);
-  --color-gray-400: oklch(0.6999 0.0029 286.33);
-  --color-gray-500: oklch(0.4538 0.0032 286.27);
+  --color-gray-300: #c9c9cd;
+  --color-gray-400: #929295;
+  --color-gray-500: #7d7d7f;
 
   --color-gray-600: oklch(0.3722 0.0034 286.23);
   --color-gray-700: oklch(0.2825 0.0073 285.93);
@@ -131,23 +131,31 @@
   --color-on-surface-warning: var(--on-surface-warning);
   --color-on-surface-alerte: var(--on-surface-alerte);
   --color-on-surface-success: var(--on-surface-success);
+  --color-on-surface-link: var(--on-surface-link);
   --color-info: var(--info);
   --color-on-info: var(--on-info);
+  --color-dark: var(--dark);
+  --color-on-dark: var(--on-dark);
+  --color-on-dark-subdue: var(--on-dark-subdue);
 }
 
 :root {
-  --background: var(--color-gray-100);
-  --surface-subdue: var(--color-gray-200);
-  --surface-default: var(--color-gray-100);
-  --surface-raise: var(--color-gray-50);
-  --on-surface-subdue: var(--color-gray-500);
+  --background: var(--color-gray-50);
+  --surface-subdue: var(--color-gray-100);
+  --surface-default: var(--color-gray-200);
+  --surface-raise: var(--color-gray-300);
+  --on-surface-subdue: var(--color-gray-400);
   --on-surface-default: var(--color-gray-900);
   --on-surface-raise: var(--color-blue-500);
   --on-surface-warning: var(--color-amber-600);
   --on-surface-alerte: var(--color-red-600);
   --on-surface-success: var(--color-green-600);
+  --on-surface-link: var(--color-blue-600);
   --info: var(--color-blue-100);
   --on-info: var(--color-blue-900);
+  --dark: var(--color-gray-900);
+  --on-dark: var(--color-gray-50);
+  --on-dark-subdue: var(--color-gray-400);
 }
 
 .dark {
@@ -155,14 +163,18 @@
   --surface-subdue: var(--color-gray-900);
   --surface-default: var(--color-gray-800);
   --surface-raise: var(--color-gray-700);
-  --on-surface-subdue: var(--color-gray-500);
+  --on-surface-subdue: var(--color-gray-400);
   --on-surface-default: var(--color-gray-50);
   --on-surface-raise: var(--color-blue-300);
   --on-surface-warning: var(--color-amber-400);
   --on-surface-alerte: var(--color-red-400);
   --on-surface-success: var(--color-green-400);
+  --on-surface-link: var(--color-blue-400);
   --info: var(--color-blue-700);
   --on-info: var(--color-blue-50);
+  --dark: var(--color-gray-900);
+  --on-dark: var(--color-gray-50);
+  --on-dark-subdue: var(--color-gray-400);
 }
 
 html {

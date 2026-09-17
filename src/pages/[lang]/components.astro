@@ -14,6 +14,7 @@ import StepReveal from '@components/project/StepReveal.astro';
 import InternalLink from '@components/project/InternalLink.astro';
 import Quote from '@components/project/Quote.astro';
 import TableOfContents from '@components/project/TableOfContents.astro';
+import ResultComparison from '@components/project/ResultComparison.astro';
 
 import { locales } from '@locales/config.json';
 import { loadScreensOnce } from '@utils/useScreens';
@@ -69,6 +70,21 @@ const mosaicImages = Object.values(allScreens)
       PhoneMockup
     </h2>
     <PhoneMockupPreview images={images} client:load />
+  </section>
+
+  <section class="mb-16">
+    <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
+      ResultComparison
+    </h2>
+    <ResultComparison
+      beforeSrc={images.find((img) => img.label === 'v3-observation-moon')?.src}
+      beforeAlt="Observation screen, moon"
+      afterSrc={images.find((img) => img.label === 'v3-observation-orion')?.src}
+      afterAlt="Observation screen, Orion nebula"
+      label="Observation"
+      title="Emotion Guiding Function"
+      text="The page feels more like a remote control than an inspiring window into the universe."
+    />
   </section>
 
   <section class="mb-16">

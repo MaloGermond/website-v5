@@ -4,7 +4,7 @@ const { title, subtitle, href, class: classList = '' } = Astro.props;
 
 <a
   href={href}
-  class={`inline-flex items-center gap-2 p-2 rounded-2xl border border-surface-subdue bg-surface-default transition-[box-shadow,border-color] duration-300 hover:border-surface-raise hover:shadow-[0_1px_8px_rgba(0,0,0,0.1)] ${classList}`}
+  class={`inline-flex items-center gap-2 p-2 rounded-2xl border border-on-surface-subdue bg-surface-subdue transition-[background-color,box-shadow,border-color] duration-300 hover:border-on-surface-default hover:bg-surface-default hover:shadow-[0_1px_8px_rgba(0,0,0,0.1)] ${classList}`}
 >
   <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-purple-100">
     <svg viewBox="0 0 24 24" fill="none" class="h-6 w-6 text-purple-600" aria-hidden="true">

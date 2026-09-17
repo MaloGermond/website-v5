@@ -6,8 +6,7 @@ import TableOfContents from '@components/project/TableOfContents.astro';
 import InternalLink from '@components/project/InternalLink.astro';
 import StepReveal from '@components/project/StepReveal.astro';
 import Verbatim from '@components/project/Verbatim.astro';
-import UserJourneyStep from '@components/project/UserJourneyStep.astro';
-import PhoneMockup from '@components/project/PhoneMockup.astro';
+import ResultComparison from '@components/project/ResultComparison.astro';
 
 import { loadScreensOnce } from '@utils/useScreens';
 
@@ -129,33 +128,18 @@ const navSections = [
   </section>
 
   <section id="results" class="px-8 py-28 md:py-36">
-    <div class="max-w-5xl mx-auto">
+    <div class="max-w-5xl mx-auto flex flex-col gap-8">
       {
         content.results.items.map((item) => (
-          <div class="relative flex h-[480px] flex-row flex-wrap items-center gap-8 overflow-hidden rounded-lg bg-gradient-to-b from-[#e4ecfe] to-[#e4eefe] px-4">
-            <div class="flex flex-1 flex-wrap items-center justify-center gap-12">
-              <div class="w-32 shrink-0 sm:w-44">
-                <PhoneMockup
-                  src={images[item.beforeImage]?.src}
-                  alt={images[item.beforeImage]?.alt?.[lang]}
-                  floating={false}
-                />
-              </div>
-              <div class="w-32 shrink-0 sm:w-44">
-                <PhoneMockup
-                  src={images[item.afterImage]?.src}
-                  alt={images[item.afterImage]?.alt?.[lang]}
-                  floating={false}
-                />
-              </div>
-            </div>
-            <UserJourneyStep
-              class="flex-1 min-w-[227px] max-w-[237px]"
-              label={item.label}
-              title={item.title}
-              text={item.text}
-            />
-          </div>
+          <ResultComparison
+            beforeSrc={images[item.beforeImage]?.src}
+            beforeAlt={images[item.beforeImage]?.alt?.[lang]}
+            afterSrc={images[item.afterImage]?.src}
+            afterAlt={images[item.afterImage]?.alt?.[lang]}
+            label={item.label}
+            title={item.title}
+            text={item.text}
+          />
         ))
       }
     </div>
