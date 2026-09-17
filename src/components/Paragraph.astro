@@ -1,9 +1,9 @@
 ---
 import { marked } from '@utils/marked.js';
 
-const {content, class:classList} = Astro.props
+const {content, class:classList, reveal = false} = Astro.props
 ---
 
  <div
-    class=`paragraphe ${classList}` set:html={marked(content)}
+    class=`paragraphe ${classList}` set:html={marked(content)} data-reveal-lines={reveal ? '' : undefined}
   />
