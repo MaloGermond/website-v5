@@ -1,0 +1,13 @@
+---
+const { label, title, text, class: classList = '' } = Astro.props;
+---
+
+<div class={classList}>
+  <span
+    class="inline-flex items-center px-2 py-1 rounded-full border border-on-surface-raise text-xs font-bold uppercase text-on-surface-raise"
+  >
+    {label}
+  </span>
+  <h3 class="mt-[6px] text-2xl font-medium text-on-surface-default">{title}</h3>
+  <p class="mt-[9px] text-lg font-light whitespace-pre-line text-on-surface-subdue">{text}</p>
+</div>

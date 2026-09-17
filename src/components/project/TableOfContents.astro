@@ -1,0 +1,98 @@
+---
+// items: [{ id: string, label: string }] — id must match an element
+// elsewhere on the page; that element's visibility drives the active link.
+// activeId statically marks one item selected at render time — mainly for
+// showcasing the selected state without a real page to scroll.
+const { items, alwaysVisible = false, activeId, class: classList = '' } = Astro.props;
+
+const visibility = alwaysVisible
+  ? 'opacity-100'
+  : 'opacity-0 pointer-events-none';
+---
+
+<nav
+  data-toc
+  data-toc-always-visible={alwaysVisible ? 'true' : 'false'}
+  class={`flex flex-col gap-2 transition-opacity duration-500 ${visibility} ${classList}`}
+  aria-label="Sommaire"
+>
+  {
+    items.map((item) => (
+      <a
+        href={`#${item.id}`}
+        data-toc-link={item.id}
+        class={`text-sm leading-[17px] transition-[color,font-weight] duration-300 hover:text-on-surface-raise ${
+          item.id === activeId
+            ? 'font-bold text-on-surface-default'
+            : 'font-light text-on-surface-subdue'
+        }`}
+      >
+        {item.label}
+      </a>
+    ))
+  }
+</nav>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-toc]').forEach((nav) => {
+    const links = new Map(
+      Array.from(nav.querySelectorAll<HTMLAnchorElement>('[data-toc-link]')).map((link) => [
+        link.dataset.tocLink,
+        link,
+      ])
+    );
+    const sectionIds = Array.from(links.keys());
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    if (sections.length === 0) return;
+
+    const alwaysVisible = nav.dataset.tocAlwaysVisible === 'true';
+    let activeIndex = 0;
+    // Tracks which observed sections currently intersect. Distinct from
+    // activeIndex === 0: content above the first tracked section (e.g. a
+    // hero with no id of its own) never intersects, so this stays empty
+    // there and the nav stays hidden. It's a live set, not a one-way
+    // latch, so scrolling back up above the first section (out of every
+    // tracked section) hides the nav again instead of leaving it stuck on.
+    const intersecting = new Set<string>();
+
+    function update() {
+      if (!alwaysVisible) {
+        const hasEntered = intersecting.size > 0;
+        nav.classList.toggle('opacity-0', !hasEntered);
+        nav.classList.toggle('pointer-events-none', !hasEntered);
+      }
+      sectionIds.forEach((id, i) => {
+        const link = links.get(id);
+        if (!link) return;
+        const selected = i === activeIndex;
+        link.classList.remove('text-on-surface-default', 'text-on-surface-subdue');
+        link.classList.add(selected ? 'text-on-surface-default' : 'text-on-surface-subdue');
+        link.classList.remove('font-light', 'font-bold');
+        link.classList.add(selected ? 'font-bold' : 'font-light');
+      });
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const id = entry.target.id;
+          if (entry.isIntersecting) {
+            intersecting.add(id);
+            const index = sectionIds.indexOf(id);
+            if (index !== -1) activeIndex = index;
+          } else {
+            intersecting.delete(id);
+          }
+        });
+        update();
+      },
+      { rootMargin: '-50% 0px -50% 0px' }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    update();
+  });
+</script>

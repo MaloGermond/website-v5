@@ -1,0 +1,21 @@
+---
+const { tag, stage, text, class: classList = '' } = Astro.props;
+---
+
+<div class={`bg-background border border-on-surface-subdue rounded p-4 max-w-[349px] ${classList}`}>
+  <p class="text-[22px] font-normal text-on-surface-default">{text}</p>
+  <div class="mt-4 flex flex-row gap-2">
+    <div class="flex-1 p-2 rounded border border-on-surface-subdue">
+      <span class="block text-xs font-medium uppercase tracking-[0.4px] text-on-surface-subdue">
+        Stages
+      </span>
+      <span class="block mt-1 text-lg font-medium text-on-surface-default">{stage}</span>
+    </div>
+    <div class="flex-1 p-2 rounded border border-on-surface-subdue">
+      <span class="block text-xs font-medium uppercase tracking-[0.4px] text-on-surface-subdue">
+        Heristique
+      </span>
+      <span class="block mt-1 text-lg font-medium text-on-surface-default">{tag}</span>
+    </div>
+  </div>
+</div>
