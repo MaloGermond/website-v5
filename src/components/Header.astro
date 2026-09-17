@@ -54,7 +54,7 @@ const { slug, lang } = Astro.props;
   if (pill && !prefersReducedMotion) {
     gsap.fromTo(
       pill,
-      { yPercent: 130 },
+      { yPercent: -130 },
       { yPercent: 0, duration: 0.9, ease: 'power3.out' }
     );
   }
@@ -68,7 +68,11 @@ const { slug, lang } = Astro.props;
     const isScrollingDown = currentScrollY > lastScrollY;
     const isPastThreshold = currentScrollY > SCROLL_RETRACT_THRESHOLD;
 
-    pill?.classList.toggle('is-retracted', isScrollingDown && isPastThreshold);
+    if (isScrollingDown && isPastThreshold) {
+      pill?.classList.add('is-retracted');
+    } else if (currentScrollY <= 0) {
+      pill?.classList.remove('is-retracted');
+    }
 
     lastScrollY = currentScrollY;
     tickingScroll = false;
