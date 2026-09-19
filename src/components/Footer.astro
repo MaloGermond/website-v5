@@ -1,0 +1,80 @@
+---
+const { lang = 'fr' } = Astro.props;
+
+import { getTranslation } from '@utils/handleLocales';
+
+const content = getTranslation(lang);
+const currentYear = new Date().getFullYear();
+
+const { projects, design, products, socials } = content.footer.nav;
+
+// Footer is a fixed dark surface (Penpot tokens surface.dark / onDark.*) —
+// it does not follow the site's light/dark theme toggle.
+const linkClass = 'text-base font-light text-white';
+const titleClass = 'text-base font-bold tracking-wide text-white';
+const placeholderClass = 'text-base font-light text-white';
+---
+
+<footer class="w-full mt-16 border-t border-gray-700 bg-gray-900">
+  <div class="max-w-7xl mx-auto px-12 py-12 flex flex-col gap-12">
+    <span class="font-avara text-4xl text-white">
+      {content.hero.name}
+    </span>
+
+    <div class="flex flex-wrap gap-x-12 gap-y-4">
+      <nav aria-label={projects.title} class="flex flex-col gap-2">
+        <span class={titleClass}>{projects.title}</span>
+        <div class="flex flex-col gap-1">
+          {
+            projects.items.map((item) => (
+              <a href={`/${lang}/${item.slug}/`} class={linkClass}>
+                {item.label}
+              </a>
+            ))
+          }
+        </div>
+      </nav>
+
+      <div class="flex flex-col gap-2">
+        <span class={titleClass}>{design.title}</span>
+        <div class="flex flex-col gap-1">
+          {design.items.map((item) => <span class={placeholderClass}>{item.label}</span>)}
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <span class={titleClass}>{products.title}</span>
+        <div class="flex flex-col gap-1">
+          {products.items.map((item) => <span class={placeholderClass}>{item.label}</span>)}
+        </div>
+      </div>
+
+      <nav aria-label={socials.title} class="flex flex-col gap-2">
+        <span class={titleClass}>{socials.title}</span>
+        <div class="flex flex-col gap-1">
+          {
+            content.socialLinks.map((link) => (
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class={linkClass}
+                data-umami-event="click"
+                data-umami-event-id={link.label}
+                data-umami-event-type="social link"
+              >
+                {link.label}
+              </a>
+            ))
+          }
+        </div>
+      </nav>
+    </div>
+
+    <div class="w-full py-3">
+      <span class="text-xs text-gray-400">
+        © {currentYear} {content.hero.name} — {content.footer.rights}
+      </span>
+    </div>
+  </div>
+</footer>
