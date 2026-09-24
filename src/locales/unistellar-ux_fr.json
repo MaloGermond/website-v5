@@ -136,58 +136,63 @@
     },
     "steps": [
       {
-        "id": "connexion",
+        "id": "unboxing",
         "order": 1,
-        "label": "Connexion",
-        "subActions": ["Créer un compte", "Appairer l’eVscope"],
-        "scoreBefore": 58,
-        "scoreAfter": 74
+        "label": "Unboxing",
+        "subActions": ["Unboxing"],
+        "opportunities": ["Esprit positif à l’unboxing"],
+        "scoreBefore": null,
+        "scoreAfter": null
       },
       {
-        "id": "orientation",
+        "id": "setup",
         "order": 2,
-        "label": "Orientation",
-        "subActions": ["Démarrer l’observation", "Comprendre l’interface"],
-        "scoreBefore": 30,
-        "scoreAfter": 66
-      },
-      {
-        "id": "recherche",
-        "order": 3,
-        "label": "Recherche",
-        "subActions": ["Parcourir le catalogue", "Choisir un objet"],
-        "scoreBefore": 50,
-        "scoreAfter": 72
-      },
-      {
-        "id": "pointage",
-        "order": 4,
-        "label": "Pointage",
-        "subActions": ["Lancer le GoTo", "Ajuster avec le joystick"],
-        "scoreBefore": 26,
-        "scoreAfter": 68
-      },
-      {
-        "id": "mise-au-point",
-        "order": 5,
-        "label": "Mise au point",
-        "subActions": ["Activer Enhanced vision", "Régler la netteté"],
-        "scoreBefore": 44,
-        "scoreAfter": 70
+        "label": "Setup",
+        "subActions": ["Montage", "Connexion", "Orientation"],
+        "opportunities": [
+          "Mieux accompagner l’utilisateur",
+          "Ne sait pas qu’il faut orienter le télescope",
+          "N’arrive pas à ajuster la bulle",
+          "Ne comprend pas qu’il faut utiliser le wifi"
+        ],
+        "scoreBefore": null,
+        "scoreAfter": null
       },
       {
         "id": "observation",
-        "order": 6,
+        "order": 3,
         "label": "Observation",
-        "subActions": ["Contempler l’objet", "Capturer une image"],
-        "scoreBefore": 62,
-        "scoreAfter": 86
+        "subActions": [
+          "Recherche objet",
+          "Pointer",
+          "Enhanced vision",
+          "Edit image",
+          "Save image",
+          "Démontage"
+        ],
+        "opportunities": [
+          "Rassembler les actions d’observation principales sur la même page",
+          "Ne sait pas où trouver les objets à observer",
+          "Ne sait pas comment déplacer le télescope dans le ciel",
+          "Ne trouve pas l’action Enhanced Vision"
+        ],
+        "scoreBefore": null,
+        "scoreAfter": null
+      },
+      {
+        "id": "shared",
+        "order": 4,
+        "label": "Shared",
+        "subActions": ["Upload"],
+        "opportunities": [],
+        "scoreBefore": null,
+        "scoreAfter": null
       }
     ],
     "notes": [
       {
         "id": "n1",
-        "stepId": "mise-au-point",
+        "stepId": "observation",
         "quote": "Donc là je peux faire la mise au point maintenant ?",
         "user": "Henri",
         "tag": "Guidage",
@@ -203,7 +208,7 @@
       },
       {
         "id": "n3",
-        "stepId": "recherche",
+        "stepId": "observation",
         "quote": "Bah j’essaye de, oui, je vois que j’ai pointé une étoile, et j’aimerais savoir ce que je suis en train de regarder.",
         "user": "Henri",
         "tag": "Adaptabilité",
@@ -211,7 +216,7 @@
       },
       {
         "id": "n4",
-        "stepId": "connexion",
+        "stepId": "setup",
         "quote": "Je sais plus où je dois aller moi...",
         "user": "Lize",
         "tag": "Guidage",
@@ -219,7 +224,7 @@
       },
       {
         "id": "n5",
-        "stepId": "orientation",
+        "stepId": "setup",
         "quote": "Non mais j... OK, et comment je sais qu’il l’a trouvé,",
         "user": "Pierre",
         "tag": "Guidage",
@@ -227,7 +232,7 @@
       },
       {
         "id": "n6",
-        "stepId": "pointage",
+        "stepId": "observation",
         "quote": "Je crois que j’ai pas reconnu que c’était un joystick... En fait, j’avais du mal à me dire qu’on peut orienter dans différentes positions avec ca... [je voulais voir] Un bouton plutôt.",
         "user": "Marc",
         "timestamp": "18:39",
@@ -236,7 +241,7 @@
       },
       {
         "id": "n7",
-        "stepId": "pointage",
+        "stepId": "observation",
         "quote": "Azimut je ne sais pas ce que ca veut dire...",
         "user": "Suzanne",
         "tag": "Guidage",
@@ -244,7 +249,7 @@
       },
       {
         "id": "n8",
-        "stepId": "orientation",
+        "stepId": "setup",
         "quote": "Alors démarrer l’observation. \nOh my god, je suis paumé là !",
         "user": "Jean-Marc",
         "tag": "Charge de travail",

@@ -132,58 +132,63 @@
     },
     "steps": [
       {
-        "id": "connexion",
+        "id": "unboxing",
         "order": 1,
-        "label": "Sign-in",
-        "subActions": ["Create an account", "Pair the eVscope"],
-        "scoreBefore": 58,
-        "scoreAfter": 74
+        "label": "Unboxing",
+        "subActions": ["Unboxing"],
+        "opportunities": ["Positive mindset at unboxing"],
+        "scoreBefore": null,
+        "scoreAfter": null
       },
       {
-        "id": "orientation",
+        "id": "setup",
         "order": 2,
-        "label": "Orientation",
-        "subActions": ["Start the observation", "Understand the interface"],
-        "scoreBefore": 30,
-        "scoreAfter": 66
-      },
-      {
-        "id": "recherche",
-        "order": 3,
-        "label": "Search",
-        "subActions": ["Browse the catalog", "Pick an object"],
-        "scoreBefore": 50,
-        "scoreAfter": 72
-      },
-      {
-        "id": "pointage",
-        "order": 4,
-        "label": "Pointing",
-        "subActions": ["Launch the GoTo", "Adjust with the joystick"],
-        "scoreBefore": 26,
-        "scoreAfter": 68
-      },
-      {
-        "id": "mise-au-point",
-        "order": 5,
-        "label": "Focus",
-        "subActions": ["Turn on Enhanced vision", "Adjust sharpness"],
-        "scoreBefore": 44,
-        "scoreAfter": 70
+        "label": "Setup",
+        "subActions": ["Assembly", "Sign-in", "Orientation"],
+        "opportunities": [
+          "Better guide the user",
+          "Doesn't know the telescope needs to be oriented",
+          "Can't manage to adjust the bubble level",
+          "Doesn't understand they need to use wifi"
+        ],
+        "scoreBefore": null,
+        "scoreAfter": null
       },
       {
         "id": "observation",
-        "order": 6,
+        "order": 3,
         "label": "Observation",
-        "subActions": ["Contemplate the object", "Capture an image"],
-        "scoreBefore": 62,
-        "scoreAfter": 86
+        "subActions": [
+          "Object search",
+          "Pointing",
+          "Enhanced vision",
+          "Edit image",
+          "Save image",
+          "Teardown"
+        ],
+        "opportunities": [
+          "Gather the main observation actions on the same page",
+          "Doesn't know where to find objects to observe",
+          "Doesn't know how to move the telescope across the sky",
+          "Can't find the Enhanced Vision action"
+        ],
+        "scoreBefore": null,
+        "scoreAfter": null
+      },
+      {
+        "id": "shared",
+        "order": 4,
+        "label": "Shared",
+        "subActions": ["Upload"],
+        "opportunities": [],
+        "scoreBefore": null,
+        "scoreAfter": null
       }
     ],
     "notes": [
       {
         "id": "n1",
-        "stepId": "mise-au-point",
+        "stepId": "observation",
         "quote": "So can I focus it now?",
         "user": "Henri",
         "tag": "Guidance",
@@ -199,7 +204,7 @@
       },
       {
         "id": "n3",
-        "stepId": "recherche",
+        "stepId": "observation",
         "quote": "Well I'm trying, yeah I see I've pointed at a star, and I'd like to know what I'm actually looking at.",
         "user": "Henri",
         "tag": "Adaptability",
@@ -207,7 +212,7 @@
       },
       {
         "id": "n4",
-        "stepId": "connexion",
+        "stepId": "setup",
         "quote": "I don't know where I'm supposed to go...",
         "user": "Lize",
         "tag": "Guidance",
@@ -215,7 +220,7 @@
       },
       {
         "id": "n5",
-        "stepId": "orientation",
+        "stepId": "setup",
         "quote": "No but I... OK, and how do I know it's found it,",
         "user": "Pierre",
         "tag": "Guidance",
@@ -223,7 +228,7 @@
       },
       {
         "id": "n6",
-        "stepId": "pointage",
+        "stepId": "observation",
         "quote": "I don't think I recognized that was a joystick... Actually, I had trouble telling that you can steer in different directions with it... [I wanted to see] A button instead.",
         "user": "Marc",
         "timestamp": "18:39",
@@ -232,7 +237,7 @@
       },
       {
         "id": "n7",
-        "stepId": "pointage",
+        "stepId": "observation",
         "quote": "Azimuth, I have no idea what that means...",
         "user": "Suzanne",
         "tag": "Guidance",
@@ -240,7 +245,7 @@
       },
       {
         "id": "n8",
-        "stepId": "orientation",
+        "stepId": "setup",
         "quote": "So starting the observation...\noh my god, I'm totally lost here!",
         "user": "Jean-Marc",
         "tag": "Workload",

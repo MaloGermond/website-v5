@@ -2,7 +2,7 @@
 //
 // The board is driven by a single JSON source of truth (see the `stickyBoard`
 // key of a project's locale file):
-//   steps:    UserStoryStep { id, order, label, subActions[], scoreBefore, scoreAfter }
+//   steps:    UserStoryStep { id, order, label, subActions[], opportunities[], scoreBefore, scoreAfter }
 //   notes:    StickyNote    { id, stepId, quote, user?, timestamp?, tag, color?, screenIds[] }
 //   screens:  Screen        { id, label, image }  (image = asset name, resolved to imageSrc)
 //   features: Feature       { id, label, screenIds[], noteIds[] }
