@@ -3,23 +3,19 @@ import sunSVG from '/icons/sun.svg?raw';
 import moonSVG from '/icons/moon.svg?raw';
 
 export default function ThemeSwitcher() {
-  // État local pour le thème
+  // État local pour le thème, initialisé depuis localStorage (déjà appliqué au <html> par le script inline du Layout)
   const [theme, setTheme] = useState(() => {
     if (typeof window !== 'undefined') {
-      return (
-        localStorage.getItem('theme') ||
-        (window.matchMedia('(prefers-color-scheme: dark)').matches
-          ? 'dark'
-          : 'light')
-      );
+      return localStorage.getItem('theme') || 'light';
     }
     return 'light'; // Valeur par défaut côté serveur
   });
 
-  // Applique le thème au montage
+  // Applique le thème et le persiste à chaque changement
   useEffect(() => {
     document.documentElement.classList.remove('light', 'dark');
     document.documentElement.classList.add(theme);
+    document.documentElement.style.colorScheme = theme;
     localStorage.setItem('theme', theme);
   }, [theme]);
 

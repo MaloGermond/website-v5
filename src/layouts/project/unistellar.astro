@@ -4,6 +4,7 @@ const { lang } = Astro.params;
 import { Image } from 'astro:assets';
 import Paragraph from '@components/Paragraph.astro';
 import InfoColumn from '@components/project/InfoColumn.astro';
+import Metrics from '@components/project/Metrics.astro';
 import Mosaic from '@components/project/Mosaic.astro';
 import Frame from "@components/Frame.astro"
 
@@ -42,15 +43,20 @@ const mosaicScreens = Object.values(images).filter((el) =>
   />
 </section>
 <section class="px-8 py-16 max-w-7xl m-auto">
+  <p class="text-sm px-4 mb-2 text-gray-400 dark:text-gray-400">
+    {content.period}
+  </p>
   <h2
     class="font-avara paragraph text-xl sm:text-4xl max-w-3xl p-4 dark:text-gray-50"
+    data-reveal-lines
   >
     {content.contexte}
   </h2>
-  <div class="flex flex-row flex-wrap">
-    <InfoColumn title={content.roles.title} items={content.roles.items} />
-    <InfoColumn title={content.skills.title} items={content.skills.items} />
+  <div class="flex flex-row flex-wrap" data-reveal-group>
+    <InfoColumn title={content.roles.title} items={content.roles.items} reveal />
+    <InfoColumn title={content.skills.title} items={content.skills.items} reveal />
   </div>
+  <Metrics items={content.metrics} />
 </section>
 
 <Mosaic images={mosaicScreens} />
@@ -59,6 +65,7 @@ const mosaicScreens = Object.values(images).filter((el) =>
   <Paragraph
     class="flex flex-col justify-center text-md leading-8 sm:text-3xl sm:leading-12 md:text-5xl md:leading-20 max-w-6xl m-auto font-avara paragraphe p-12 text-gray-900 dark:text-gray-50"
     content={content.purpose}
+    reveal
   />
 </section>
 <section>
@@ -70,9 +77,80 @@ const mosaicScreens = Object.values(images).filter((el) =>
   <Frame src={images['illustrations']} alt={images['illustrations']?.alt?.[lang]}/>
 </section>
 
+
 <style>
   section {
     height: auto;
     min-height: 80svh;
   }
 </style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import { splitText, type TextSplit } from 'kugiri';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  /** @impure - restores each split's original markup, showing the text immediately */
+  function skipReveal(splits: TextSplit[]): void {
+    splits.forEach((split) => split.revert());
+  }
+
+  /** @impure - hides split lines, then reveals them with a staggered scroll-triggered animation */
+  function animateReveal(splits: TextSplit[]): void {
+    const lines = splits.flatMap((split) => split.lines);
+    const masks = splits.flatMap((split) => split.masks);
+    if (lines.length === 0) {
+      return;
+    }
+
+    gsap.set(lines, { yPercent: 100, opacity: 0 });
+
+    ScrollTrigger.create({
+      trigger: lines[0],
+      start: 'top 85%',
+      once: true,
+      onEnter: () =>
+        gsap.to(lines, {
+          yPercent: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          stagger: 0.08,
+          onComplete: () => masks.forEach((mask) => (mask.style.clipPath = 'none')),
+        }),
+    });
+  }
+
+  /** @impure - splits a single text element into lines via kugiri and wires its scroll reveal */
+  function setupTextReveal(target: HTMLElement, prefersReducedMotion: boolean): void {
+    const split = splitText(target, { type: ['lines'], mask: 'lines' });
+    prefersReducedMotion ? skipReveal([split]) : animateReveal([split]);
+  }
+
+  /** @impure - splits a group of items into lines via kugiri and reveals them together */
+  function setupGroupReveal(group: Element, prefersReducedMotion: boolean): void {
+    const items = Array.from(group.querySelectorAll<HTMLElement>('[data-reveal-item]'));
+    if (items.length === 0) {
+      return;
+    }
+
+    const splits = splitText(items, { type: ['lines'], mask: 'lines' });
+    prefersReducedMotion ? skipReveal(splits) : animateReveal(splits);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
+
+    document
+      .querySelectorAll<HTMLElement>('[data-reveal-lines]')
+      .forEach((target) => setupTextReveal(target, prefersReducedMotion));
+
+    document
+      .querySelectorAll<HTMLElement>('[data-reveal-group]')
+      .forEach((group) => setupGroupReveal(group, prefersReducedMotion));
+  });
+</script>

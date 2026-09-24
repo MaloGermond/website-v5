@@ -42,5 +42,26 @@
       "text": "Let's talk",
       "url": "https://calendly.com/calendly-matchalo/30min"
     }
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "nav": {
+      "projects": {
+        "title": "Projects",
+        "items": [
+          { "label": "Unistellar - DA", "slug": "unistellar" },
+          { "label": "Unistellar use case", "slug": "unistellar-ux" }
+        ]
+      },
+      "design": {
+        "title": "Design",
+        "items": [{ "label": "Components", "slug": "components" }]
+      },
+      "products": {
+        "title": "Products",
+        "items": [{ "label": "Sketching tools", "href": "https://sketching-tools.xyz" }]
+      },
+      "socials": { "title": "Socials" }
+    }
   }
 }
