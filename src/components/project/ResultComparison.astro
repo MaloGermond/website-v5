@@ -1,0 +1,29 @@
+---
+import PhoneMockup from '@components/project/PhoneMockup.astro';
+import UserJourneyStep from '@components/project/UserJourneyStep.astro';
+
+const {
+  beforeSrc,
+  beforeAlt,
+  afterSrc,
+  afterAlt,
+  label,
+  title,
+  text,
+  class: classList = '',
+} = Astro.props;
+---
+
+<div
+  class={`relative flex h-[480px] flex-row flex-wrap items-center gap-8 overflow-hidden rounded-lg bg-gradient-to-b from-[#e4ecfe] to-[#e4eefe] px-4 dark:from-[#141e37] dark:to-[#17243a] ${classList}`}
+>
+  <div class="flex flex-1 flex-wrap items-center justify-center gap-12">
+    <div class="w-32 shrink-0 sm:w-44">
+      <PhoneMockup src={beforeSrc} alt={beforeAlt} floating={false} />
+    </div>
+    <div class="w-32 shrink-0 sm:w-44">
+      <PhoneMockup src={afterSrc} alt={afterAlt} floating={false} />
+    </div>
+  </div>
+  <UserJourneyStep class="flex-1 min-w-[227px] max-w-[237px]" label={label} title={title} text={text} />
+</div>
