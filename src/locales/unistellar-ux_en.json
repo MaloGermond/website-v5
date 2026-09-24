@@ -22,11 +22,7 @@
     "client": "Unistellar",
     "period": "2021 – 2024",
     "app": "Unistellar App",
-    "metrics": [
-      "50k downloads",
-      "3k daily users",
-      "Android - iOS"
-    ]
+    "metrics": ["50k downloads", "3k daily users", "Android - iOS"]
   },
   "introduction": {
     "period": "2021-2023",
@@ -74,57 +70,7 @@
       }
     ],
     "reconstructedText": "À partir de ces observations, j’ai reconstruit les grands moments du parcours, connexion, orientation, découverte du catalogue. Chaque point de friction a été identifié, positionné et référencé, de sorte que chacun puisse être retracé jusqu’à son origine, avant d’être synthétisé.",
-    "methodologyText": "La méthodologie retenu fût un test utilisateur en contexte naturel. J’ai établie une grille d’observation et ai fais une captation audio et vidéo des écrans et de la scène. \nJe vais ensuite retranscire l’ensemble des échanges pour associer chaque verbatim à un moment précis de la video de context et de la capture écrans.\nJ’inclue aussi à la fin du test un retours utilisateur accompagner d’un NPS et d’un attrackdiff pour identifier des opportunités et prioriser les besoins exprimés. \nDurant la session, un développeur m’accompagne, je le brief au préalable pour observer sans intervenir, afin qu’il constate par lui-même les réactions des utilisateurs plutôt que d’en recevoir seulement une synthèse a posteriori.",
-    "quotes": [
-      {
-        "tag": "Guidance",
-        "stage": "Enhanced vision",
-        "user": "Henri",
-        "text": "So can I focus it now?"
-      },
-      {
-        "tag": "Explicit control",
-        "stage": "Observation",
-        "user": "Suzanne",
-        "text": "Let's try pointing at something? No, I wanted to go to the brightest star."
-      },
-      {
-        "tag": "Adaptability",
-        "stage": "Recherche",
-        "user": "Henri",
-        "text": "Well I'm trying, yeah I see I've pointed at a star, and I'd like to know what I'm actually looking at."
-      },
-      {
-        "tag": "Guidance",
-        "stage": "Connexion",
-        "user": "Lize",
-        "text": "I don't know where I'm supposed to go..."
-      },
-      {
-        "tag": "Guidance",
-        "stage": "Orientation",
-        "user": "Pierre",
-        "text": "No but I... OK, and how do I know it's found it,"
-      },
-      {
-        "tag": "Guidance",
-        "stage": "18:39",
-        "user": "Marc",
-        "text": "I don't think I recognized that was a joystick... Actually, I had trouble telling that you can steer in different directions with it... [I wanted to see] A button instead."
-      },
-      {
-        "tag": "Guidance",
-        "stage": "Pointer",
-        "user": "Suzanne",
-        "text": "Azimuth, I have no idea what that means..."
-      },
-      {
-        "tag": "Workload",
-        "stage": "Orientation",
-        "user": "Jean-Marc",
-        "text": "So starting the observation...\noh my god, I'm totally lost here!"
-      }
-    ]
+    "methodologyText": "La méthodologie retenu fût un test utilisateur en contexte naturel. J’ai établie une grille d’observation et ai fais une captation audio et vidéo des écrans et de la scène. \nJe vais ensuite retranscire l’ensemble des échanges pour associer chaque verbatim à un moment précis de la video de context et de la capture écrans.\nJ’inclue aussi à la fin du test un retours utilisateur accompagner d’un NPS et d’un attrackdiff pour identifier des opportunités et prioriser les besoins exprimés. \nDurant la session, un développeur m’accompagne, je le brief au préalable pour observer sans intervenir, afin qu’il constate par lui-même les réactions des utilisateurs plutôt que d’en recevoir seulement une synthèse a posteriori."
   },
   "results": {
     "items": [
@@ -136,5 +82,257 @@
         "afterImage": "screen-unistellar-v3-observation-orion"
       }
     ]
+  },
+  "stickyBoard": {
+    "ui": {
+      "boardLabel": "User test verbatims board",
+      "filterLabel": "Filter by heuristic",
+      "allTags": "All",
+      "previous": "Previous step",
+      "next": "Next step",
+      "stepCounter": "Step {current} of {total}",
+      "subActions": "Sub-actions",
+      "linkedScreens": "Related screens",
+      "noteDetailsHint": "Select a verbatim to see the related screens.",
+      "tag": "Heuristic",
+      "timestamp": "Time",
+      "impactedScreens": "Impacted screens",
+      "showNotes": "Show the verbatims",
+      "hideNotes": "Hide the verbatims",
+      "emptyFilter": "No screen for this filter: pick “All” to see everything again.",
+      "features": "Features",
+      "noFeature": "No feature",
+      "curveBefore": "Emotional state before",
+      "curveAfter": "Emotional state after",
+      "score": "State {before} → {after}",
+      "summaryCta": "See the impacted screens",
+      "zoomLabel": "Zoom into the observation screen",
+      "story": [
+        {
+          "title": "The journey steps",
+          "text": "Six key moments, from first launching the app to observing the sky."
+        },
+        {
+          "title": "Sorting the verbatims",
+          "text": "Each test verbatim is attached to the step where it was said."
+        },
+        {
+          "title": "The state curve",
+          "text": "Where notes pile up, the emotional state collapses."
+        },
+        {
+          "title": "From notes to features",
+          "text": "Each feature answers specific verbatims; the others stay visible, dimmed."
+        },
+        {
+          "title": "Before / after",
+          "text": "After the redesign, the curve rises where it hurt the most."
+        }
+      ]
+    },
+    "steps": [
+      {
+        "id": "connexion",
+        "order": 1,
+        "label": "Sign-in",
+        "subActions": ["Create an account", "Pair the eVscope"],
+        "scoreBefore": 58,
+        "scoreAfter": 74
+      },
+      {
+        "id": "orientation",
+        "order": 2,
+        "label": "Orientation",
+        "subActions": ["Start the observation", "Understand the interface"],
+        "scoreBefore": 30,
+        "scoreAfter": 66
+      },
+      {
+        "id": "recherche",
+        "order": 3,
+        "label": "Search",
+        "subActions": ["Browse the catalog", "Pick an object"],
+        "scoreBefore": 50,
+        "scoreAfter": 72
+      },
+      {
+        "id": "pointage",
+        "order": 4,
+        "label": "Pointing",
+        "subActions": ["Launch the GoTo", "Adjust with the joystick"],
+        "scoreBefore": 26,
+        "scoreAfter": 68
+      },
+      {
+        "id": "mise-au-point",
+        "order": 5,
+        "label": "Focus",
+        "subActions": ["Turn on Enhanced vision", "Adjust sharpness"],
+        "scoreBefore": 44,
+        "scoreAfter": 70
+      },
+      {
+        "id": "observation",
+        "order": 6,
+        "label": "Observation",
+        "subActions": ["Contemplate the object", "Capture an image"],
+        "scoreBefore": 62,
+        "scoreAfter": 86
+      }
+    ],
+    "notes": [
+      {
+        "id": "n1",
+        "stepId": "mise-au-point",
+        "quote": "So can I focus it now?",
+        "user": "Henri",
+        "tag": "Guidance",
+        "screenIds": ["observation-v1"]
+      },
+      {
+        "id": "n2",
+        "stepId": "observation",
+        "quote": "Let's try pointing at something? No, I wanted to go to the brightest star.",
+        "user": "Suzanne",
+        "tag": "Explicit control",
+        "screenIds": ["observation-v1"]
+      },
+      {
+        "id": "n3",
+        "stepId": "recherche",
+        "quote": "Well I'm trying, yeah I see I've pointed at a star, and I'd like to know what I'm actually looking at.",
+        "user": "Henri",
+        "tag": "Adaptability",
+        "screenIds": ["observation-v1", "object-v1"]
+      },
+      {
+        "id": "n4",
+        "stepId": "connexion",
+        "quote": "I don't know where I'm supposed to go...",
+        "user": "Lize",
+        "tag": "Guidance",
+        "screenIds": ["login"]
+      },
+      {
+        "id": "n5",
+        "stepId": "orientation",
+        "quote": "No but I... OK, and how do I know it's found it,",
+        "user": "Pierre",
+        "tag": "Guidance",
+        "screenIds": ["observation-v1"]
+      },
+      {
+        "id": "n6",
+        "stepId": "pointage",
+        "quote": "I don't think I recognized that was a joystick... Actually, I had trouble telling that you can steer in different directions with it... [I wanted to see] A button instead.",
+        "user": "Marc",
+        "timestamp": "18:39",
+        "tag": "Guidance",
+        "screenIds": ["observation-v1"]
+      },
+      {
+        "id": "n7",
+        "stepId": "pointage",
+        "quote": "Azimuth, I have no idea what that means...",
+        "user": "Suzanne",
+        "tag": "Guidance",
+        "screenIds": ["object-v1"]
+      },
+      {
+        "id": "n8",
+        "stepId": "orientation",
+        "quote": "So starting the observation...\noh my god, I'm totally lost here!",
+        "user": "Jean-Marc",
+        "tag": "Workload",
+        "screenIds": ["observation-v1", "catalog-v1"]
+      }
+    ],
+    "screens": [
+      {
+        "id": "login",
+        "label": "Sign-in",
+        "image": "login"
+      },
+      {
+        "id": "catalog-v1",
+        "label": "Catalog",
+        "image": "mockup-v1-catalog"
+      },
+      {
+        "id": "object-v1",
+        "label": "Object page",
+        "image": "mockup-v1-objectPage"
+      },
+      {
+        "id": "observation-v1",
+        "label": "Observation",
+        "image": "unistellar-screen-v1-observation"
+      }
+    ],
+    "features": [
+      {
+        "id": "guided-pointing",
+        "label": "Guided pointing",
+        "screenIds": ["observation-v1", "object-v1"],
+        "noteIds": ["n5", "n6", "n7"]
+      },
+      {
+        "id": "object-identity",
+        "label": "Observed object identity",
+        "screenIds": ["observation-v1"],
+        "noteIds": ["n3"]
+      },
+      {
+        "id": "assisted-focus",
+        "label": "Assisted focus",
+        "screenIds": ["observation-v1"],
+        "noteIds": ["n1"]
+      },
+      {
+        "id": "simple-onboarding",
+        "label": "Simpler sign-in",
+        "screenIds": ["login"],
+        "noteIds": ["n4"]
+      }
+    ],
+    "zoom": {
+      "screenId": "observation-v1",
+      "noteId": "n6",
+      "targets": [
+        {
+          "id": "joystick",
+          "label": "Joystick",
+          "x": 5.9,
+          "y": 64,
+          "w": 37.7,
+          "h": 17.5
+        }
+      ],
+      "keyframes": [
+        {
+          "scale": 1,
+          "bgOpacity": 0,
+          "caption": "The observation screen, as tested."
+        },
+        {
+          "scale": 1,
+          "bgOpacity": 1,
+          "caption": "Outside, at night, facing the sky: the real test context."
+        },
+        {
+          "scale": 1.8,
+          "focusId": "joystick",
+          "bgOpacity": 1,
+          "caption": "To adjust the pointing, a single control…"
+        },
+        {
+          "scale": 2.4,
+          "focusId": "joystick",
+          "bgOpacity": 1,
+          "highlightId": "joystick",
+          "caption": "…that nobody recognized as a joystick."
+        }
+      ]
+    }
   }
 }

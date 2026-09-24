@@ -15,9 +15,14 @@ import InternalLink from '@components/project/InternalLink.astro';
 import Quote from '@components/project/Quote.astro';
 import TableOfContents from '@components/project/TableOfContents.astro';
 import ResultComparison from '@components/project/ResultComparison.astro';
+import StickyBoard from '@components/project/sticky-board/StickyBoard.jsx';
+import StickyNote from '@components/project/sticky-board/StickyNote.jsx';
+import Screen from '@components/project/sticky-board/Screen.jsx';
+import { prepareBoardData } from '@components/project/sticky-board/stickyBoardModel.js';
 
 import { locales } from '@locales/config.json';
 import { loadScreensOnce } from '@utils/useScreens';
+import { getTranslation } from '@utils/handleLocales';
 
 import screenHome from '@assets/unistellar/eVscope occulaire.png';
 import screenCatalog from '@assets/unistellar/eVscope focus.png';
@@ -54,6 +59,13 @@ const v3Images = Object.values(allScreens)
 // Only the screen-unistellar-v* captures are real app screens; the picker
 // is restricted to those (no illustration/eVscope shots).
 const images = v3Images;
+
+// StickyBoard demos reuse the Unistellar UX case-study data as-is.
+const board = prepareBoardData(
+  getTranslation(lang, 'unistellar-ux').stickyBoard,
+  allScreens,
+  lang
+);
 
 const mosaicImages = Object.values(allScreens)
   .filter((img) => img.name.startsWith('screen-'))
@@ -244,5 +256,55 @@ const mosaicImages = Object.values(allScreens)
       Mosaic
     </h2>
     <Mosaic images={mosaicImages} col={4} />
+  </section>
+  <section class="mb-16">
+    <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
+      StickyNote
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl">
+      <StickyNote note={board.notes[5]} colorSlot={1} />
+      <StickyNote note={board.notes[1]} colorSlot={2} marks={[1]} />
+      <StickyNote note={board.notes[2]} colorSlot={3} active />
+      <StickyNote note={board.notes[7]} colorSlot={4} dimmed />
+    </div>
+  </section>
+
+  <section class="mb-16">
+    <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
+      Screen
+    </h2>
+    <div class="flex flex-row flex-wrap items-start gap-8">
+      <Screen class="w-40" screen={board.screens[3]} />
+      <Screen class="w-40" screen={board.screens[3]} highlighted />
+      <Screen screen={board.screens[1]} size="sm" />
+    </div>
+  </section>
+
+  <section class="mb-16">
+    <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
+      StickyBoard — timeline
+    </h2>
+    <StickyBoard client:visible mode="timeline" data={board} boardId="demo" />
+  </section>
+
+  <section class="mb-16">
+    <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
+      StickyBoard — summary (filtre partagé avec la timeline)
+    </h2>
+    <StickyBoard client:visible mode="summary" data={board} boardId="demo" />
+  </section>
+
+  <section class="mb-16">
+    <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
+      StickyBoard — detail
+    </h2>
+    <StickyBoard client:visible mode="detail" data={board} />
+  </section>
+
+  <section class="mb-16">
+    <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
+      StickyBoard — story
+    </h2>
+    <StickyBoard client:visible mode="story" data={board} />
   </section>
 </Layout>
