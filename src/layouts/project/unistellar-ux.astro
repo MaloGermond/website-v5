@@ -6,19 +6,19 @@ import TableOfContents from '@components/project/TableOfContents.astro';
 import InternalLink from '@components/project/InternalLink.astro';
 import StepReveal from '@components/project/StepReveal.astro';
 import ResultComparison from '@components/project/ResultComparison.astro';
-import StickyBoard from '@components/project/sticky-board/StickyBoard.jsx';
+import StickyNote from '@components/project/sticky-board/StickyNote.jsx';
+import { deriveTags, noteColorSlot } from '@components/project/sticky-board/stickyBoardModel.js';
 
 import { loadScreensOnce } from '@utils/useScreens';
-import { prepareBoardData } from '@components/project/sticky-board/stickyBoardModel.js';
 
 const screens = import.meta.glob('../../assets/unistellar/*{jpg,png,gif,webp}');
 const metadata = await import('../../assets/unistellar/images-metadata.json');
 const images = await loadScreensOnce(screens, metadata);
 
-const board = prepareBoardData(content.stickyBoard, images, lang);
-
 const ink = 'text-on-surface-default';
 const inkMuted = 'text-on-surface-subdue';
+
+const quoteTags = deriveTags(content.method.quotes);
 
 const journeyItems = content.method.journey.map((step) => ({
   label: step.label,
@@ -115,32 +115,23 @@ const navSections = [
         </p>
       </div>
 
-    </div>
-
-    <div class="mt-20 max-w-6xl mx-auto">
-      <StickyBoard
-        client:idle
-        mode="story"
-        data={board}
-        boardId="unistellar"
-        summaryHref="#impacted-screens"
-      />
-    </div>
-
-    <div class="mt-28 max-w-5xl mx-auto">
-      <StickyBoard client:idle mode="detail" data={board} boardId="unistellar" />
+      <div class="mt-20 columns-1 sm:columns-2 gap-6">
+        {
+          content.method.quotes.map((quote) => (
+            <StickyNote
+              note={{ quote: quote.text, user: quote.user, timestamp: quote.stage, tag: quote.tag }}
+              colorSlot={noteColorSlot(quote, quoteTags)}
+              scattered={false}
+              class="mb-6 break-inside-avoid"
+            />
+          ))
+        }
+      </div>
     </div>
   </section>
 
   <section id="results" class="px-8 py-28 md:py-36">
     <div class="max-w-5xl mx-auto flex flex-col gap-8">
-      <StickyBoard
-        client:visible
-        mode="summary"
-        data={board}
-        boardId="unistellar"
-        anchorId="impacted-screens"
-      />
       {
         content.results.items.map((item) => (
           <ResultComparison

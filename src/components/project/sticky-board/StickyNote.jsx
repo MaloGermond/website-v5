@@ -85,7 +85,7 @@ export default function StickyNote({
       aria-hidden={hidden ? 'true' : undefined}
       style={noteStyle(note, pile, delayMs)}
       class={[
-        'group relative rounded-sm p-3 text-left text-on-surface-default shadow-[0_1px_2px_rgb(0_0_0/10%),0_4px_12px_rgb(0_0_0/6%)]',
+        'group relative rounded-lg p-3 text-left text-on-surface-default shadow-[0_1px_2px_rgb(0_0_0/10%),0_4px_12px_rgb(0_0_0/6%)]',
         'transition-[translate,rotate,scale,opacity,background-color,filter] duration-500 ease-out motion-reduce:transition-none',
         'md:[translate:var(--note-x)_var(--note-y)]',
         scattered ? 'md:[rotate:var(--note-rotate)]' : '',

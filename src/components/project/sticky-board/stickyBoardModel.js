@@ -3,6 +3,9 @@
 // The board is driven by a single JSON source of truth (see the `stickyBoard`
 // key of a project's locale file):
 //   steps:    UserStoryStep { id, order, label, subActions[], opportunities[], scoreBefore, scoreAfter }
+//             subAction: { label, scoreBefore, scoreAfter } — the state curve
+//             plots one point per sub-action (see subActionCurvePoints), not
+//             one per step; a step's own scoreBefore/scoreAfter is a rollup.
 //   notes:    StickyNote    { id, stepId, quote, user?, timestamp?, tag, color?, screenIds[] }
 //   screens:  Screen        { id, label, image }  (image = asset name, resolved to imageSrc)
 //   features: Feature       { id, label, screenIds[], noteIds[] }
@@ -153,6 +156,40 @@ export function curvePoints(steps, scoreKey) {
   }));
 }
 
+/** @pure - flat [{ stepId, label, scoreBefore, scoreAfter }] for every sub-action, in step order */
+export function flattenSubActions(steps) {
+  return steps.flatMap((step) =>
+    (step.subActions ?? []).map((subAction) => ({ stepId: step.id, ...subAction }))
+  );
+}
+
+/**
+ * @pure - a sub-action's score for `scoreKey`, falling back to the other
+ * score when null: a step not yet re-tested has no scoreAfter, and one not
+ * given a baseline has no scoreBefore. Without this, a null renders as 0 and
+ * the curve collapses to the bottom instead of holding its last known value.
+ */
+export function resolveScore(subAction, scoreKey) {
+  const other = scoreKey === 'scoreBefore' ? 'scoreAfter' : 'scoreBefore';
+  return subAction[scoreKey] ?? subAction[other] ?? 0;
+}
+
+/**
+ * @pure - curve points [{ x, y, score, label, stepId }] for a score key over
+ * every sub-action across sorted steps (finer-grained than curvePoints,
+ * one point per sub-action rather than one per step).
+ */
+export function subActionCurvePoints(steps, scoreKey) {
+  const actions = flattenSubActions(steps);
+  return actions.map((action, index) => ({
+    x: columnCenter(index, actions.length),
+    y: scoreToY(resolveScore(action, scoreKey)),
+    score: resolveScore(action, scoreKey),
+    label: action.label,
+    stepId: action.stepId,
+  }));
+}
+
 /**
  * @pure - SVG path through the points. Always the same command structure for
  * the same step count, so the before/after paths can be morphed number by
@@ -176,6 +213,11 @@ export function improvement(step) {
   return Math.round(
     ((step.scoreAfter - step.scoreBefore) / step.scoreBefore) * 100
   );
+}
+
+/** @pure - absolute point gain between before and after, rounded */
+export function scoreDelta(step) {
+  return Math.round((step.scoreAfter ?? 0) - (step.scoreBefore ?? 0));
 }
 
 /** @pure - ids of the `count` steps with the best improvement */

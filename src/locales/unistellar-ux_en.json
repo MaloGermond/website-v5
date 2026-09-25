@@ -70,7 +70,57 @@
       }
     ],
     "reconstructedText": "À partir de ces observations, j’ai reconstruit les grands moments du parcours, connexion, orientation, découverte du catalogue. Chaque point de friction a été identifié, positionné et référencé, de sorte que chacun puisse être retracé jusqu’à son origine, avant d’être synthétisé.",
-    "methodologyText": "La méthodologie retenu fût un test utilisateur en contexte naturel. J’ai établie une grille d’observation et ai fais une captation audio et vidéo des écrans et de la scène. \nJe vais ensuite retranscire l’ensemble des échanges pour associer chaque verbatim à un moment précis de la video de context et de la capture écrans.\nJ’inclue aussi à la fin du test un retours utilisateur accompagner d’un NPS et d’un attrackdiff pour identifier des opportunités et prioriser les besoins exprimés. \nDurant la session, un développeur m’accompagne, je le brief au préalable pour observer sans intervenir, afin qu’il constate par lui-même les réactions des utilisateurs plutôt que d’en recevoir seulement une synthèse a posteriori."
+    "methodologyText": "La méthodologie retenu fût un test utilisateur en contexte naturel. J’ai établie une grille d’observation et ai fais une captation audio et vidéo des écrans et de la scène. \nJe vais ensuite retranscire l’ensemble des échanges pour associer chaque verbatim à un moment précis de la video de context et de la capture écrans.\nJ’inclue aussi à la fin du test un retours utilisateur accompagner d’un NPS et d’un attrackdiff pour identifier des opportunités et prioriser les besoins exprimés. \nDurant la session, un développeur m’accompagne, je le brief au préalable pour observer sans intervenir, afin qu’il constate par lui-même les réactions des utilisateurs plutôt que d’en recevoir seulement une synthèse a posteriori.",
+    "quotes": [
+      {
+        "tag": "Guidance",
+        "stage": "Enhanced vision",
+        "user": "Henri",
+        "text": "So can I focus it now?"
+      },
+      {
+        "tag": "Explicit control",
+        "stage": "Observation",
+        "user": "Suzanne",
+        "text": "Let's try pointing at something? No, I wanted to go to the brightest star."
+      },
+      {
+        "tag": "Adaptability",
+        "stage": "Recherche",
+        "user": "Henri",
+        "text": "Well I'm trying, yeah I see I've pointed at a star, and I'd like to know what I'm actually looking at."
+      },
+      {
+        "tag": "Guidance",
+        "stage": "Connexion",
+        "user": "Lize",
+        "text": "I don't know where I'm supposed to go..."
+      },
+      {
+        "tag": "Guidance",
+        "stage": "Orientation",
+        "user": "Pierre",
+        "text": "No but I... OK, and how do I know it's found it,"
+      },
+      {
+        "tag": "Guidance",
+        "stage": "18:39",
+        "user": "Marc",
+        "text": "I don't think I recognized that was a joystick... Actually, I had trouble telling that you can steer in different directions with it... [I wanted to see] A button instead."
+      },
+      {
+        "tag": "Guidance",
+        "stage": "Pointer",
+        "user": "Suzanne",
+        "text": "Azimuth, I have no idea what that means..."
+      },
+      {
+        "tag": "Workload",
+        "stage": "Orientation",
+        "user": "Jean-Marc",
+        "text": "So starting the observation...\noh my god, I'm totally lost here!"
+      }
+    ]
   },
   "results": {
     "items": [
@@ -135,23 +185,29 @@
         "id": "unboxing",
         "order": 1,
         "label": "Unboxing",
-        "subActions": ["Unboxing"],
+        "subActions": [
+          { "label": "Unboxing", "scoreBefore": 80, "scoreAfter": null }
+        ],
         "opportunities": ["Positive mindset at unboxing"],
-        "scoreBefore": null,
+        "scoreBefore": 80,
         "scoreAfter": null
       },
       {
         "id": "setup",
         "order": 2,
         "label": "Setup",
-        "subActions": ["Assembly", "Sign-in", "Orientation"],
+        "subActions": [
+          { "label": "Assembly", "scoreBefore": 70, "scoreAfter": null },
+          { "label": "Sign-in", "scoreBefore": 20, "scoreAfter": 60 },
+          { "label": "Orientation", "scoreBefore": 10, "scoreAfter": 50 }
+        ],
         "opportunities": [
           "Better guide the user",
           "Doesn't know the telescope needs to be oriented",
           "Can't manage to adjust the bubble level",
           "Doesn't understand they need to use wifi"
         ],
-        "scoreBefore": null,
+        "scoreBefore": 33,
         "scoreAfter": null
       },
       {
@@ -159,12 +215,12 @@
         "order": 3,
         "label": "Observation",
         "subActions": [
-          "Object search",
-          "Pointing",
-          "Enhanced vision",
-          "Edit image",
-          "Save image",
-          "Teardown"
+          { "label": "Object search", "scoreBefore": 40, "scoreAfter": 80 },
+          { "label": "Pointing", "scoreBefore": 50, "scoreAfter": 70 },
+          { "label": "Enhanced vision", "scoreBefore": 70, "scoreAfter": 70 },
+          { "label": "Edit image", "scoreBefore": 60, "scoreAfter": null },
+          { "label": "Save image", "scoreBefore": 40, "scoreAfter": null },
+          { "label": "Teardown", "scoreBefore": 60, "scoreAfter": null }
         ],
         "opportunities": [
           "Gather the main observation actions on the same page",
@@ -172,16 +228,18 @@
           "Doesn't know how to move the telescope across the sky",
           "Can't find the Enhanced Vision action"
         ],
-        "scoreBefore": null,
+        "scoreBefore": 53,
         "scoreAfter": null
       },
       {
         "id": "shared",
         "order": 4,
         "label": "Shared",
-        "subActions": ["Upload"],
+        "subActions": [
+          { "label": "Upload", "scoreBefore": 30, "scoreAfter": null }
+        ],
         "opportunities": [],
-        "scoreBefore": null,
+        "scoreBefore": 30,
         "scoreAfter": null
       }
     ],

@@ -74,7 +74,57 @@
       }
     ],
     "reconstructedText": "À partir de ces observations, j’ai reconstruit les grands moments du parcours, connexion, orientation, découverte du catalogue. Chaque point de friction a été identifié, positionné et référencé, de sorte que chacun puisse être retracé jusqu’à son origine, avant d’être synthétisé.",
-    "methodologyText": "La méthodologie retenu fût un test utilisateur en contexte naturel. J’ai établie une grille d’observation et ai fais une captation audio et vidéo des écrans et de la scène. \nJe vais ensuite retranscire l’ensemble des échanges pour associer chaque verbatim à un moment précis de la video de context et de la capture écrans.\nJ’inclue aussi à la fin du test un retours utilisateur accompagner d’un NPS et d’un attrackdiff pour identifier des opportunités et prioriser les besoins exprimés. \nDurant la session, un développeur m’accompagne, je le brief au préalable pour observer sans intervenir, afin qu’il constate par lui-même les réactions des utilisateurs plutôt que d’en recevoir seulement une synthèse a posteriori."
+    "methodologyText": "La méthodologie retenu fût un test utilisateur en contexte naturel. J’ai établie une grille d’observation et ai fais une captation audio et vidéo des écrans et de la scène. \nJe vais ensuite retranscire l’ensemble des échanges pour associer chaque verbatim à un moment précis de la video de context et de la capture écrans.\nJ’inclue aussi à la fin du test un retours utilisateur accompagner d’un NPS et d’un attrackdiff pour identifier des opportunités et prioriser les besoins exprimés. \nDurant la session, un développeur m’accompagne, je le brief au préalable pour observer sans intervenir, afin qu’il constate par lui-même les réactions des utilisateurs plutôt que d’en recevoir seulement une synthèse a posteriori.",
+    "quotes": [
+      {
+        "tag": "Guidage",
+        "stage": "Enhanced vision",
+        "user": "Henri",
+        "text": "Donc là je peux faire la mise au point maintenant ?"
+      },
+      {
+        "tag": "Contrôle explicite",
+        "stage": "Observation",
+        "user": "Suzanne",
+        "text": "Essayons de pointer un truc ? Non, je voulais aller sur l’étoiles qui brillent le plus."
+      },
+      {
+        "tag": "Adaptabilité",
+        "stage": "Recherche",
+        "user": "Henri",
+        "text": "Bah j’essaye de, oui, je vois que j’ai pointé une étoile, et j’aimerais savoir ce que je suis en train de regarder."
+      },
+      {
+        "tag": "Guidage",
+        "stage": "Connexion",
+        "user": "Lize",
+        "text": "Je sais plus où je dois aller moi..."
+      },
+      {
+        "tag": "Guidage",
+        "stage": "Orientation",
+        "user": "Pierre",
+        "text": "Non mais j... OK, et comment je sais qu’il l’a trouvé,"
+      },
+      {
+        "tag": "Guidage",
+        "stage": "18:39",
+        "user": "Marc",
+        "text": "Je crois que j’ai pas reconnu que c’était un joystick... En fait, j’avais du mal à me dire qu’on peut orienter dans différentes positions avec ca... [je voulais voir] Un bouton plutôt."
+      },
+      {
+        "tag": "Guidage",
+        "stage": "Pointer",
+        "user": "Suzanne",
+        "text": "Azimut je ne sais pas ce que ca veut dire..."
+      },
+      {
+        "tag": "Charge de travail",
+        "stage": "Orientation",
+        "user": "Jean-Marc",
+        "text": "Alors démarrer l’observation. \nOh my god, je suis paumé là !"
+      }
+    ]
   },
   "results": {
     "items": [
@@ -139,36 +189,42 @@
         "id": "unboxing",
         "order": 1,
         "label": "Unboxing",
-        "subActions": ["Unboxing"],
+        "subActions": [
+          { "label": "Unboxing", "scoreBefore": 80, "scoreAfter": 80 }
+        ],
         "opportunities": ["Esprit positif à l’unboxing"],
-        "scoreBefore": null,
-        "scoreAfter": null
+        "scoreBefore": 80,
+        "scoreAfter": 80
       },
       {
         "id": "setup",
         "order": 2,
         "label": "Setup",
-        "subActions": ["Montage", "Connexion", "Orientation"],
+        "subActions": [
+          { "label": "Montage", "scoreBefore": 70, "scoreAfter": 70 },
+          { "label": "Connexion", "scoreBefore": 20, "scoreAfter": 60 },
+          { "label": "Orientation", "scoreBefore": 10, "scoreAfter": 50 }
+        ],
         "opportunities": [
           "Mieux accompagner l’utilisateur",
           "Ne sait pas qu’il faut orienter le télescope",
           "N’arrive pas à ajuster la bulle",
           "Ne comprend pas qu’il faut utiliser le wifi"
         ],
-        "scoreBefore": null,
-        "scoreAfter": null
+        "scoreBefore": 33,
+        "scoreAfter": 33
       },
       {
         "id": "observation",
         "order": 3,
         "label": "Observation",
         "subActions": [
-          "Recherche objet",
-          "Pointer",
-          "Enhanced vision",
-          "Edit image",
-          "Save image",
-          "Démontage"
+          { "label": "Recherche objet", "scoreBefore": 40, "scoreAfter": 80 },
+          { "label": "Pointer", "scoreBefore": 50, "scoreAfter": 70 },
+          { "label": "Enhanced vision", "scoreBefore": 70, "scoreAfter": 70 },
+          { "label": "Edit image", "scoreBefore": 60, "scoreAfter": 60 },
+          { "label": "Save image", "scoreBefore": 40, "scoreAfter": 40 },
+          { "label": "Démontage", "scoreBefore": 60, "scoreAfter": 60 }
         ],
         "opportunities": [
           "Rassembler les actions d’observation principales sur la même page",
@@ -176,16 +232,18 @@
           "Ne sait pas comment déplacer le télescope dans le ciel",
           "Ne trouve pas l’action Enhanced Vision"
         ],
-        "scoreBefore": null,
+        "scoreBefore": 53,
         "scoreAfter": null
       },
       {
         "id": "shared",
         "order": 4,
         "label": "Shared",
-        "subActions": ["Upload"],
+        "subActions": [
+          { "label": "Upload", "scoreBefore": 20, "scoreAfter": 20 }
+        ],
         "opportunities": [],
-        "scoreBefore": null,
+        "scoreBefore": 30,
         "scoreAfter": null
       }
     ],

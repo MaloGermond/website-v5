@@ -1,8 +1,11 @@
 import StickyNote from './StickyNote.jsx';
 
-function StepHeader({ step, index, ui, subActionsOpen }) {
+function StepHeader({ step, index, ui, subActionsOpen, visible, staggerMs }) {
   return (
-    <header class="flex flex-col gap-2">
+    <header
+      class={`flex flex-col gap-2 transition-[opacity,transform] duration-500 ease-out motion-reduce:transition-none ${visible ? 'visible opacity-100 translate-y-0' : 'invisible opacity-0 -translate-y-1'}`}
+      style={{ transitionDelay: `${staggerMs}ms` }}
+    >
       <span class="text-xs font-medium tabular-nums text-on-surface-subdue">
         {String(index + 1).padStart(2, '0')}
       </span>
@@ -25,7 +28,7 @@ function StepHeader({ step, index, ui, subActionsOpen }) {
           </summary>
           <ul class="mt-2 flex flex-col gap-1 ps-3">
             {step.subActions.map((action) => (
-              <li>{action}</li>
+              <li>{action.label}</li>
             ))}
           </ul>
         </details>
@@ -34,6 +37,10 @@ function StepHeader({ step, index, ui, subActionsOpen }) {
   );
 }
 
+// Per-column delay for the step-header stagger-in (see `stepsVisible`).
+export const STEP_STAGGER_MS = 80;
+export const STEP_REVEAL_MS = 500;
+
 /**
  * The shared timeline referential: one column per UserStoryStep (sorted by
  * order), notes clustered under their step. Every mode that shows the
@@ -41,6 +48,11 @@ function StepHeader({ step, index, ui, subActionsOpen }) {
  *   noteProps(note, position) → extra StickyNote props (state per mode)
  *   stepExtra(step, index)    → optional node under a step header
  *   above / below             → rows aligned on the same columns (curve, features)
+ *   stepsVisible               → step headers AND column dividers shown,
+ *                                 headers staggered by column (still reserve
+ *                                 their box via `invisible` rather than
+ *                                 removing them, so hiding them never
+ *                                 changes the grid's height)
  * From md up the columns sit side by side; below md each step is a full-width
  * card with its notes stacked.
  */
@@ -54,6 +66,7 @@ export default function BoardGrid({
   idPrefix,
   ui,
   subActionsOpen = false,
+  stepsVisible = true,
 }) {
   const offsets = columnNoteOffsets(steps, notesByStep);
   return (
@@ -65,12 +78,16 @@ export default function BoardGrid({
           style={{ '--cols': steps.length }}
         >
           {steps.map((step, columnIndex) => (
-            <li class="flex flex-col gap-6 rounded-lg border border-surface-default p-4 md:rounded-none md:border-0 md:border-s md:px-3 md:py-0 md:first:border-s-0">
+            <li
+              class={`flex flex-col gap-6 rounded-lg border p-4 transition-colors duration-500 motion-reduce:transition-none md:rounded-none md:border-0 md:border-s md:px-3 md:py-0 md:first:border-s-0 ${stepsVisible ? 'border-surface-default' : 'border-transparent'}`}
+            >
               <StepHeader
                 step={step}
                 index={columnIndex}
                 ui={ui}
                 subActionsOpen={subActionsOpen}
+                visible={stepsVisible}
+                staggerMs={stepsVisible ? columnIndex * STEP_STAGGER_MS : 0}
               />
               {stepExtra?.(step, columnIndex)}
               <div class="flex flex-col gap-4">

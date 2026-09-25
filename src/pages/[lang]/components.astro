@@ -8,7 +8,6 @@ import CoverUnistellar from '@components/project/CoverUnistellar.astro';
 import InfoColumn from '@components/project/InfoColumn.astro';
 import Metrics from '@components/project/Metrics.astro';
 import Mosaic from '@components/project/Mosaic.astro';
-import Verbatim from '@components/project/Verbatim.astro';
 import UserJourneyStep from '@components/project/UserJourneyStep.astro';
 import StepReveal from '@components/project/StepReveal.astro';
 import InternalLink from '@components/project/InternalLink.astro';
@@ -16,9 +15,11 @@ import Quote from '@components/project/Quote.astro';
 import TableOfContents from '@components/project/TableOfContents.astro';
 import ResultComparison from '@components/project/ResultComparison.astro';
 import StickyBoard from '@components/project/sticky-board/StickyBoard.jsx';
+import StickyBoardPreview from '@components/project/sticky-board/StickyBoardPreview.jsx';
+import StateCurvePreview from '@components/project/sticky-board/StateCurvePreview.jsx';
 import StickyNote from '@components/project/sticky-board/StickyNote.jsx';
 import Screen from '@components/project/sticky-board/Screen.jsx';
-import { prepareBoardData } from '@components/project/sticky-board/stickyBoardModel.js';
+import { prepareBoardData, sortSteps } from '@components/project/sticky-board/stickyBoardModel.js';
 
 import { locales } from '@locales/config.json';
 import { loadScreensOnce } from '@utils/useScreens';
@@ -77,14 +78,14 @@ const mosaicImages = Object.values(allScreens)
     Components
   </h1>
 
-  <section class="mb-16">
+  <section id="phonemockup" class="mb-16 scroll-mt-24">
     <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
       PhoneMockup
     </h2>
     <PhoneMockupPreview images={images} client:load />
   </section>
 
-  <section class="mb-16">
+  <section id="resultcomparison" class="mb-16 scroll-mt-24">
     <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
       ResultComparison
     </h2>
@@ -99,14 +100,14 @@ const mosaicImages = Object.values(allScreens)
     />
   </section>
 
-  <section class="mb-16">
+  <section id="coverunistellarux" class="mb-16 scroll-mt-24">
     <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
       CoverUnistellarUX
     </h2>
     <CoverUnistellarUX />
   </section>
 
-  <section class="mb-16">
+  <section id="coverunistellar" class="mb-16 scroll-mt-24">
     <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
       CoverUnistellar
     </h2>
@@ -115,7 +116,7 @@ const mosaicImages = Object.values(allScreens)
     </div>
   </section>
 
-  <section class="mb-16">
+  <section id="infocolumn" class="mb-16 scroll-mt-24">
     <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
       InfoColumn
     </h2>
@@ -125,7 +126,7 @@ const mosaicImages = Object.values(allScreens)
     </div>
   </section>
 
-  <section class="mb-16">
+  <section id="metrics" class="mb-16 scroll-mt-24">
     <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
       Metrics
     </h2>
@@ -138,25 +139,8 @@ const mosaicImages = Object.values(allScreens)
     />
   </section>
 
-  <section class="mb-16">
-    <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
-      Verbatim
-    </h2>
-    <div class="flex flex-row flex-wrap gap-4">
-      <Verbatim
-        tag="Guidage"
-        stage="Enhanced vision"
-        text="Donc là je peux faire la mise au point maintenant ?"
-      />
-      <Verbatim
-        tag="Charge de travail"
-        stage="Orientation"
-        text="Alors démarrer l’observation. Oh my god, je suis paumé là !"
-      />
-    </div>
-  </section>
 
-  <section class="mb-16">
+  <section id="userjourneystep" class="mb-16 scroll-mt-24">
     <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
       UserJourneyStep
     </h2>
@@ -174,7 +158,7 @@ const mosaicImages = Object.values(allScreens)
     </div>
   </section>
 
-  <section class="mb-16">
+  <section id="stepreveal" class="mb-16 scroll-mt-24">
     <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
       StepReveal
     </h2>
@@ -208,7 +192,7 @@ const mosaicImages = Object.values(allScreens)
     />
   </section>
 
-  <section class="mb-16">
+  <section id="internallink" class="mb-16 scroll-mt-24">
     <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
       InternalLink
     </h2>
@@ -226,7 +210,7 @@ const mosaicImages = Object.values(allScreens)
     </div>
   </section>
 
-  <section class="mb-16">
+  <section id="quote" class="mb-16 scroll-mt-24">
     <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
       Quote
     </h2>
@@ -236,7 +220,7 @@ const mosaicImages = Object.values(allScreens)
     />
   </section>
 
-  <section class="mb-16">
+  <section id="tableofcontents" class="mb-16 scroll-mt-24">
     <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
       TableOfContents
     </h2>
@@ -251,13 +235,13 @@ const mosaicImages = Object.values(allScreens)
     />
   </section>
 
-  <section class="mb-16">
+  <section id="mosaic" class="mb-16 scroll-mt-24">
     <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
       Mosaic
     </h2>
     <Mosaic images={mosaicImages} col={4} />
   </section>
-  <section class="mb-16">
+  <section id="stickynote" class="mb-16 scroll-mt-24">
     <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
       StickyNote
     </h2>
@@ -269,7 +253,7 @@ const mosaicImages = Object.values(allScreens)
     </div>
   </section>
 
-  <section class="mb-16">
+  <section id="screen" class="mb-16 scroll-mt-24">
     <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
       Screen
     </h2>
@@ -280,31 +264,31 @@ const mosaicImages = Object.values(allScreens)
     </div>
   </section>
 
-  <section class="mb-16">
+  <section id="stickyboard" class="mb-16 scroll-mt-24">
     <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
-      StickyBoard — timeline
+      StickyBoard
     </h2>
-    <StickyBoard client:visible mode="timeline" data={board} boardId="demo" />
+    <StickyBoardPreview client:visible data={board} idPrefix="stickyboard-preview" />
   </section>
 
-  <section class="mb-16">
+  <section id="statecurve" class="mb-16 scroll-mt-24">
+    <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
+      StateCurve
+    </h2>
+    <StateCurvePreview client:visible steps={sortSteps(board.steps)} ui={board.ui} />
+  </section>
+
+  <section id="stickyboard-summary" class="mb-16 scroll-mt-24">
     <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
       StickyBoard — summary (filtre partagé avec la timeline)
     </h2>
     <StickyBoard client:visible mode="summary" data={board} boardId="demo" />
   </section>
 
-  <section class="mb-16">
+  <section id="stickyboard-detail" class="mb-16 scroll-mt-24">
     <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
       StickyBoard — detail
     </h2>
     <StickyBoard client:visible mode="detail" data={board} />
-  </section>
-
-  <section class="mb-16">
-    <h2 class="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4">
-      StickyBoard — story
-    </h2>
-    <StickyBoard client:visible mode="story" data={board} />
   </section>
 </Layout>

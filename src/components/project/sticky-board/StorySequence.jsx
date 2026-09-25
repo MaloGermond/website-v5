@@ -1,17 +1,13 @@
-import { gsap } from 'gsap';
 import { useEffect, useRef, useState } from 'preact/hooks';
 
 import BoardGrid from './BoardGrid.jsx';
 import SequenceControls from './SequenceControls.jsx';
+import StateCurve from './StateCurve.jsx';
 import { useMediaQuery, useSequence } from './useSequence.js';
 import {
-  curvePath,
-  curvePoints,
-  improvement,
   linkedNoteIds,
   noteColorSlot,
   notePileOffset,
-  topImprovedStepIds,
 } from './stickyBoardModel.js';
 
 // The five narrative steps, all on the same timeline referential.
@@ -46,110 +42,6 @@ function useSortDone(phase) {
     return () => clearTimeout(timer);
   }, [phase]);
   return done;
-}
-
-/** @impure - GSAP tween of the curve path between the before/after shapes */
-function useCurveMorph(pathRef, showAfter, paths, reducedMotion) {
-  useEffect(() => {
-    const path = pathRef.current;
-    if (!path) return undefined;
-    const tween = gsap.to(path, {
-      attr: { d: showAfter ? paths.after : paths.before },
-      duration: reducedMotion ? 0 : 1.2,
-      ease: 'power2.inOut',
-    });
-    return () => tween.kill();
-  }, [showAfter, reducedMotion]);
-}
-
-function CurveLegend({ phase, ui }) {
-  const morphed = phase >= PHASE.BEFORE_AFTER;
-  return (
-    <div class="absolute end-0 top-0 flex gap-4 text-xs text-on-surface-subdue">
-      <span
-        class={`inline-flex items-center gap-2 transition-opacity duration-500 ${morphed ? 'opacity-100' : 'opacity-0'}`}
-      >
-        <span class="w-5 border-t border-dashed border-on-surface-subdue" />
-        {ui.curveBefore}
-      </span>
-      <span class="inline-flex items-center gap-2">
-        <span class="w-5 border-t-2 border-on-surface-raise" />
-        {morphed ? ui.curveAfter : ui.curveBefore}
-      </span>
-    </div>
-  );
-}
-
-function StateCurve({ steps, phase, ui, reducedMotion }) {
-  const pathRef = useRef(null);
-  const before = curvePoints(steps, 'scoreBefore');
-  const after = curvePoints(steps, 'scoreAfter');
-  const paths = { before: curvePath(before), after: curvePath(after) };
-  const morphed = phase >= PHASE.BEFORE_AFTER;
-  // The rendered `d` never changes after mount: GSAP owns it from then on.
-  const [initialPath] = useState(() => (morphed ? paths.after : paths.before));
-  useCurveMorph(pathRef, morphed, paths, reducedMotion);
-
-  const drawn = phase >= PHASE.CURVE;
-  const points = morphed ? after : before;
-  const best = new Set(topImprovedStepIds(steps, 2));
-
-  return (
-    <div aria-hidden="true" class="relative mb-4 hidden h-20 md:block">
-      <CurveLegend phase={phase} ui={ui} />
-      <svg
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
-        class="absolute inset-0 size-full overflow-visible"
-        style={{
-          clipPath: drawn
-            ? 'inset(-10% -10% -10% -10%)'
-            : 'inset(-10% 100% -10% -10%)',
-          transition: 'clip-path 1400ms cubic-bezier(.65,0,.35,1)',
-        }}
-      >
-        <path
-          d={paths.before}
-          fill="none"
-          stroke-width="1.5"
-          stroke-dasharray="4 4"
-          vector-effect="non-scaling-stroke"
-          class={`stroke-on-surface-subdue transition-opacity duration-500 ${morphed ? 'opacity-100' : 'opacity-0'}`}
-        />
-        <path
-          ref={pathRef}
-          d={initialPath}
-          fill="none"
-          stroke-width="2"
-          vector-effect="non-scaling-stroke"
-          class="stroke-on-surface-raise"
-        />
-      </svg>
-      {points.map((point, index) => (
-        <span
-          class={`absolute size-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-on-surface-raise ring-4 ring-background motion-reduce:transition-none ${drawn ? 'opacity-100' : 'opacity-0'}`}
-          style={{
-            left: `${point.x}%`,
-            top: `${point.y}%`,
-            transition: `top 1200ms cubic-bezier(.65,0,.35,1), opacity 300ms ease-out ${drawn ? index * 200 : 0}ms`,
-          }}
-        />
-      ))}
-      {steps.map((step, index) =>
-        best.has(step.id) ? (
-          <span
-            class={`absolute -translate-x-1/2 whitespace-nowrap rounded-full bg-on-surface-success px-2 py-0.5 text-xs font-bold tabular-nums text-background transition-opacity duration-500 motion-reduce:transition-none ${morphed ? 'opacity-100 delay-700' : 'opacity-0'}`}
-            style={{
-              left: `${after[index].x}%`,
-              top: `calc(${after[index].y}% - 32px)`,
-            }}
-          >
-            {`+${improvement(step)}%`}
-          </span>
-        ) : null
-      )}
-    </div>
-  );
 }
 
 function FeatureRow({ features, visible, activeFeatureId, onActivate, ui }) {
@@ -321,7 +213,8 @@ export default function StorySequence({ board, summaryHref }) {
           above={
             <StateCurve
               steps={board.steps}
-              phase={phase}
+              drawn={phase >= PHASE.CURVE}
+              showAfter={phase >= PHASE.BEFORE_AFTER}
               ui={ui}
               reducedMotion={sequence.reducedMotion}
             />

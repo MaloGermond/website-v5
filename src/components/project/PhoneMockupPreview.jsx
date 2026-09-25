@@ -21,6 +21,23 @@ function contrastColor(hex, fallback) {
   return luminance > 0.55 ? '#020B25' : '#ffffff';
 }
 
+/** Toggle chip, same style as StickyBoard's StateCurvePreview. */
+function Chip({ active, onClick, children }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      class={`rounded-full border px-3 py-1 text-sm transition-colors ${
+        active
+          ? 'border-on-surface-default bg-on-surface-default text-background'
+          : 'border-surface-raise text-on-surface-default hover:border-on-surface-subdue'
+      }`}
+    >
+      {children}
+    </button>
+  );
+}
+
 function PhoneMockupSvg({
   src,
   alt,
@@ -313,35 +330,23 @@ export default function PhoneMockupPreview({ images }) {
           </select>
         </label>
 
-        <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
-          <input
-            type="checkbox"
-            checked={floating}
-            onChange={(e) => setFloating(e.currentTarget.checked)}
-          />
+        <Chip active={floating} onClick={() => setFloating(!floating)}>
           Floating animation
-        </label>
+        </Chip>
 
         <div class="flex flex-col gap-2 border-t border-gray-200 dark:border-gray-700 pt-3">
           <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
             Status bar
           </span>
-          <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
-            <input
-              type="checkbox"
-              checked={overlayStatusBar}
-              onChange={(e) => setOverlayStatusBar(e.currentTarget.checked)}
-            />
+          <Chip active={overlayStatusBar} onClick={() => setOverlayStatusBar(!overlayStatusBar)}>
             Overlay on screen
-          </label>
-          <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
-            <input
-              type="checkbox"
-              checked={statusBarTransparent}
-              onChange={(e) => setStatusBarTransparent(e.currentTarget.checked)}
-            />
+          </Chip>
+          <Chip
+            active={statusBarTransparent}
+            onClick={() => setStatusBarTransparent(!statusBarTransparent)}
+          >
             Transparent background
-          </label>
+          </Chip>
           {!statusBarTransparent && (
             <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
               Background color
@@ -352,14 +357,12 @@ export default function PhoneMockupPreview({ images }) {
               />
             </label>
           )}
-          <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
-            <input
-              type="checkbox"
-              checked={customStatusIconColor}
-              onChange={(e) => setCustomStatusIconColor(e.currentTarget.checked)}
-            />
+          <Chip
+            active={customStatusIconColor}
+            onClick={() => setCustomStatusIconColor(!customStatusIconColor)}
+          >
             Custom icon color
-          </label>
+          </Chip>
           {customStatusIconColor && (
             <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
               Icon color
@@ -376,22 +379,15 @@ export default function PhoneMockupPreview({ images }) {
           <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
             Home indicator
           </span>
-          <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
-            <input
-              type="checkbox"
-              checked={overlayHomeIndicator}
-              onChange={(e) => setOverlayHomeIndicator(e.currentTarget.checked)}
-            />
+          <Chip
+            active={overlayHomeIndicator}
+            onClick={() => setOverlayHomeIndicator(!overlayHomeIndicator)}
+          >
             Overlay on screen
-          </label>
-          <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
-            <input
-              type="checkbox"
-              checked={navBarTransparent}
-              onChange={(e) => setNavBarTransparent(e.currentTarget.checked)}
-            />
+          </Chip>
+          <Chip active={navBarTransparent} onClick={() => setNavBarTransparent(!navBarTransparent)}>
             Transparent background
-          </label>
+          </Chip>
           {!navBarTransparent && (
             <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
               Background color
@@ -402,14 +398,9 @@ export default function PhoneMockupPreview({ images }) {
               />
             </label>
           )}
-          <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
-            <input
-              type="checkbox"
-              checked={customNavPillColor}
-              onChange={(e) => setCustomNavPillColor(e.currentTarget.checked)}
-            />
+          <Chip active={customNavPillColor} onClick={() => setCustomNavPillColor(!customNavPillColor)}>
             Custom pill color
-          </label>
+          </Chip>
           {customNavPillColor && (
             <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
               Pill color

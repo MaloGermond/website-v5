@@ -59,14 +59,13 @@ function ZoomTarget({ target, active }) {
  * Detail mode: a zoom into one screen, driven by a single `step` state that
  * indexes `zoom.keyframes` ({ scale, x, y | focusId, bgOpacity, highlightId }).
  * Layers: bg-layer (context backdrop) → screen-frame (mockup) → zoom-target
- * (halo). Scroll-driven from lg up, previous/next below; on phones and with
- * reduced motion the final framing is shown statically.
+ * (halo). Driven by previous/next controls from tablet up; on phones and
+ * with reduced motion the final framing is shown statically.
  */
 export default function ZoomSequence({ board }) {
   const { zoom, ui } = board;
   const wrapperRef = useRef(null);
   const stickyRef = useRef(null);
-  const isDesktop = useMediaQuery('(min-width: 1024px)');
   const isTablet = useMediaQuery('(min-width: 768px)');
 
   const targetsById = indexById(zoom.targets);
@@ -77,7 +76,7 @@ export default function ZoomSequence({ board }) {
     count: keyframes.length,
     wrapperRef,
     stickyRef,
-    scrollWhen: isDesktop,
+    scrollWhen: false,
     staticWhen: !isTablet,
   });
   const keyframe = keyframes[sequence.step];

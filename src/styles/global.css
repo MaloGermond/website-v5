@@ -162,9 +162,9 @@
   --on-dark: var(--color-gray-50);
   --on-dark-subdue: var(--color-gray-400);
   /* Sticky-note categories: one slot per insight tag (see StickyBoard). */
-  --note-1: var(--color-amber-100);
+  --note-1: var(--color-amber-200);
   --note-2: var(--color-blue-100);
-  --note-3: var(--color-green-100);
+  --note-3: var(--color-green-200);
   --note-4: var(--color-red-100);
   --note-5: var(--color-purple-50);
 }
